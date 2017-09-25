@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SBW.BusinessService
 {
-    class EmployeeService : IEmployeeService
+    public class EmployeeService : IEmployeeService
     {
         public string getEmployeeName(int id)
         {
