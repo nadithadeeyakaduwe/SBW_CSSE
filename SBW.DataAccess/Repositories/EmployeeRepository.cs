@@ -15,7 +15,7 @@ namespace SBW.DataAccess.Repositories
         public string getEmployeeName(int id)
         {
             string result = string.Empty;
-            string query = $"SELECT Name FROM Employee WHERE EmployeeID = {id}";
+            string query = $"SELECT Name FROM [HRM].[Employee] WHERE EmployeeID = {id}";
 
             SqlCommand cmd = new SqlCommand(query, con);
 
@@ -32,6 +32,7 @@ namespace SBW.DataAccess.Repositories
             catch (Exception ex)
             {
                 result = "error";
+                MessageBoxHelper.showError(Properties.Resources.ConnectionError);
                 LogHelper.Log(ex.ToString());
             }
             con.Close();

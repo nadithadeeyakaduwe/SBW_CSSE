@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SBW.BusinessService;
+using SBW.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +10,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SBW_CSSE
+namespace SBW.CSSE
 {
     public partial class MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            IEmployeeService employeeService = ServiceFactory.GetEmployeeSeriveice();
+
+            label1.Text = employeeService.getEmployeeName(Convert.ToInt32(textBox1.Text));
         }
     }
 }

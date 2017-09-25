@@ -38,7 +38,7 @@ namespace SBW.Core
             textWriter.Write("\r\nLog Entry : ");
             textWriter.WriteLine($" {DateTime.Now.ToLongDateString()} {DateTime.Now.ToLongTimeString()} : ");
             textWriter.WriteLine("{0}", message);
-            textWriter.WriteLine(-------------------------------------------------------------------------------------);
+            textWriter.WriteLine("-------------------------------------------------------------------------------------");
         }
     }
 }

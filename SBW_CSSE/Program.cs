@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SBW_CSSE
+namespace SBW.CSSE
 {
     static class Program
     {
