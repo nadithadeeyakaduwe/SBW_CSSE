@@ -8,6 +8,6 @@ namespace SBW.Services
 {
     public interface IEmployeeService
     {
-        void addCustimer();
+        string getEmployeeName(int id);
     }
 }

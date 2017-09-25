@@ -1,4 +1,5 @@
 ﻿using SBW.BusinessService;
+using SBW.DataAccess.Repositories;
 using SBW.Services;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,11 @@ namespace SBW.BusinessService
 {
     class EmployeeService : IEmployeeService
     {
-        public void addCustimer()
+        public string getEmployeeName(int id)
         {
-            
+            EmployeeRepository repo = new EmployeeRepository();
+
+            return repo.getEmployeeName(id);
         }
     }
 }

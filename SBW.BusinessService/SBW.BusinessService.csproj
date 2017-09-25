@@ -46,6 +46,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\SBW.DataAccess\SBW.DataAccess.csproj">
+      <Project>{d72b4e7f-3964-4c81-bfdb-2df937d597f7}</Project>
+      <Name>SBW.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SBW.Services\SBW.Services.csproj">
       <Project>{21b3cf32-c23f-4724-bbf3-881eec98a4be}</Project>
       <Name>SBW.Services</Name>
