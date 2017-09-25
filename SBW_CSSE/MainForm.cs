@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SBW.CSSE
+namespace SBW.UI
 {
     public partial class MainForm : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace SBW.CSSE
+﻿namespace SBW.UI
 {
     partial class MainForm
     {

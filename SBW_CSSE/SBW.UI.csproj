@@ -7,8 +7,8 @@
     <ProjectGuid>{B58A7342-FC57-4796-BB68-EB11BE8CC9CF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SBW.CSSE</RootNamespace>
-    <AssemblyName>SBW.CSSE</AssemblyName>
+    <RootNamespace>SBW.UI</RootNamespace>
+    <AssemblyName>SBW.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
