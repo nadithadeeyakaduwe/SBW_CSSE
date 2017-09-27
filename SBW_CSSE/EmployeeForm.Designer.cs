@@ -52,6 +52,7 @@
             this.panel_UC.Name = "panel_UC";
             this.panel_UC.Size = new System.Drawing.Size(1020, 489);
             this.panel_UC.TabIndex = 0;
+            this.panel_UC.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_UC_Paint);
             // 
             // button6
             // 
@@ -123,6 +124,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.panel_UC.ResumeLayout(false);
             this.ResumeLayout(false);
 
