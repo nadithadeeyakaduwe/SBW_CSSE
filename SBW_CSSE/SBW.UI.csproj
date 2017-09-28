@@ -7,8 +7,8 @@
     <ProjectGuid>{B58A7342-FC57-4796-BB68-EB11BE8CC9CF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SBW.CSSE</RootNamespace>
-    <AssemblyName>SBW.CSSE</AssemblyName>
+    <RootNamespace>SBW.UI</RootNamespace>
+    <AssemblyName>SBW.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Common\CommonResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ValidationHelper.cs" />
+    <Compile Include="EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUserControls\AddEmployeeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUserControls\AddEmployeeForm.Designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +73,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Common\CommonResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="SalesNProfit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesNProfit.Designer.cs">
+      <DependentUpon>SalesNProfit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales_n_Profit\Invoiceform.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sales_n_Profit\Invoiceform.Designer.cs">
+      <DependentUpon>Invoiceform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SarangaBatteryWorkDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SarangaBatteryWorkDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUserControls\AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +118,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SalesNProfit.resx">
+      <DependentUpon>SalesNProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales_n_Profit\Invoiceform.resx">
+      <DependentUpon>Invoiceform.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,6 +133,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SarangaBatteryWorkDataSet.xsc">
+      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SarangaBatteryWorkDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet.xss">
+      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet1.xsc">
+      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SarangaBatteryWorkDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet1.xss">
+      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -85,11 +164,16 @@
       <Project>{DA88C9E1-6348-44B0-AB06-D25A0C6B4054}</Project>
       <Name>SBW.BusinessService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SBW.Entities\SBW.Entities.csproj">
+      <Project>{d13033d9-50bb-427b-84d5-533ff8eeec11}</Project>
+      <Name>SBW.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SBW.Services\SBW.Services.csproj">
       <Project>{21B3CF32-C23F-4724-BBF3-881EEC98A4BE}</Project>
       <Name>SBW.Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

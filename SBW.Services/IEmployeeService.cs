@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SBW.Entities.HRMModule;
 
 namespace SBW.Services
 {
     public interface IEmployeeService
     {
-        string getEmployeeName(int id);
+        //string getEmployeeName(int id);
+
+        /// <summary>
+        /// Adds the or update employee.
+        /// </summary>
+        /// <param name="employee">The employee.</param>
+        /// <returns></returns>
+        bool AddOrUpdateEmployee(Employee employee);
     }
 }
