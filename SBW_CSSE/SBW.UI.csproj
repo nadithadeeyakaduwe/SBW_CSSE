@@ -77,6 +77,28 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="SalesNProfit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesNProfit.Designer.cs">
+      <DependentUpon>SalesNProfit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales_n_Profit\Invoiceform.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sales_n_Profit\Invoiceform.Designer.cs">
+      <DependentUpon>Invoiceform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SarangaBatteryWorkDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SarangaBatteryWorkDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,6 +118,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SalesNProfit.resx">
+      <DependentUpon>SalesNProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales_n_Profit\Invoiceform.resx">
+      <DependentUpon>Invoiceform.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,6 +133,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SarangaBatteryWorkDataSet.xsc">
+      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SarangaBatteryWorkDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet.xss">
+      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet1.xsc">
+      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SarangaBatteryWorkDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SarangaBatteryWorkDataSet1.xss">
+      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

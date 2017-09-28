@@ -35,5 +35,15 @@ namespace SBW.UI
             userControl.Dock = DockStyle.Fill;
             userControl.Show();
         }
+
+        private void panel_UC_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void EmployeeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -61,6 +61,7 @@ namespace SBW.UI
         private void btn_salesMain_Click(object sender, EventArgs e)
         {
             showSelectedMenu(btn_salesMain.Top);
+            loadMainForm(new SalesNProfit());
         }
 
         /// <summary>
