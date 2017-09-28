@@ -8,18 +8,37 @@ namespace SBW.Entities
 {
     public class EntityBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntityBase"/> class.
+        /// </summary>
         public EntityBase()
         {
             Status = 1;
-            DateCreated = DateTime.Now;
-            DateModified = DateTime.Now;
+            DateCreated = DateTime.Now.Date;
+            DateModified = DateTime.Now.Date;
         }
-        public int ID { get; set; }
-
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
         public int Status { get; set; }
 
+        /// <summary>
+        /// Gets or sets the date created.
+        /// </summary>
+        /// <value>
+        /// The date created.
+        /// </value>
         public DateTime DateCreated { get; set; }
 
+        /// <summary>
+        /// Gets or sets the date modified.
+        /// </summary>
+        /// <value>
+        /// The date modified.
+        /// </value>
         public DateTime DateModified { get; set; }
     }
 }
