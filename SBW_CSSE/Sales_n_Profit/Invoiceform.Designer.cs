@@ -92,7 +92,7 @@
             this.dataGridView1.DataSource = this.invoiceDetailsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 198);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(943, 151);
+            this.dataGridView1.Size = new System.Drawing.Size(957, 151);
             this.dataGridView1.TabIndex = 0;
             // 
             // itemNoDataGridViewTextBoxColumn
@@ -263,7 +263,7 @@
             // 
             this.txtbx_invoice_subtotal.Location = new System.Drawing.Point(772, 355);
             this.txtbx_invoice_subtotal.Name = "txtbx_invoice_subtotal";
-            this.txtbx_invoice_subtotal.Size = new System.Drawing.Size(184, 20);
+            this.txtbx_invoice_subtotal.Size = new System.Drawing.Size(198, 20);
             this.txtbx_invoice_subtotal.TabIndex = 12;
             // 
             // label5
@@ -389,7 +389,7 @@
             // 
             this.txtbx_invoice_advance.Location = new System.Drawing.Point(772, 381);
             this.txtbx_invoice_advance.Name = "txtbx_invoice_advance";
-            this.txtbx_invoice_advance.Size = new System.Drawing.Size(184, 20);
+            this.txtbx_invoice_advance.Size = new System.Drawing.Size(198, 20);
             this.txtbx_invoice_advance.TabIndex = 24;
             // 
             // label9
@@ -409,7 +409,7 @@
             // 
             this.txtbx_invoice_totalInvoice.Location = new System.Drawing.Point(772, 407);
             this.txtbx_invoice_totalInvoice.Name = "txtbx_invoice_totalInvoice";
-            this.txtbx_invoice_totalInvoice.Size = new System.Drawing.Size(184, 20);
+            this.txtbx_invoice_totalInvoice.Size = new System.Drawing.Size(198, 20);
             this.txtbx_invoice_totalInvoice.TabIndex = 26;
             // 
             // btn_invoice_print
@@ -417,7 +417,7 @@
             this.btn_invoice_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_invoice_print.Location = new System.Drawing.Point(881, 446);
             this.btn_invoice_print.Name = "btn_invoice_print";
-            this.btn_invoice_print.Size = new System.Drawing.Size(75, 23);
+            this.btn_invoice_print.Size = new System.Drawing.Size(89, 23);
             this.btn_invoice_print.TabIndex = 28;
             this.btn_invoice_print.Text = "PRINT";
             this.btn_invoice_print.UseVisualStyleBackColor = true;
