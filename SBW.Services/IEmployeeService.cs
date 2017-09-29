@@ -21,5 +21,14 @@ namespace SBW.Services
         /// returns a datatable with the details included to show on the data grid view
         /// </returns>
         DataTable ViewEmployeesWithTitles();
+
+        /// <summary>
+        /// Gets the employee.
+        /// </summary>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <returns>
+        /// Object of Employee
+        /// </returns>
+        Employee GetEmployee(int employeeId);
     }
 }

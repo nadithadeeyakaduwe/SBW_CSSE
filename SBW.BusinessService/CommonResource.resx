@@ -124,6 +124,6 @@
     <value>Successfully inserted the data.</value>
   </data>
   <data name="DBRetrieveError" xml:space="preserve">
-    <value>Error occured while reading data...!</value>
+    <value>Error occured while getting the data...!</value>
   </data>
 </root>

@@ -46,9 +46,9 @@ namespace SBW.UI.EmployeeUserControls
 
             int EmployeeID = Convert.ToInt32(dgv_employeeWithTitles.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-            //Employee employee = service.GetEmployee(EmployeeID);
+            Employee employee = service.GetEmployee(EmployeeID);
 
-            
+
         }
     }
 }

@@ -28,18 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoiceform));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.itemNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qTYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warrentyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker_invoice_date = new System.Windows.Forms.DateTimePicker();
             this.lbl_invoice_date = new System.Windows.Forms.Label();
@@ -57,7 +47,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbx_invoice_ProductBrand = new System.Windows.Forms.ComboBox();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbx_invoice_ProductName = new System.Windows.Forms.ComboBox();
             this.cmbx_invoice_ProductType = new System.Windows.Forms.ComboBox();
             this.btn_invoice_itemAdd = new System.Windows.Forms.Button();
@@ -69,85 +58,15 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.itemNoDataGridViewTextBoxColumn,
-            this.productNameDataGridViewTextBoxColumn,
-            this.productTypeDataGridViewTextBoxColumn,
-            this.qTYDataGridViewTextBoxColumn,
-            this.unitPriceDataGridViewTextBoxColumn,
-            this.discountDataGridViewTextBoxColumn,
-            this.warrentyDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.invoiceDetailsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 198);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(957, 151);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // itemNoDataGridViewTextBoxColumn
-            // 
-            this.itemNoDataGridViewTextBoxColumn.DataPropertyName = "Item_No";
-            this.itemNoDataGridViewTextBoxColumn.HeaderText = "Item_No";
-            this.itemNoDataGridViewTextBoxColumn.Name = "itemNoDataGridViewTextBoxColumn";
-            this.itemNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product_Name";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // productTypeDataGridViewTextBoxColumn
-            // 
-            this.productTypeDataGridViewTextBoxColumn.DataPropertyName = "Product_Type";
-            this.productTypeDataGridViewTextBoxColumn.HeaderText = "Product_Type";
-            this.productTypeDataGridViewTextBoxColumn.Name = "productTypeDataGridViewTextBoxColumn";
-            this.productTypeDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // qTYDataGridViewTextBoxColumn
-            // 
-            this.qTYDataGridViewTextBoxColumn.DataPropertyName = "QTY";
-            this.qTYDataGridViewTextBoxColumn.HeaderText = "QTY";
-            this.qTYDataGridViewTextBoxColumn.Name = "qTYDataGridViewTextBoxColumn";
-            this.qTYDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // unitPriceDataGridViewTextBoxColumn
-            // 
-            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "Unit_Price";
-            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "Unit_Price";
-            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            // 
-            // discountDataGridViewTextBoxColumn
-            // 
-            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
-            this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
-            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            this.discountDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // warrentyDataGridViewTextBoxColumn
-            // 
-            this.warrentyDataGridViewTextBoxColumn.DataPropertyName = "Warrenty";
-            this.warrentyDataGridViewTextBoxColumn.HeaderText = "Warrenty";
-            this.warrentyDataGridViewTextBoxColumn.Name = "warrentyDataGridViewTextBoxColumn";
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            // 
-            // invoiceDetailsBindingSource
-            // 
-            this.invoiceDetailsBindingSource.DataMember = "Invoice_Details";
             // 
             // label1
             // 
@@ -299,9 +218,6 @@
             // 
             // cmbx_invoice_ProductBrand
             // 
-            this.cmbx_invoice_ProductBrand.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Product_Name", true));
-            this.cmbx_invoice_ProductBrand.DataSource = this.productBindingSource;
-            this.cmbx_invoice_ProductBrand.DisplayMember = "Product_Brand";
             this.cmbx_invoice_ProductBrand.FormattingEnabled = true;
             this.cmbx_invoice_ProductBrand.Location = new System.Drawing.Point(118, 167);
             this.cmbx_invoice_ProductBrand.Name = "cmbx_invoice_ProductBrand";
@@ -309,18 +225,8 @@
             this.cmbx_invoice_ProductBrand.TabIndex = 20;
             this.cmbx_invoice_ProductBrand.ValueMember = "Product_Brand";
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            // 
-            // sarangaBatteryWorkDataSet1
-            // 
-            // 
             // cmbx_invoice_ProductName
             // 
-            this.cmbx_invoice_ProductName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Product_Name", true));
-            this.cmbx_invoice_ProductName.DataSource = this.productBindingSource;
-            this.cmbx_invoice_ProductName.DisplayMember = "Product_Name";
             this.cmbx_invoice_ProductName.FormattingEnabled = true;
             this.cmbx_invoice_ProductName.Location = new System.Drawing.Point(329, 167);
             this.cmbx_invoice_ProductName.Name = "cmbx_invoice_ProductName";
@@ -330,9 +236,6 @@
             // 
             // cmbx_invoice_ProductType
             // 
-            this.cmbx_invoice_ProductType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Product_Type", true));
-            this.cmbx_invoice_ProductType.DataSource = this.productBindingSource;
-            this.cmbx_invoice_ProductType.DisplayMember = "Product_Type";
             this.cmbx_invoice_ProductType.FormattingEnabled = true;
             this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(655, 168);
             this.cmbx_invoice_ProductType.Name = "cmbx_invoice_ProductType";
@@ -455,8 +358,6 @@
             this.Size = new System.Drawing.Size(1020, 489);
             this.Load += new System.EventHandler(this.Invoiceform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,7 +375,6 @@
         private System.Windows.Forms.Label lbl_invoice_CustomerAdd;
         private System.Windows.Forms.TextBox txtbx_cusTelephone;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.BindingSource invoiceDetailsBindingSource;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbx_invoice_subtotal;
@@ -494,7 +394,6 @@
         private System.Windows.Forms.ComboBox cmbx_invoice_ProductName;
         private System.Windows.Forms.ComboBox cmbx_invoice_ProductType;
         private System.Windows.Forms.Button btn_invoice_itemAdd;
-        private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtbx_invoice_advance;
         private System.Windows.Forms.Label label9;

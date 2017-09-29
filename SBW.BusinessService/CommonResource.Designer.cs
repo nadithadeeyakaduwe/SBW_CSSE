@@ -79,7 +79,7 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error occured while reading data...!.
+        ///   Looks up a localized string similar to Error occured while getting the data...!.
         /// </summary>
         internal static string DBRetrieveError {
             get {

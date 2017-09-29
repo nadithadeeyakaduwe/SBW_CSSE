@@ -67,5 +67,17 @@ namespace SBW.DataAccess.Repositories
 
             return Response;
         }
+
+        public DataTable getEmployee(int employeeId)
+        {
+            DataTable response = null;
+            string query = "SELECT [EmployeeID],[Name],[Address],[Email],[DOB],[NIC],[HomeTelNo],[MobileNumber],[Gender],[MaritalStatus],"
+                + "[EpfNo],[PositionID],[DepartmentID],[CurrentSalary],[PastExperience],[Qualification],[JoinDate],[Status],[ModifiedDate],"
+                +$"[DateCreated] FROM [HRM].[Employee] WHERE EmployeeID = {employeeId}";
+
+            response = Repository.getDataTable(query);
+
+            return response;
+        }
     }
 }

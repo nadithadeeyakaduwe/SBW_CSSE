@@ -43,6 +43,28 @@ namespace SBW.BusinessService
             return status;
         }
 
+        public Employee GetEmployee(int employeeId)
+        {
+            Employee result = null;
+            DataTable dt = null;
+
+            repo = new EmployeeRepository();
+
+            dt = repo.getEmployee(employeeId);
+
+            if (dt == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+            else
+            {
+                //result.EmployeeID = dt.
+            }
+
+
+            return result;
+        }
+
         public DataTable ViewEmployeesWithTitles()
         {
             DataTable Result = null;
