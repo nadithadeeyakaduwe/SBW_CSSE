@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,15 +41,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeService.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="CommonResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SBW.Core\SBW.Core.csproj">
+      <Project>{C274B9D6-DD6D-48BC-8EF9-0DF4AC42D553}</Project>
+      <Name>SBW.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SBW.DataAccess\SBW.DataAccess.csproj">
       <Project>{d72b4e7f-3964-4c81-bfdb-2df937d597f7}</Project>
       <Name>SBW.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBW.Entities\SBW.Entities.csproj">
+      <Project>{D13033D9-50BB-427B-84D5-533FF8EEEC11}</Project>
+      <Name>SBW.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\SBW.Services\SBW.Services.csproj">
       <Project>{21b3cf32-c23f-4724-bbf3-881eec98a4be}</Project>
