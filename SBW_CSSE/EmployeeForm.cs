@@ -25,6 +25,17 @@ namespace SBW.UI
         }
 
         /// <summary>
+        /// Handles the Click event of the btn_viewEmployee control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void btn_viewEmployee_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new ViewEmployeesUC());
+        }
+
+
+        /// <summary>
         /// Loads the user control.
         /// </summary>
         /// <param name="userControl">The user control.</param>
@@ -36,14 +47,6 @@ namespace SBW.UI
             userControl.Show();
         }
 
-        private void panel_UC_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void EmployeeForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

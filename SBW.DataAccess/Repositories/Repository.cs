@@ -1,10 +1,7 @@
 ﻿using SBW.Core;
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SBW.DataAccess.Repositories
 {
@@ -41,6 +38,12 @@ namespace SBW.DataAccess.Repositories
             return status;
         }
 
+        /// <summary>
+        /// Inserts the specified query with query parameters.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <param name="cmd">The command.</param>
+        /// <returns></returns>
         public static bool insert(string query, SqlCommand cmd)
         {
             bool status = false;
@@ -63,5 +66,34 @@ namespace SBW.DataAccess.Repositories
 
             return status;
         }
+
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <returns>
+        /// returns data using a DataTable
+        /// /returns>
+        public static DataTable getDataTable(string query)
+        {
+            DataTable dataTable = new DataTable();
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            con.Open();
+            try
+            {
+                reader = cmd.ExecuteReader();
+                dataTable.Load(reader);
+            }
+            catch(Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+            }
+            con.Close();
+
+            return dataTable;
+        }
+
     }
 }

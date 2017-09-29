@@ -39,7 +39,6 @@
             this.warrentyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.invoiceDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sarangaBatteryWorkDataSet = new SBW.UI.SarangaBatteryWorkDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker_invoice_date = new System.Windows.Forms.DateTimePicker();
             this.lbl_invoice_date = new System.Windows.Forms.Label();
@@ -53,17 +52,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtbx_invoice_subtotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.invoice_DetailsTableAdapter = new SBW.UI.SarangaBatteryWorkDataSetTableAdapters.Invoice_DetailsTableAdapter();
             this.lbl_product_type = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbx_invoice_ProductBrand = new System.Windows.Forms.ComboBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sarangaBatteryWorkDataSet1 = new SBW.UI.SarangaBatteryWorkDataSet1();
             this.cmbx_invoice_ProductName = new System.Windows.Forms.ComboBox();
             this.cmbx_invoice_ProductType = new System.Windows.Forms.ComboBox();
             this.btn_invoice_itemAdd = new System.Windows.Forms.Button();
-            this.productTableAdapter = new SBW.UI.SarangaBatteryWorkDataSet1TableAdapters.ProductTableAdapter();
             this.label8 = new System.Windows.Forms.Label();
             this.txtbx_invoice_advance = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -71,9 +67,7 @@
             this.btn_invoice_print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -151,12 +145,6 @@
             // invoiceDetailsBindingSource
             // 
             this.invoiceDetailsBindingSource.DataMember = "Invoice_Details";
-            this.invoiceDetailsBindingSource.DataSource = this.sarangaBatteryWorkDataSet;
-            // 
-            // sarangaBatteryWorkDataSet
-            // 
-            this.sarangaBatteryWorkDataSet.DataSetName = "SarangaBatteryWorkDataSet";
-            this.sarangaBatteryWorkDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -276,10 +264,6 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Sub Total";
             // 
-            // invoice_DetailsTableAdapter
-            // 
-            this.invoice_DetailsTableAdapter.ClearBeforeFill = true;
-            // 
             // lbl_product_type
             // 
             this.lbl_product_type.AutoSize = true;
@@ -325,12 +309,9 @@
             // productBindingSource
             // 
             this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.sarangaBatteryWorkDataSet1;
             // 
             // sarangaBatteryWorkDataSet1
             // 
-            this.sarangaBatteryWorkDataSet1.DataSetName = "SarangaBatteryWorkDataSet1";
-            this.sarangaBatteryWorkDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cmbx_invoice_ProductName
             // 
@@ -367,10 +348,6 @@
             this.btn_invoice_itemAdd.TabIndex = 23;
             this.btn_invoice_itemAdd.Text = "ADD";
             this.btn_invoice_itemAdd.UseVisualStyleBackColor = true;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
             // 
             // label8
             // 
@@ -460,9 +437,7 @@
             this.Load += new System.EventHandler(this.Invoiceform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,12 +456,10 @@
         private System.Windows.Forms.TextBox txtbx_cusTelephone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource invoiceDetailsBindingSource;
-        private SarangaBatteryWorkDataSet sarangaBatteryWorkDataSet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbx_invoice_subtotal;
         private System.Windows.Forms.Label label5;
-        private SarangaBatteryWorkDataSetTableAdapters.Invoice_DetailsTableAdapter invoice_DetailsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productTypeDataGridViewTextBoxColumn;
@@ -503,8 +476,6 @@
         private System.Windows.Forms.ComboBox cmbx_invoice_ProductType;
         private System.Windows.Forms.Button btn_invoice_itemAdd;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private SarangaBatteryWorkDataSet1 sarangaBatteryWorkDataSet1;
-        private SarangaBatteryWorkDataSet1TableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtbx_invoice_advance;
         private System.Windows.Forms.Label label9;

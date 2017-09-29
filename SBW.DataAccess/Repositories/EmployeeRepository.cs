@@ -1,7 +1,9 @@
 ﻿using SBW.Core;
+using SBW.DataAccess.Enum;
 using SBW.Entities.HRMModule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,35 +13,6 @@ namespace SBW.DataAccess.Repositories
 {
     public class EmployeeRepository
     {
-        //SqlConnection con = ConnectionManager.getConnection();
-
-        //public string getEmployeeName(int id)
-        //{
-        //    string result = string.Empty;
-        //    string query = $"SELECT Name FROM [HRM].[Employee] WHERE EmployeeID = {id}";
-
-        //    SqlCommand cmd = new SqlCommand(query, con);
-
-        //    con.Open();
-        //    try
-        //    {
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        if (reader.HasRows)
-        //        {
-        //            reader.Read();
-        //            result = reader.GetValue(0).ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        result = "error";
-        //        MessageBoxHelper.showError(Properties.Resources.ConnectionError);
-        //        LogHelper.Log(ex.ToString());
-        //    }
-        //    con.Close();
-        //    return result;
-        //}
-
         /// <summary>
         /// Adds the employee.
         /// </summary>
@@ -49,10 +22,10 @@ namespace SBW.DataAccess.Repositories
         {
             bool status = true;
             string query = "INSERT INTO [HRM].[Employee] ([Name],[Address],[Email],[DOB],"
-                +"[NIC],[HomeTelNo],[MobileNumber],[Gender],[MaritalStatus],[PositionID],"
+                +"[NIC],[HomeTelNo],[MobileNumber],[Gender],[MaritalStatus],[EpfNo],[PositionID],"
                 +"[DepartmentID],[CurrentSalary],[PastExperience],[Qualification],[JoinDate],"
                 +"[Status],[ModifiedDate],[DateCreated]) "
-                + $"VALUES (@fullname,@address,@email,@bday,@nic,@hometel,@mobile,@gender,@civilstatus,@positionID,@deptId,@basicSal,@pastExp,"
+                + $"VALUES (@fullname,@address,@email,@bday,@nic,@hometel,@mobile,@gender,@civilstatus,@epf,@positionID,@deptId,@basicSal,@pastExp,"
                 +"@qualification,@joinDate,@status,GETDATE(),GETDATE())";
 
             SqlCommand cmd = new SqlCommand(query);
@@ -65,6 +38,7 @@ namespace SBW.DataAccess.Repositories
             cmd.Parameters.AddWithValue("@mobile", employee.MobileNumber);
             cmd.Parameters.AddWithValue("@gender", employee.Gender);
             cmd.Parameters.AddWithValue("@civilstatus", employee.CivilStatus);
+            cmd.Parameters.AddWithValue("@epf", employee.EPFNo);
             cmd.Parameters.AddWithValue("@positionID", employee.PositionID);
             cmd.Parameters.AddWithValue("@deptId", employee.DepartmentID);
             cmd.Parameters.AddWithValue("@basicSal", employee.BasicSalary);
@@ -76,6 +50,22 @@ namespace SBW.DataAccess.Repositories
             status = Repository.insert(query, cmd);
             
             return status;
+        }
+
+        /// <summary>
+        /// Views the employees with titles.
+        /// </summary>
+        /// <returns></returns>
+        public DataTable viewEmployeesWithTitles()
+        {
+            DataTable Response;
+            string query = "SELECT e.EmployeeID As EmployeeID,e.EpfNo AS EpfNo, e.Name As Name, p.Name AS Title, d.Name AS Department FROM [HRM].[Employee] e"
+                +" INNER JOIN[HRM].[Position] p ON p.PositionID = e.PositionID"
+                +" INNER JOIN[HRM].[Department] d ON e.DepartmentID = d.DepartmentID WHERE e.Status = "+ (int)WellknownEmployeeStatus.Active;
+
+            Response = Repository.getDataTable(query);
+
+            return Response;
         }
     }
 }

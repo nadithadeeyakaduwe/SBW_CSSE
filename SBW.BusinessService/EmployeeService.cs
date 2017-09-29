@@ -8,17 +8,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace SBW.BusinessService
 {
     public class EmployeeService : IEmployeeService
     {
-        //public string getEmployeeName(int id)
-        //{
-        //    EmployeeRepository repo = new EmployeeRepository();
-
-        //    return repo.getEmployeeName(id);
-        //}
+        /// <summary>
+        /// The Employee repository
+        /// </summary>
+        private EmployeeRepository repo;
 
         /// <summary>
         /// Adds the or update employee.
@@ -28,7 +27,7 @@ namespace SBW.BusinessService
         public bool AddOrUpdateEmployee(Employee employee)
         {
             bool status = true; 
-            EmployeeRepository repo = new EmployeeRepository();
+            repo = new EmployeeRepository();
 
             status = repo.addEmployee(employee);
 
@@ -42,6 +41,22 @@ namespace SBW.BusinessService
             }
 
             return status;
+        }
+
+        public DataTable ViewEmployeesWithTitles()
+        {
+            DataTable Result = null;
+
+            repo = new EmployeeRepository();
+
+            Result = repo.viewEmployeesWithTitles();
+
+            if (Result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+
+            return Result;
         }
     }
 }

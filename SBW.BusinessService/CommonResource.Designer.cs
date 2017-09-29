@@ -77,5 +77,14 @@ namespace SBW.BusinessService {
                 return ResourceManager.GetString("DBInsertSuccess", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while reading data...!.
+        /// </summary>
+        internal static string DBRetrieveError {
+            get {
+                return ResourceManager.GetString("DBRetrieveError", resourceCulture);
+            }
+        }
     }
 }
