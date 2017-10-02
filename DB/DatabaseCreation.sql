@@ -30,10 +30,7 @@ GO
 CREATE SCHEMA [HRM]
 GO 
 
-CREATE SCHEMA [Invoice]
-GO
-
-CREATE SCHEMA [installment]
+CREATE SCHEMA [Accounts]
 GO
 
 CREATE SCHEMA [Stock]
@@ -106,6 +103,7 @@ CREATE TABLE [HRM].[Employee]
 	MobileNumber CHAR (10) UNIQUE NOT NULL,
 	Gender CHAR(1) NOT NULL,
 	MaritalStatus CHAR (1),
+	EpfNo INT NOT NULL,
 	PositionID INT NOT NULL,
 	DepartmentID INT NOT NULL,
 	CurrentSalary DECIMAL NOT NULL,
@@ -178,7 +176,7 @@ GO
 
 
 
-CREATE TABLE [Invoice].[Invoice_Header]
+CREATE TABLE [Accounts].[Invoice_Header]
 (
 	Invoice_No INT NOT NULL IDENTITY(10001,1),
 	SDate DATETIME DEFAULT GETDATE(),
@@ -194,7 +192,7 @@ CREATE TABLE [Invoice].[Invoice_Header]
 	)
 GO
 
-CREATE TABLE [Invoice].[Invoice_Details]
+CREATE TABLE [Accounts].[Invoice_Details]
 (
 	Item_No INT NOT NULL IDENTITY(1,1),
 	Invoice_No INT,
@@ -214,7 +212,7 @@ CREATE TABLE [Invoice].[Invoice_Details]
 	)
 GO
 
-CREATE TABLE [Installment].[Installment]
+CREATE TABLE [Accounts].[Installment]
 (
 	Inastallment_ID INT NOT NULL IDENTITY(10001,1),
 	Invoice_No INT,

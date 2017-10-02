@@ -65,6 +65,18 @@
     <Compile Include="EmployeeUserControls\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeeDetailUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeeDetailUC.Designer.cs">
+      <DependentUpon>ViewEmployeeDetailUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeesUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeesUC.Designer.cs">
+      <DependentUpon>ViewEmployeesUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,21 +113,14 @@
     <Compile Include="Sales_n_Profit\Invoiceform.Designer.cs">
       <DependentUpon>Invoiceform.cs</DependentUpon>
     </Compile>
-    <Compile Include="SarangaBatteryWorkDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SarangaBatteryWorkDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeUserControls\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUserControls\ViewEmployeesUC.resx">
+      <DependentUpon>ViewEmployeesUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
@@ -151,28 +156,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SarangaBatteryWorkDataSet.xsc">
-      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SarangaBatteryWorkDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet.xss">
-      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet1.xsc">
-      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SarangaBatteryWorkDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet1.xss">
-      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

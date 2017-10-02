@@ -28,18 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoiceform));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.itemNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qTYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warrentyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sarangaBatteryWorkDataSet = new SBW.UI.SarangaBatteryWorkDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker_invoice_date = new System.Windows.Forms.DateTimePicker();
             this.lbl_invoice_date = new System.Windows.Forms.Label();
@@ -53,110 +43,30 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtbx_invoice_subtotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.invoice_DetailsTableAdapter = new SBW.UI.SarangaBatteryWorkDataSetTableAdapters.Invoice_DetailsTableAdapter();
             this.lbl_product_type = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbx_invoice_ProductBrand = new System.Windows.Forms.ComboBox();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sarangaBatteryWorkDataSet1 = new SBW.UI.SarangaBatteryWorkDataSet1();
             this.cmbx_invoice_ProductName = new System.Windows.Forms.ComboBox();
             this.cmbx_invoice_ProductType = new System.Windows.Forms.ComboBox();
             this.btn_invoice_itemAdd = new System.Windows.Forms.Button();
-            this.productTableAdapter = new SBW.UI.SarangaBatteryWorkDataSet1TableAdapters.ProductTableAdapter();
             this.label8 = new System.Windows.Forms.Label();
             this.txtbx_invoice_advance = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtbx_invoice_totalInvoice = new System.Windows.Forms.TextBox();
             this.btn_invoice_print = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.itemNoDataGridViewTextBoxColumn,
-            this.productNameDataGridViewTextBoxColumn,
-            this.productTypeDataGridViewTextBoxColumn,
-            this.qTYDataGridViewTextBoxColumn,
-            this.unitPriceDataGridViewTextBoxColumn,
-            this.discountDataGridViewTextBoxColumn,
-            this.warrentyDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.invoiceDetailsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 198);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(943, 151);
+            this.dataGridView1.Size = new System.Drawing.Size(957, 151);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // itemNoDataGridViewTextBoxColumn
-            // 
-            this.itemNoDataGridViewTextBoxColumn.DataPropertyName = "Item_No";
-            this.itemNoDataGridViewTextBoxColumn.HeaderText = "Item_No";
-            this.itemNoDataGridViewTextBoxColumn.Name = "itemNoDataGridViewTextBoxColumn";
-            this.itemNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product_Name";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // productTypeDataGridViewTextBoxColumn
-            // 
-            this.productTypeDataGridViewTextBoxColumn.DataPropertyName = "Product_Type";
-            this.productTypeDataGridViewTextBoxColumn.HeaderText = "Product_Type";
-            this.productTypeDataGridViewTextBoxColumn.Name = "productTypeDataGridViewTextBoxColumn";
-            this.productTypeDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // qTYDataGridViewTextBoxColumn
-            // 
-            this.qTYDataGridViewTextBoxColumn.DataPropertyName = "QTY";
-            this.qTYDataGridViewTextBoxColumn.HeaderText = "QTY";
-            this.qTYDataGridViewTextBoxColumn.Name = "qTYDataGridViewTextBoxColumn";
-            this.qTYDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // unitPriceDataGridViewTextBoxColumn
-            // 
-            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "Unit_Price";
-            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "Unit_Price";
-            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            // 
-            // discountDataGridViewTextBoxColumn
-            // 
-            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
-            this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
-            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            this.discountDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // warrentyDataGridViewTextBoxColumn
-            // 
-            this.warrentyDataGridViewTextBoxColumn.DataPropertyName = "Warrenty";
-            this.warrentyDataGridViewTextBoxColumn.HeaderText = "Warrenty";
-            this.warrentyDataGridViewTextBoxColumn.Name = "warrentyDataGridViewTextBoxColumn";
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            // 
-            // invoiceDetailsBindingSource
-            // 
-            this.invoiceDetailsBindingSource.DataMember = "Invoice_Details";
-            this.invoiceDetailsBindingSource.DataSource = this.sarangaBatteryWorkDataSet;
-            // 
-            // sarangaBatteryWorkDataSet
-            // 
-            this.sarangaBatteryWorkDataSet.DataSetName = "SarangaBatteryWorkDataSet";
-            this.sarangaBatteryWorkDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -263,7 +173,7 @@
             // 
             this.txtbx_invoice_subtotal.Location = new System.Drawing.Point(772, 355);
             this.txtbx_invoice_subtotal.Name = "txtbx_invoice_subtotal";
-            this.txtbx_invoice_subtotal.Size = new System.Drawing.Size(184, 20);
+            this.txtbx_invoice_subtotal.Size = new System.Drawing.Size(198, 20);
             this.txtbx_invoice_subtotal.TabIndex = 12;
             // 
             // label5
@@ -275,10 +185,6 @@
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Sub Total";
-            // 
-            // invoice_DetailsTableAdapter
-            // 
-            this.invoice_DetailsTableAdapter.ClearBeforeFill = true;
             // 
             // lbl_product_type
             // 
@@ -312,9 +218,6 @@
             // 
             // cmbx_invoice_ProductBrand
             // 
-            this.cmbx_invoice_ProductBrand.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Product_Name", true));
-            this.cmbx_invoice_ProductBrand.DataSource = this.productBindingSource;
-            this.cmbx_invoice_ProductBrand.DisplayMember = "Product_Brand";
             this.cmbx_invoice_ProductBrand.FormattingEnabled = true;
             this.cmbx_invoice_ProductBrand.Location = new System.Drawing.Point(118, 167);
             this.cmbx_invoice_ProductBrand.Name = "cmbx_invoice_ProductBrand";
@@ -322,21 +225,8 @@
             this.cmbx_invoice_ProductBrand.TabIndex = 20;
             this.cmbx_invoice_ProductBrand.ValueMember = "Product_Brand";
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.sarangaBatteryWorkDataSet1;
-            // 
-            // sarangaBatteryWorkDataSet1
-            // 
-            this.sarangaBatteryWorkDataSet1.DataSetName = "SarangaBatteryWorkDataSet1";
-            this.sarangaBatteryWorkDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cmbx_invoice_ProductName
             // 
-            this.cmbx_invoice_ProductName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Product_Name", true));
-            this.cmbx_invoice_ProductName.DataSource = this.productBindingSource;
-            this.cmbx_invoice_ProductName.DisplayMember = "Product_Name";
             this.cmbx_invoice_ProductName.FormattingEnabled = true;
             this.cmbx_invoice_ProductName.Location = new System.Drawing.Point(329, 167);
             this.cmbx_invoice_ProductName.Name = "cmbx_invoice_ProductName";
@@ -346,9 +236,6 @@
             // 
             // cmbx_invoice_ProductType
             // 
-            this.cmbx_invoice_ProductType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "Product_Type", true));
-            this.cmbx_invoice_ProductType.DataSource = this.productBindingSource;
-            this.cmbx_invoice_ProductType.DisplayMember = "Product_Type";
             this.cmbx_invoice_ProductType.FormattingEnabled = true;
             this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(655, 168);
             this.cmbx_invoice_ProductType.Name = "cmbx_invoice_ProductType";
@@ -368,10 +255,6 @@
             this.btn_invoice_itemAdd.Text = "ADD";
             this.btn_invoice_itemAdd.UseVisualStyleBackColor = true;
             // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
             // label8
             // 
             this.label8.AutoEllipsis = true;
@@ -389,7 +272,7 @@
             // 
             this.txtbx_invoice_advance.Location = new System.Drawing.Point(772, 381);
             this.txtbx_invoice_advance.Name = "txtbx_invoice_advance";
-            this.txtbx_invoice_advance.Size = new System.Drawing.Size(184, 20);
+            this.txtbx_invoice_advance.Size = new System.Drawing.Size(198, 20);
             this.txtbx_invoice_advance.TabIndex = 24;
             // 
             // label9
@@ -409,7 +292,7 @@
             // 
             this.txtbx_invoice_totalInvoice.Location = new System.Drawing.Point(772, 407);
             this.txtbx_invoice_totalInvoice.Name = "txtbx_invoice_totalInvoice";
-            this.txtbx_invoice_totalInvoice.Size = new System.Drawing.Size(184, 20);
+            this.txtbx_invoice_totalInvoice.Size = new System.Drawing.Size(198, 20);
             this.txtbx_invoice_totalInvoice.TabIndex = 26;
             // 
             // btn_invoice_print
@@ -417,10 +300,26 @@
             this.btn_invoice_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_invoice_print.Location = new System.Drawing.Point(881, 446);
             this.btn_invoice_print.Name = "btn_invoice_print";
-            this.btn_invoice_print.Size = new System.Drawing.Size(75, 23);
+            this.btn_invoice_print.Size = new System.Drawing.Size(89, 23);
             this.btn_invoice_print.TabIndex = 28;
             this.btn_invoice_print.Text = "PRINT";
             this.btn_invoice_print.UseVisualStyleBackColor = true;
+            this.btn_invoice_print.Click += new System.EventHandler(this.btn_invoice_print_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // Invoiceform
             // 
@@ -459,10 +358,6 @@
             this.Size = new System.Drawing.Size(1020, 489);
             this.Load += new System.EventHandler(this.Invoiceform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sarangaBatteryWorkDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,13 +375,10 @@
         private System.Windows.Forms.Label lbl_invoice_CustomerAdd;
         private System.Windows.Forms.TextBox txtbx_cusTelephone;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.BindingSource invoiceDetailsBindingSource;
-        private SarangaBatteryWorkDataSet sarangaBatteryWorkDataSet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbx_invoice_subtotal;
         private System.Windows.Forms.Label label5;
-        private SarangaBatteryWorkDataSetTableAdapters.Invoice_DetailsTableAdapter invoice_DetailsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productTypeDataGridViewTextBoxColumn;
@@ -502,14 +394,12 @@
         private System.Windows.Forms.ComboBox cmbx_invoice_ProductName;
         private System.Windows.Forms.ComboBox cmbx_invoice_ProductType;
         private System.Windows.Forms.Button btn_invoice_itemAdd;
-        private System.Windows.Forms.BindingSource productBindingSource;
-        private SarangaBatteryWorkDataSet1 sarangaBatteryWorkDataSet1;
-        private SarangaBatteryWorkDataSet1TableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtbx_invoice_advance;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtbx_invoice_totalInvoice;
         private System.Windows.Forms.Button btn_invoice_print;
-
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
