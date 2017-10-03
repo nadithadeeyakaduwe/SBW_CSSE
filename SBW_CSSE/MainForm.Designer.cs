@@ -286,7 +286,7 @@
             this.panel_main.Location = new System.Drawing.Point(203, 128);
             this.panel_main.MaximumSize = new System.Drawing.Size(1060, 552);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1060, 552);
+            this.panel_main.Size = new System.Drawing.Size(1059, 552);
             this.panel_main.TabIndex = 2;
             // 
             // label4
@@ -303,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 682);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel_header);
             this.Controls.Add(this.panel_navigation);

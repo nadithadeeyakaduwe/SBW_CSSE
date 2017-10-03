@@ -41,6 +41,7 @@ namespace SBW.UI
         private void btn_customerMain_Click(object sender, EventArgs e)
         {
             showSelectedMenu(btn_customerMain.Top);
+            loadMainForm(new CustomerForm());
         }
 
         /// <summary>
