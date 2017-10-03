@@ -52,6 +52,7 @@ namespace SBW.UI
         private void btn_InventoryMain_Click(object sender, EventArgs e)
         {
             showSelectedMenu(btn_InventoryMain.Top);
+            loadMainForm(new InventoryForm());
         }
 
         /// <summary>

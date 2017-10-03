@@ -73,7 +73,6 @@ namespace SBW.UI.EmployeeUserControls
             {
                 MessageBox.Show(CommonResources.EmptyFieldsError);
             }
-
         }
 
         /// <summary>
@@ -88,7 +87,7 @@ namespace SBW.UI.EmployeeUserControls
                 FirstName = tb_firstName.Text,
                 LastName = tb_lastName.Text,
                 Address = rtb_address.Text,
-                BasicSalary = Convert.ToDecimal(tb_basicSalary.Text),
+                BasicSalary = Convert.ToDecimal(tb_epfNo.Text),
                 Email = tb_email.Text,
                 HomeTel = tb_homeTel.Text,
                 MobileNumber = tb_mobile.Text,
@@ -152,7 +151,7 @@ namespace SBW.UI.EmployeeUserControls
             tb_firstName.Text = "Test Employee";
             tb_lastName.Text = "VDine";
             rtb_address.Text = "addressAddresss";
-            tb_basicSalary.Text = "25000.00";
+            tb_epfNo.Text = "25000.00";
             tb_email.Text = "test@gmail.com";
             tb_homeTel.Text = "0112729729";
             tb_mobile.Text = "0741258963";

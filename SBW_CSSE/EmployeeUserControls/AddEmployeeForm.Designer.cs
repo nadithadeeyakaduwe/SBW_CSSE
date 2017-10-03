@@ -36,7 +36,7 @@
             this.lbl_email = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbl_epfNo = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tb_firstName = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.tb_mobile = new System.Windows.Forms.TextBox();
             this.tb_homeTel = new System.Windows.Forms.TextBox();
             this.tb_email = new System.Windows.Forms.TextBox();
-            this.tb_basicSalary = new System.Windows.Forms.TextBox();
+            this.tb_epfNo = new System.Windows.Forms.TextBox();
             this.tb_position = new System.Windows.Forms.TextBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
@@ -67,6 +67,8 @@
             this.btn_demo = new System.Windows.Forms.Button();
             this.tb_department = new System.Windows.Forms.TextBox();
             this.lbl_department = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbl_backSalary = new System.Windows.Forms.Label();
             this.panel_gender.SuspendLayout();
             this.panel_civilStatus.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +130,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(550, 284);
+            this.label8.Location = new System.Drawing.Point(550, 299);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 13);
             this.label8.TabIndex = 10;
@@ -137,20 +139,20 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(550, 158);
+            this.label9.Location = new System.Drawing.Point(550, 209);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 9;
             this.label9.Text = "Past Experience";
             // 
-            // label10
+            // lbl_epfNo
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(550, 122);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 13);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Basic Salary";
+            this.lbl_epfNo.AutoSize = true;
+            this.lbl_epfNo.Location = new System.Drawing.Point(550, 122);
+            this.lbl_epfNo.Name = "lbl_epfNo";
+            this.lbl_epfNo.Size = new System.Drawing.Size(44, 13);
+            this.lbl_epfNo.TabIndex = 8;
+            this.lbl_epfNo.Text = "EPF No";
             // 
             // label11
             // 
@@ -205,12 +207,12 @@
             this.tb_email.Size = new System.Drawing.Size(200, 20);
             this.tb_email.TabIndex = 6;
             // 
-            // tb_basicSalary
+            // tb_epfNo
             // 
-            this.tb_basicSalary.Location = new System.Drawing.Point(654, 119);
-            this.tb_basicSalary.Name = "tb_basicSalary";
-            this.tb_basicSalary.Size = new System.Drawing.Size(207, 20);
-            this.tb_basicSalary.TabIndex = 14;
+            this.tb_epfNo.Location = new System.Drawing.Point(654, 119);
+            this.tb_epfNo.Name = "tb_epfNo";
+            this.tb_epfNo.Size = new System.Drawing.Size(207, 20);
+            this.tb_epfNo.TabIndex = 14;
             // 
             // tb_position
             // 
@@ -345,17 +347,17 @@
             // 
             // rtb_pastExperience
             // 
-            this.rtb_pastExperience.Location = new System.Drawing.Point(654, 155);
+            this.rtb_pastExperience.Location = new System.Drawing.Point(654, 187);
             this.rtb_pastExperience.Name = "rtb_pastExperience";
-            this.rtb_pastExperience.Size = new System.Drawing.Size(207, 96);
+            this.rtb_pastExperience.Size = new System.Drawing.Size(207, 84);
             this.rtb_pastExperience.TabIndex = 15;
             this.rtb_pastExperience.Text = "";
             // 
             // rtb_qualification
             // 
-            this.rtb_qualification.Location = new System.Drawing.Point(654, 281);
+            this.rtb_qualification.Location = new System.Drawing.Point(654, 296);
             this.rtb_qualification.Name = "rtb_qualification";
-            this.rtb_qualification.Size = new System.Drawing.Size(207, 96);
+            this.rtb_qualification.Size = new System.Drawing.Size(207, 81);
             this.rtb_qualification.TabIndex = 16;
             this.rtb_qualification.Text = "";
             // 
@@ -408,10 +410,28 @@
             this.lbl_department.TabIndex = 34;
             this.lbl_department.Text = "Department";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(654, 154);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(207, 20);
+            this.textBox1.TabIndex = 37;
+            // 
+            // lbl_backSalary
+            // 
+            this.lbl_backSalary.AutoSize = true;
+            this.lbl_backSalary.Location = new System.Drawing.Point(550, 157);
+            this.lbl_backSalary.Name = "lbl_backSalary";
+            this.lbl_backSalary.Size = new System.Drawing.Size(65, 13);
+            this.lbl_backSalary.TabIndex = 36;
+            this.lbl_backSalary.Text = "Basic Salary";
+            // 
             // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lbl_backSalary);
             this.Controls.Add(this.tb_department);
             this.Controls.Add(this.lbl_department);
             this.Controls.Add(this.btn_demo);
@@ -429,7 +449,7 @@
             this.Controls.Add(this.dtp_dob);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_save);
-            this.Controls.Add(this.tb_basicSalary);
+            this.Controls.Add(this.tb_epfNo);
             this.Controls.Add(this.tb_position);
             this.Controls.Add(this.tb_email);
             this.Controls.Add(this.tb_homeTel);
@@ -438,7 +458,7 @@
             this.Controls.Add(this.tb_firstName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lbl_epfNo);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lbl_email);
@@ -470,7 +490,7 @@
         private System.Windows.Forms.Label lbl_email;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbl_epfNo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tb_firstName;
@@ -478,7 +498,7 @@
         private System.Windows.Forms.TextBox tb_mobile;
         private System.Windows.Forms.TextBox tb_homeTel;
         private System.Windows.Forms.TextBox tb_email;
-        private System.Windows.Forms.TextBox tb_basicSalary;
+        private System.Windows.Forms.TextBox tb_epfNo;
         private System.Windows.Forms.TextBox tb_position;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_clear;
@@ -501,5 +521,7 @@
         private System.Windows.Forms.Button btn_demo;
         private System.Windows.Forms.TextBox tb_department;
         private System.Windows.Forms.Label lbl_department;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lbl_backSalary;
     }
 }

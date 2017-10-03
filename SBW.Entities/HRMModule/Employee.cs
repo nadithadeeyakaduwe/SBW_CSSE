@@ -145,6 +145,14 @@ namespace SBW.Entities.HRMModule
         public int DepartmentID { get; set; }
 
         /// <summary>
+        /// Gets or sets the epf no.
+        /// </summary>
+        /// <value>
+        /// The epf no.
+        /// </value>
+        public int EPFNo { get; set; }
+
+        /// <summary>
         /// Gets the full name.
         /// </summary>
         /// <value>

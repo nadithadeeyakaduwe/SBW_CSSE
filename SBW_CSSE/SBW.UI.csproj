@@ -89,6 +89,30 @@
     <Compile Include="EmployeeUserControls\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeeDetailUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeeDetailUC.Designer.cs">
+      <DependentUpon>ViewEmployeeDetailUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeesUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeesUC.Designer.cs">
+      <DependentUpon>ViewEmployeesUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryUserControls\InventoryDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryUserControls\InventoryDetailsForm.Designer.cs">
+      <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +165,15 @@
     <EmbeddedResource Include="EmployeeUserControls\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUserControls\ViewEmployeesUC.resx">
+      <DependentUpon>ViewEmployeesUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryUserControls\InventoryDetailsForm.resx">
+      <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,28 +202,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SarangaBatteryWorkDataSet.xsc">
-      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SarangaBatteryWorkDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet.xss">
-      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet1.xsc">
-      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SarangaBatteryWorkDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SarangaBatteryWorkDataSet1.xss">
-      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

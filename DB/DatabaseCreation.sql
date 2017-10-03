@@ -30,10 +30,7 @@ GO
 CREATE SCHEMA [HRM]
 GO 
 
-CREATE SCHEMA [Invoice]
-GO
-
-CREATE SCHEMA [installment]
+CREATE SCHEMA [Accounts]
 GO
 
 CREATE SCHEMA [Stock]
@@ -106,6 +103,7 @@ CREATE TABLE [HRM].[Employee]
 	MobileNumber CHAR (10) UNIQUE NOT NULL,
 	Gender CHAR(1) NOT NULL,
 	MaritalStatus CHAR (1),
+	EpfNo INT NOT NULL,
 	PositionID INT NOT NULL,
 	DepartmentID INT NOT NULL,
 	CurrentSalary DECIMAL NOT NULL,
@@ -123,68 +121,62 @@ CREATE TABLE [HRM].[Employee]
 )
 GO
 
-
 CREATE TABLE [Stock].[Product]
 (
-	Product_ID INT NOT NULL IDENTITY(10001,1),
-	Product_Brand VARCHAR(50),
-	Product_Name VARCHAR(50),
-	Product_Type VARCHAR(50),
-	Status INT DEFAULT 1,
-	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
-	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
+	Product_ID INT NOT NULL IDENTITY(1,1),
+	Product_Make VARCHAR(20),
+	Product_Name VARCHAR(20),
+	Product_Type VARCHAR(20),
+	Reorder_Level INT,
+	Quantity INT, 
 
 	CONSTRAINT pk_Product PRIMARY KEY(Product_ID)
 )
 GO
 
-CREATE TABLE [Stock].[Stock_Batch]
-(
-	Batch_No INT NOT NULL IDENTITY(10001,1),
-	BDate DATETIME DEFAULT GETDATE(),
-	Total_Amount DECIMAL(8,2),
-	Status INT DEFAULT 1,
-	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
-	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
 
-	CONSTRAINT pk_Stock_Batch PRIMARY KEY(Batch_No)
+CREATE TABLE [Stock].[Supplier_Details]( 
+
+	Supplier_ID INT NOT NULL IDENTITY(1,1),
+	Name varchar(30),
+	Address varchar(50),
+	email varchar(50),
+
+	CONSTRAINT pk_SupplierDetails PRIMARY KEY(Supplier_ID)
+
 )
 GO
 
-CREATE TABLE [Stock].[Stock_Header]
-(
-	Stock_ID INT NOT NULL IDENTITY(10001,1),
-	Batch_No INT,
-	Total_Amount DECIMAL(8,2),
-	Status INT DEFAULT 1,
-	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
-	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
+CREATE TABLE [Stock].[SupplierContact] (
 
-	CONSTRAINT pk_Stock_Header PRIMARY KEY(Stock_ID),
-	CONSTRAINT fk1_Stock_Header FOREIGN KEY (Batch_No) References [Stock].[Stock_Batch] (Batch_No) ON UPDATE CASCADE
+	SupplierID INT NOT NULL ,
+	ContactNo char(10)NOT NULL ,
+	CONSTRAINT SuppCon_pk PRIMARY KEY(SupplierID,ContactNO),
+	CONSTRAINT SuppCon_fk FOREIGN KEY(SupplierID) REFERENCES [Stock].[Supplier_Details] (Supplier_ID) ON UPDATE CASCADE
+    
 )
 GO
 
 CREATE TABLE [Stock].[Stock_Details]
 (
-	Stock_Item_No INT NOT NULL IDENTITY(10001,1),
-	Product_id INT,
-	QTY DECIMAL(5,0),
-	Price DECIMAL(6,2),
-	Buying_Discount DECIMAL(3,2),
-	SDate DATETIME DEFAULT GETDATE(),
-	Status INT DEFAULT 1,
-	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
-	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
+	Stock_Id INT NOT NULL,
+	Product_Id INT NOT NULL,
+	Supplier_ID INT NOT NULL,
+	Quantity INT,
+	Unit_Price DECIMAL,
+	Buying_Discount DECIMAL,
+	Date DATETIME DEFAULT GETDATE(),
 
-	CONSTRAINT pk_Stock_Details PRIMARY KEY(Stock_Item_No),
-	CONSTRAINT fk1_Stock_Details FOREIGN KEY (Product_id) References [Stock].[Product] (Product_ID) ON UPDATE CASCADE
+	CONSTRAINT pk_Stock_Details PRIMARY KEY(Stock_Id,Product_Id),
+	CONSTRAINT fk1_Stock_Details FOREIGN KEY (Product_Id) References [Stock].[Product] (Product_ID) ON UPDATE CASCADE,
+	CONSTRAINT fk2_Stock_Details FOREIGN KEY (Supplier_ID) References [Stock].[Supplier_Details] (Supplier_ID) ON UPDATE CASCADE
+
 )
 GO
 
 
 
-CREATE TABLE [Invoice].[Invoice_Header]
+CREATE TABLE [Accounts].[Invoice_Header]
 (
 	Invoice_No INT NOT NULL IDENTITY(10001,1),
 	SDate DATETIME DEFAULT GETDATE(),
@@ -200,7 +192,7 @@ CREATE TABLE [Invoice].[Invoice_Header]
 	)
 GO
 
-CREATE TABLE [Invoice].[Invoice_Details]
+CREATE TABLE [Accounts].[Invoice_Details]
 (
 	Item_No INT NOT NULL IDENTITY(1,1),
 	Invoice_No INT,
@@ -220,7 +212,7 @@ CREATE TABLE [Invoice].[Invoice_Details]
 	)
 GO
 
-CREATE TABLE [Installment].[Installment]
+CREATE TABLE [Accounts].[Installment]
 (
 	Inastallment_ID INT NOT NULL IDENTITY(10001,1),
 	Invoice_No INT,
@@ -237,3 +229,4 @@ CREATE TABLE [Installment].[Installment]
 	CONSTRAINT fk1_Inastallment FOREIGN KEY (Invoice_No) References [Invoice].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
 	)
 GO
+
