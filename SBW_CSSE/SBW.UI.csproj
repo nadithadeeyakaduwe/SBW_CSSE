@@ -65,17 +65,23 @@
     <Compile Include="EmployeeUserControls\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeeDetailUC.cs">
+    <Compile Include="EmployeeUserControls\ViewEmployeeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeeDetailForm.Designer.cs">
+      <DependentUpon>ViewEmployeeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeUserControls\ViewEmployeesForm.Designer.cs">
+      <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeeDetailUC.Designer.cs">
-      <DependentUpon>ViewEmployeeDetailUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeesUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeesUC.Designer.cs">
-      <DependentUpon>ViewEmployeesUC.cs</DependentUpon>
+    <Compile Include="LoadingUC.Designer.cs">
+      <DependentUpon>LoadingUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -107,8 +113,14 @@
     <EmbeddedResource Include="EmployeeUserControls\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeUserControls\ViewEmployeesUC.resx">
-      <DependentUpon>ViewEmployeesUC.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeUserControls\ViewEmployeeDetailForm.resx">
+      <DependentUpon>ViewEmployeeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUserControls\ViewEmployeesForm.resx">
+      <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingUC.resx">
+      <DependentUpon>LoadingUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -156,7 +168,15 @@
       <Name>SBW.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SBWLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-gif-transparent.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

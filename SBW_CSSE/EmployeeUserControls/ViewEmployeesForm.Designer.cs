@@ -1,6 +1,6 @@
 ﻿namespace SBW.UI.EmployeeUserControls
 {
-    partial class ViewEmployeesUC
+    partial class ViewEmployeesForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -39,12 +39,14 @@
             this.dgvCol_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCol_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCol_department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeWithTitles)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tb_search
             // 
-            this.tb_search.Location = new System.Drawing.Point(202, 45);
+            this.tb_search.Location = new System.Drawing.Point(208, 31);
             this.tb_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(596, 25);
@@ -52,18 +54,19 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(856, 41);
+            this.btn_search.Location = new System.Drawing.Point(862, 27);
             this.btn_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(87, 32);
             this.btn_search.TabIndex = 1;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // lbl_nameNic
             // 
             this.lbl_nameNic.AutoSize = true;
-            this.lbl_nameNic.Location = new System.Drawing.Point(24, 48);
+            this.lbl_nameNic.Location = new System.Drawing.Point(30, 34);
             this.lbl_nameNic.Name = "lbl_nameNic";
             this.lbl_nameNic.Size = new System.Drawing.Size(139, 18);
             this.lbl_nameNic.TabIndex = 2;
@@ -94,7 +97,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_employeeWithTitles.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_employeeWithTitles.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_employeeWithTitles.Location = new System.Drawing.Point(92, 122);
+            this.dgv_employeeWithTitles.Location = new System.Drawing.Point(77, 97);
             this.dgv_employeeWithTitles.MultiSelect = false;
             this.dgv_employeeWithTitles.Name = "dgv_employeeWithTitles";
             this.dgv_employeeWithTitles.ReadOnly = true;
@@ -109,7 +112,7 @@
             this.dgv_employeeWithTitles.RowHeadersVisible = false;
             this.dgv_employeeWithTitles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_employeeWithTitles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_employeeWithTitles.Size = new System.Drawing.Size(810, 323);
+            this.dgv_employeeWithTitles.Size = new System.Drawing.Size(810, 355);
             this.dgv_employeeWithTitles.TabIndex = 3;
             this.dgv_employeeWithTitles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeWithTitles_CellDoubleClick);
             // 
@@ -151,25 +154,42 @@
             this.dgvCol_department.Name = "dgvCol_department";
             this.dgvCol_department.ReadOnly = true;
             // 
-            // ViewEmployeesUC
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_search);
+            this.panel1.Controls.Add(this.dgv_employeeWithTitles);
+            this.panel1.Controls.Add(this.tb_search);
+            this.panel1.Controls.Add(this.lbl_nameNic);
+            this.panel1.Location = new System.Drawing.Point(-2, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1062, 553);
+            this.panel1.TabIndex = 4;
+            // 
+            // ViewEmployeesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.dgv_employeeWithTitles);
-            this.Controls.Add(this.lbl_nameNic);
-            this.Controls.Add(this.btn_search);
-            this.Controls.Add(this.tb_search);
+            this.ClientSize = new System.Drawing.Size(1060, 552);
+            this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximumSize = new System.Drawing.Size(1020, 489);
-            this.MinimumSize = new System.Drawing.Size(1020, 489);
-            this.Name = "ViewEmployeesUC";
-            this.Size = new System.Drawing.Size(1020, 489);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1060, 552);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1060, 552);
+            this.Name = "ViewEmployeesForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = " ";
             this.Load += new System.EventHandler(this.ViewEmployeesUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeWithTitles)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -184,5 +204,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_title;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_department;
+        public System.Windows.Forms.Panel panel1;
     }
 }

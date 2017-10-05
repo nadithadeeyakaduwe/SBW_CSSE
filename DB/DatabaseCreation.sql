@@ -102,11 +102,11 @@ CREATE TABLE [HRM].[Employee]
 	HomeTelNo CHAR(10) ,
 	MobileNumber CHAR (10) UNIQUE NOT NULL,
 	Gender CHAR(1) NOT NULL,
-	MaritalStatus CHAR (1),
+	CivilStatus CHAR (1),
 	EpfNo INT NOT NULL,
 	PositionID INT NOT NULL,
 	DepartmentID INT NOT NULL,
-	CurrentSalary DECIMAL NOT NULL,
+	BasicSalary DECIMAL NOT NULL,
 	PastExperience VARCHAR (1000),
 	Qualification VARCHAR (1000),
 	JoinDate DATETIME NOT NULL,
@@ -214,7 +214,7 @@ CREATE TABLE [Accounts].[Invoice_Details]
 	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
 
 	CONSTRAINT pk_Invoice_Details PRIMARY KEY(Item_No,Invoice_No)
-	CONSTRAINT fk1_Invoice_Details  FOREIGN KEY (Invoice_No) References [Invoice].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
+	CONSTRAINT fk1_Invoice_Details  FOREIGN KEY (Invoice_No) References [Accounts].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
 	)
 GO
 
@@ -232,6 +232,6 @@ CREATE TABLE [Accounts].[Installment]
 	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
 
 	CONSTRAINT pk_Inastallment PRIMARY KEY(Inastallment_ID),
-	CONSTRAINT fk1_Inastallment FOREIGN KEY (Invoice_No) References [Invoice].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
+	CONSTRAINT fk1_Inastallment FOREIGN KEY (Invoice_No) References [Accounts].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
 	)
 GO

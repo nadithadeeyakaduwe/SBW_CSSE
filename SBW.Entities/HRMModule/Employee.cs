@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SBW.Entities.HRMModule
 {
-    public class Employee : EntityBase
+    public sealed class Employee : EntityBase
     {
         /// <summary>
         /// Gets or sets the employee identifier.
@@ -17,20 +17,12 @@ namespace SBW.Entities.HRMModule
         public int EmployeeID { get; set; }
 
         /// <summary>
-        /// Gets or sets the first name.
+        /// Gets or sets the full name.
         /// </summary>
         /// <value>
-        /// The first name.
+        /// The full name.
         /// </value>
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the last name.
-        /// </summary>
-        /// <value>
-        /// The last name.
-        /// </value>
-        public string LastName { get; set; }
+        public string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets the brithday.
@@ -152,20 +144,5 @@ namespace SBW.Entities.HRMModule
         /// </value>
         public int EPFNo { get; set; }
 
-        /// <summary>
-        /// Gets the full name.
-        /// </summary>
-        /// <value>
-        /// The full name.
-        /// </value>
-        public string FullName
-        {
-            get
-            {
-                return FirstName + " " + LastName;
-            }
-        }
-
-        
     }
 }

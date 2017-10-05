@@ -31,7 +31,7 @@ namespace SBW.UI
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_viewEmployee_Click(object sender, EventArgs e)
         {
-            loadUserControl(new ViewEmployeesUC());
+            loadForm(new ViewEmployeesForm());
         }
 
 
@@ -47,6 +47,20 @@ namespace SBW.UI
             userControl.Show();
         }
 
-        
+        /// <summary>
+        /// Loads the main form.
+        /// </summary>
+        /// <param name="form">The form.</param>
+        private void loadForm(Form form)
+        {
+            panel_UC.Controls.Clear();
+            form.TopLevel = false;
+            panel_UC.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+
     }
 }

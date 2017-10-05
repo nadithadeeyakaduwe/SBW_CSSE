@@ -30,5 +30,25 @@ namespace SBW.Services
         /// Object of Employee
         /// </returns>
         Employee GetEmployee(int employeeId);
+
+        /// <summary>
+        /// Deletes the employee.
+        /// </summary>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <returns></returns>
+        bool DeleteEmployee(int employeeId);
+
+        /// <summary>
+        /// Updates the employee.
+        /// </summary>
+        /// <param name="employee">The employee.</param>
+        void UpdateEmployee(Employee employee);
+
+        /// <summary>
+        /// Searches the employee.
+        /// </summary>
+        /// <param name="searchString">The search string.</param>
+        /// <returns></returns>
+        DataTable SearchEmployee(string searchString);
     }
 }

@@ -61,6 +61,15 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured while deleting...!.
+        /// </summary>
+        internal static string DBDeleteError {
+            get {
+                return ResourceManager.GetString("DBDeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while trying to save data...!.
         /// </summary>
         internal static string DBInsertError {
@@ -84,6 +93,24 @@ namespace SBW.BusinessService {
         internal static string DBRetrieveError {
             get {
                 return ResourceManager.GetString("DBRetrieveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while updating..!.
+        /// </summary>
+        internal static string DBUpdateError {
+            get {
+                return ResourceManager.GetString("DBUpdateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully updated..
+        /// </summary>
+        internal static string DBUpdateSuccess {
+            get {
+                return ResourceManager.GetString("DBUpdateSuccess", resourceCulture);
             }
         }
     }

@@ -41,21 +41,20 @@
             this.panel_header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btn_logout = new System.Windows.Forms.Button();
+            this.lbl_userName = new System.Windows.Forms.Label();
+            this.lbl_currentMenu = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel_navigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_logo)).BeginInit();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel_main.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_navigation
             // 
             this.panel_navigation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel_navigation.BackColor = System.Drawing.Color.Black;
             this.panel_navigation.Controls.Add(this.btn_settingsMain);
             this.panel_navigation.Controls.Add(this.btn_salesMain);
             this.panel_navigation.Controls.Add(this.btn_InventoryMain);
@@ -65,7 +64,8 @@
             this.panel_navigation.Controls.Add(this.button2);
             this.panel_navigation.Controls.Add(this.pbx_logo);
             this.panel_navigation.Controls.Add(this.panel2);
-            this.panel_navigation.Location = new System.Drawing.Point(1, 0);
+            this.panel_navigation.ForeColor = System.Drawing.Color.White;
+            this.panel_navigation.Location = new System.Drawing.Point(9, 20);
             this.panel_navigation.MaximumSize = new System.Drawing.Size(200, 680);
             this.panel_navigation.Name = "panel_navigation";
             this.panel_navigation.Size = new System.Drawing.Size(200, 680);
@@ -73,10 +73,10 @@
             // 
             // btn_settingsMain
             // 
-            this.btn_settingsMain.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_settingsMain.BackColor = System.Drawing.Color.Gray;
             this.btn_settingsMain.FlatAppearance.BorderSize = 0;
-            this.btn_settingsMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
-            this.btn_settingsMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btn_settingsMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_settingsMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.btn_settingsMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_settingsMain.Font = new System.Drawing.Font("Segoe UI Symbol", 12F);
             this.btn_settingsMain.ForeColor = System.Drawing.Color.White;
@@ -93,10 +93,10 @@
             // 
             // btn_salesMain
             // 
-            this.btn_salesMain.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_salesMain.BackColor = System.Drawing.Color.Gray;
             this.btn_salesMain.FlatAppearance.BorderSize = 0;
-            this.btn_salesMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
-            this.btn_salesMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btn_salesMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_salesMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.btn_salesMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_salesMain.Font = new System.Drawing.Font("Segoe UI Symbol", 12F);
             this.btn_salesMain.ForeColor = System.Drawing.Color.White;
@@ -114,11 +114,11 @@
             // 
             // btn_InventoryMain
             // 
-            this.btn_InventoryMain.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_InventoryMain.BackColor = System.Drawing.Color.Gray;
             this.btn_InventoryMain.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_InventoryMain.FlatAppearance.BorderSize = 0;
-            this.btn_InventoryMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
-            this.btn_InventoryMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btn_InventoryMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_InventoryMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.btn_InventoryMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_InventoryMain.Font = new System.Drawing.Font("Segoe UI Symbol", 12F);
             this.btn_InventoryMain.ForeColor = System.Drawing.Color.White;
@@ -136,10 +136,10 @@
             // 
             // btn_customerMain
             // 
-            this.btn_customerMain.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_customerMain.BackColor = System.Drawing.Color.Gray;
             this.btn_customerMain.FlatAppearance.BorderSize = 0;
-            this.btn_customerMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
-            this.btn_customerMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btn_customerMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_customerMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.btn_customerMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_customerMain.Font = new System.Drawing.Font("Segoe UI Symbol", 12F);
             this.btn_customerMain.ForeColor = System.Drawing.Color.White;
@@ -156,18 +156,19 @@
             // 
             // panel_sidebar
             // 
-            this.panel_sidebar.BackColor = System.Drawing.Color.Silver;
+            this.panel_sidebar.BackColor = System.Drawing.Color.Goldenrod;
+            this.panel_sidebar.ForeColor = System.Drawing.Color.Gold;
             this.panel_sidebar.Location = new System.Drawing.Point(0, 238);
             this.panel_sidebar.Name = "panel_sidebar";
-            this.panel_sidebar.Size = new System.Drawing.Size(10, 75);
+            this.panel_sidebar.Size = new System.Drawing.Size(7, 75);
             this.panel_sidebar.TabIndex = 5;
             // 
             // btn_employeeMain
             // 
-            this.btn_employeeMain.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_employeeMain.BackColor = System.Drawing.Color.Gray;
             this.btn_employeeMain.FlatAppearance.BorderSize = 0;
-            this.btn_employeeMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
-            this.btn_employeeMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btn_employeeMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_employeeMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.btn_employeeMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_employeeMain.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_employeeMain.ForeColor = System.Drawing.Color.White;
@@ -201,6 +202,9 @@
             // 
             // pbx_logo
             // 
+            this.pbx_logo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbx_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbx_logo.Image = global::SBW.UI.Properties.Resources.SBWLogo;
             this.pbx_logo.Location = new System.Drawing.Point(3, 3);
             this.pbx_logo.Name = "pbx_logo";
             this.pbx_logo.Size = new System.Drawing.Size(193, 229);
@@ -218,12 +222,14 @@
             // panel_header
             // 
             this.panel_header.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel_header.BackColor = System.Drawing.Color.Black;
             this.panel_header.Controls.Add(this.pictureBox2);
             this.panel_header.Controls.Add(this.label3);
-            this.panel_header.Controls.Add(this.button1);
-            this.panel_header.Controls.Add(this.label2);
-            this.panel_header.Controls.Add(this.label1);
-            this.panel_header.Location = new System.Drawing.Point(202, 0);
+            this.panel_header.Controls.Add(this.btn_logout);
+            this.panel_header.Controls.Add(this.lbl_userName);
+            this.panel_header.Controls.Add(this.lbl_currentMenu);
+            this.panel_header.ForeColor = System.Drawing.Color.White;
+            this.panel_header.Location = new System.Drawing.Point(208, 20);
             this.panel_header.MaximumSize = new System.Drawing.Size(1060, 125);
             this.panel_header.MinimumSize = new System.Drawing.Size(1060, 125);
             this.panel_header.Name = "panel_header";
@@ -241,77 +247,73 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(951, 87);
+            this.label3.Location = new System.Drawing.Point(748, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
+            this.label3.Text = "Time";
             // 
-            // button1
+            // btn_logout
             // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(954, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_logout.BackColor = System.Drawing.Color.Gray;
+            this.btn_logout.FlatAppearance.BorderSize = 0;
+            this.btn_logout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_logout.Location = new System.Drawing.Point(944, 37);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(89, 51);
+            this.btn_logout.TabIndex = 2;
+            this.btn_logout.Text = "Log Out";
+            this.btn_logout.UseVisualStyleBackColor = false;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
-            // label2
+            // lbl_userName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(951, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.lbl_userName.AutoSize = true;
+            this.lbl_userName.Location = new System.Drawing.Point(951, 13);
+            this.lbl_userName.Name = "lbl_userName";
+            this.lbl_userName.Size = new System.Drawing.Size(60, 13);
+            this.lbl_userName.TabIndex = 1;
+            this.lbl_userName.Text = "User Name";
             // 
-            // label1
+            // lbl_currentMenu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(479, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lbl_currentMenu.AutoSize = true;
+            this.lbl_currentMenu.Font = new System.Drawing.Font("Modern No. 20", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_currentMenu.Location = new System.Drawing.Point(190, 31);
+            this.lbl_currentMenu.Name = "lbl_currentMenu";
+            this.lbl_currentMenu.Size = new System.Drawing.Size(229, 38);
+            this.lbl_currentMenu.TabIndex = 0;
+            this.lbl_currentMenu.Text = "Current Menu";
             // 
             // panel_main
             // 
             this.panel_main.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel_main.Controls.Add(this.label4);
-            this.panel_main.Location = new System.Drawing.Point(203, 128);
-            this.panel_main.MaximumSize = new System.Drawing.Size(1060, 552);
+            this.panel_main.BackColor = System.Drawing.Color.White;
+            this.panel_main.Location = new System.Drawing.Point(209, 144);
+            this.panel_main.MaximumSize = new System.Drawing.Size(1060, 556);
+            this.panel_main.MinimumSize = new System.Drawing.Size(1060, 556);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1060, 552);
+            this.panel_main.Size = new System.Drawing.Size(1060, 556);
             this.panel_main.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(478, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ControlBox = false;
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel_header);
             this.Controls.Add(this.panel_navigation);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "MainForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Saranga Battery Work";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel_navigation.ResumeLayout(false);
@@ -319,8 +321,6 @@
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel_main.ResumeLayout(false);
-            this.panel_main.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -331,11 +331,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel_header;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_logout;
+        private System.Windows.Forms.Label lbl_userName;
         private System.Windows.Forms.Panel panel_main;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pbx_logo;
         private System.Windows.Forms.Button btn_employeeMain;
@@ -345,6 +343,7 @@
         private System.Windows.Forms.Button btn_InventoryMain;
         private System.Windows.Forms.Button btn_customerMain;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.Label lbl_currentMenu;
     }
 }
 

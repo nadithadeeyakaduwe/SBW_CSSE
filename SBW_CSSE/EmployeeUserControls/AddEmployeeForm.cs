@@ -84,10 +84,10 @@ namespace SBW.UI.EmployeeUserControls
 
             Employee employee = new Employee()
             {
-                FirstName = tb_firstName.Text,
-                LastName = tb_lastName.Text,
+                FullName = tb_fullName.Text,
                 Address = rtb_address.Text,
-                BasicSalary = Convert.ToDecimal(tb_epfNo.Text),
+                BasicSalary = Convert.ToDecimal(tb_basicSalary.Text),
+                EPFNo = Convert.ToInt32(tb_epfNo.Text),
                 Email = tb_email.Text,
                 HomeTel = tb_homeTel.Text,
                 MobileNumber = tb_mobile.Text,
@@ -148,10 +148,10 @@ namespace SBW.UI.EmployeeUserControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_demo_Click(object sender, EventArgs e)
         {
-            tb_firstName.Text = "Test Employee";
-            tb_lastName.Text = "VDine";
+            tb_fullName.Text = "Test Employee";
             rtb_address.Text = "addressAddresss";
-            tb_epfNo.Text = "25000.00";
+            tb_basicSalary.Text = "25000.00";
+            tb_epfNo.Text = "24";
             tb_email.Text = "test@gmail.com";
             tb_homeTel.Text = "0112729729";
             tb_mobile.Text = "0741258963";

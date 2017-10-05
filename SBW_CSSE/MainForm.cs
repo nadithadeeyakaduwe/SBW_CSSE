@@ -105,5 +105,15 @@ namespace SBW.UI
         {
             panel_sidebar.Top = top;
         }
+
+        /// <summary>
+        /// Handles the Click event of the btn_logout control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace SBW.Core
 {
     public class LogHelper
     {
+        private const string LOG_DIRECTORY_PATH = @"C:\SBW\";
         private const string ERROR_LOG_FILE_PATH = @"C:\SBW\ErrorLog.txt";
 
         private static FileStream file;
@@ -16,6 +17,10 @@ namespace SBW.Core
         {
             try
             {
+                if (!Directory.Exists(LOG_DIRECTORY_PATH))
+                {
+                    Directory.CreateDirectory(LOG_DIRECTORY_PATH);
+                }
                 if (!File.Exists(ERROR_LOG_FILE_PATH))
                 {
                     file = File.Create(ERROR_LOG_FILE_PATH);
@@ -30,7 +35,10 @@ namespace SBW.Core
                 }
                 file.Close();
             }
-            catch { }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         private static void Log(TextWriter textWriter, string message)

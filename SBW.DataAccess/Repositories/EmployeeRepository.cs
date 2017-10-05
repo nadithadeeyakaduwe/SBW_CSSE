@@ -22,9 +22,9 @@ namespace SBW.DataAccess.Repositories
         {
             bool status = true;
             string query = "INSERT INTO [HRM].[Employee] ([Name],[Address],[Email],[DOB],"
-                +"[NIC],[HomeTelNo],[MobileNumber],[Gender],[MaritalStatus],[EpfNo],[PositionID],"
-                +"[DepartmentID],[CurrentSalary],[PastExperience],[Qualification],[JoinDate],"
-                +"[Status],[ModifiedDate],[DateCreated]) "
+                + "[NIC],[HomeTelNo],[MobileNumber],[Gender],[CivilStatus],[EpfNo],[PositionID],"
+                + "[DepartmentID],[BasicSalary],[PastExperience],[Qualification],[JoinDate],"
+                + "[Status],[ModifiedDate],[DateCreated]) "
                 + $"VALUES (@fullname,@address,@email,@bday,@nic,@hometel,@mobile,@gender,@civilstatus,@epf,@positionID,@deptId,@basicSal,@pastExp,"
                 +"@qualification,@joinDate,@status,GETDATE(),GETDATE())";
 
@@ -47,7 +47,7 @@ namespace SBW.DataAccess.Repositories
             cmd.Parameters.AddWithValue("@joinDate", employee.JoinDate);
             cmd.Parameters.AddWithValue("@status", employee.Status);
             
-            status = Repository.insert(query, cmd);
+            status = Repository.ExecuteQuery(query, cmd);
             
             return status;
         }
@@ -68,12 +68,82 @@ namespace SBW.DataAccess.Repositories
             return Response;
         }
 
+        /// <summary>
+        /// Gets the employee.
+        /// </summary>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <returns></returns>
         public DataTable getEmployee(int employeeId)
         {
             DataTable response = null;
-            string query = "SELECT [EmployeeID],[Name],[Address],[Email],[DOB],[NIC],[HomeTelNo],[MobileNumber],[Gender],[MaritalStatus],"
-                + "[EpfNo],[PositionID],[DepartmentID],[CurrentSalary],[PastExperience],[Qualification],[JoinDate],[Status],[ModifiedDate],"
-                +$"[DateCreated] FROM [HRM].[Employee] WHERE EmployeeID = {employeeId}";
+            string query = "SELECT [EmployeeID],[Name],[Address],[Email],[DOB],[NIC],[HomeTelNo],[MobileNumber],[Gender],[CivilStatus],"
+                + "[EpfNo],[PositionID],[DepartmentID],[BasicSalary],[PastExperience],[Qualification],[JoinDate],[Status]"
+                + $" FROM [HRM].[Employee] WHERE EmployeeID = {employeeId}";
+
+            response = Repository.getDataTable(query);
+
+            return response;
+        }
+
+        /// <summary>
+        /// Deletes the employee.
+        /// </summary>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <returns></returns>
+        public bool deleteEmployee(int employeeId)
+        {
+            bool status = true;
+
+            string query = $"UPDATE [HRM].[Employee] SET[Status] = {(int)WellknownEmployeeStatus.Unemployeed},"
+                +$" [ModifiedDate] = GETDATE() WHERE EmployeeID = {employeeId}";
+
+            status = Repository.ExecuteQuery(query);
+
+            return status;
+        }
+
+        /// <summary>
+        /// Updates the employee.
+        /// </summary>
+        /// <param name="employee">The employee.</param>
+        /// <returns></returns>
+        public bool updateEmployee(Employee employee)
+        {
+            bool status = true;
+
+            string query = "UPDATE [HRM].[Employee] SET [Address] = @address, [Email] = @email," 
+                +" [HomeTelNo] = @home, [MobileNumber] = @mobile, [CivilStatus] = @civilstatus, [EpfNo] = @epfno,"
+                +" [BasicSalary] = @basicsal, [PastExperience] = @pastexp, [Qualification] = @qualification,"
+                +" [Status] = @status ,[ModifiedDate] = GETDATE() WHERE EmployeeID = @empNo";
+
+            SqlCommand cmd = new SqlCommand(query);
+
+            cmd.Parameters.AddWithValue("@address", employee.Address);
+            cmd.Parameters.AddWithValue("@email", employee.Email);
+            cmd.Parameters.AddWithValue("@home", employee.HomeTel);
+            cmd.Parameters.AddWithValue("@mobile", employee.MobileNumber);
+            cmd.Parameters.AddWithValue("@civilstatus", employee.CivilStatus);
+            cmd.Parameters.AddWithValue("@epfno", employee.EPFNo);
+            cmd.Parameters.AddWithValue("@status", employee.Status);
+            cmd.Parameters.AddWithValue("@empNo", employee.EmployeeID);
+            cmd.Parameters.AddWithValue("@basicsal", employee.BasicSalary);
+            cmd.Parameters.AddWithValue("@pastexp", employee.PastExperience);
+            cmd.Parameters.AddWithValue("@qualification", employee.Qualification);
+
+            status = Repository.ExecuteQuery(query, cmd);
+
+            return status;
+        }
+
+        public DataTable searchEmployee(string searchString)
+        {
+            DataTable response = null;
+
+            string query = "SELECT e.EmployeeID As EmployeeID,e.EpfNo AS EpfNo, e.Name As Name, p.Name AS Title,"
+                + " d.Name AS Department FROM [HRM].[Employee] e INNER JOIN[HRM].[Position] p"
+                + " ON p.PositionID = e.PositionID INNER JOIN[HRM].[Department] d"
+                + " ON e.DepartmentID = d.DepartmentID WHERE e.Status = " + (int)WellknownEmployeeStatus.Active
+                +$" AND (e.Name LIKE '%{searchString}%' OR e.NIC LIKE '{searchString}%')";
 
             response = Repository.getDataTable(query);
 
