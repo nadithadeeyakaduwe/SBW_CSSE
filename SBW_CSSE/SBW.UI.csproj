@@ -53,6 +53,30 @@
       <DependentUpon>CommonResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Common\ValidationHelper.cs" />
+    <Compile Include="CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUserControls\customerDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerUserControls\customerDetailsForm.Designer.cs">
+      <DependentUpon>customerDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUserControls\customerEmailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerUserControls\customerEmailForm.Designer.cs">
+      <DependentUpon>customerEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUserControls\customerLoyaltyCardForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerUserControls\customerLoyaltyCardForm.Designer.cs">
+      <DependentUpon>customerLoyaltyCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +107,18 @@
     <Compile Include="LoadingUC.Designer.cs">
       <DependentUpon>LoadingUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryUserControls\InventoryDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryUserControls\InventoryDetailsForm.Designer.cs">
+      <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +143,28 @@
     <Compile Include="Sales_n_Profit\Invoiceform.Designer.cs">
       <DependentUpon>Invoiceform.cs</DependentUpon>
     </Compile>
+    <Compile Include="SarangaBatteryWorkDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SarangaBatteryWorkDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SarangaBatteryWorkDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SarangaBatteryWorkDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerUserControls\customerDetailsForm.resx">
+      <DependentUpon>customerDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerUserControls\customerEmailForm.resx">
+      <DependentUpon>customerEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerUserControls\customerLoyaltyCardForm.resx">
+      <DependentUpon>customerLoyaltyCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +179,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingUC.resx">
       <DependentUpon>LoadingUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryUserControls\InventoryDetailsForm.resx">
+      <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
