@@ -91,7 +91,7 @@
             // 
             // btn_viewEmployee
             // 
-            this.btn_viewEmployee.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F);
+            this.btn_viewEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_viewEmployee.Location = new System.Drawing.Point(374, 88);
             this.btn_viewEmployee.Name = "btn_viewEmployee";
             this.btn_viewEmployee.Size = new System.Drawing.Size(184, 100);
@@ -102,7 +102,7 @@
             // 
             // btn_addEmployeeUC
             // 
-            this.btn_addEmployeeUC.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_addEmployeeUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addEmployeeUC.Location = new System.Drawing.Point(127, 88);
             this.btn_addEmployeeUC.Name = "btn_addEmployeeUC";
             this.btn_addEmployeeUC.Size = new System.Drawing.Size(184, 100);

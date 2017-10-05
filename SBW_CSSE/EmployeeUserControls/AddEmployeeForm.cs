@@ -17,6 +17,7 @@ namespace SBW.UI.EmployeeUserControls
         public AddEmployeeForm()
         {
             InitializeComponent();
+            loadComponents();
         }
 
         /// <summary>
@@ -91,7 +92,7 @@ namespace SBW.UI.EmployeeUserControls
                 Email = tb_email.Text,
                 HomeTel = tb_homeTel.Text,
                 MobileNumber = tb_mobile.Text,
-                PositionID = Convert.ToInt32(tb_position.Text),
+                PositionID = Convert.ToInt32(cb_position.SelectedValue),
                 PastExperience = rtb_pastExperience.Text,
                 Qualification = rtb_qualification.Text,
                 NIC = tb_nic.Text,
@@ -99,7 +100,7 @@ namespace SBW.UI.EmployeeUserControls
                 CivilStatus = this.EmployeeCivilStatus,
                 Brithday = dtp_dob.Value,
                 JoinDate = dtp_joinDate.Value.Date,
-                DepartmentID = Convert.ToInt32(tb_department.Text)
+                DepartmentID = Convert.ToInt32(cb_department.SelectedValue)
             };
 
             IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
@@ -155,8 +156,8 @@ namespace SBW.UI.EmployeeUserControls
             tb_email.Text = "test@gmail.com";
             tb_homeTel.Text = "0112729729";
             tb_mobile.Text = "0741258963";
-            tb_position.Text = "1";
-            tb_department.Text = "1";
+            cb_position.SelectedIndex = 0;
+            cb_department.SelectedIndex = 0;
             rtb_pastExperience.Text = string.Empty;
             rtb_qualification.Text = string.Empty;
             tb_nic.Text = "95025763";
@@ -166,6 +167,22 @@ namespace SBW.UI.EmployeeUserControls
             rbtn_single.Checked = true;
             dtp_dob.Value = DateTime.Today;
             dtp_joinDate.Value = DateTime.Today;
+        }
+
+        /// <summary>
+        /// Loads the components.
+        /// </summary>
+        private void loadComponents()
+        {
+            IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
+
+            cb_position.DataSource = service.LoadComboBox("Position");
+            cb_position.ValueMember = "PositionID";
+            cb_position.DisplayMember = "Name";
+
+            cb_department.DataSource = service.LoadComboBox("Department");
+            cb_department.ValueMember = "DepartmentID";
+            cb_department.DisplayMember = "Name";
         }
 
         /// <summary>

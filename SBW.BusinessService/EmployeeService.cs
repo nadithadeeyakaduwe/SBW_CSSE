@@ -84,6 +84,8 @@ namespace SBW.BusinessService
                 result.Qualification = dt.Rows[0][15].ToString();
                 result.JoinDate = (DateTime) dt.Rows[0][16];
                 result.Status = Convert.ToInt32(dt.Rows[0][17].ToString());
+                result.Position = dt.Rows[0][18].ToString();
+                result.Department = dt.Rows[0][19].ToString();
             }
 
             return result;
@@ -176,6 +178,28 @@ namespace SBW.BusinessService
             }
 
             return dt;
+        }
+
+        public DataTable LoadComboBox(string tableName)
+        {
+            DataTable result = null;
+            repo = new EmployeeRepository();
+
+            if (tableName.Equals("Position"))
+            {
+                result = repo.getPositionForCombo();
+            }
+            else if (tableName.Equals("Department"))
+            {
+                result = repo.getDepartmentForCombo();
+            }
+
+            if (result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+
+            return result;
         }
     }
 }

@@ -144,5 +144,21 @@ namespace SBW.Entities.HRMModule
         /// </value>
         public int EPFNo { get; set; }
 
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
+        /// <value>
+        /// The position.
+        /// </value>
+        public string Position { get; set; }
+
+        /// <summary>
+        /// Gets or sets the department.
+        /// </summary>
+        /// <value>
+        /// The department.
+        /// </value>
+        public string Department { get; set; }
+
     }
 }

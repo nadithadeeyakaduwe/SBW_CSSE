@@ -45,7 +45,6 @@
             this.tb_homeTel = new System.Windows.Forms.TextBox();
             this.tb_email = new System.Windows.Forms.TextBox();
             this.tb_epfNo = new System.Windows.Forms.TextBox();
-            this.tb_position = new System.Windows.Forms.TextBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
             this.dtp_dob = new System.Windows.Forms.DateTimePicker();
@@ -63,10 +62,11 @@
             this.rtb_qualification = new System.Windows.Forms.RichTextBox();
             this.dtp_joinDate = new System.Windows.Forms.DateTimePicker();
             this.btn_demo = new System.Windows.Forms.Button();
-            this.tb_department = new System.Windows.Forms.TextBox();
             this.lbl_department = new System.Windows.Forms.Label();
             this.tb_basicSalary = new System.Windows.Forms.TextBox();
             this.lbl_backSalary = new System.Windows.Forms.Label();
+            this.cb_position = new System.Windows.Forms.ComboBox();
+            this.cb_department = new System.Windows.Forms.ComboBox();
             this.panel_gender.SuspendLayout();
             this.panel_civilStatus.SuspendLayout();
             this.SuspendLayout();
@@ -212,13 +212,6 @@
             this.tb_epfNo.Size = new System.Drawing.Size(207, 20);
             this.tb_epfNo.TabIndex = 14;
             // 
-            // tb_position
-            // 
-            this.tb_position.Location = new System.Drawing.Point(727, 63);
-            this.tb_position.Name = "tb_position";
-            this.tb_position.Size = new System.Drawing.Size(207, 20);
-            this.tb_position.TabIndex = 13;
-            // 
             // btn_save
             // 
             this.btn_save.Location = new System.Drawing.Point(817, 451);
@@ -231,7 +224,7 @@
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(626, 451);
+            this.btn_clear.Location = new System.Drawing.Point(661, 451);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(117, 53);
             this.btn_clear.TabIndex = 17;
@@ -376,13 +369,6 @@
             this.btn_demo.UseVisualStyleBackColor = true;
             this.btn_demo.Click += new System.EventHandler(this.btn_demo_Click);
             // 
-            // tb_department
-            // 
-            this.tb_department.Location = new System.Drawing.Point(727, 98);
-            this.tb_department.Name = "tb_department";
-            this.tb_department.Size = new System.Drawing.Size(207, 20);
-            this.tb_department.TabIndex = 35;
-            // 
             // lbl_department
             // 
             this.lbl_department.AutoSize = true;
@@ -408,14 +394,31 @@
             this.lbl_backSalary.TabIndex = 36;
             this.lbl_backSalary.Text = "Basic Salary";
             // 
+            // cb_position
+            // 
+            this.cb_position.FormattingEnabled = true;
+            this.cb_position.Location = new System.Drawing.Point(727, 61);
+            this.cb_position.Name = "cb_position";
+            this.cb_position.Size = new System.Drawing.Size(207, 21);
+            this.cb_position.TabIndex = 38;
+            // 
+            // cb_department
+            // 
+            this.cb_department.FormattingEnabled = true;
+            this.cb_department.Location = new System.Drawing.Point(727, 95);
+            this.cb_department.Name = "cb_department";
+            this.cb_department.Size = new System.Drawing.Size(207, 21);
+            this.cb_department.TabIndex = 39;
+            // 
             // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cb_department);
+            this.Controls.Add(this.cb_position);
             this.Controls.Add(this.tb_basicSalary);
             this.Controls.Add(this.lbl_backSalary);
-            this.Controls.Add(this.tb_department);
             this.Controls.Add(this.lbl_department);
             this.Controls.Add(this.btn_demo);
             this.Controls.Add(this.dtp_joinDate);
@@ -431,7 +434,6 @@
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.tb_epfNo);
-            this.Controls.Add(this.tb_position);
             this.Controls.Add(this.tb_email);
             this.Controls.Add(this.tb_homeTel);
             this.Controls.Add(this.tb_mobile);
@@ -480,7 +482,6 @@
         private System.Windows.Forms.TextBox tb_homeTel;
         private System.Windows.Forms.TextBox tb_email;
         private System.Windows.Forms.TextBox tb_epfNo;
-        private System.Windows.Forms.TextBox tb_position;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.DateTimePicker dtp_dob;
@@ -498,9 +499,10 @@
         private System.Windows.Forms.RichTextBox rtb_qualification;
         private System.Windows.Forms.DateTimePicker dtp_joinDate;
         private System.Windows.Forms.Button btn_demo;
-        private System.Windows.Forms.TextBox tb_department;
         private System.Windows.Forms.Label lbl_department;
         private System.Windows.Forms.TextBox tb_basicSalary;
         private System.Windows.Forms.Label lbl_backSalary;
+        private System.Windows.Forms.ComboBox cb_position;
+        private System.Windows.Forms.ComboBox cb_department;
     }
 }

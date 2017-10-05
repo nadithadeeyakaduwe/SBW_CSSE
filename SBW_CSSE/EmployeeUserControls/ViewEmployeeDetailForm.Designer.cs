@@ -77,9 +77,14 @@
             // 
             // pbx_employeePic
             // 
-            this.pbx_employeePic.Location = new System.Drawing.Point(39, 27);
+            this.pbx_employeePic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbx_employeePic.Image = global::SBW.UI.Properties.Resources.administrator;
+            this.pbx_employeePic.Location = new System.Drawing.Point(45, 27);
+            this.pbx_employeePic.MaximumSize = new System.Drawing.Size(231, 230);
+            this.pbx_employeePic.MinimumSize = new System.Drawing.Size(231, 230);
             this.pbx_employeePic.Name = "pbx_employeePic";
             this.pbx_employeePic.Size = new System.Drawing.Size(231, 230);
+            this.pbx_employeePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx_employeePic.TabIndex = 0;
             this.pbx_employeePic.TabStop = false;
             // 

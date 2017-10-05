@@ -76,9 +76,10 @@ namespace SBW.DataAccess.Repositories
         public DataTable getEmployee(int employeeId)
         {
             DataTable response = null;
-            string query = "SELECT [EmployeeID],[Name],[Address],[Email],[DOB],[NIC],[HomeTelNo],[MobileNumber],[Gender],[CivilStatus],"
-                + "[EpfNo],[PositionID],[DepartmentID],[BasicSalary],[PastExperience],[Qualification],[JoinDate],[Status]"
-                + $" FROM [HRM].[Employee] WHERE EmployeeID = {employeeId}";
+            string query = "SELECT e.[EmployeeID],e.[Name],e.[Address],e.[Email],e.[DOB],e.[NIC],e.[HomeTelNo],e.[MobileNumber],e.[Gender],e.[CivilStatus],"
+                + "e.[EpfNo],e.[PositionID],e.[DepartmentID],e.[BasicSalary],e.[PastExperience],e.[Qualification],e.[JoinDate],e.[Status],p.[Name],d.[Name]"
+                + $" FROM [HRM].[Employee] e, [HRM].[Department] d, [HRM].[Position] p WHERE e.EmployeeID = {employeeId} AND p.PositionID = e.PositionID"
+                + " AND d.DepartmentID = e.DepartmentID";
 
             response = Repository.getDataTable(query);
 
@@ -135,6 +136,11 @@ namespace SBW.DataAccess.Repositories
             return status;
         }
 
+        /// <summary>
+        /// Searches the employee.
+        /// </summary>
+        /// <param name="searchString">The search string.</param>
+        /// <returns></returns>
         public DataTable searchEmployee(string searchString)
         {
             DataTable response = null;
@@ -148,6 +154,32 @@ namespace SBW.DataAccess.Repositories
             response = Repository.getDataTable(query);
 
             return response;
+        }
+
+        /// <summary>
+        /// Gets the position for combo.
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getPositionForCombo()
+        {
+            DataTable result = null;
+
+            string query = "SELECT [PositionID], [Name] FROM [HRM].[Position] WHERE [Status] = " + (int)WellknownPositionStatus.Active;
+
+            result = Repository.getDataTable(query);
+
+            return result;
+        }
+
+        public DataTable getDepartmentForCombo()
+        {
+            DataTable result = null;
+
+            string query = "SELECT [DepartmentID], [Name] FROM [HRM].[Department] WHERE [Status] = " + (int)WellknownDepartmentStatus.Active;
+
+            result = Repository.getDataTable(query);
+
+            return result;
         }
     }
 }

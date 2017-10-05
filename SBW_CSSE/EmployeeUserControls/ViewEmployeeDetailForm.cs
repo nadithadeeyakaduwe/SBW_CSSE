@@ -58,8 +58,8 @@ namespace SBW.UI.EmployeeUserControls
             tb_email.Text = emp.Email;
             tb_homeTel.Text = emp.HomeTel;
             tb_mobile.Text = emp.MobileNumber;
-            tb_position.Text = emp.PositionID.ToString();
-            tb_department.Text = emp.DepartmentID.ToString();
+            tb_position.Text = emp.Position;
+            tb_department.Text = emp.Department;
             rtb_pastExperience.Text = emp.PastExperience;
             rtb_qualification.Text = emp.Qualification;
             tb_nic.Text = emp.NIC;

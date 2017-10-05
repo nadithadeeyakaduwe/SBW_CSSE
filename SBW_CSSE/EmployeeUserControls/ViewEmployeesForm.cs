@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SBW.Services;
 using SBW.BusinessService;
 using SBW.Entities.HRMModule;
+using System.Threading;
 
 namespace SBW.UI.EmployeeUserControls
 {
@@ -27,7 +28,7 @@ namespace SBW.UI.EmployeeUserControls
         {
             InitializeComponent();
         }
-
+        
         /// <summary>
         /// Handles the Load event of the ViewEmployeesUC control.
         /// </summary>

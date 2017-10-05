@@ -50,5 +50,12 @@ namespace SBW.Services
         /// <param name="searchString">The search string.</param>
         /// <returns></returns>
         DataTable SearchEmployee(string searchString);
+
+        /// <summary>
+        /// Loads the ComboBox.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
+        DataTable LoadComboBox(string tableName);
     }
 }
