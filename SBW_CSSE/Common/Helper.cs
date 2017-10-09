@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,16 @@ namespace SBW.UI.Common
 {
     public class Helper
     {
+        /// <summary>
+        /// The main panel x coordinate
+        /// </summary>
+        private const int MAIN_PANEL_X_COORDINATE = 260;
+
+        /// <summary>
+        /// The main panel y coordinate
+        /// </summary>
+        private const int MAIN_PANEL_Y_COORDINATE = 180;
+
         /// <summary>
         /// Clears every control in the form or user control.
         /// </summary>
@@ -34,6 +45,18 @@ namespace SBW.UI.Common
                     dtp.Value = DateTime.Now;
                 }
             }
+        }
+
+        /// <summary>
+        /// Loads the form.
+        /// </summary>
+        /// <param name="form">The form.</param>
+        public static void ShowForm(Form form)
+        {
+            form.BringToFront();
+            form.Location = new Point(MAIN_PANEL_X_COORDINATE, MAIN_PANEL_Y_COORDINATE);
+            form.StartPosition = FormStartPosition.Manual;
+            form.ShowDialog();
         }
     }
 }

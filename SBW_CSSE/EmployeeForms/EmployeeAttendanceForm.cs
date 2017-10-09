@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SBW.UI
+namespace SBW.UI.EmployeeUserControls
 {
-    public partial class LoadingUC : UserControl
+    public partial class EmployeeAttendanceForm : Form
     {
-        public LoadingUC()
+        public EmployeeAttendanceForm()
         {
             InitializeComponent();
         }

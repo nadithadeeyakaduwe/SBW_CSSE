@@ -21,7 +21,7 @@ namespace SBW.UI
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_addEmployeeUC_Click(object sender, EventArgs e)
         {
-            loadUserControl(new AddEmployeeForm());
+            loadForm(new AddEmployeeForm());
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace SBW.UI
         /// Loads the user control.
         /// </summary>
         /// <param name="userControl">The user control.</param>
-        private void loadUserControl(UserControl userControl)
+        private void loadUserControl(Form userControl)
         {
             panel_UC.Controls.Clear();
             panel_UC.Controls.Add(userControl);

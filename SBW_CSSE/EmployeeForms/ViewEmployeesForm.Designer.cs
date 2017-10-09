@@ -40,6 +40,11 @@
             this.dgvCol_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCol_department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeWithTitles)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -49,15 +54,16 @@
             this.tb_search.Location = new System.Drawing.Point(208, 31);
             this.tb_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_search.Name = "tb_search";
-            this.tb_search.Size = new System.Drawing.Size(596, 25);
+            this.tb_search.Size = new System.Drawing.Size(679, 25);
             this.tb_search.TabIndex = 0;
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(862, 27);
+            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search.Location = new System.Drawing.Point(927, 19);
             this.btn_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(87, 32);
+            this.btn_search.Size = new System.Drawing.Size(124, 46);
             this.btn_search.TabIndex = 1;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
@@ -112,7 +118,7 @@
             this.dgv_employeeWithTitles.RowHeadersVisible = false;
             this.dgv_employeeWithTitles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_employeeWithTitles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_employeeWithTitles.Size = new System.Drawing.Size(810, 355);
+            this.dgv_employeeWithTitles.Size = new System.Drawing.Size(810, 444);
             this.dgv_employeeWithTitles.TabIndex = 3;
             this.dgv_employeeWithTitles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeWithTitles_CellDoubleClick);
             // 
@@ -156,6 +162,11 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_search);
             this.panel1.Controls.Add(this.dgv_employeeWithTitles);
             this.panel1.Controls.Add(this.tb_search);
@@ -164,6 +175,61 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1062, 553);
             this.panel1.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(927, 170);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 46);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Give Increment";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(927, 246);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(124, 46);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Promote";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(927, 322);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(124, 46);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Leave";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(927, 398);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(124, 46);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Attendance";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(926, 474);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(124, 46);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Perfomance History";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // ViewEmployeesForm
             // 
@@ -205,5 +271,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_title;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_department;
         public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

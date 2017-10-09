@@ -1,6 +1,6 @@
 ﻿namespace SBW.UI
 {
-    partial class LoadingUC
+    partial class SplashForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -56,13 +56,20 @@
             // LoadingUC
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1060, 552);
+            this.ControlBox = false;
             this.Controls.Add(this.lbl_percentage);
             this.Controls.Add(this.pbx_loadingGif);
-            this.MaximumSize = new System.Drawing.Size(1062, 553);
-            this.MinimumSize = new System.Drawing.Size(1062, 553);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1060, 552);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1060, 552);
             this.Name = "LoadingUC";
-            this.Size = new System.Drawing.Size(1062, 553);
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             ((System.ComponentModel.ISupportInitialize)(this.pbx_loadingGif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

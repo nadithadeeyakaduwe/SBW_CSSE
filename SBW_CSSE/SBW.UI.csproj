@@ -83,29 +83,47 @@
     <Compile Include="EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeUserControls\AddEmployeeForm.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="EmployeeForms\AddEmployeeForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeUserControls\AddEmployeeForm.Designer.cs">
+    <Compile Include="EmployeeForms\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeeDetailForm.cs">
+    <Compile Include="EmployeeForms\EmployeeAttendanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeeDetailForm.Designer.cs">
+    <Compile Include="EmployeeForms\EmployeeAttendanceForm.Designer.cs">
+      <DependentUpon>EmployeeAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeForms\EmployeeIncrementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForms\EmployeeIncrementForm.Designer.cs">
+      <DependentUpon>EmployeeIncrementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeForms\EmployeePromotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForms\EmployeePromotionForm.Designer.cs">
+      <DependentUpon>EmployeePromotionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeForms\ViewEmployeeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForms\ViewEmployeeDetailForm.Designer.cs">
       <DependentUpon>ViewEmployeeDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeesForm.cs">
+    <Compile Include="EmployeeForms\ViewEmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeUserControls\ViewEmployeesForm.Designer.cs">
+    <Compile Include="EmployeeForms\ViewEmployeesForm.Designer.cs">
       <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadingUC.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadingUC.Designer.cs">
-      <DependentUpon>LoadingUC.cs</DependentUpon>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryForm.cs">
       <SubType>Form</SubType>
@@ -168,17 +186,26 @@
     <EmbeddedResource Include="EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeUserControls\AddEmployeeForm.resx">
+    <EmbeddedResource Include="EmployeeForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeUserControls\ViewEmployeeDetailForm.resx">
+    <EmbeddedResource Include="EmployeeForms\EmployeeAttendanceForm.resx">
+      <DependentUpon>EmployeeAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForms\EmployeeIncrementForm.resx">
+      <DependentUpon>EmployeeIncrementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForms\EmployeePromotionForm.resx">
+      <DependentUpon>EmployeePromotionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForms\ViewEmployeeDetailForm.resx">
       <DependentUpon>ViewEmployeeDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeUserControls\ViewEmployeesForm.resx">
+    <EmbeddedResource Include="EmployeeForms\ViewEmployeesForm.resx">
       <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadingUC.resx">
-      <DependentUpon>LoadingUC.cs</DependentUpon>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
@@ -233,7 +260,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo.jpg" />
+    <None Include="Resources\digital-7 %28italic%29.ttf" />
+    <None Include="Resources\digital-7 %28mono italic%29.ttf" />
+    <EmbeddedResource Include="Resources\digital-7 %28mono%29.ttf" />
+    <EmbeddedResource Include="Resources\digital-7.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SBWLogo.jpg" />
@@ -243,6 +273,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clock.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

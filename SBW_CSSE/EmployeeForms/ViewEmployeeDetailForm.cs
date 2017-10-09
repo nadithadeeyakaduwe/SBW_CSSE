@@ -90,6 +90,7 @@ namespace SBW.UI.EmployeeUserControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_back_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
 
         /// <summary>

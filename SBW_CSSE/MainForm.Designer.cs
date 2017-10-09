@@ -39,8 +39,7 @@
             this.pbx_logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel_header = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_clock = new System.Windows.Forms.Label();
             this.btn_logout = new System.Windows.Forms.Button();
             this.lbl_userName = new System.Windows.Forms.Label();
             this.lbl_currentMenu = new System.Windows.Forms.Label();
@@ -48,7 +47,6 @@
             this.panel_navigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_logo)).BeginInit();
             this.panel_header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_navigation
@@ -223,8 +221,7 @@
             // 
             this.panel_header.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel_header.BackColor = System.Drawing.Color.Black;
-            this.panel_header.Controls.Add(this.pictureBox2);
-            this.panel_header.Controls.Add(this.label3);
+            this.panel_header.Controls.Add(this.lbl_clock);
             this.panel_header.Controls.Add(this.btn_logout);
             this.panel_header.Controls.Add(this.lbl_userName);
             this.panel_header.Controls.Add(this.lbl_currentMenu);
@@ -236,22 +233,17 @@
             this.panel_header.Size = new System.Drawing.Size(1060, 125);
             this.panel_header.TabIndex = 1;
             // 
-            // pictureBox2
+            // lbl_clock
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(36, 37);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(56, 51);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(748, 56);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Time";
+            this.lbl_clock.AutoSize = true;
+            this.lbl_clock.Font = new System.Drawing.Font("DengXian", 24F);
+            this.lbl_clock.Image = global::SBW.UI.Properties.Resources.Clock;
+            this.lbl_clock.Location = new System.Drawing.Point(732, 44);
+            this.lbl_clock.Name = "lbl_clock";
+            this.lbl_clock.Size = new System.Drawing.Size(201, 39);
+            this.lbl_clock.TabIndex = 3;
+            this.lbl_clock.Text = "00:00:00 AM";
+            this.lbl_clock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_logout
             // 
@@ -300,8 +292,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
@@ -320,7 +311,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbx_logo)).EndInit();
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,7 +320,7 @@
         private System.Windows.Forms.Panel panel_navigation;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel_header;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_clock;
         private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.Label lbl_userName;
         private System.Windows.Forms.Panel panel_main;
@@ -342,7 +332,6 @@
         private System.Windows.Forms.Button btn_salesMain;
         private System.Windows.Forms.Button btn_InventoryMain;
         private System.Windows.Forms.Button btn_customerMain;
-        private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Label lbl_currentMenu;
     }
 }

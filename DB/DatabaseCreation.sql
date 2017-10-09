@@ -121,6 +121,44 @@ CREATE TABLE [HRM].[Employee]
 )
 GO
 
+CREATE TABLE [HRM].[EmployeePerformance] (
+
+	ID INT NOT NULL IDENTITY(1,1),
+	EmployeeID INT NOT NULL ,
+	EffectiveDate DATETIME NOT NULL,
+	Reason VARCHAR (200),
+	Old_Position VARCHAR(30),
+	New_Position VARCHAR (30),
+	Old_Salary DECIMAL,
+	New_Salary DECIMAL,
+	Status INT DEFAULT 1 NOT NULL, -- whether its a promotion or an increment
+	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
+	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
+	CONSTRAINT pk_Performance PRIMARY KEY (ID),
+	CONSTRAINT fk_Performance FOREIGN KEY(EmployeeID) REFERENCES [HRM].[Employee](EmployeeID) ON DELETE CASCADE ON UPDATE CASCADE
+)
+GO
+
+CREATE TABLE [HRM].[EmployeeAttendance](
+	--Date DATE NOT NULL DEFAULT CONVERT(DATE, GETDATE()),
+	ID INT NOT NULL IDENTITY (1,1),
+	EmployeeID int NOT NULL,
+	InTime DATETIME NOT NULL,
+	InNote VARCHAR(30),
+	OutTime DATETIME,
+	OutNote VARCHAR(30),
+	Duration FLOAT,
+	LateTime time(0) DEFAULT '00:00:00',
+	Status INT DEFAULT 1,
+	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
+	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
+
+	CONSTRAINT pk_Atendance PRIMARY KEY (ID),
+	CONSTRAINT fk_Attendance FOREIGN KEY (EmployeeID) REFERENCES [HRM].[Employee](EmployeeID) ON DELETE CASCADE ON UPDATE CASCADE
+	
+)
+GO
+
 CREATE TABLE [Stock].[Product]
 (
 	Product_ID INT NOT NULL IDENTITY(1,1),

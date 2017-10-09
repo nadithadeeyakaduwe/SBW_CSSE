@@ -9,7 +9,7 @@ using SBW.UI.Common;
 
 namespace SBW.UI.EmployeeUserControls
 {
-    public partial class AddEmployeeForm : UserControl
+    public partial class AddEmployeeForm : Form
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AddEmployeeForm"/> class.

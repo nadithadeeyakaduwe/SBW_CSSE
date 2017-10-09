@@ -11,6 +11,7 @@ using SBW.Services;
 using SBW.BusinessService;
 using SBW.Entities.HRMModule;
 using System.Threading;
+using SBW.UI.Common;
 
 namespace SBW.UI.EmployeeUserControls
 {
@@ -22,13 +23,31 @@ namespace SBW.UI.EmployeeUserControls
         private IEmployeeService service;
 
         /// <summary>
+        /// The main panel x coordinate
+        /// </summary>
+        private const int MAIN_PANEL_X_COORDINATE = 260;
+
+        /// <summary>
+        /// The main panel y coordinate
+        /// </summary>
+        private const int MAIN_PANEL_Y_COORDINATE = 180;
+
+        /// <summary>
+        /// Gets the splash form.
+        /// </summary>
+        /// <value>
+        /// The splash form.
+        /// </value>
+        public SplashForm SplashForm { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ViewEmployeesForm"/> class.
         /// </summary>
         public ViewEmployeesForm()
         {
             InitializeComponent();
         }
-        
+
         /// <summary>
         /// Handles the Load event of the ViewEmployeesUC control.
         /// </summary>
@@ -38,35 +57,62 @@ namespace SBW.UI.EmployeeUserControls
         {
             service = ServiceFactory.GetEmployeeSeriveice();
 
-            dgv_employeeWithTitles.DataSource = service.ViewEmployeesWithTitles();
+            DataTable dt = null;
 
-            //DataTable dt = null;
-            //LoadingUC loadingForm = new LoadingUC();
-            //loadingForm.Show();
+            BackgroundWorker backgroundWorker = new BackgroundWorker()
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = false
+            };
 
-            //BackgroundWorker backgroundWorker = new BackgroundWorker()
-            //{
-            //    WorkerReportsProgress = true,
-            //    WorkerSupportsCancellation = false
-            //};
+            ProgressChangedEventHandler progressChangedEventHandler = (bgSender, ev) =>
+            {
+                if (this.SplashForm != null)
+                {
+                    this.SplashForm.lbl_percentage.Text = $"{ev.ProgressPercentage.ToString()} %";
+                }
+            };
 
-            //ProgressChangedEventHandler progressChangedEventHandler = (bgSender, ev) =>
-            //{
-            //    loadingForm.lbl_percentage.Text = $"{ev.ProgressPercentage.ToString()} %";
-            //};
+            backgroundWorker.DoWork += delegate
+            {
+                backgroundWorker.ReportProgress(50);
 
-            //backgroundWorker.DoWork += delegate
-            //{
-            //    service = ServiceFactory.GetEmployeeSeriveice();
+                service = ServiceFactory.GetEmployeeSeriveice();
 
-            //    dt = service.ViewEmployeesWithTitles();
-            //};
+                dt = service.ViewEmployeesWithTitles();
 
-            //backgroundWorker.RunWorkerCompleted += delegate
-            //{
-            //    dgv_employeeWithTitles.DataSource = dt;
-            //    loadingForm.Hide();
-            //};
+                backgroundWorker.ReportProgress(100);
+
+            };
+
+            backgroundWorker.RunWorkerCompleted += delegate
+            {
+                dgv_employeeWithTitles.DataSource = dt;
+
+                this.HideProgress();
+            };
+
+            backgroundWorker.RunWorkerAsync();
+
+            this.ShowProgress();
+        }
+
+        private void HideProgress()
+        {
+            if (this.SplashForm != null)
+            {
+                this.SplashForm.Close();
+                this.SplashForm = null;
+            }
+        }
+ 
+        /// <summary>
+        /// Shows the progress.
+        /// </summary>
+        private void ShowProgress()
+        {
+            this.SplashForm = new SplashForm();
+            this.SplashForm.ShowDialog();
         }
 
         /// <summary>
@@ -84,25 +130,9 @@ namespace SBW.UI.EmployeeUserControls
 
             if (employee != null)
             {
-                loadForm(new ViewEmployeeDetailForm(employee));
+                Helper.ShowForm(new ViewEmployeeDetailForm(employee));
             }
         }
-
-        /// <summary>
-        /// Loads the form.
-        /// </summary>
-        /// <param name="form">The form.</param>
-        private void loadForm(Form form)
-        {
-            panel1.Controls.Clear();
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.TopLevel = false;
-            panel1.Controls.Add(form);
-            form.Dock = DockStyle.Fill;
-            form.TopMost = true;
-            form.Show();
-        }
-
         private void btn_search_Click(object sender, EventArgs e)
         {
             service = ServiceFactory.GetEmployeeSeriveice();
@@ -114,7 +144,7 @@ namespace SBW.UI.EmployeeUserControls
             {
                 dgv_employeeWithTitles.DataSource = service.SearchEmployee(tb_search.Text);
             }
-            
+
         }
     }
 }
