@@ -11,7 +11,7 @@ using SBW.Entities.HRMModule;
 using SBW.Services;
 using SBW.BusinessService;
 
-namespace SBW.UI.EmployeeUserControls
+namespace SBW.UI.EmployeeForms
 {
     public partial class ViewEmployeeDetailForm : Form
     {

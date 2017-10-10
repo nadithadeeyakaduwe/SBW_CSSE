@@ -1,4 +1,4 @@
-﻿namespace SBW.UI.EmployeeUserControls
+﻿namespace SBW.UI.EmployeeForms
 {
     partial class ViewEmployeeDetailForm
     {
@@ -440,7 +440,7 @@
             // btn_delete
             // 
             this.btn_delete.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btn_delete.Location = new System.Drawing.Point(780, 457);
+            this.btn_delete.Location = new System.Drawing.Point(780, 465);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(112, 53);
             this.btn_delete.TabIndex = 68;
@@ -451,7 +451,7 @@
             // btn_update
             // 
             this.btn_update.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btn_update.Location = new System.Drawing.Point(898, 457);
+            this.btn_update.Location = new System.Drawing.Point(898, 465);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(112, 53);
             this.btn_update.TabIndex = 69;
@@ -473,7 +473,7 @@
             // btn_back
             // 
             this.btn_back.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btn_back.Location = new System.Drawing.Point(662, 457);
+            this.btn_back.Location = new System.Drawing.Point(662, 465);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(112, 53);
             this.btn_back.TabIndex = 71;
@@ -485,7 +485,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1044, 513);
+            this.ClientSize = new System.Drawing.Size(1060, 552);
             this.ControlBox = false;
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.lbl_empNo);
@@ -528,11 +528,13 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1060, 552);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1060, 552);
             this.Name = "ViewEmployeeDetailForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.TopMost = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             ((System.ComponentModel.ISupportInitialize)(this.pbx_employeePic)).EndInit();
             this.panel_civilStatus.ResumeLayout(false);
             this.panel_civilStatus.PerformLayout();

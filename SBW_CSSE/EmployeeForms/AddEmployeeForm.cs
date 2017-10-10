@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SBW.UI.Common;
 
-namespace SBW.UI.EmployeeUserControls
+namespace SBW.UI.EmployeeForms
 {
     public partial class AddEmployeeForm : Form
     {

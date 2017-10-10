@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SBW.UI.EmployeeUserControls
+namespace SBW.UI.EmployeeForms
 {
     public partial class EmployeeIncrementForm : Form
     {

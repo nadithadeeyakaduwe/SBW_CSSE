@@ -13,7 +13,7 @@ using SBW.Entities.HRMModule;
 using System.Threading;
 using SBW.UI.Common;
 
-namespace SBW.UI.EmployeeUserControls
+namespace SBW.UI.EmployeeForms
 {
     public partial class ViewEmployeesForm : Form
     {
@@ -75,14 +75,10 @@ namespace SBW.UI.EmployeeUserControls
 
             backgroundWorker.DoWork += delegate
             {
-                backgroundWorker.ReportProgress(50);
-
-                service = ServiceFactory.GetEmployeeSeriveice();
-
-                dt = service.ViewEmployeesWithTitles();
+                backgroundWorker.ReportProgress(50, ServiceFactory.GetEmployeeSeriveice());
 
                 backgroundWorker.ReportProgress(100);
-
+                dt = service.ViewEmployeesWithTitles();
             };
 
             backgroundWorker.RunWorkerCompleted += delegate
@@ -92,6 +88,7 @@ namespace SBW.UI.EmployeeUserControls
                 this.HideProgress();
             };
 
+            backgroundWorker.ProgressChanged += progressChangedEventHandler;
             backgroundWorker.RunWorkerAsync();
 
             this.ShowProgress();
@@ -124,7 +121,7 @@ namespace SBW.UI.EmployeeUserControls
         {
             service = ServiceFactory.GetEmployeeSeriveice();
 
-            int EmployeeID = Convert.ToInt32(dgv_employeeWithTitles.Rows[e.RowIndex].Cells[0].Value.ToString());
+            int EmployeeID = Convert.ToInt32(dgv_employeeWithTitles.Rows[e.RowIndex].Cells["dgvCol_EmployeeID"].Value.ToString());
 
             Employee employee = service.GetEmployee(EmployeeID);
 
@@ -145,6 +142,19 @@ namespace SBW.UI.EmployeeUserControls
                 dgv_employeeWithTitles.DataSource = service.SearchEmployee(tb_search.Text);
             }
 
+        }
+
+        private void btn_promote_Click(object sender, EventArgs e)
+        {
+            service = ServiceFactory.GetEmployeeSeriveice();
+            int EmployeeID = Convert.ToInt32(dgv_employeeWithTitles.CurrentRow.Cells["dgvCol_EmployeeID"].Value.ToString());
+
+            Employee employee = service.GetEmployee(EmployeeID);
+
+            if (employee != null)
+            {
+                Helper.ShowForm(new EmployeePromotionForm(employee));
+            }
         }
     }
 }

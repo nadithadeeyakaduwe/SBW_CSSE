@@ -1,4 +1,4 @@
-﻿using SBW.UI.EmployeeUserControls;
+﻿using SBW.UI.EmployeeForms;
 using System;
 using System.Windows.Forms;
 

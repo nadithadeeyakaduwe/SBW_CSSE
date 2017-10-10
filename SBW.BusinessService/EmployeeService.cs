@@ -109,7 +109,6 @@ namespace SBW.BusinessService
             {
                 MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
             }
-
             return Result;
         }
 
@@ -180,6 +179,11 @@ namespace SBW.BusinessService
             return dt;
         }
 
+        /// <summary>
+        /// Loads the ComboBox.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
         public DataTable LoadComboBox(string tableName)
         {
             DataTable result = null;
@@ -200,6 +204,31 @@ namespace SBW.BusinessService
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Promotes the employee.
+        /// </summary>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <returns></returns>
+        public bool PromoteEmployee(EmployeePromotion promotionDto)
+        {
+            bool status = true;
+
+            repo = new EmployeeRepository();
+
+            status = repo.promoteEmployee(promotionDto);
+
+            if (status)
+            {
+                MessageBoxHelper.Show(CommonResource.PromotionSuccess);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.PromotionError);
+            }
+
+            return status;
         }
     }
 }

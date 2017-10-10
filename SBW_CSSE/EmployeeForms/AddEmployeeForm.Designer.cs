@@ -1,4 +1,4 @@
-﻿namespace SBW.UI.EmployeeUserControls
+﻿namespace SBW.UI.EmployeeForms
 {
     partial class AddEmployeeForm
     {
@@ -34,11 +34,11 @@
             this.lbl_mobNo = new System.Windows.Forms.Label();
             this.lbl__homeTel = new System.Windows.Forms.Label();
             this.lbl_email = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_qualification = new System.Windows.Forms.Label();
+            this.lbl_pastExp = new System.Windows.Forms.Label();
             this.lbl_epfNo = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbl_position = new System.Windows.Forms.Label();
+            this.lbl_joinDate = new System.Windows.Forms.Label();
             this.tb_fullName = new System.Windows.Forms.TextBox();
             this.tb_nic = new System.Windows.Forms.TextBox();
             this.tb_mobile = new System.Windows.Forms.TextBox();
@@ -74,7 +74,7 @@
             // lbl_fisrtName
             // 
             this.lbl_fisrtName.AutoSize = true;
-            this.lbl_fisrtName.Location = new System.Drawing.Point(99, 24);
+            this.lbl_fisrtName.Location = new System.Drawing.Point(59, 24);
             this.lbl_fisrtName.Name = "lbl_fisrtName";
             this.lbl_fisrtName.Size = new System.Drawing.Size(61, 15);
             this.lbl_fisrtName.TabIndex = 0;
@@ -83,7 +83,7 @@
             // lbl_nic
             // 
             this.lbl_nic.AutoSize = true;
-            this.lbl_nic.Location = new System.Drawing.Point(99, 62);
+            this.lbl_nic.Location = new System.Drawing.Point(59, 62);
             this.lbl_nic.Name = "lbl_nic";
             this.lbl_nic.Size = new System.Drawing.Size(27, 15);
             this.lbl_nic.TabIndex = 1;
@@ -92,7 +92,7 @@
             // lbl_dob
             // 
             this.lbl_dob.AutoSize = true;
-            this.lbl_dob.Location = new System.Drawing.Point(98, 105);
+            this.lbl_dob.Location = new System.Drawing.Point(58, 105);
             this.lbl_dob.Name = "lbl_dob";
             this.lbl_dob.Size = new System.Drawing.Size(73, 15);
             this.lbl_dob.TabIndex = 2;
@@ -101,7 +101,7 @@
             // lbl_mobNo
             // 
             this.lbl_mobNo.AutoSize = true;
-            this.lbl_mobNo.Location = new System.Drawing.Point(99, 146);
+            this.lbl_mobNo.Location = new System.Drawing.Point(59, 146);
             this.lbl_mobNo.Name = "lbl_mobNo";
             this.lbl_mobNo.Size = new System.Drawing.Size(63, 15);
             this.lbl_mobNo.TabIndex = 3;
@@ -110,7 +110,7 @@
             // lbl__homeTel
             // 
             this.lbl__homeTel.AutoSize = true;
-            this.lbl__homeTel.Location = new System.Drawing.Point(98, 190);
+            this.lbl__homeTel.Location = new System.Drawing.Point(58, 190);
             this.lbl__homeTel.Name = "lbl__homeTel";
             this.lbl__homeTel.Size = new System.Drawing.Size(58, 15);
             this.lbl__homeTel.TabIndex = 4;
@@ -119,29 +119,29 @@
             // lbl_email
             // 
             this.lbl_email.AutoSize = true;
-            this.lbl_email.Location = new System.Drawing.Point(99, 234);
+            this.lbl_email.Location = new System.Drawing.Point(59, 234);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(41, 15);
             this.lbl_email.TabIndex = 5;
             this.lbl_email.Text = "E-Mail";
             // 
-            // label8
+            // lbl_qualification
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(569, 314);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 15);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Qualifications";
+            this.lbl_qualification.AutoSize = true;
+            this.lbl_qualification.Location = new System.Drawing.Point(569, 314);
+            this.lbl_qualification.Name = "lbl_qualification";
+            this.lbl_qualification.Size = new System.Drawing.Size(80, 15);
+            this.lbl_qualification.TabIndex = 10;
+            this.lbl_qualification.Text = "Qualifications";
             // 
-            // label9
+            // lbl_pastExp
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(569, 224);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 15);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Past Experience";
+            this.lbl_pastExp.AutoSize = true;
+            this.lbl_pastExp.Location = new System.Drawing.Point(569, 224);
+            this.lbl_pastExp.Name = "lbl_pastExp";
+            this.lbl_pastExp.Size = new System.Drawing.Size(88, 15);
+            this.lbl_pastExp.TabIndex = 9;
+            this.lbl_pastExp.Text = "Past Experience";
             // 
             // lbl_epfNo
             // 
@@ -152,69 +152,69 @@
             this.lbl_epfNo.TabIndex = 8;
             this.lbl_epfNo.Text = "EPF No";
             // 
-            // label11
+            // lbl_position
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(569, 63);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 15);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Position";
+            this.lbl_position.AutoSize = true;
+            this.lbl_position.Location = new System.Drawing.Point(569, 63);
+            this.lbl_position.Name = "lbl_position";
+            this.lbl_position.Size = new System.Drawing.Size(50, 15);
+            this.lbl_position.TabIndex = 7;
+            this.lbl_position.Text = "Position";
             // 
-            // label12
+            // lbl_joinDate
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(569, 24);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 15);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Join Date";
+            this.lbl_joinDate.AutoSize = true;
+            this.lbl_joinDate.Location = new System.Drawing.Point(569, 24);
+            this.lbl_joinDate.Name = "lbl_joinDate";
+            this.lbl_joinDate.Size = new System.Drawing.Size(55, 15);
+            this.lbl_joinDate.TabIndex = 6;
+            this.lbl_joinDate.Text = "Join Date";
             // 
             // tb_fullName
             // 
             this.tb_fullName.Location = new System.Drawing.Point(212, 21);
             this.tb_fullName.Name = "tb_fullName";
-            this.tb_fullName.Size = new System.Drawing.Size(200, 23);
+            this.tb_fullName.Size = new System.Drawing.Size(268, 23);
             this.tb_fullName.TabIndex = 0;
             // 
             // tb_nic
             // 
             this.tb_nic.Location = new System.Drawing.Point(212, 62);
             this.tb_nic.Name = "tb_nic";
-            this.tb_nic.Size = new System.Drawing.Size(200, 23);
+            this.tb_nic.Size = new System.Drawing.Size(268, 23);
             this.tb_nic.TabIndex = 2;
             // 
             // tb_mobile
             // 
             this.tb_mobile.Location = new System.Drawing.Point(212, 146);
             this.tb_mobile.Name = "tb_mobile";
-            this.tb_mobile.Size = new System.Drawing.Size(200, 23);
+            this.tb_mobile.Size = new System.Drawing.Size(268, 23);
             this.tb_mobile.TabIndex = 4;
             // 
             // tb_homeTel
             // 
             this.tb_homeTel.Location = new System.Drawing.Point(212, 188);
             this.tb_homeTel.Name = "tb_homeTel";
-            this.tb_homeTel.Size = new System.Drawing.Size(200, 23);
+            this.tb_homeTel.Size = new System.Drawing.Size(268, 23);
             this.tb_homeTel.TabIndex = 5;
             // 
             // tb_email
             // 
             this.tb_email.Location = new System.Drawing.Point(212, 230);
             this.tb_email.Name = "tb_email";
-            this.tb_email.Size = new System.Drawing.Size(200, 23);
+            this.tb_email.Size = new System.Drawing.Size(268, 23);
             this.tb_email.TabIndex = 6;
             // 
             // tb_epfNo
             // 
             this.tb_epfNo.Location = new System.Drawing.Point(727, 137);
             this.tb_epfNo.Name = "tb_epfNo";
-            this.tb_epfNo.Size = new System.Drawing.Size(207, 23);
+            this.tb_epfNo.Size = new System.Drawing.Size(277, 23);
             this.tb_epfNo.TabIndex = 14;
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(817, 451);
+            this.btn_save.Location = new System.Drawing.Point(887, 469);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(117, 53);
             this.btn_save.TabIndex = 18;
@@ -224,7 +224,7 @@
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(661, 451);
+            this.btn_clear.Location = new System.Drawing.Point(731, 469);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(117, 53);
             this.btn_clear.TabIndex = 17;
@@ -236,13 +236,13 @@
             // 
             this.dtp_dob.Location = new System.Drawing.Point(212, 104);
             this.dtp_dob.Name = "dtp_dob";
-            this.dtp_dob.Size = new System.Drawing.Size(200, 23);
+            this.dtp_dob.Size = new System.Drawing.Size(268, 23);
             this.dtp_dob.TabIndex = 3;
             // 
             // lbl_address
             // 
             this.lbl_address.AutoSize = true;
-            this.lbl_address.Location = new System.Drawing.Point(99, 275);
+            this.lbl_address.Location = new System.Drawing.Point(59, 275);
             this.lbl_address.Name = "lbl_address";
             this.lbl_address.Size = new System.Drawing.Size(49, 15);
             this.lbl_address.TabIndex = 27;
@@ -252,7 +252,7 @@
             // 
             this.rtb_address.Location = new System.Drawing.Point(212, 275);
             this.rtb_address.Name = "rtb_address";
-            this.rtb_address.Size = new System.Drawing.Size(200, 71);
+            this.rtb_address.Size = new System.Drawing.Size(268, 71);
             this.rtb_address.TabIndex = 7;
             this.rtb_address.Text = "";
             // 
@@ -262,7 +262,7 @@
             this.panel_gender.Controls.Add(this.rbtn_male);
             this.panel_gender.Location = new System.Drawing.Point(212, 352);
             this.panel_gender.Name = "panel_gender";
-            this.panel_gender.Size = new System.Drawing.Size(200, 43);
+            this.panel_gender.Size = new System.Drawing.Size(268, 43);
             this.panel_gender.TabIndex = 29;
             // 
             // rbtn_female
@@ -293,7 +293,7 @@
             this.panel_civilStatus.Controls.Add(this.rbtn_single);
             this.panel_civilStatus.Location = new System.Drawing.Point(212, 417);
             this.panel_civilStatus.Name = "panel_civilStatus";
-            this.panel_civilStatus.Size = new System.Drawing.Size(200, 43);
+            this.panel_civilStatus.Size = new System.Drawing.Size(268, 43);
             this.panel_civilStatus.TabIndex = 30;
             // 
             // rbtn_married
@@ -321,7 +321,7 @@
             // lbl_gender
             // 
             this.lbl_gender.AutoSize = true;
-            this.lbl_gender.Location = new System.Drawing.Point(99, 371);
+            this.lbl_gender.Location = new System.Drawing.Point(59, 371);
             this.lbl_gender.Name = "lbl_gender";
             this.lbl_gender.Size = new System.Drawing.Size(45, 15);
             this.lbl_gender.TabIndex = 31;
@@ -330,7 +330,7 @@
             // lbl_civilStatus
             // 
             this.lbl_civilStatus.AutoSize = true;
-            this.lbl_civilStatus.Location = new System.Drawing.Point(99, 432);
+            this.lbl_civilStatus.Location = new System.Drawing.Point(59, 432);
             this.lbl_civilStatus.Name = "lbl_civilStatus";
             this.lbl_civilStatus.Size = new System.Drawing.Size(65, 15);
             this.lbl_civilStatus.TabIndex = 32;
@@ -340,7 +340,7 @@
             // 
             this.rtb_pastExperience.Location = new System.Drawing.Point(727, 205);
             this.rtb_pastExperience.Name = "rtb_pastExperience";
-            this.rtb_pastExperience.Size = new System.Drawing.Size(207, 84);
+            this.rtb_pastExperience.Size = new System.Drawing.Size(277, 84);
             this.rtb_pastExperience.TabIndex = 15;
             this.rtb_pastExperience.Text = "";
             // 
@@ -348,7 +348,7 @@
             // 
             this.rtb_qualification.Location = new System.Drawing.Point(727, 314);
             this.rtb_qualification.Name = "rtb_qualification";
-            this.rtb_qualification.Size = new System.Drawing.Size(207, 81);
+            this.rtb_qualification.Size = new System.Drawing.Size(277, 81);
             this.rtb_qualification.TabIndex = 16;
             this.rtb_qualification.Text = "";
             // 
@@ -356,12 +356,12 @@
             // 
             this.dtp_joinDate.Location = new System.Drawing.Point(727, 24);
             this.dtp_joinDate.Name = "dtp_joinDate";
-            this.dtp_joinDate.Size = new System.Drawing.Size(207, 23);
+            this.dtp_joinDate.Size = new System.Drawing.Size(277, 23);
             this.dtp_joinDate.TabIndex = 12;
             // 
             // btn_demo
             // 
-            this.btn_demo.Location = new System.Drawing.Point(487, 452);
+            this.btn_demo.Location = new System.Drawing.Point(557, 470);
             this.btn_demo.Name = "btn_demo";
             this.btn_demo.Size = new System.Drawing.Size(113, 52);
             this.btn_demo.TabIndex = 33;
@@ -382,7 +382,7 @@
             // 
             this.tb_basicSalary.Location = new System.Drawing.Point(727, 172);
             this.tb_basicSalary.Name = "tb_basicSalary";
-            this.tb_basicSalary.Size = new System.Drawing.Size(207, 23);
+            this.tb_basicSalary.Size = new System.Drawing.Size(277, 23);
             this.tb_basicSalary.TabIndex = 37;
             // 
             // lbl_backSalary
@@ -399,7 +399,7 @@
             this.cb_position.FormattingEnabled = true;
             this.cb_position.Location = new System.Drawing.Point(727, 61);
             this.cb_position.Name = "cb_position";
-            this.cb_position.Size = new System.Drawing.Size(207, 23);
+            this.cb_position.Size = new System.Drawing.Size(277, 23);
             this.cb_position.TabIndex = 38;
             // 
             // cb_department
@@ -407,7 +407,7 @@
             this.cb_department.FormattingEnabled = true;
             this.cb_department.Location = new System.Drawing.Point(727, 95);
             this.cb_department.Name = "cb_department";
-            this.cb_department.Size = new System.Drawing.Size(207, 23);
+            this.cb_department.Size = new System.Drawing.Size(277, 23);
             this.cb_department.TabIndex = 39;
             // 
             // AddEmployeeForm
@@ -440,11 +440,11 @@
             this.Controls.Add(this.tb_mobile);
             this.Controls.Add(this.tb_nic);
             this.Controls.Add(this.tb_fullName);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lbl_qualification);
+            this.Controls.Add(this.lbl_pastExp);
             this.Controls.Add(this.lbl_epfNo);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lbl_position);
+            this.Controls.Add(this.lbl_joinDate);
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.lbl__homeTel);
             this.Controls.Add(this.lbl_mobNo);
@@ -478,11 +478,11 @@
         private System.Windows.Forms.Label lbl_mobNo;
         private System.Windows.Forms.Label lbl__homeTel;
         private System.Windows.Forms.Label lbl_email;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_qualification;
+        private System.Windows.Forms.Label lbl_pastExp;
         private System.Windows.Forms.Label lbl_epfNo;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbl_position;
+        private System.Windows.Forms.Label lbl_joinDate;
         private System.Windows.Forms.TextBox tb_fullName;
         private System.Windows.Forms.TextBox tb_nic;
         private System.Windows.Forms.TextBox tb_mobile;

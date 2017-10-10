@@ -113,5 +113,23 @@ namespace SBW.BusinessService {
                 return ResourceManager.GetString("DBUpdateSuccess", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while promoting the employee...!.
+        /// </summary>
+        internal static string PromotionError {
+            get {
+                return ResourceManager.GetString("PromotionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee is now promoted..
+        /// </summary>
+        internal static string PromotionSuccess {
+            get {
+                return ResourceManager.GetString("PromotionSuccess", resourceCulture);
+            }
+        }
     }
 }

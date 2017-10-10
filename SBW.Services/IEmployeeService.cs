@@ -57,5 +57,12 @@ namespace SBW.Services
         /// <param name="tableName">Name of the table.</param>
         /// <returns></returns>
         DataTable LoadComboBox(string tableName);
+
+        /// <summary>
+        /// Promotes the employee.
+        /// </summary>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <returns></returns>
+        bool PromoteEmployee(EmployeePromotion promotionDto);
     }
 }

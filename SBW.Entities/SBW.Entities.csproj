@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="EntityBase.cs" />
     <Compile Include="HRMModule\Employee.cs" />
+    <Compile Include="HRMModule\EmployeePromotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

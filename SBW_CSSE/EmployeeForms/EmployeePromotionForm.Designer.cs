@@ -1,4 +1,4 @@
-﻿namespace SBW.UI.EmployeeUserControls
+﻿namespace SBW.UI.EmployeeForms
 {
     partial class EmployeePromotionForm
     {
@@ -28,143 +28,176 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lbl_epfNo = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.lbl_oldPosition = new System.Windows.Forms.Label();
+            this.lbl_newPosition = new System.Windows.Forms.Label();
+            this.lbl_currentsalary = new System.Windows.Forms.Label();
+            this.lbl_newSalary = new System.Windows.Forms.Label();
+            this.lbl_reason = new System.Windows.Forms.Label();
+            this.lbl_epfNoValue = new System.Windows.Forms.Label();
+            this.lbl_nameValue = new System.Windows.Forms.Label();
+            this.lbl_oldPositionValue = new System.Windows.Forms.Label();
+            this.lbl_currentSalaryValue = new System.Windows.Forms.Label();
+            this.cb_newPosition = new System.Windows.Forms.ComboBox();
+            this.tb_newSalary = new System.Windows.Forms.TextBox();
+            this.rtb_reason = new System.Windows.Forms.RichTextBox();
+            this.btn_promote = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.lbl_employeeNo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_epfNo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "EPF No";
+            this.lbl_epfNo.AutoSize = true;
+            this.lbl_epfNo.Location = new System.Drawing.Point(50, 47);
+            this.lbl_epfNo.Name = "lbl_epfNo";
+            this.lbl_epfNo.Size = new System.Drawing.Size(45, 15);
+            this.lbl_epfNo.TabIndex = 0;
+            this.lbl_epfNo.Text = "EPF No";
             // 
-            // label2
+            // lbl_name
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Location = new System.Drawing.Point(50, 100);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(39, 15);
+            this.lbl_name.TabIndex = 1;
+            this.lbl_name.Text = "Name";
             // 
-            // label3
+            // lbl_oldPosition
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 163);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Old Position";
+            this.lbl_oldPosition.AutoSize = true;
+            this.lbl_oldPosition.Location = new System.Drawing.Point(50, 163);
+            this.lbl_oldPosition.Name = "lbl_oldPosition";
+            this.lbl_oldPosition.Size = new System.Drawing.Size(93, 15);
+            this.lbl_oldPosition.TabIndex = 2;
+            this.lbl_oldPosition.Text = "Current Position";
             // 
-            // label4
+            // lbl_newPosition
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(508, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "New Position";
+            this.lbl_newPosition.AutoSize = true;
+            this.lbl_newPosition.Location = new System.Drawing.Point(508, 47);
+            this.lbl_newPosition.Name = "lbl_newPosition";
+            this.lbl_newPosition.Size = new System.Drawing.Size(77, 15);
+            this.lbl_newPosition.TabIndex = 3;
+            this.lbl_newPosition.Text = "New Position";
             // 
-            // label5
+            // lbl_currentsalary
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 236);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 15);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Current Salary";
+            this.lbl_currentsalary.AutoSize = true;
+            this.lbl_currentsalary.Location = new System.Drawing.Point(50, 236);
+            this.lbl_currentsalary.Name = "lbl_currentsalary";
+            this.lbl_currentsalary.Size = new System.Drawing.Size(81, 15);
+            this.lbl_currentsalary.TabIndex = 4;
+            this.lbl_currentsalary.Text = "Current Salary";
             // 
-            // label6
+            // lbl_newSalary
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(508, 110);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 15);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "New Salary";
+            this.lbl_newSalary.AutoSize = true;
+            this.lbl_newSalary.Location = new System.Drawing.Point(508, 110);
+            this.lbl_newSalary.Name = "lbl_newSalary";
+            this.lbl_newSalary.Size = new System.Drawing.Size(65, 15);
+            this.lbl_newSalary.TabIndex = 5;
+            this.lbl_newSalary.Text = "New Salary";
             // 
-            // label7
+            // lbl_reason
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(50, 312);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 15);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Reason";
+            this.lbl_reason.AutoSize = true;
+            this.lbl_reason.Location = new System.Drawing.Point(50, 312);
+            this.lbl_reason.Name = "lbl_reason";
+            this.lbl_reason.Size = new System.Drawing.Size(45, 15);
+            this.lbl_reason.TabIndex = 6;
+            this.lbl_reason.Text = "Reason";
             // 
-            // label8
+            // lbl_epfNoValue
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(285, 47);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 15);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "EPF No";
+            this.lbl_epfNoValue.AutoSize = true;
+            this.lbl_epfNoValue.Location = new System.Drawing.Point(274, 47);
+            this.lbl_epfNoValue.Name = "lbl_epfNoValue";
+            this.lbl_epfNoValue.Size = new System.Drawing.Size(45, 15);
+            this.lbl_epfNoValue.TabIndex = 7;
+            this.lbl_epfNoValue.Text = "EPF No";
             // 
-            // label9
+            // lbl_nameValue
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(285, 100);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 15);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Name";
+            this.lbl_nameValue.AutoSize = true;
+            this.lbl_nameValue.Location = new System.Drawing.Point(274, 100);
+            this.lbl_nameValue.Name = "lbl_nameValue";
+            this.lbl_nameValue.Size = new System.Drawing.Size(39, 15);
+            this.lbl_nameValue.TabIndex = 8;
+            this.lbl_nameValue.Text = "Name";
             // 
-            // label10
+            // lbl_oldPositionValue
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(274, 163);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 15);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Old Position";
+            this.lbl_oldPositionValue.AutoSize = true;
+            this.lbl_oldPositionValue.Location = new System.Drawing.Point(274, 163);
+            this.lbl_oldPositionValue.Name = "lbl_oldPositionValue";
+            this.lbl_oldPositionValue.Size = new System.Drawing.Size(93, 15);
+            this.lbl_oldPositionValue.TabIndex = 9;
+            this.lbl_oldPositionValue.Text = "Current Position";
             // 
-            // label11
+            // lbl_currentSalaryValue
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(274, 236);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 15);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Current Salary";
+            this.lbl_currentSalaryValue.AutoSize = true;
+            this.lbl_currentSalaryValue.Location = new System.Drawing.Point(274, 236);
+            this.lbl_currentSalaryValue.Name = "lbl_currentSalaryValue";
+            this.lbl_currentSalaryValue.Size = new System.Drawing.Size(81, 15);
+            this.lbl_currentSalaryValue.TabIndex = 10;
+            this.lbl_currentSalaryValue.Text = "Current Salary";
             // 
-            // comboBox1
+            // cb_newPosition
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(698, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 23);
-            this.comboBox1.TabIndex = 11;
+            this.cb_newPosition.FormattingEnabled = true;
+            this.cb_newPosition.Location = new System.Drawing.Point(698, 44);
+            this.cb_newPosition.Name = "cb_newPosition";
+            this.cb_newPosition.Size = new System.Drawing.Size(195, 23);
+            this.cb_newPosition.TabIndex = 11;
             // 
-            // textBox1
+            // tb_newSalary
             // 
-            this.textBox1.Location = new System.Drawing.Point(698, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 23);
-            this.textBox1.TabIndex = 12;
+            this.tb_newSalary.Location = new System.Drawing.Point(698, 110);
+            this.tb_newSalary.Name = "tb_newSalary";
+            this.tb_newSalary.Size = new System.Drawing.Size(195, 23);
+            this.tb_newSalary.TabIndex = 12;
             // 
-            // richTextBox1
+            // rtb_reason
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(58, 351);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(614, 121);
-            this.richTextBox1.TabIndex = 13;
-            this.richTextBox1.Text = "";
+            this.rtb_reason.Location = new System.Drawing.Point(58, 351);
+            this.rtb_reason.Name = "rtb_reason";
+            this.rtb_reason.Size = new System.Drawing.Size(614, 121);
+            this.rtb_reason.TabIndex = 13;
+            this.rtb_reason.Text = "";
+            // 
+            // btn_promote
+            // 
+            this.btn_promote.Location = new System.Drawing.Point(942, 442);
+            this.btn_promote.Name = "btn_promote";
+            this.btn_promote.Size = new System.Drawing.Size(91, 48);
+            this.btn_promote.TabIndex = 14;
+            this.btn_promote.Text = "Promote";
+            this.btn_promote.UseVisualStyleBackColor = true;
+            this.btn_promote.Click += new System.EventHandler(this.btn_promote_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(818, 442);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(91, 48);
+            this.btn_cancel.TabIndex = 15;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // lbl_employeeNo
+            // 
+            this.lbl_employeeNo.AutoSize = true;
+            this.lbl_employeeNo.Location = new System.Drawing.Point(152, 23);
+            this.lbl_employeeNo.Name = "lbl_employeeNo";
+            this.lbl_employeeNo.Size = new System.Drawing.Size(75, 15);
+            this.lbl_employeeNo.TabIndex = 16;
+            this.lbl_employeeNo.Text = "EmployeeNo";
+            this.lbl_employeeNo.Visible = false;
             // 
             // EmployeePromotionForm
             // 
@@ -172,20 +205,23 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1060, 552);
             this.ControlBox = false;
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_employeeNo);
+            this.Controls.Add(this.btn_cancel);
+            this.Controls.Add(this.btn_promote);
+            this.Controls.Add(this.rtb_reason);
+            this.Controls.Add(this.tb_newSalary);
+            this.Controls.Add(this.cb_newPosition);
+            this.Controls.Add(this.lbl_currentSalaryValue);
+            this.Controls.Add(this.lbl_oldPositionValue);
+            this.Controls.Add(this.lbl_nameValue);
+            this.Controls.Add(this.lbl_epfNoValue);
+            this.Controls.Add(this.lbl_reason);
+            this.Controls.Add(this.lbl_newSalary);
+            this.Controls.Add(this.lbl_currentsalary);
+            this.Controls.Add(this.lbl_newPosition);
+            this.Controls.Add(this.lbl_oldPosition);
+            this.Controls.Add(this.lbl_name);
+            this.Controls.Add(this.lbl_epfNo);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -196,6 +232,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Load += new System.EventHandler(this.EmployeePromotionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,19 +240,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label lbl_epfNo;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.Label lbl_oldPosition;
+        private System.Windows.Forms.Label lbl_newPosition;
+        private System.Windows.Forms.Label lbl_currentsalary;
+        private System.Windows.Forms.Label lbl_newSalary;
+        private System.Windows.Forms.Label lbl_reason;
+        private System.Windows.Forms.Label lbl_epfNoValue;
+        private System.Windows.Forms.Label lbl_nameValue;
+        private System.Windows.Forms.Label lbl_oldPositionValue;
+        private System.Windows.Forms.Label lbl_currentSalaryValue;
+        private System.Windows.Forms.ComboBox cb_newPosition;
+        private System.Windows.Forms.TextBox tb_newSalary;
+        private System.Windows.Forms.RichTextBox rtb_reason;
+        private System.Windows.Forms.Button btn_promote;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Label lbl_employeeNo;
     }
 }

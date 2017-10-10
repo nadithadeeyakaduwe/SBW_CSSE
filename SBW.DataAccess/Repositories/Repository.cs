@@ -44,15 +44,17 @@ namespace SBW.DataAccess.Repositories
         /// <param name="query">The query.</param>
         /// <param name="cmd">The command.</param>
         /// <returns></returns>
-        public static bool ExecuteQuery(string query, SqlCommand cmd)
+        public static bool ExecuteQuery(SqlCommand cmd)
         {
             bool status = false;
             cmd.Connection = con;
-
+            int NoOfRowsExecuted;
             try
             {
                 con.Open();
-                if (cmd.ExecuteNonQuery() > 0)
+                NoOfRowsExecuted = cmd.ExecuteNonQuery();
+
+                if (NoOfRowsExecuted > 0)
                 {
                     status = true;
                 }

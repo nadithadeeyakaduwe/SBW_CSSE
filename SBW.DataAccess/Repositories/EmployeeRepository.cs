@@ -47,7 +47,7 @@ namespace SBW.DataAccess.Repositories
             cmd.Parameters.AddWithValue("@joinDate", employee.JoinDate);
             cmd.Parameters.AddWithValue("@status", employee.Status);
             
-            status = Repository.ExecuteQuery(query, cmd);
+            status = Repository.ExecuteQuery(cmd);
             
             return status;
         }
@@ -131,7 +131,7 @@ namespace SBW.DataAccess.Repositories
             cmd.Parameters.AddWithValue("@pastexp", employee.PastExperience);
             cmd.Parameters.AddWithValue("@qualification", employee.Qualification);
 
-            status = Repository.ExecuteQuery(query, cmd);
+            status = Repository.ExecuteQuery(cmd);
 
             return status;
         }
@@ -171,6 +171,10 @@ namespace SBW.DataAccess.Repositories
             return result;
         }
 
+        /// <summary>
+        /// Gets the department for combo.
+        /// </summary>
+        /// <returns></returns>
         public DataTable getDepartmentForCombo()
         {
             DataTable result = null;
@@ -180,6 +184,27 @@ namespace SBW.DataAccess.Repositories
             result = Repository.getDataTable(query);
 
             return result;
+        }
+
+        public bool promoteEmployee(EmployeePromotion promotionDto)
+        {
+            bool status = true;
+
+            SqlCommand cmd = new SqlCommand()
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "[HRM].[PromoteEmployee]"
+            };
+
+            cmd.Parameters.AddWithValue("@EmployeeID", promotionDto.EmployeeID);
+            cmd.Parameters.AddWithValue("@NewPositionID", promotionDto.NewPositionID);
+            cmd.Parameters.AddWithValue("@NewSalary", promotionDto.NewSalary);
+            cmd.Parameters.AddWithValue("@Reason", promotionDto.Reason);
+            cmd.Parameters.AddWithValue("@Status", promotionDto.Status);
+
+            status = Repository.ExecuteQuery(cmd);
+
+            return status;
         }
     }
 }

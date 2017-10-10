@@ -13,12 +13,12 @@ namespace SBW.UI.Common
         /// <summary>
         /// The main panel x coordinate
         /// </summary>
-        private const int MAIN_PANEL_X_COORDINATE = 260;
+        private const int MAIN_PANEL_X_COORDINATE = 251;
 
         /// <summary>
         /// The main panel y coordinate
         /// </summary>
-        private const int MAIN_PANEL_Y_COORDINATE = 180;
+        private const int MAIN_PANEL_Y_COORDINATE = 168;
 
         /// <summary>
         /// Clears every control in the form or user control.

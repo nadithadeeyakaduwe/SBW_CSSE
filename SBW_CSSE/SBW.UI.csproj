@@ -250,6 +250,14 @@
       <Project>{DA88C9E1-6348-44B0-AB06-D25A0C6B4054}</Project>
       <Name>SBW.BusinessService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SBW.Core\SBW.Core.csproj">
+      <Project>{C274B9D6-DD6D-48BC-8EF9-0DF4AC42D553}</Project>
+      <Name>SBW.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBW.DataAccess\SBW.DataAccess.csproj">
+      <Project>{D72B4E7F-3964-4C81-BFDB-2DF937D597F7}</Project>
+      <Name>SBW.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SBW.Entities\SBW.Entities.csproj">
       <Project>{d13033d9-50bb-427b-84d5-533ff8eeec11}</Project>
       <Name>SBW.Entities</Name>

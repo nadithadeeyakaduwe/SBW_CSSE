@@ -1,4 +1,4 @@
-﻿namespace SBW.UI.EmployeeUserControls
+﻿namespace SBW.UI.EmployeeForms
 {
     partial class EmployeeIncrementForm
     {

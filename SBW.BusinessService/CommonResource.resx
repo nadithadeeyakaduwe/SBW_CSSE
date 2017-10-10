@@ -135,4 +135,10 @@
   <data name="DBUpdateSuccess" xml:space="preserve">
     <value>Successfully updated.</value>
   </data>
+  <data name="PromotionError" xml:space="preserve">
+    <value>Error occured while promoting the employee...!</value>
+  </data>
+  <data name="PromotionSuccess" xml:space="preserve">
+    <value>Employee is now promoted.</value>
+  </data>
 </root>

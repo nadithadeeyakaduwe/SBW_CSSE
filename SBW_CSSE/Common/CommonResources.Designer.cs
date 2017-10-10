@@ -68,5 +68,23 @@ namespace SBW.UI.Common {
                 return ResourceManager.GetString("EmptyFieldsError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the basic salary of the employee !.
+        /// </summary>
+        internal static string EmptySalaryError {
+            get {
+                return ResourceManager.GetString("EmptySalaryError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current position and the new position cannot be the same in a promotion !.
+        /// </summary>
+        internal static string PromotionPositionSameError {
+            get {
+                return ResourceManager.GetString("PromotionPositionSameError", resourceCulture);
+            }
+        }
     }
 }
