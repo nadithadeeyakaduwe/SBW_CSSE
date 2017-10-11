@@ -1,18 +1,17 @@
 ﻿using SBW.Entities.HRMModule;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace SBW.Services
 {
     public interface IEmployeeService
     {
-        //string getEmployeeName(int id);
-
         /// <summary>
         /// Adds the or update employee.
         /// </summary>
         /// <param name="employee">The employee.</param>
         /// <returns></returns>
-        bool AddOrUpdateEmployee(Employee employee);
+        bool AddEmployee(Employee employee);
 
         /// <summary>
         /// Views the employees with titles and the respective department.
@@ -63,6 +62,13 @@ namespace SBW.Services
         /// </summary>
         /// <param name="employeeId">The employee identifier.</param>
         /// <returns></returns>
-        bool PromoteEmployee(EmployeePromotion promotionDto);
+        bool PromoteEmployee(EmployeePromotionDto promotionDto);
+
+        /// <summary>
+        /// Gets the employee performance history asynchronous.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <returns></returns>
+        EmployeePerformanceDto GetEmployeePerformanceHistory(int employeeID);
     }
 }

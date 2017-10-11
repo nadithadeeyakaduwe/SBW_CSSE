@@ -156,5 +156,17 @@ namespace SBW.UI.EmployeeForms
                 Helper.ShowForm(new EmployeePromotionForm(employee));
             }
         }
+
+        private void btn_performanceHistory_Click(object sender, EventArgs e)
+        {
+            int employeeID = Convert.ToInt32(dgv_employeeWithTitles.CurrentRow.Cells["dgvCol_EmployeeID"].Value.ToString());
+            Helper.ShowForm(new ViewEmployeePerformance(employeeID));
+        }
+
+        private void btn_giveIncrement_Click(object sender, EventArgs e)
+        {
+            int employeeID = Convert.ToInt32(dgv_employeeWithTitles.CurrentRow.Cells["dgvCol_EmployeeID"].Value.ToString());
+            Helper.ShowForm(new EmployeeIncrementForm(employeeID), FormStartPosition.CenterScreen);
+        }
     }
 }

@@ -186,7 +186,12 @@ namespace SBW.DataAccess.Repositories
             return result;
         }
 
-        public bool promoteEmployee(EmployeePromotion promotionDto)
+        /// <summary>
+        /// Promotes the employee.
+        /// </summary>
+        /// <param name="promotionDto">The promotion dto.</param>
+        /// <returns></returns>
+        public bool promoteEmployee(EmployeePromotionDto promotionDto)
         {
             bool status = true;
 
@@ -205,6 +210,26 @@ namespace SBW.DataAccess.Repositories
             status = Repository.ExecuteQuery(cmd);
 
             return status;
+        }
+
+        /// <summary>
+        /// Gets the promotion details.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public DataTable getPromotionDetails(int employeeID)
+        {
+            DataTable result = null;
+
+            string query = "SELECT [EffectiveDate],po.Name AS 'NewPosition',p.Name AS 'OldPosition',ep.[OldSalary],ep.[NewSalary],ep.[Status],ep.[Reason]"
+                + " FROM [HRM].[EmployeePerformance] ep INNER JOIN HRM.Position p ON ep.OldPosition = p.PositionID"
+                + " INNER JOIN HRM.Position po ON ep.NewPosition = po.PositionID"
+                +$" WHERE ep.[EmployeeID] = {employeeID}";
+
+            result = Repository.getDataTable(query);
+
+            return result;
         }
     }
 }

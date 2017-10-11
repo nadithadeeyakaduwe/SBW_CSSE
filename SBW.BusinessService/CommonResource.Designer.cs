@@ -115,6 +115,24 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured while giving the increment to the employee...!.
+        /// </summary>
+        internal static string IncrementError {
+            get {
+                return ResourceManager.GetString("IncrementError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee has been given an increment..
+        /// </summary>
+        internal static string IncrementSuccess {
+            get {
+                return ResourceManager.GetString("IncrementSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while promoting the employee...!.
         /// </summary>
         internal static string PromotionError {

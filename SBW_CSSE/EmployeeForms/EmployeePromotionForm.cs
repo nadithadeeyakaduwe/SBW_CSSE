@@ -18,19 +18,44 @@ namespace SBW.UI.EmployeeForms
 {
     public partial class EmployeePromotionForm : Form
     {
+        /// <summary>
+        /// The employee
+        /// </summary>
         private Employee employee;
+
+        /// <summary>
+        /// Gets the splash form.
+        /// </summary>
+        /// <value>
+        /// The splash form.
+        /// </value>
         public SplashForm SplashForm { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeePromotionForm"/> class.
+        /// </summary>
+        /// <param name="emp">The emp.</param>
         public EmployeePromotionForm(Employee emp)
         {
             InitializeComponent();
             this.employee = emp;
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_cancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the Load event of the EmployeePromotionForm control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void EmployeePromotionForm_Load(object sender, EventArgs e)
         {
             DataTable positionTable = null;
@@ -89,6 +114,10 @@ namespace SBW.UI.EmployeeForms
             this.SplashForm = new SplashForm();
             this.SplashForm.ShowDialog();
         }
+        /// <summary>
+        /// Loads the current employee details.
+        /// </summary>
+        /// <param name="emp">The emp.</param>
         private void loadCurrentEmployeeDetails(Employee emp)
         {
             lbl_employeeNo.Text = emp.EmployeeID.ToString();
@@ -98,11 +127,19 @@ namespace SBW.UI.EmployeeForms
             lbl_currentSalaryValue.Text = emp.BasicSalary.ToString();
         }
 
+        /// <summary>
+        /// Gets the position data.
+        /// </summary>
+        /// <returns></returns>
         private DataTable getPositionData()
         {
             IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
             return service.LoadComboBox("Position"); ;
         }
+        /// <summary>
+        /// Loads the components.
+        /// </summary>
+        /// <param name="positionData">The position data.</param>
         private void loadComponents(DataTable positionData)
         {
             cb_newPosition.DataSource = positionData;
@@ -110,6 +147,11 @@ namespace SBW.UI.EmployeeForms
             cb_newPosition.DisplayMember = "Name";
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_promote control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_promote_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tb_newSalary.Text))
@@ -125,7 +167,7 @@ namespace SBW.UI.EmployeeForms
                 bool status = true;
 
                 IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
-                EmployeePromotion promotion = new EmployeePromotion()
+                EmployeePromotionDto promotion = new EmployeePromotionDto()
                 {
                     EmployeeID = Convert.ToInt32(lbl_employeeNo.Text),
                     NewPositionID = Convert.ToInt32(cb_newPosition.SelectedValue.ToString()),

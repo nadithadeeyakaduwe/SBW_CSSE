@@ -105,7 +105,7 @@ namespace SBW.UI.EmployeeForms
 
             IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
 
-            isSuccess = service.AddOrUpdateEmployee(employee);
+            isSuccess = service.AddEmployee(employee);
 
             if (isSuccess == true)
             {

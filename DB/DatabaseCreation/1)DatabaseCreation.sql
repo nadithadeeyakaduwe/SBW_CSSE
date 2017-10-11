@@ -127,10 +127,10 @@ CREATE TABLE [HRM].[EmployeePerformance] (
 	EmployeeID INT NOT NULL ,
 	EffectiveDate DATETIME NOT NULL,
 	Reason VARCHAR (200),
-	Old_Position VARCHAR(30),
-	New_Position VARCHAR (30),
-	Old_Salary DECIMAL,
-	New_Salary DECIMAL,
+	OldPosition VARCHAR(30),
+	NewPosition VARCHAR (30),
+	OldSalary DECIMAL,
+	NewSalary DECIMAL,
 	Status INT DEFAULT 1 NOT NULL, -- whether its a promotion or an increment
 	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
 	DateCreated DATETIME NOT NULL DEFAULT GETDATE()

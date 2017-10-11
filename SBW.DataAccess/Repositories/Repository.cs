@@ -33,7 +33,11 @@ namespace SBW.DataAccess.Repositories
             {
                 LogHelper.Log(ex.ToString());
             }
-            con.Close();
+            finally
+            {
+                con.Close();
+            }
+            
 
             return status;
         }
@@ -63,7 +67,11 @@ namespace SBW.DataAccess.Repositories
             {
                 LogHelper.Log(ex.ToString());
             }
-            con.Close();
+            finally
+            {
+                con.Close();
+            }
+            
 
             return status;
         }
@@ -92,7 +100,10 @@ namespace SBW.DataAccess.Repositories
                 LogHelper.Log(ex.ToString());
                 dataTable = null;
             }
-            con.Close();
+            finally
+            {
+                con.Close();
+            }
 
             return dataTable;
         }

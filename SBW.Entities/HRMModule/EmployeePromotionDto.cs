@@ -1,6 +1,6 @@
 ﻿namespace SBW.Entities.HRMModule
 {
-    public sealed class EmployeePromotion
+    public sealed class EmployeePromotionDto
     {
         /// <summary>
         /// Gets or sets the employee identifier.

@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Threading;
+using SBW.DataAccess.Enum;
 
 namespace SBW.BusinessService
 {
@@ -24,7 +26,7 @@ namespace SBW.BusinessService
         /// </summary>
         /// <param name="employee">The employee.</param>
         /// <returns></returns>
-        public bool AddOrUpdateEmployee(Employee employee)
+        public bool AddEmployee(Employee employee)
         {
             bool status = true; 
             repo = new EmployeeRepository();
@@ -211,7 +213,7 @@ namespace SBW.BusinessService
         /// </summary>
         /// <param name="employeeId">The employee identifier.</param>
         /// <returns></returns>
-        public bool PromoteEmployee(EmployeePromotion promotionDto)
+        public bool PromoteEmployee(EmployeePromotionDto promotionDto)
         {
             bool status = true;
 
@@ -221,14 +223,64 @@ namespace SBW.BusinessService
 
             if (status)
             {
-                MessageBoxHelper.Show(CommonResource.PromotionSuccess);
+                if (promotionDto.Status == (int)WellknownEmployeePerformanceStatus.IsPromotion)
+                {
+                    MessageBoxHelper.Show(CommonResource.PromotionSuccess);
+                }
+                else
+                {
+                    MessageBoxHelper.Show(CommonResource.IncrementSuccess);
+                }
             }
             else
             {
-                MessageBoxHelper.Show(CommonResource.PromotionError);
+                if (promotionDto.Status == (int)WellknownEmployeePerformanceStatus.IsPromotion)
+                {
+                    MessageBoxHelper.Show(CommonResource.PromotionError);
+                }
+                else
+                {
+                    MessageBoxHelper.Show(CommonResource.IncrementError);
+                }
             }
 
             return status;
         }
+
+        /// <summary>
+        /// Gets the employee performance history asynchronous.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <returns></returns>
+        public EmployeePerformanceDto GetEmployeePerformanceHistory(int employeeID)
+        {
+            EmployeePerformanceDto result = new EmployeePerformanceDto();
+
+            repo = new EmployeeRepository();
+
+            result.EmployeeDetails = GetEmployee(employeeID);
+
+            result.PerformanceTable = repo.getPromotionDetails(employeeID);
+
+            if(result.EmployeeDetails == null || result.PerformanceTable == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+
+            result.PerformanceTable.Columns.Add("temp", typeof(string));
+
+            foreach(DataRow row in result.PerformanceTable.Rows)
+            {
+                int status = row.Field<int>("Status");
+                string value = Enum.GetName(typeof(WellknownEmployeePerformanceStatus), status);
+
+                row.SetField("temp", value);
+            }
+
+            result.PerformanceTable.Columns.Remove("Status");
+            result.PerformanceTable.Columns["temp"].ColumnName = "Status";
+
+            return result;
+        }
     }
-}
+}   
