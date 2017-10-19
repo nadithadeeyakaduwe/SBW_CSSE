@@ -120,6 +120,9 @@
   <data name="DBDeleteError" xml:space="preserve">
     <value>Error occured while deleting...!</value>
   </data>
+  <data name="DBDeleteSuccess" xml:space="preserve">
+    <value>Successfully deleted.</value>
+  </data>
   <data name="DBInsertError" xml:space="preserve">
     <value>Error occured while trying to save data...!</value>
   </data>
