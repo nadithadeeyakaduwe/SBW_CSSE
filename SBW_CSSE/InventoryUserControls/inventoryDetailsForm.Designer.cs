@@ -46,12 +46,14 @@
             this.lbl_inventoryUC_Name = new System.Windows.Forms.Label();
             this.cmb_inventoryUC_make = new System.Windows.Forms.ComboBox();
             this.lbl_inventoryUC_make = new System.Windows.Forms.Label();
+            this.lbl_inventoryUC_pId = new System.Windows.Forms.Label();
             this.groupBox_Inventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventoryUC)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_Inventory
             // 
+            this.groupBox_Inventory.Controls.Add(this.lbl_inventoryUC_pId);
             this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_demo);
             this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_clear);
             this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_delete);
@@ -103,6 +105,7 @@
             this.btn_inventoryUC_delete.TabIndex = 15;
             this.btn_inventoryUC_delete.Text = "DELETE";
             this.btn_inventoryUC_delete.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_delete.Click += new System.EventHandler(this.btn_inventoryUC_delete_Click);
             // 
             // btn_inventoryUC_update
             // 
@@ -121,6 +124,7 @@
             this.btn_inventoryUC_add.TabIndex = 13;
             this.btn_inventoryUC_add.Text = "ADD";
             this.btn_inventoryUC_add.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_add.Click += new System.EventHandler(this.btn_inventoryUC_add_Click);
             // 
             // txt_inventoryUC_search
             // 
@@ -145,6 +149,7 @@
             this.dgv_inventoryUC.Name = "dgv_inventoryUC";
             this.dgv_inventoryUC.Size = new System.Drawing.Size(736, 171);
             this.dgv_inventoryUC.TabIndex = 10;
+            this.dgv_inventoryUC.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_inventoryUC_RowHeaderMouseClick);
             // 
             // txt_inventoryUC_quantity
             // 
@@ -159,6 +164,7 @@
             this.txt_inventoryUC_reorder.Name = "txt_inventoryUC_reorder";
             this.txt_inventoryUC_reorder.Size = new System.Drawing.Size(100, 26);
             this.txt_inventoryUC_reorder.TabIndex = 7;
+            this.txt_inventoryUC_reorder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inventoryUC_reorder_KeyPress);
             // 
             // lbl_inventoryUC_reorderLevel
             // 
@@ -220,15 +226,31 @@
             this.lbl_inventoryUC_make.TabIndex = 0;
             this.lbl_inventoryUC_make.Text = "Make";
             // 
+            // lbl_inventoryUC_pId
+            // 
+            this.lbl_inventoryUC_pId.AutoSize = true;
+            this.lbl_inventoryUC_pId.Location = new System.Drawing.Point(16, 170);
+            this.lbl_inventoryUC_pId.Name = "lbl_inventoryUC_pId";
+            this.lbl_inventoryUC_pId.Size = new System.Drawing.Size(82, 20);
+            this.lbl_inventoryUC_pId.TabIndex = 18;
+            this.lbl_inventoryUC_pId.Text = "Product Id";
+            // 
             // InventoryDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1060, 552);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox_Inventory);
-            this.MaximumSize = new System.Drawing.Size(1020, 489);
-            this.MinimumSize = new System.Drawing.Size(1020, 489);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1060, 552);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1060, 552);
             this.Name = "InventoryDetailsForm";
-            this.Size = new System.Drawing.Size(1020, 489);
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Load += new System.EventHandler(this.InventoryDetailsForm_Load);
             this.groupBox_Inventory.ResumeLayout(false);
             this.groupBox_Inventory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventoryUC)).EndInit();
@@ -256,5 +278,6 @@
         private System.Windows.Forms.Button btn_inventoryUC_update;
         private System.Windows.Forms.Button btn_inventoryUC_add;
         private System.Windows.Forms.TextBox txt_inventoryUC_search;
+        private System.Windows.Forms.Label lbl_inventoryUC_pId;
     }
 }

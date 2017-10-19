@@ -9,5 +9,9 @@ namespace SBW.BusinessService
             return new EmployeeService();
         }
 
+        public static IInventoryService GetInventoryService()
+        {
+            return new InventoryService();
+        }
     }
 }

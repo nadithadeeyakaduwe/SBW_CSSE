@@ -47,6 +47,7 @@
       <DependentUpon>CommonResource.resx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="InventoryService.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

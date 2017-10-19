@@ -45,12 +45,12 @@
     <Compile Include="HRMModule\Employee.cs" />
     <Compile Include="HRMModule\EmployeePerformanceDto.cs" />
     <Compile Include="HRMModule\EmployeePromotionDto.cs" />
+    <Compile Include="InventoryModule\Inventory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AccountsModule\" />
     <Folder Include="CustomerModule\" />
-    <Folder Include="InventoryModule\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

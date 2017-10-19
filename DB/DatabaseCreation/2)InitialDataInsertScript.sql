@@ -47,4 +47,12 @@ INSERT INTO [HRM].[Employee] ([Name],[Address],[Email],[DOB],[NIC],[HomeTelNo],[
 INSERT INTO [HRM].[Employee] ([Name],[Address],[Email],[DOB],[NIC],[HomeTelNo],[MobileNumber],[Gender],[CivilStatus],[EpfNo],[PositionID],[DepartmentID],[BasicSalary],[PastExperience],[Qualification],[JoinDate],[Status],[ModifiedDate],[DateCreated]) VALUES ('Shashi Prabagaran', '04/25, Japan Friendship Road, Awissawella', 'shashi@gmail.com', '1989-08-16', '942654874V', '0113789456', '0718965548', 'F', 'S', 5, 1, 3, 15000.00, '', '', CAST('2017-03-02' AS DATETIME), 1, GETDATE(), GETDATE())
 GO
 
+--[Stock].[Product]
 
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level]) VALUES ('aaa', 'xxx', 'ppp', 6)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level]) VALUES ('bbb', 'yyy', 'mmm', 7)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level]) VALUES ('ccc', 'zzz', 'nnn', 5)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level]) VALUES ('ddd', 'www', 'lll', 6)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level]) VALUES ('eee', 'vvv', 'ooo', 7)
+
+GO

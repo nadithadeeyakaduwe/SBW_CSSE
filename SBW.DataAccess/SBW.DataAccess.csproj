@@ -55,6 +55,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\InventoryRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
