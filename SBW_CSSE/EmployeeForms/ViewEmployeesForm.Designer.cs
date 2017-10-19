@@ -41,7 +41,7 @@
             this.dgvCol_department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_performanceHistory = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_attendance = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btn_promote = new System.Windows.Forms.Button();
             this.btn_giveIncrement = new System.Windows.Forms.Button();
@@ -163,7 +163,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btn_performanceHistory);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.btn_attendance);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btn_promote);
             this.panel1.Controls.Add(this.btn_giveIncrement);
@@ -188,16 +188,17 @@
             this.btn_performanceHistory.UseVisualStyleBackColor = true;
             this.btn_performanceHistory.Click += new System.EventHandler(this.btn_performanceHistory_Click);
             // 
-            // button4
+            // btn_attendance
             // 
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(927, 398);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 46);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Attendance";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_attendance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_attendance.Location = new System.Drawing.Point(927, 398);
+            this.btn_attendance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_attendance.Name = "btn_attendance";
+            this.btn_attendance.Size = new System.Drawing.Size(124, 46);
+            this.btn_attendance.TabIndex = 7;
+            this.btn_attendance.Text = "Attendance";
+            this.btn_attendance.UseVisualStyleBackColor = true;
+            this.btn_attendance.Click += new System.EventHandler(this.btn_attendance_Click);
             // 
             // button3
             // 
@@ -270,7 +271,7 @@
         private System.Windows.Forms.DataGridView dgv_employeeWithTitles;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_performanceHistory;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_attendance;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_promote;
         private System.Windows.Forms.Button btn_giveIncrement;

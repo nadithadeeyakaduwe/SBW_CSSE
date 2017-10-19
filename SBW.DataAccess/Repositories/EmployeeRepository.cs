@@ -231,5 +231,69 @@ namespace SBW.DataAccess.Repositories
 
             return result;
         }
+
+        /// <summary>
+        /// Gets the employeeattendance.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <param name="date">The date.</param>
+        /// <returns></returns>
+        public DataTable getEmployeeattendance(int employeeID, DateTime date)
+        {
+            DataTable response = null;
+
+            string query = "SELECT [EmployeeID],[InTime],[InNote],[OutTime],[OutNote],[Duration],[LateTime],[Status],[ModifiedDate],[DateCreated]"
+                +$" FROM [HRM].[EmployeeAttendance] WHERE [EmployeeID] = @empID AND CAST([InTime] AS DATE) = @date";
+
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@empID", employeeID);
+            cmd.Parameters.Add(new SqlParameter("@date", date));
+            //cmd.Parameters.AddWithValue("@date", date);
+
+            response = Repository.getDataTable(cmd);
+
+            return response;
+        }
+
+        public bool punchIn(EmployeeAttendanceDto employeeAttendanceDto)
+        {
+            bool status = true;
+            string query = "INSERT INTO [HRM].[EmployeeAttendance] ([EmployeeID],[InTime],[InNote],[Status],[ModifiedDate],[DateCreated])"
+                + " VALUES (@empID,@inTime,@inNote,@status,@modifiedDt,@DtCreated)";
+
+            SqlCommand cmd = new SqlCommand(query);
+
+            cmd.Parameters.AddWithValue("@empID", employeeAttendanceDto.EmployeeID);
+            cmd.Parameters.AddWithValue("@inTime", employeeAttendanceDto.InTime);
+            cmd.Parameters.AddWithValue("@inNote", employeeAttendanceDto.InNote);
+            cmd.Parameters.AddWithValue("@modifiedDt", employeeAttendanceDto.ModifiedDate);
+            cmd.Parameters.AddWithValue("@DtCreated", employeeAttendanceDto.DateCreated);
+            cmd.Parameters.AddWithValue("@status", employeeAttendanceDto.Status);
+
+            status = Repository.ExecuteQuery(cmd);
+
+            return status;
+        }
+
+        public bool punchOut(EmployeeAttendanceDto employeeAttendanceDto)
+        {
+            bool status = true;
+
+            string query = "UPDATE [HRM].[EmployeeAttendance] SET [OutTime] = @outTime, [OutNote] = @outNote, [Status] = @status, [ModifiedDate] = @modifiedDt"
+                + " WHERE [EmployeeID] = @empID AND CAST([InTime] AS DATE) = @inDate";
+
+            SqlCommand cmd = new SqlCommand(query);
+
+            cmd.Parameters.AddWithValue("@empID", employeeAttendanceDto.EmployeeID);
+            cmd.Parameters.AddWithValue("@outTime", employeeAttendanceDto.OutTime);
+            cmd.Parameters.AddWithValue("@outNote", employeeAttendanceDto.OutNote);
+            cmd.Parameters.AddWithValue("@modifiedDt", employeeAttendanceDto.ModifiedDate);
+            cmd.Parameters.AddWithValue("@status", employeeAttendanceDto.Status);
+            cmd.Parameters.Add(new SqlParameter("@inDate", DateTime.Today));
+
+            status = Repository.ExecuteQuery(cmd);
+
+            return status;
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace SBW.BusinessService
         /// <returns></returns>
         public bool AddEmployee(Employee employee)
         {
-            bool status = true; 
+            bool status = true;
             repo = new EmployeeRepository();
 
             status = repo.addEmployee(employee);
@@ -72,7 +72,7 @@ namespace SBW.BusinessService
                 result.FullName = dt.Rows[0][1].ToString();
                 result.Address = dt.Rows[0][2].ToString();
                 result.Email = dt.Rows[0][3].ToString();
-                result.Brithday = (DateTime) dt.Rows[0][4]; ;
+                result.Brithday = (DateTime)dt.Rows[0][4]; ;
                 result.NIC = dt.Rows[0][5].ToString();
                 result.HomeTel = dt.Rows[0][6].ToString();
                 result.MobileNumber = dt.Rows[0][7].ToString();
@@ -81,10 +81,10 @@ namespace SBW.BusinessService
                 result.EPFNo = Convert.ToInt32(dt.Rows[0][10].ToString());
                 result.PositionID = Convert.ToInt32(dt.Rows[0][11].ToString());
                 result.DepartmentID = Convert.ToInt32(dt.Rows[0][12].ToString());
-                result.BasicSalary = (decimal) dt.Rows[0][13];
+                result.BasicSalary = (decimal)dt.Rows[0][13];
                 result.PastExperience = dt.Rows[0][14].ToString();
                 result.Qualification = dt.Rows[0][15].ToString();
-                result.JoinDate = (DateTime) dt.Rows[0][16];
+                result.JoinDate = (DateTime)dt.Rows[0][16];
                 result.Status = Convert.ToInt32(dt.Rows[0][17].ToString());
                 result.Position = dt.Rows[0][18].ToString();
                 result.Department = dt.Rows[0][19].ToString();
@@ -173,7 +173,7 @@ namespace SBW.BusinessService
 
             dt = repo.searchEmployee(searchString);
 
-            if(dt == null)
+            if (dt == null)
             {
                 MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
             }
@@ -262,14 +262,14 @@ namespace SBW.BusinessService
 
             result.PerformanceTable = repo.getPromotionDetails(employeeID);
 
-            if(result.EmployeeDetails == null || result.PerformanceTable == null)
+            if (result.EmployeeDetails == null || result.PerformanceTable == null)
             {
                 MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
             }
 
             result.PerformanceTable.Columns.Add("temp", typeof(string));
 
-            foreach(DataRow row in result.PerformanceTable.Rows)
+            foreach (DataRow row in result.PerformanceTable.Rows)
             {
                 int status = row.Field<int>("Status");
                 string value = Enum.GetName(typeof(WellknownEmployeePerformanceStatus), status);
@@ -282,5 +282,77 @@ namespace SBW.BusinessService
 
             return result;
         }
+
+        /// <summary>
+        /// Gets the employee attendance details.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public EmployeeAttendanceDto GetEmployeeAttendanceData(int employeeID, DateTime date)
+        {
+            DataTable todaysRecord = null;
+            repo = new EmployeeRepository();
+            EmployeeAttendanceDto result = null;
+
+            todaysRecord = repo.getEmployeeattendance(employeeID, date);
+
+
+            if (todaysRecord.Rows.Count > 0)
+            {
+                result = new EmployeeAttendanceDto();
+                result.EmployeeID = employeeID;
+                result.InTime = todaysRecord.Rows[0].Field<DateTime>("InTime");
+                result.InNote = todaysRecord.Rows[0].Field<string>("InNote") == null ? string.Empty : todaysRecord.Rows[0].Field<string>("InNote");
+                result.OutTime = todaysRecord.Rows[0].Field<DateTime?>("OutTime") == null ? (DateTime?)null : todaysRecord.Rows[0].Field<DateTime>("OutTime");
+                result.OutNote = todaysRecord.Rows[0].Field<string>("OutNote") == null ? string.Empty : todaysRecord.Rows[0].Field<string>("OutNote");
+                result.LateTime = todaysRecord.Rows[0].Field<TimeSpan>("LateTime") == null ? (TimeSpan?)null : todaysRecord.Rows[0].Field<TimeSpan>("LateTime");
+
+                if (todaysRecord.Rows[0]["Duration"] != DBNull.Value)
+                {
+                    result.Duration = todaysRecord.Rows[0].Field<double>("Duration");
+                }
+                else
+                {
+                    result.Duration = null;
+                }
+
+                result.Status = todaysRecord.Rows[0].Field<int>("Status");
+                result.PastAttendanceRecords = todaysRecord;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Employees the punch in out.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <param name="activity">The activity.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public bool EmployeePunchInOut(EmployeeAttendanceDto employeeAttendanceDto, string activity)
+        {
+            bool status = true;
+            string error = string.Empty;
+            repo = new EmployeeRepository();
+
+            if (activity.Equals("IN"))
+            {
+                status = repo.punchIn(employeeAttendanceDto);
+                error = CommonResource.PunchInError;
+            }
+            else
+            {
+                status = repo.punchOut(employeeAttendanceDto);
+                error = CommonResource.PunchOutError;
+            }
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(error);
+            }
+
+            return status;
+        }
     }
-}   
+}

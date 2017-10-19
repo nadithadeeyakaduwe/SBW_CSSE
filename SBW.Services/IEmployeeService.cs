@@ -1,6 +1,7 @@
 ﻿using SBW.Entities.HRMModule;
 using System.Data;
 using System.Threading.Tasks;
+using System;
 
 namespace SBW.Services
 {
@@ -70,5 +71,21 @@ namespace SBW.Services
         /// <param name="employeeID">The employee identifier.</param>
         /// <returns></returns>
         EmployeePerformanceDto GetEmployeePerformanceHistory(int employeeID);
+
+        /// <summary>
+        /// Gets the employee attendance details.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <param name="today">The today.</param>
+        /// <returns></returns>
+        EmployeeAttendanceDto GetEmployeeAttendanceData(int employeeID, DateTime date);
+
+        /// <summary>
+        /// Employees the punch in out.
+        /// </summary>
+        /// <param name="employeeAttendanceDto">The employee attendance dto.</param>
+        /// <param name="activity">The activity.</param>
+        /// <returns></returns>
+        bool EmployeePunchInOut(EmployeeAttendanceDto employeeAttendanceDto, string activity);
     }
 }

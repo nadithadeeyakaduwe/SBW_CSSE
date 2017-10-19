@@ -149,5 +149,23 @@ namespace SBW.BusinessService {
                 return ResourceManager.GetString("PromotionSuccess", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while punching in...!.
+        /// </summary>
+        internal static string PunchInError {
+            get {
+                return ResourceManager.GetString("PunchInError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while punching out...!.
+        /// </summary>
+        internal static string PunchOutError {
+            get {
+                return ResourceManager.GetString("PunchOutError", resourceCulture);
+            }
+        }
     }
 }

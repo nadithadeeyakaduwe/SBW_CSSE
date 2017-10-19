@@ -147,4 +147,10 @@
   <data name="PromotionSuccess" xml:space="preserve">
     <value>Employee is now promoted.</value>
   </data>
+  <data name="PunchInError" xml:space="preserve">
+    <value>Error occured while punching in...!</value>
+  </data>
+  <data name="PunchOutError" xml:space="preserve">
+    <value>Error occured while punching out...!</value>
+  </data>
 </root>
