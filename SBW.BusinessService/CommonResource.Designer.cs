@@ -70,6 +70,15 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successfully deleted..
+        /// </summary>
+        internal static string DBDeleteSuccess {
+            get {
+                return ResourceManager.GetString("DBDeleteSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while trying to save data...!.
         /// </summary>
         internal static string DBInsertError {

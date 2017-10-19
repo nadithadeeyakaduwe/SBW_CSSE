@@ -9,5 +9,10 @@ namespace SBW.BusinessService
             return new EmployeeService();
         }
 
+        public static ICustomerService GetCustomerSeriveice()
+        {
+            return new CustomerService();
+        }
+
     }
 }

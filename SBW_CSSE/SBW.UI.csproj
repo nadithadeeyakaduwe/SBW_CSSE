@@ -143,6 +143,18 @@
     <Compile Include="InventoryUserControls\InventoryDetailsForm.Designer.cs">
       <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryUserControls\StockDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryUserControls\StockDetailsForm.Designer.cs">
+      <DependentUpon>StockDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryUserControls\SupplierDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryUserControls\SupplierDetailsForm.Designer.cs">
+      <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +233,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryUserControls\InventoryDetailsForm.resx">
       <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryUserControls\StockDetailsForm.resx">
+      <DependentUpon>StockDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryUserControls\SupplierDetailsForm.resx">
+      <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
