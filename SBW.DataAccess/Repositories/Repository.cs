@@ -178,28 +178,6 @@ namespace SBW.DataAccess.Repositories
                 }
             }
         }
-
-        public static bool update(string query, SqlCommand cmd)
-        {
-            bool status = false;
-            //cmd.CommandText = query;
-            cmd.Connection = con;
-
-            try
-            {
-                con.Open();
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    status = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex.ToString());
-            }
-            con.Close();
-
-            return status;
-        }
     }
 }
+        

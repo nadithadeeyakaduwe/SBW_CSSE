@@ -14,5 +14,9 @@ namespace SBW.BusinessService
             return new CustomerService();
         }
 
+        public static IInventoryService GetInventoryService()
+        {
+            return new InventoryService();
+        }
     }
 }

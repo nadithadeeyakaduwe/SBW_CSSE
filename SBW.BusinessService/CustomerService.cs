@@ -9,7 +9,7 @@ using SBW.Core;
 using SBW.DataAccess.Repositories;
 using SBW.Entities.CustomerModule;
 using SBW.Services;
-
+using System.Data;
 
 namespace SBW.BusinessService
 {
@@ -25,6 +25,7 @@ namespace SBW.BusinessService
 
             status = customerRepository.addCustomer(customer);
 
+            Console.WriteLine(status);
             if (!status){
                 MessageBoxHelper.ShowError(CommonResource.DBInsertError);
             }
@@ -33,6 +34,20 @@ namespace SBW.BusinessService
             }
 
             return status;
+        }
+
+        public DataTable ViewCustomerDetails() {
+            DataTable result = null;
+
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.viewCustomerDetails();
+
+            if (result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+            return result;
         }
 
         //update Customer
@@ -75,8 +90,6 @@ namespace SBW.BusinessService
             return status;
            
         }
-
-
 
         public bool AddLoyaltyCustomer(Customer custome)
         {

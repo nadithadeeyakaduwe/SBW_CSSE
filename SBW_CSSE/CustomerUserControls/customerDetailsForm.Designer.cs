@@ -36,7 +36,6 @@
             this.cmb_cus_type = new System.Windows.Forms.ComboBox();
             this.txtb_cus_email = new System.Windows.Forms.TextBox();
             this.txtb_cus_mobile = new System.Windows.Forms.TextBox();
-            this.txtb_cus_address = new System.Windows.Forms.TextBox();
             this.txtb_cus_name = new System.Windows.Forms.TextBox();
             this.lbl_cus_type = new System.Windows.Forms.Label();
             this.lbl_cus_email = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.dgv_cus_table = new System.Windows.Forms.DataGridView();
             this.txt_cus_searchkey = new System.Windows.Forms.TextBox();
             this.btn_cus_demo = new System.Windows.Forms.Button();
+            this.rtxtb_cus_address = new System.Windows.Forms.RichTextBox();
             this.gb_cus_details.SuspendLayout();
             this.gb_cus_mgt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cus_table)).BeginInit();
@@ -57,6 +57,7 @@
             // 
             // gb_cus_details
             // 
+            this.gb_cus_details.Controls.Add(this.rtxtb_cus_address);
             this.gb_cus_details.Controls.Add(this.btn_cus_clear);
             this.gb_cus_details.Controls.Add(this.btn_cus_delete);
             this.gb_cus_details.Controls.Add(this.btn_cus_update);
@@ -64,7 +65,6 @@
             this.gb_cus_details.Controls.Add(this.cmb_cus_type);
             this.gb_cus_details.Controls.Add(this.txtb_cus_email);
             this.gb_cus_details.Controls.Add(this.txtb_cus_mobile);
-            this.gb_cus_details.Controls.Add(this.txtb_cus_address);
             this.gb_cus_details.Controls.Add(this.txtb_cus_name);
             this.gb_cus_details.Controls.Add(this.lbl_cus_type);
             this.gb_cus_details.Controls.Add(this.lbl_cus_email);
@@ -140,13 +140,6 @@
             this.txtb_cus_mobile.Size = new System.Drawing.Size(190, 26);
             this.txtb_cus_mobile.TabIndex = 9;
             // 
-            // txtb_cus_address
-            // 
-            this.txtb_cus_address.Location = new System.Drawing.Point(149, 123);
-            this.txtb_cus_address.Name = "txtb_cus_address";
-            this.txtb_cus_address.Size = new System.Drawing.Size(190, 26);
-            this.txtb_cus_address.TabIndex = 8;
-            // 
             // txtb_cus_name
             // 
             this.txtb_cus_name.Location = new System.Drawing.Point(149, 80);
@@ -189,7 +182,6 @@
             this.lbl_cus_address.Size = new System.Drawing.Size(68, 20);
             this.lbl_cus_address.TabIndex = 3;
             this.lbl_cus_address.Text = "Address";
-            this.lbl_cus_address.Click += new System.EventHandler(this.label3_Click);
             // 
             // lbl_cus_name
             // 
@@ -199,7 +191,6 @@
             this.lbl_cus_name.Size = new System.Drawing.Size(51, 20);
             this.lbl_cus_name.TabIndex = 2;
             this.lbl_cus_name.Text = "Name";
-            this.lbl_cus_name.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtb_cus_nic
             // 
@@ -263,6 +254,15 @@
             this.btn_cus_demo.TabIndex = 5;
             this.btn_cus_demo.Text = "DEMO";
             this.btn_cus_demo.UseVisualStyleBackColor = true;
+            this.btn_cus_demo.Click += new System.EventHandler(this.btn_cus_demo_Click);
+            // 
+            // rtxtb_cus_address
+            // 
+            this.rtxtb_cus_address.Location = new System.Drawing.Point(149, 126);
+            this.rtxtb_cus_address.Name = "rtxtb_cus_address";
+            this.rtxtb_cus_address.Size = new System.Drawing.Size(190, 30);
+            this.rtxtb_cus_address.TabIndex = 16;
+            this.rtxtb_cus_address.Text = "";
             // 
             // customerDetailsForm
             // 
@@ -297,7 +297,6 @@
         private System.Windows.Forms.Label lbl_cus_nic;
         private System.Windows.Forms.TextBox txtb_cus_email;
         private System.Windows.Forms.TextBox txtb_cus_mobile;
-        private System.Windows.Forms.TextBox txtb_cus_address;
         private System.Windows.Forms.TextBox txtb_cus_name;
         private System.Windows.Forms.ComboBox cmb_cus_type;
         private System.Windows.Forms.Button btn_cus_clear;
@@ -309,5 +308,6 @@
         private System.Windows.Forms.DataGridView dgv_cus_table;
         private System.Windows.Forms.TextBox txt_cus_searchkey;
         private System.Windows.Forms.Button btn_cus_demo;
+        private System.Windows.Forms.RichTextBox rtxtb_cus_address;
     }
 }

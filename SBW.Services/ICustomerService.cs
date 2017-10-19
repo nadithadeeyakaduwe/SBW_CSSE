@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SBW.Entities.CustomerModule;
+using System.Data;
 
 namespace SBW.Services
 {
@@ -14,6 +15,9 @@ namespace SBW.Services
         bool AddNewCustomer(Customer customer);
         bool UpdateCustomer(Customer customer);
         bool DeleteCustomer(string NIC);
+
+        //get customer details into grid view
+        DataTable ViewCustomerDetails();
 
         //CRUD operations for the customer Loyalty card
         bool AddLoyaltyCustomer(Customer custome);

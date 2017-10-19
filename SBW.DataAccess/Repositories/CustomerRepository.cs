@@ -1,6 +1,7 @@
 ﻿using SBW.Entities.CustomerModule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,15 @@ namespace SBW.DataAccess.Repositories
             status = Repository.ExecuteQuery(cmd1);
             status = Repository.ExecuteQuery(cmd2);
             return status;
+        }
+
+        public DataTable viewCustomerDetails(){
+            DataTable Response;
+            string query = "select cu.NIC,cu.Name,cu.Email,cu.Address,cu.Rate,cu.CustomerType,cc.ContactNo from[Consumer].[Customer] cu,[Consumer].[CustomerContact] cc where cu.NIC=cc.NIC order by Rate";
+
+            Response = Repository.getDataTable(query);
+
+            return Response;
         }
 
         public bool updateCustomer(Customer customer)
