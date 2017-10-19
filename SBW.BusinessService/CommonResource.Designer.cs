@@ -70,6 +70,15 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successfully deleted..
+        /// </summary>
+        internal static string DBDeleteSuccess {
+            get {
+                return ResourceManager.GetString("DBDeleteSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while trying to save data...!.
         /// </summary>
         internal static string DBInsertError {
@@ -147,6 +156,24 @@ namespace SBW.BusinessService {
         internal static string PromotionSuccess {
             get {
                 return ResourceManager.GetString("PromotionSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while punching in...!.
+        /// </summary>
+        internal static string PunchInError {
+            get {
+                return ResourceManager.GetString("PunchInError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while punching out...!.
+        /// </summary>
+        internal static string PunchOutError {
+            get {
+                return ResourceManager.GetString("PunchOutError", resourceCulture);
             }
         }
     }

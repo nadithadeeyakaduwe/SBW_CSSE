@@ -23,7 +23,8 @@ namespace SBW.DataAccess.Repositories
             SqlCommand cmd = new SqlCommand(query,con);
             try
             {
-                con.Open();
+                openConnection();
+
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     status = true;
@@ -35,7 +36,7 @@ namespace SBW.DataAccess.Repositories
             }
             finally
             {
-                con.Close();
+                closeConnection();
             }
             
 
@@ -55,7 +56,8 @@ namespace SBW.DataAccess.Repositories
             int NoOfRowsExecuted;
             try
             {
-                con.Open();
+                openConnection();
+
                 NoOfRowsExecuted = cmd.ExecuteNonQuery();
 
                 if (NoOfRowsExecuted > 0)
@@ -69,7 +71,7 @@ namespace SBW.DataAccess.Repositories
             }
             finally
             {
-                con.Close();
+                closeConnection();
             }
             
 
@@ -91,7 +93,8 @@ namespace SBW.DataAccess.Repositories
 
             try
             {
-                con.Open();
+                openConnection();
+
                 reader = cmd.ExecuteReader();
                 dataTable.Load(reader);
             }
@@ -102,11 +105,79 @@ namespace SBW.DataAccess.Repositories
             }
             finally
             {
-                con.Close();
+                closeConnection();
             }
 
             return dataTable;
         }
 
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <param name="cmd">The command.</param>
+        /// <returns></returns>
+        public static DataTable getDataTable(SqlCommand cmd)
+        {
+            DataTable dataTable = new DataTable();
+            SqlDataReader reader;
+            cmd.Connection = con;
+
+            try
+            {
+                openConnection();
+
+                reader = cmd.ExecuteReader();
+                dataTable.Load(reader);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+                dataTable = null;
+            }
+            finally
+            {
+                closeConnection();
+            }
+
+            return dataTable;
+        }
+
+        /// <summary>
+        /// Opens the connection.
+        /// </summary>
+        private static void openConnection()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                try
+                {
+                    con.Open();
+                }
+                catch (Exception ex)
+                {
+                    LogHelper.Log("Openning Sql Connection...\n" + ex.Message + "\n" + ex.ToString());
+                }
+                
+            }
+        }
+
+        /// <summary>
+        /// Closes the connection.
+        /// </summary>
+        private static void closeConnection()
+        {
+            if (con.State != ConnectionState.Closed)
+            {
+                try
+                {
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    LogHelper.Log("Closing Sql Connection...\n" + ex.Message + "\n" + ex.ToString());
+                }
+            }
+        }
     }
 }
+        

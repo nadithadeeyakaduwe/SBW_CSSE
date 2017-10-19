@@ -120,6 +120,9 @@
   <data name="DBDeleteError" xml:space="preserve">
     <value>Error occured while deleting...!</value>
   </data>
+  <data name="DBDeleteSuccess" xml:space="preserve">
+    <value>Successfully deleted.</value>
+  </data>
   <data name="DBInsertError" xml:space="preserve">
     <value>Error occured while trying to save data...!</value>
   </data>
@@ -146,5 +149,11 @@
   </data>
   <data name="PromotionSuccess" xml:space="preserve">
     <value>Employee is now promoted.</value>
+  </data>
+  <data name="PunchInError" xml:space="preserve">
+    <value>Error occured while punching in...!</value>
+  </data>
+  <data name="PunchOutError" xml:space="preserve">
+    <value>Error occured while punching out...!</value>
   </data>
 </root>

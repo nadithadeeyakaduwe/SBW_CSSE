@@ -79,6 +79,7 @@ namespace SBW.UI.EmployeeForms
 
                 backgroundWorker.ReportProgress(100);
                 dt = service.ViewEmployeesWithTitles();
+                Thread.Sleep(500);
             };
 
             backgroundWorker.RunWorkerCompleted += delegate
@@ -167,6 +168,12 @@ namespace SBW.UI.EmployeeForms
         {
             int employeeID = Convert.ToInt32(dgv_employeeWithTitles.CurrentRow.Cells["dgvCol_EmployeeID"].Value.ToString());
             Helper.ShowForm(new EmployeeIncrementForm(employeeID), FormStartPosition.CenterScreen);
+        }
+
+        private void btn_attendance_Click(object sender, EventArgs e)
+        {
+            int employeeID = Convert.ToInt32(dgv_employeeWithTitles.CurrentRow.Cells["dgvCol_EmployeeID"].Value.ToString());
+            Helper.ShowForm(new EmployeeAttendanceForm(employeeID));
         }
     }
 }
