@@ -28,6 +28,16 @@ namespace SBW.UI
             loadUserControl(new InventoryDetailsForm());
         }
 
+        private void btn_supplierUC_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new SupplierDetailsForm());
+        }
+
+        private void btn_stockUC_Click(object sender, EventArgs e)
+        {
+            loadUserControl(new StockDetailsForm());
+        }
+
         private void loadUserControl(UserControl userControl)
         {
             panel_InventoryForm.Controls.Clear();
@@ -35,5 +45,7 @@ namespace SBW.UI
             userControl.Dock = DockStyle.Fill;
             userControl.Show();
         }
+
+
     }
 }

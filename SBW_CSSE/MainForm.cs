@@ -1,10 +1,23 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Drawing.Text;
 
 namespace SBW.UI
 {
+    
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// The timer
+        /// </summary>
+        Timer timer = new Timer()
+        {
+            Interval = 1000,
+            Enabled = true
+        };
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
@@ -20,6 +33,9 @@ namespace SBW.UI
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
+            loadDigitalClock();
+            loadFont();
+            AllocFont(font, lbl_clock, 24);
         }
 
         /// <summary>
@@ -107,5 +123,64 @@ namespace SBW.UI
         {
             panel_sidebar.Top = top;
         }
+
+        /// <summary>
+        /// Loads the digital clock.
+        /// </summary>
+        private void loadDigitalClock()
+        {
+            timer.Tick += (tSender, ev) =>
+            {
+                lbl_clock.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            };
+        }
+
+        /// <summary>
+        /// Handles the Click event of the btn_logout control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        #region Loading the Font of the Digital Clock
+
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
+        FontFamily ff;
+        Font font;
+
+        private void AllocFont(Font f, Control c, float size)
+        {
+            FontStyle fontStyle = FontStyle.Regular;
+
+            c.Font = new Font(ff, size, fontStyle);
+        }
+
+        private void loadFont()
+        {
+            byte[] fontArray = Properties.Resources.digital_7__mono_;
+            int dataLength = Properties.Resources.digital_7__mono_.Length;
+
+            IntPtr ptrData = Marshal.AllocCoTaskMem(dataLength);
+            Marshal.Copy(fontArray, 0, ptrData, dataLength);
+            uint cFonts = 0;
+            AddFontMemResourceEx(ptrData, (uint)fontArray.Length, IntPtr.Zero, ref cFonts);
+
+            PrivateFontCollection pfc = new PrivateFontCollection();
+
+            pfc.AddMemoryFont(ptrData, dataLength);
+
+            Marshal.FreeCoTaskMem(ptrData);
+
+            ff = pfc.Families[0];
+
+            font = new Font(ff, 15f, FontStyle.Regular);
+        }
+
+        #endregion
     }
 }

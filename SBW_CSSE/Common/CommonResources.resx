@@ -120,4 +120,10 @@
   <data name="EmptyFieldsError" xml:space="preserve">
     <value>Please fill all required the fields...</value>
   </data>
+  <data name="EmptySalaryError" xml:space="preserve">
+    <value>Please enter the basic salary of the employee !</value>
+  </data>
+  <data name="PromotionPositionSameError" xml:space="preserve">
+    <value>Current position and the new position cannot be the same in a promotion !</value>
+  </data>
 </root>

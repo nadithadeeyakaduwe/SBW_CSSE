@@ -103,11 +103,11 @@ CREATE TABLE [HRM].[Employee]
 	HomeTelNo CHAR(10) ,
 	MobileNumber CHAR (10) UNIQUE NOT NULL,
 	Gender CHAR(1) NOT NULL,
-	MaritalStatus CHAR (1),
+	CivilStatus CHAR (1),
 	EpfNo INT NOT NULL,
 	PositionID INT NOT NULL,
 	DepartmentID INT NOT NULL,
-	CurrentSalary DECIMAL NOT NULL,
+	BasicSalary DECIMAL NOT NULL,
 	PastExperience VARCHAR (1000),
 	Qualification VARCHAR (1000),
 	JoinDate DATETIME NOT NULL,
@@ -119,6 +119,44 @@ CREATE TABLE [HRM].[Employee]
 	CONSTRAINT pk_Employee PRIMARY KEY (EmployeeID),
 	CONSTRAINT fk1_Employee FOREIGN KEY (PositionID) References [HRM].[Position] (PositionID) ON UPDATE CASCADE,
 	CONSTRAINT fk2_Employee FOREIGN KEY (DepartmentID) References [HRM].[Department] (DepartmentID) ON UPDATE CASCADE
+)
+GO
+
+CREATE TABLE [HRM].[EmployeePerformance] (
+
+	ID INT NOT NULL IDENTITY(1,1),
+	EmployeeID INT NOT NULL ,
+	EffectiveDate DATETIME NOT NULL,
+	Reason VARCHAR (200),
+	OldPosition VARCHAR(30),
+	NewPosition VARCHAR (30),
+	OldSalary DECIMAL,
+	NewSalary DECIMAL,
+	Status INT DEFAULT 1 NOT NULL, -- whether its a promotion or an increment
+	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
+	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
+	CONSTRAINT pk_Performance PRIMARY KEY (ID),
+	CONSTRAINT fk_Performance FOREIGN KEY(EmployeeID) REFERENCES [HRM].[Employee](EmployeeID) ON DELETE CASCADE ON UPDATE CASCADE
+)
+GO
+
+CREATE TABLE [HRM].[EmployeeAttendance](
+	--Date DATE NOT NULL DEFAULT CONVERT(DATE, GETDATE()),
+	ID INT NOT NULL IDENTITY (1,1),
+	EmployeeID int NOT NULL,
+	InTime DATETIME NOT NULL,
+	InNote VARCHAR(30),
+	OutTime DATETIME,
+	OutNote VARCHAR(30),
+	Duration FLOAT,
+	LateTime time(0) DEFAULT '00:00:00',
+	Status INT DEFAULT 1,
+	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
+	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
+
+	CONSTRAINT pk_Atendance PRIMARY KEY (ID),
+	CONSTRAINT fk_Attendance FOREIGN KEY (EmployeeID) REFERENCES [HRM].[Employee](EmployeeID) ON DELETE CASCADE ON UPDATE CASCADE
+	
 )
 GO
 
@@ -209,7 +247,7 @@ CREATE TABLE [Accounts].[Invoice_Details]
 	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
 
 	CONSTRAINT pk_Invoice_Details PRIMARY KEY(Item_No,Invoice_No)
-	CONSTRAINT fk1_Invoice_Details  FOREIGN KEY (Invoice_No) References [Invoice].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
+	CONSTRAINT fk1_Invoice_Details  FOREIGN KEY (Invoice_No) References [Accounts].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
 	)
 GO
 
@@ -227,7 +265,7 @@ CREATE TABLE [Accounts].[Installment]
 	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
 
 	CONSTRAINT pk_Inastallment PRIMARY KEY(Inastallment_ID),
-	CONSTRAINT fk1_Inastallment FOREIGN KEY (Invoice_No) References [Invoice].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
+	CONSTRAINT fk1_Inastallment FOREIGN KEY (Invoice_No) References [Accounts].[Invoice_Header](Invoice_No) ON UPDATE CASCADE
 	)
 GO
 

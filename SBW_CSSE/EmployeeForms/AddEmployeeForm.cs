@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using SBW.UI.Common;
 
-namespace SBW.UI.EmployeeUserControls
+namespace SBW.UI.EmployeeForms
 {
-    public partial class AddEmployeeForm : UserControl
+    public partial class AddEmployeeForm : Form
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AddEmployeeForm"/> class.
@@ -17,6 +17,7 @@ namespace SBW.UI.EmployeeUserControls
         public AddEmployeeForm()
         {
             InitializeComponent();
+            loadComponents();
         }
 
         /// <summary>
@@ -84,14 +85,14 @@ namespace SBW.UI.EmployeeUserControls
 
             Employee employee = new Employee()
             {
-                FirstName = tb_firstName.Text,
-                LastName = tb_lastName.Text,
+                FullName = tb_fullName.Text,
                 Address = rtb_address.Text,
-                BasicSalary = Convert.ToDecimal(tb_epfNo.Text),
+                BasicSalary = Convert.ToDecimal(tb_basicSalary.Text),
+                EPFNo = Convert.ToInt32(tb_epfNo.Text),
                 Email = tb_email.Text,
                 HomeTel = tb_homeTel.Text,
                 MobileNumber = tb_mobile.Text,
-                PositionID = Convert.ToInt32(tb_position.Text),
+                PositionID = Convert.ToInt32(cb_position.SelectedValue),
                 PastExperience = rtb_pastExperience.Text,
                 Qualification = rtb_qualification.Text,
                 NIC = tb_nic.Text,
@@ -99,12 +100,12 @@ namespace SBW.UI.EmployeeUserControls
                 CivilStatus = this.EmployeeCivilStatus,
                 Brithday = dtp_dob.Value,
                 JoinDate = dtp_joinDate.Value.Date,
-                DepartmentID = Convert.ToInt32(tb_department.Text)
+                DepartmentID = Convert.ToInt32(cb_department.SelectedValue)
             };
 
             IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
 
-            isSuccess = service.AddOrUpdateEmployee(employee);
+            isSuccess = service.AddEmployee(employee);
 
             if (isSuccess == true)
             {
@@ -148,15 +149,15 @@ namespace SBW.UI.EmployeeUserControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_demo_Click(object sender, EventArgs e)
         {
-            tb_firstName.Text = "Test Employee";
-            tb_lastName.Text = "VDine";
+            tb_fullName.Text = "Test Employee";
             rtb_address.Text = "addressAddresss";
-            tb_epfNo.Text = "25000.00";
+            tb_basicSalary.Text = "25000.00";
+            tb_epfNo.Text = "24";
             tb_email.Text = "test@gmail.com";
             tb_homeTel.Text = "0112729729";
             tb_mobile.Text = "0741258963";
-            tb_position.Text = "1";
-            tb_department.Text = "1";
+            cb_position.SelectedIndex = 0;
+            cb_department.SelectedIndex = 0;
             rtb_pastExperience.Text = string.Empty;
             rtb_qualification.Text = string.Empty;
             tb_nic.Text = "95025763";
@@ -166,6 +167,22 @@ namespace SBW.UI.EmployeeUserControls
             rbtn_single.Checked = true;
             dtp_dob.Value = DateTime.Today;
             dtp_joinDate.Value = DateTime.Today;
+        }
+
+        /// <summary>
+        /// Loads the components.
+        /// </summary>
+        private void loadComponents()
+        {
+            IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
+
+            cb_position.DataSource = service.LoadComboBox("Position");
+            cb_position.ValueMember = "PositionID";
+            cb_position.DisplayMember = "Name";
+
+            cb_department.DataSource = service.LoadComboBox("Department");
+            cb_department.ValueMember = "DepartmentID";
+            cb_department.DisplayMember = "Name";
         }
 
         /// <summary>

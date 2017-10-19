@@ -17,7 +17,7 @@ namespace SBW.DataAccess.Repositories
         /// </summary>
         /// <param name="query">The query.</param>
         /// <returns></returns>
-        public static bool insert(string query)
+        public static bool ExecuteQuery(string query)
         {
             bool status = false;
             SqlCommand cmd = new SqlCommand(query,con);
@@ -33,7 +33,11 @@ namespace SBW.DataAccess.Repositories
             {
                 LogHelper.Log(ex.ToString());
             }
-            con.Close();
+            finally
+            {
+                con.Close();
+            }
+            
 
             return status;
         }
@@ -44,16 +48,17 @@ namespace SBW.DataAccess.Repositories
         /// <param name="query">The query.</param>
         /// <param name="cmd">The command.</param>
         /// <returns></returns>
-        public static bool insert(string query, SqlCommand cmd)
+        public static bool ExecuteQuery(SqlCommand cmd)
         {
             bool status = false;
-            //cmd.CommandText = query;
             cmd.Connection = con;
-
+            int NoOfRowsExecuted;
             try
             {
                 con.Open();
-                if (cmd.ExecuteNonQuery() > 0)
+                NoOfRowsExecuted = cmd.ExecuteNonQuery();
+
+                if (NoOfRowsExecuted > 0)
                 {
                     status = true;
                 }
@@ -62,7 +67,11 @@ namespace SBW.DataAccess.Repositories
             {
                 LogHelper.Log(ex.ToString());
             }
-            con.Close();
+            finally
+            {
+                con.Close();
+            }
+            
 
             return status;
         }
@@ -80,17 +89,21 @@ namespace SBW.DataAccess.Repositories
             SqlDataReader reader;
             SqlCommand cmd = new SqlCommand(query, con);
 
-            con.Open();
             try
             {
+                con.Open();
                 reader = cmd.ExecuteReader();
                 dataTable.Load(reader);
             }
             catch(Exception ex)
             {
                 LogHelper.Log(ex.ToString());
+                dataTable = null;
             }
-            con.Close();
+            finally
+            {
+                con.Close();
+            }
 
             return dataTable;
         }

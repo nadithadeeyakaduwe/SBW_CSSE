@@ -1,4 +1,4 @@
-﻿using SBW.UI.EmployeeUserControls;
+﻿using SBW.UI.EmployeeForms;
 using System;
 using System.Windows.Forms;
 
@@ -21,7 +21,7 @@ namespace SBW.UI
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_addEmployeeUC_Click(object sender, EventArgs e)
         {
-            loadUserControl(new AddEmployeeForm());
+            loadForm(new AddEmployeeForm());
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace SBW.UI
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_viewEmployee_Click(object sender, EventArgs e)
         {
-            loadUserControl(new ViewEmployeesUC());
+            loadForm(new ViewEmployeesForm());
         }
 
 
@@ -39,7 +39,7 @@ namespace SBW.UI
         /// Loads the user control.
         /// </summary>
         /// <param name="userControl">The user control.</param>
-        private void loadUserControl(UserControl userControl)
+        private void loadUserControl(Form userControl)
         {
             panel_UC.Controls.Clear();
             panel_UC.Controls.Add(userControl);
@@ -47,6 +47,20 @@ namespace SBW.UI
             userControl.Show();
         }
 
-        
+        /// <summary>
+        /// Loads the main form.
+        /// </summary>
+        /// <param name="form">The form.</param>
+        private void loadForm(Form form)
+        {
+            panel_UC.Controls.Clear();
+            form.TopLevel = false;
+            panel_UC.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+
     }
 }

@@ -61,6 +61,15 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured while deleting...!.
+        /// </summary>
+        internal static string DBDeleteError {
+            get {
+                return ResourceManager.GetString("DBDeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while trying to save data...!.
         /// </summary>
         internal static string DBInsertError {
@@ -84,6 +93,60 @@ namespace SBW.BusinessService {
         internal static string DBRetrieveError {
             get {
                 return ResourceManager.GetString("DBRetrieveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while updating..!.
+        /// </summary>
+        internal static string DBUpdateError {
+            get {
+                return ResourceManager.GetString("DBUpdateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully updated..
+        /// </summary>
+        internal static string DBUpdateSuccess {
+            get {
+                return ResourceManager.GetString("DBUpdateSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while giving the increment to the employee...!.
+        /// </summary>
+        internal static string IncrementError {
+            get {
+                return ResourceManager.GetString("IncrementError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee has been given an increment..
+        /// </summary>
+        internal static string IncrementSuccess {
+            get {
+                return ResourceManager.GetString("IncrementSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while promoting the employee...!.
+        /// </summary>
+        internal static string PromotionError {
+            get {
+                return ResourceManager.GetString("PromotionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee is now promoted..
+        /// </summary>
+        internal static string PromotionSuccess {
+            get {
+                return ResourceManager.GetString("PromotionSuccess", resourceCulture);
             }
         }
     }
