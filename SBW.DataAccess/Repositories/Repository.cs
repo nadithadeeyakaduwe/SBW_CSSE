@@ -95,5 +95,51 @@ namespace SBW.DataAccess.Repositories
             return dataTable;
         }
 
+        public static bool update(string query, SqlCommand cmd)
+        {
+            bool status = false;
+            //cmd.CommandText = query;
+            cmd.Connection = con;
+
+            try
+            {
+                con.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    status = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+            }
+            con.Close();
+
+            return status;
+        }
+
+        public static bool delete(string query)
+        {
+            bool status = false;
+            //cmd.CommandText = query;
+            cmd.Connection = con;
+
+            try
+            {
+                con.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    status = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+            }
+            con.Close();
+
+            return status;
+        }
+
     }
 }

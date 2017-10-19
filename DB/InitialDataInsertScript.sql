@@ -1,5 +1,4 @@
 -- =============================================
--- Author:		Eshan Dias
 -- Create date: 2017-09-24 23:27:24.600
 -- Description:	Initial Data to be in the system
 -- =============================================
