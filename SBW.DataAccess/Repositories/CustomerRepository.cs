@@ -20,7 +20,7 @@ namespace SBW.DataAccess.Repositories
             string customerContactQuery = "INSERT INTO [Consumer].[CustomerContact] ([NIC],[ContactNo])"
                                            + $"VALUES (@nic,@contactNo)";
 
-            System.Data.SqlClient.SqlCommand cmd1 = new SqlCommand(customerQuery);
+            SqlCommand cmd1 = new SqlCommand(customerQuery);
             cmd1.Parameters.AddWithValue("@nic", customer.NIC);
             cmd1.Parameters.AddWithValue("@name", customer.CustomrName);
             cmd1.Parameters.AddWithValue("@email", customer.Email);
@@ -28,12 +28,12 @@ namespace SBW.DataAccess.Repositories
             cmd1.Parameters.AddWithValue("@rate", customer.Rate);
             cmd1.Parameters.AddWithValue("@customerType", customer.CustomerType);
 
-            System.Data.SqlClient.SqlCommand cmd2 = new SqlCommand(customerQuery);
+            SqlCommand cmd2 = new SqlCommand(customerQuery);
             cmd2.Parameters.AddWithValue("@nic", customer.NIC);
             cmd2.Parameters.AddWithValue("@contactNo", customer.Phone);
 
-            status = Repository.insert(customerQuery, cmd1);
-            status = Repository.insert(customerContactQuery, cmd2);
+            status = Repository.ExecuteQuery(cmd1);
+            status = Repository.ExecuteQuery(cmd2);
             return status;
         }
 
@@ -46,19 +46,18 @@ namespace SBW.DataAccess.Repositories
 
             string customerContactQuery = "UPDATE [Consumer].[CustomerContact] SET ([NIC],[ContactNo])"
                                            + $"VALUES (@nic,@contactNo) WHERE [NIC] = {customer.NIC}";
-
-            System.Data.SqlClient.SqlCommand cmd1 = new SqlCommand(customerQuery);
+            SqlCommand cmd1 = new SqlCommand(customerQuery);
             cmd1.Parameters.AddWithValue("@name", customer.CustomrName);
             cmd1.Parameters.AddWithValue("@email", customer.Email);
             cmd1.Parameters.AddWithValue("@address", customer.Address);
             cmd1.Parameters.AddWithValue("@rate", customer.Rate);
             cmd1.Parameters.AddWithValue("@customerType", customer.CustomerType);
 
-            System.Data.SqlClient.SqlCommand cmd2 = new SqlCommand(customerQuery);
+            SqlCommand cmd2 = new SqlCommand(customerQuery);
             cmd2.Parameters.AddWithValue("@contactNo", customer.Phone);
 
-            Repository.insert(customerQuery, cmd1);
-            Repository.insert(customerContactQuery, cmd2);
+            Repository.ExecuteQuery(cmd1);
+            Repository.ExecuteQuery(cmd2);
 
             status = true;
 
@@ -78,8 +77,8 @@ namespace SBW.DataAccess.Repositories
                                            + $"WHERE [NIC] = {NIC}";
 
 
-            status = Repository.insert(customerQuery);
-            status = Repository.insert(customerContactQuery);
+            status = Repository.ExecuteQuery(customerQuery);
+            status = Repository.ExecuteQuery(customerContactQuery);
             return status;
             ///////////////check delete method here and repository.cs ddletecus()
         }

@@ -45,11 +45,11 @@ namespace SBW.BusinessService
 
             if (!status)
             {
-                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+                MessageBoxHelper.ShowError(CommonResource.DBUpdateError);
             }
             else
             {
-                MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
+                MessageBoxHelper.Show(CommonResource.DBUpdateSuccess);
             }
 
             return status;
@@ -65,11 +65,11 @@ namespace SBW.BusinessService
 
             if (!status)
             {
-                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+                MessageBoxHelper.ShowError(CommonResource.DBDeleteError);
             }
             else
             {
-                MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
+                MessageBoxHelper.Show(CommonResource.DBDeleteSuccess);
             }
 
             return status;
