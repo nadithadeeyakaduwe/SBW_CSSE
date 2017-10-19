@@ -12,6 +12,7 @@ using SBW.Services;
 using SBW.Entities.HRMModule;
 using SBW.DataAccess.Enum;
 using SBW.Core;
+using SBW.UI.Common;
 
 namespace SBW.UI.EmployeeForms
 {
@@ -83,6 +84,14 @@ namespace SBW.UI.EmployeeForms
                 {
                     this.Close();
                 }
+            }
+        }
+
+        private void tb_newSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsMoneyTextBox(e.KeyChar, tb_newSalary.Text))
+            {
+                e.Handled = true;
             }
         }
     }

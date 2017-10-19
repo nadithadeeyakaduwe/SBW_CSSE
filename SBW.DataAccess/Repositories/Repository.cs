@@ -20,7 +20,7 @@ namespace SBW.DataAccess.Repositories
         public static bool ExecuteQuery(string query)
         {
             bool status = false;
-            SqlCommand cmd = new SqlCommand(query,con);
+            SqlCommand cmd = new SqlCommand(query, con);
             try
             {
                 openConnection();
@@ -30,7 +30,7 @@ namespace SBW.DataAccess.Repositories
                     status = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 LogHelper.Log(ex.ToString());
             }
@@ -38,7 +38,7 @@ namespace SBW.DataAccess.Repositories
             {
                 closeConnection();
             }
-            
+
 
             return status;
         }
@@ -73,7 +73,7 @@ namespace SBW.DataAccess.Repositories
             {
                 closeConnection();
             }
-            
+
 
             return status;
         }
@@ -98,7 +98,7 @@ namespace SBW.DataAccess.Repositories
                 reader = cmd.ExecuteReader();
                 dataTable.Load(reader);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 LogHelper.Log(ex.ToString());
                 dataTable = null;
@@ -157,7 +157,7 @@ namespace SBW.DataAccess.Repositories
                 {
                     LogHelper.Log("Openning Sql Connection...\n" + ex.Message + "\n" + ex.ToString());
                 }
-                
+
             }
         }
 
@@ -178,8 +178,7 @@ namespace SBW.DataAccess.Repositories
                 }
             }
         }
-    }
-}
+
         public static bool update(string query, SqlCommand cmd)
         {
             bool status = false;
@@ -202,29 +201,5 @@ namespace SBW.DataAccess.Repositories
 
             return status;
         }
-
-        public static bool delete(string query)
-        {
-            bool status = false;
-            //cmd.CommandText = query;
-            cmd.Connection = con;
-
-            try
-            {
-                con.Open();
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    status = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.Log(ex.ToString());
-            }
-            con.Close();
-
-            return status;
-        }
-
     }
 }

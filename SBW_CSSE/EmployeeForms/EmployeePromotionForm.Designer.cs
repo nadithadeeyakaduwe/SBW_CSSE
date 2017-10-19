@@ -160,6 +160,7 @@
             this.tb_newSalary.Name = "tb_newSalary";
             this.tb_newSalary.Size = new System.Drawing.Size(195, 23);
             this.tb_newSalary.TabIndex = 12;
+            this.tb_newSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_newSalary_KeyPress);
             // 
             // rtb_reason
             // 
