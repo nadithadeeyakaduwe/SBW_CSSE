@@ -124,6 +124,15 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee successfully added..
+        /// </summary>
+        internal static string EmployeeAddedSuccess {
+            get {
+                return ResourceManager.GetString("EmployeeAddedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while giving the increment to the employee...!.
         /// </summary>
         internal static string IncrementError {

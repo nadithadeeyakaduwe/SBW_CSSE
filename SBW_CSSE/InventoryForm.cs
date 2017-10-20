@@ -1,4 +1,5 @@
-﻿using SBW.UI.InventoryUserControls;
+﻿using SBW.UI.Common;
+using SBW.UI.InventoryUserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,25 +26,37 @@ namespace SBW.UI
 
         private void btn_inventoryUC_Click(object sender, EventArgs e)
         {
-            loadUserControl(new InventoryDetailsForm());
+            //Helper.ShowForm(new InventoryDetailsForm());
+            loadForm(new InventoryDetailsForm());
         }
 
         private void btn_supplierUC_Click(object sender, EventArgs e)
         {
-            loadUserControl(new SupplierDetailsForm());
+            //loadUserControl(new SupplierDetailsForm());
         }
 
         private void btn_stockUC_Click(object sender, EventArgs e)
         {
-            loadUserControl(new StockDetailsForm());
+            //loadUserControl(new StockDetailsForm());
         }
 
-        private void loadUserControl(UserControl userControl)
+        private void loadUserControl(Form userControl)
         {
             panel_InventoryForm.Controls.Clear();
+            //userControl.TopLevel = false;
             panel_InventoryForm.Controls.Add(userControl);
             userControl.Dock = DockStyle.Fill;
             userControl.Show();
+        }
+
+        private void loadForm(Form form)
+        {
+            panel_InventoryForm.Controls.Clear();
+            form.TopLevel = false;
+            panel_InventoryForm.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.Show();
         }
 
 

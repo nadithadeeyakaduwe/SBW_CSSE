@@ -68,6 +68,7 @@
             this.tb_newSalary.Name = "tb_newSalary";
             this.tb_newSalary.Size = new System.Drawing.Size(174, 23);
             this.tb_newSalary.TabIndex = 5;
+            this.tb_newSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_newSalary_KeyPress);
             // 
             // lbl_currentSalValue
             // 
@@ -153,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btn_cancel;
-            this.ClientSize = new System.Drawing.Size(383, 313);
+            this.ClientSize = new System.Drawing.Size(379, 309);
             this.ControlBox = false;
             this.Controls.Add(this.lbl_requredMark);
             this.Controls.Add(this.rtb_reason);

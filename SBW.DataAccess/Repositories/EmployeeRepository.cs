@@ -114,7 +114,7 @@ namespace SBW.DataAccess.Repositories
 
             string query = "UPDATE [HRM].[Employee] SET [Address] = @address, [Email] = @email," 
                 +" [HomeTelNo] = @home, [MobileNumber] = @mobile, [CivilStatus] = @civilstatus, [EpfNo] = @epfno,"
-                +" [BasicSalary] = @basicsal, [PastExperience] = @pastexp, [Qualification] = @qualification,"
+                +" [PastExperience] = @pastexp, [Qualification] = @qualification,"
                 +" [Status] = @status ,[ModifiedDate] = GETDATE() WHERE EmployeeID = @empNo";
 
             SqlCommand cmd = new SqlCommand(query);
@@ -127,7 +127,6 @@ namespace SBW.DataAccess.Repositories
             cmd.Parameters.AddWithValue("@epfno", employee.EPFNo);
             cmd.Parameters.AddWithValue("@status", employee.Status);
             cmd.Parameters.AddWithValue("@empNo", employee.EmployeeID);
-            cmd.Parameters.AddWithValue("@basicsal", employee.BasicSalary);
             cmd.Parameters.AddWithValue("@pastexp", employee.PastExperience);
             cmd.Parameters.AddWithValue("@qualification", employee.Qualification);
 

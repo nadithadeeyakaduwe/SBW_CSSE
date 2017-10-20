@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tb_search = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.lbl_nameNic = new System.Windows.Forms.Label();
@@ -94,27 +94,27 @@
             this.dgvCol_Name,
             this.dgvCol_title,
             this.dgvCol_department});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_employeeWithTitles.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_employeeWithTitles.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_employeeWithTitles.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_employeeWithTitles.Location = new System.Drawing.Point(77, 97);
             this.dgv_employeeWithTitles.MultiSelect = false;
             this.dgv_employeeWithTitles.Name = "dgv_employeeWithTitles";
             this.dgv_employeeWithTitles.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_employeeWithTitles.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_employeeWithTitles.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_employeeWithTitles.RowHeadersVisible = false;
             this.dgv_employeeWithTitles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_employeeWithTitles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -179,7 +179,7 @@
             // btn_performanceHistory
             // 
             this.btn_performanceHistory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_performanceHistory.Location = new System.Drawing.Point(926, 474);
+            this.btn_performanceHistory.Location = new System.Drawing.Point(926, 473);
             this.btn_performanceHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_performanceHistory.Name = "btn_performanceHistory";
             this.btn_performanceHistory.Size = new System.Drawing.Size(124, 46);
@@ -191,7 +191,7 @@
             // btn_attendance
             // 
             this.btn_attendance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_attendance.Location = new System.Drawing.Point(927, 398);
+            this.btn_attendance.Location = new System.Drawing.Point(927, 173);
             this.btn_attendance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_attendance.Name = "btn_attendance";
             this.btn_attendance.Size = new System.Drawing.Size(124, 46);
@@ -203,7 +203,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(927, 322);
+            this.button3.Location = new System.Drawing.Point(927, 248);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(124, 46);
@@ -214,7 +214,7 @@
             // btn_promote
             // 
             this.btn_promote.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_promote.Location = new System.Drawing.Point(927, 246);
+            this.btn_promote.Location = new System.Drawing.Point(927, 398);
             this.btn_promote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_promote.Name = "btn_promote";
             this.btn_promote.Size = new System.Drawing.Size(124, 46);
@@ -226,7 +226,7 @@
             // btn_giveIncrement
             // 
             this.btn_giveIncrement.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_giveIncrement.Location = new System.Drawing.Point(927, 170);
+            this.btn_giveIncrement.Location = new System.Drawing.Point(927, 323);
             this.btn_giveIncrement.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_giveIncrement.Name = "btn_giveIncrement";
             this.btn_giveIncrement.Size = new System.Drawing.Size(124, 46);
