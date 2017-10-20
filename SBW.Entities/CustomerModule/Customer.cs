@@ -9,7 +9,7 @@ namespace SBW.Entities.CustomerModule
     public class Customer
     {
         public string NIC { get; set; }
-        public string CustomrName { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }

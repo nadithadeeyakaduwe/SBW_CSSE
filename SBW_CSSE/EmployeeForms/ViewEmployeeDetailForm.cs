@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SBW.BusinessService;
+using SBW.Core;
 using SBW.Entities.HRMModule;
 using SBW.Services;
-using SBW.BusinessService;
+using SBW.UI.Common;
+using System;
+using System.Windows.Forms;
 
 namespace SBW.UI.EmployeeForms
 {
@@ -106,11 +101,11 @@ namespace SBW.UI.EmployeeForms
 
             status = service.DeleteEmployee(Convert.ToInt32(lbl_empNo.Text));
 
-            if(status)
+            if (status)
             {
-                btn_delete.Enabled = false;
-                btn_update.Enabled = false;
-                // OR find a way to open the previous form.
+                ViewEmployeesForm viewEmployeesForm = (ViewEmployeesForm)this.Owner;
+                viewEmployeesForm.refreshCurrentEmployees();
+                this.Close();
             }
         }
 
@@ -121,23 +116,51 @@ namespace SBW.UI.EmployeeForms
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btn_update_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee
+            DialogResult dialogResult = DialogResult.No;
+
+            dialogResult = MessageBoxHelper.GetConfirmation(CommonResources.UpdateEmployeeeConfirmation);
+
+            if (dialogResult.Equals(DialogResult.Yes))
             {
-                EmployeeID = Convert.ToInt32(lbl_empNo.Text),
-                MobileNumber = tb_mobile.Text,
-                HomeTel = tb_homeTel.Text,
-                Address = rtb_address.Text,
-                CivilStatus = this.EmployeeCivilStatus,
-                BasicSalary = Convert.ToDecimal(tb_basicSalary.Text),
-                PastExperience = rtb_pastExperience.Text,
-                Qualification = rtb_qualification.Text,
-                Email = tb_email.Text,
-                EPFNo = Convert.ToInt32(tb_epfNo.Text)
-            };
+                if (!ValidationHelper.IsValidEmail(tb_email.Text))
+                {
+                    MessageBoxHelper.ShowError(CommonResources.EmailError);
+                }
+                else
+                {
+                    Employee employee = new Employee
+                    {
+                        EmployeeID = Convert.ToInt32(lbl_empNo.Text),
+                        MobileNumber = tb_mobile.Text,
+                        HomeTel = tb_homeTel.Text,
+                        Address = rtb_address.Text,
+                        CivilStatus = this.EmployeeCivilStatus,
+                        PastExperience = rtb_pastExperience.Text,
+                        Qualification = rtb_qualification.Text,
+                        Email = tb_email.Text,
+                        EPFNo = Convert.ToInt32(tb_epfNo.Text)
+                    };
 
-            service = ServiceFactory.GetEmployeeSeriveice();
+                    service = ServiceFactory.GetEmployeeSeriveice();
 
-            service.UpdateEmployee(employee);
+                    service.UpdateEmployee(employee);
+                }
+            }
+        }
+        private void tb_epfNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_mobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

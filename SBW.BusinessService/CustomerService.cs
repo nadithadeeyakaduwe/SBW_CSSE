@@ -25,7 +25,7 @@ namespace SBW.BusinessService
 
             status = customerRepository.addCustomer(customer);
 
-            Console.WriteLine(status);
+            Console.WriteLine("ffffffffffffffffffffffffffffffffff " + status);
             if (!status){
                 MessageBoxHelper.ShowError(CommonResource.DBInsertError);
             }
@@ -42,6 +42,21 @@ namespace SBW.BusinessService
             customerRepository = new CustomerRepository();
 
             result = customerRepository.viewCustomerDetails();
+
+            if (result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+            return result;
+        }
+
+        public DataTable ViewCustomerLoyaltyDetails()
+        {
+            DataTable result = null;
+
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.viewCustomerLoyaltyDetails();
 
             if (result == null)
             {
@@ -89,6 +104,22 @@ namespace SBW.BusinessService
 
             return status;
            
+        }
+
+        //search customer by nic or name
+        public DataTable SearchCustomer(string searchString)
+        {
+            DataTable dt = new DataTable();
+            customerRepository = new CustomerRepository();
+
+            dt = customerRepository.searchCustomer(searchString);
+
+            if (dt == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+
+            return dt;
         }
 
         public bool AddLoyaltyCustomer(Customer custome)

@@ -39,7 +39,7 @@ namespace SBW.BusinessService
             }
             else
             {
-                MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
+                MessageBoxHelper.Show(CommonResource.EmployeeAddedSuccess);
             }
 
             return status;

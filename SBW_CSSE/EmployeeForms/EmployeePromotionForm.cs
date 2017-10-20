@@ -13,6 +13,7 @@ using SBW.BusinessService;
 using SBW.UI;
 using SBW.Core;
 using SBW.DataAccess.Enum;
+using SBW.UI.Common;
 
 namespace SBW.UI.EmployeeForms
 {
@@ -182,6 +183,14 @@ namespace SBW.UI.EmployeeForms
                 {
                     this.Close();
                 }
+            }
+        }
+
+        private void tb_newSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsMoneyTextBox(e.KeyChar, tb_newSalary.Text))
+            {
+                e.Handled = true;
             }
         }
     }

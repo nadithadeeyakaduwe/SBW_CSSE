@@ -39,7 +39,7 @@
             // btn_customerUC
             // 
             this.btn_customerUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_customerUC.Location = new System.Drawing.Point(156, 52);
+            this.btn_customerUC.Location = new System.Drawing.Point(204, 81);
             this.btn_customerUC.Name = "btn_customerUC";
             this.btn_customerUC.Size = new System.Drawing.Size(184, 100);
             this.btn_customerUC.TabIndex = 0;
@@ -50,7 +50,7 @@
             // btn_emailUC
             // 
             this.btn_emailUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_emailUC.Location = new System.Drawing.Point(156, 253);
+            this.btn_emailUC.Location = new System.Drawing.Point(204, 296);
             this.btn_emailUC.Name = "btn_emailUC";
             this.btn_emailUC.Size = new System.Drawing.Size(184, 100);
             this.btn_emailUC.TabIndex = 1;
@@ -61,7 +61,7 @@
             // btn_loyaltycardUC
             // 
             this.btn_loyaltycardUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_loyaltycardUC.Location = new System.Drawing.Point(556, 52);
+            this.btn_loyaltycardUC.Location = new System.Drawing.Point(635, 81);
             this.btn_loyaltycardUC.Name = "btn_loyaltycardUC";
             this.btn_loyaltycardUC.Size = new System.Drawing.Size(184, 100);
             this.btn_loyaltycardUC.TabIndex = 2;
@@ -72,7 +72,7 @@
             // btn_reportUC
             // 
             this.btn_reportUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_reportUC.Location = new System.Drawing.Point(556, 253);
+            this.btn_reportUC.Location = new System.Drawing.Point(635, 296);
             this.btn_reportUC.Name = "btn_reportUC";
             this.btn_reportUC.Size = new System.Drawing.Size(184, 100);
             this.btn_reportUC.TabIndex = 3;
@@ -86,18 +86,20 @@
             this.panel_customerform.Controls.Add(this.btn_reportUC);
             this.panel_customerform.Controls.Add(this.btn_loyaltycardUC);
             this.panel_customerform.Location = new System.Drawing.Point(12, 12);
+            this.panel_customerform.MaximumSize = new System.Drawing.Size(1020, 489);
+            this.panel_customerform.MinimumSize = new System.Drawing.Size(1020, 489);
             this.panel_customerform.Name = "panel_customerform";
-            this.panel_customerform.Size = new System.Drawing.Size(980, 427);
+            this.panel_customerform.Size = new System.Drawing.Size(1020, 489);
             this.panel_customerform.TabIndex = 4;
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 451);
+            this.ClientSize = new System.Drawing.Size(1044, 514);
             this.Controls.Add(this.panel_customerform);
-            this.MaximumSize = new System.Drawing.Size(1020, 489);
-            this.MinimumSize = new System.Drawing.Size(1020, 489);
+            this.MaximumSize = new System.Drawing.Size(1060, 552);
+            this.MinimumSize = new System.Drawing.Size(1060, 552);
             this.Name = "CustomerForm";
             this.Text = "Customer";
             this.panel_customerform.ResumeLayout(false);

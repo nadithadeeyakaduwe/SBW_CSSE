@@ -15,9 +15,14 @@ namespace SBW.Services
         bool AddNewCustomer(Customer customer);
         bool UpdateCustomer(Customer customer);
         bool DeleteCustomer(string NIC);
+        DataTable SearchCustomer(string searchString);
 
         //get customer details into grid view
         DataTable ViewCustomerDetails();
+
+        //get customer loyalty card details into grid view
+        DataTable ViewCustomerLoyaltyDetails();
+
 
         //CRUD operations for the customer Loyalty card
         bool AddLoyaltyCustomer(Customer custome);

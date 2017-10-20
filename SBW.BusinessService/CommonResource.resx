@@ -138,6 +138,9 @@
   <data name="DBUpdateSuccess" xml:space="preserve">
     <value>Successfully updated.</value>
   </data>
+  <data name="EmployeeAddedSuccess" xml:space="preserve">
+    <value>Employee successfully added.</value>
+  </data>
   <data name="IncrementError" xml:space="preserve">
     <value>Error occured while giving the increment to the employee...!</value>
   </data>

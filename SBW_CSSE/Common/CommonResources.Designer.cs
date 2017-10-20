@@ -61,6 +61,33 @@ namespace SBW.UI.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you need to add this new employee?.
+        /// </summary>
+        internal static string AddEmployeeConfirmation {
+            get {
+                return ResourceManager.GetString("AddEmployeeConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New recruits should be intthe age of between 18 to 55 to be recuited !.
+        /// </summary>
+        internal static string AgeError {
+            get {
+                return ResourceManager.GetString("AgeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The E-mail entered is incorrect. Please correct it and try again...!.
+        /// </summary>
+        internal static string EmailError {
+            get {
+                return ResourceManager.GetString("EmailError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill all required the fields....
         /// </summary>
         internal static string EmptyFieldsError {
@@ -79,11 +106,29 @@ namespace SBW.UI.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The NIC or E-mail entered is incorrect. Please check and try again...!.
+        /// </summary>
+        internal static string NicEmailError {
+            get {
+                return ResourceManager.GetString("NicEmailError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current position and the new position cannot be the same in a promotion !.
         /// </summary>
         internal static string PromotionPositionSameError {
             get {
                 return ResourceManager.GetString("PromotionPositionSameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you need to update this employee details?.
+        /// </summary>
+        internal static string UpdateEmployeeeConfirmation {
+            get {
+                return ResourceManager.GetString("UpdateEmployeeeConfirmation", resourceCulture);
             }
         }
     }
