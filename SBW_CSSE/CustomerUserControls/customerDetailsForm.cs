@@ -28,6 +28,9 @@ namespace SBW.UI.CustomerUserControls
         {
             CustomerFillGrid();
 
+            dgv_cus_table.Columns[2].Width = 150;
+            dgv_cus_table.Columns[3].Width = 200;
+
             cmb_cus_type.Items.Add("Regular");
             cmb_cus_type.Items.Add("Loyalty");
             cmb_cus_type.SelectedIndex = 0;

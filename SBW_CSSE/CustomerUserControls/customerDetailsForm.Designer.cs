@@ -76,7 +76,7 @@
             this.gb_cus_details.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_cus_details.Location = new System.Drawing.Point(38, 25);
             this.gb_cus_details.Name = "gb_cus_details";
-            this.gb_cus_details.Size = new System.Drawing.Size(835, 225);
+            this.gb_cus_details.Size = new System.Drawing.Size(970, 225);
             this.gb_cus_details.TabIndex = 0;
             this.gb_cus_details.TabStop = false;
             this.gb_cus_details.Text = "Customer Details";
@@ -91,7 +91,7 @@
             // 
             // btn_cus_clear
             // 
-            this.btn_cus_clear.Location = new System.Drawing.Point(713, 172);
+            this.btn_cus_clear.Location = new System.Drawing.Point(848, 190);
             this.btn_cus_clear.Name = "btn_cus_clear";
             this.btn_cus_clear.Size = new System.Drawing.Size(82, 29);
             this.btn_cus_clear.TabIndex = 15;
@@ -101,7 +101,7 @@
             // 
             // btn_cus_delete
             // 
-            this.btn_cus_delete.Location = new System.Drawing.Point(605, 172);
+            this.btn_cus_delete.Location = new System.Drawing.Point(848, 139);
             this.btn_cus_delete.Name = "btn_cus_delete";
             this.btn_cus_delete.Size = new System.Drawing.Size(82, 29);
             this.btn_cus_delete.TabIndex = 14;
@@ -111,7 +111,7 @@
             // 
             // btn_cus_update
             // 
-            this.btn_cus_update.Location = new System.Drawing.Point(487, 172);
+            this.btn_cus_update.Location = new System.Drawing.Point(848, 84);
             this.btn_cus_update.Name = "btn_cus_update";
             this.btn_cus_update.Size = new System.Drawing.Size(82, 29);
             this.btn_cus_update.TabIndex = 13;
@@ -121,7 +121,7 @@
             // 
             // btn_cus_add
             // 
-            this.btn_cus_add.Location = new System.Drawing.Point(375, 172);
+            this.btn_cus_add.Location = new System.Drawing.Point(848, 34);
             this.btn_cus_add.Name = "btn_cus_add";
             this.btn_cus_add.Size = new System.Drawing.Size(82, 29);
             this.btn_cus_add.TabIndex = 12;
@@ -238,10 +238,10 @@
             this.gb_cus_mgt.Controls.Add(this.txt_cus_searchkey);
             this.gb_cus_mgt.Controls.Add(this.lbl_cus_searchkey);
             this.gb_cus_mgt.Location = new System.Drawing.Point(38, 256);
-            this.gb_cus_mgt.MaximumSize = new System.Drawing.Size(835, 400);
-            this.gb_cus_mgt.MinimumSize = new System.Drawing.Size(835, 400);
+            this.gb_cus_mgt.MaximumSize = new System.Drawing.Size(970, 400);
+            this.gb_cus_mgt.MinimumSize = new System.Drawing.Size(970, 400);
             this.gb_cus_mgt.Name = "gb_cus_mgt";
-            this.gb_cus_mgt.Size = new System.Drawing.Size(835, 400);
+            this.gb_cus_mgt.Size = new System.Drawing.Size(970, 400);
             this.gb_cus_mgt.TabIndex = 1;
             this.gb_cus_mgt.TabStop = false;
             // 
@@ -250,7 +250,7 @@
             this.dgv_cus_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_cus_table.Location = new System.Drawing.Point(32, 66);
             this.dgv_cus_table.Name = "dgv_cus_table";
-            this.dgv_cus_table.Size = new System.Drawing.Size(763, 195);
+            this.dgv_cus_table.Size = new System.Drawing.Size(898, 195);
             this.dgv_cus_table.TabIndex = 2;
             this.dgv_cus_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cus_CellContentClick);
             this.dgv_cus_table.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_cus_table_RowHeaderMouseClick);
@@ -270,7 +270,7 @@
             // 
             this.btn_cus_demo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cus_demo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_cus_demo.Location = new System.Drawing.Point(713, 12);
+            this.btn_cus_demo.Location = new System.Drawing.Point(848, 12);
             this.btn_cus_demo.Name = "btn_cus_demo";
             this.btn_cus_demo.Size = new System.Drawing.Size(82, 29);
             this.btn_cus_demo.TabIndex = 5;
