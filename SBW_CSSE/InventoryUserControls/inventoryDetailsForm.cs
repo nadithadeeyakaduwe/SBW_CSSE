@@ -26,12 +26,23 @@ namespace SBW.UI.InventoryUserControls
         private void InventoryDetailsForm_Load(object sender, EventArgs e)
         {
             service = ServiceFactory.GetInventoryService();
+            FillInventoryGrid();
 
-            DataTable dt = null;
+            cmb_inventoryUC_make.DataSource = service.LoadComboBox("Stock", "Product", "Product_Make");
+            cmb_inventoryUC_make.DisplayMember = "Product_Make";
+            cmb_inventoryUC_make.Text = "";
 
-            dt = service.ViewInventoryItems();
+            cmb_inventoryUC_Name.DataSource = service.LoadComboBox("Stock", "Product", "Product_Name");
+            cmb_inventoryUC_Name.DisplayMember = "Product_Name";
+            cmb_inventoryUC_Name.Text = "";
 
-            dgv_inventoryUC.DataSource = dt;
+            cmb_inventoryUC_type.DataSource = service.LoadComboBox("Stock", "Product", "Product_Type");
+            cmb_inventoryUC_type.DisplayMember = "Product_Type";
+            cmb_inventoryUC_type.Text = "";
+
+            btn_inventoryUC_update.Enabled = false;
+            btn_inventoryUC_delete.Enabled = false;
+
         }
 
         //ADD button click event
@@ -67,14 +78,14 @@ namespace SBW.UI.InventoryUserControls
 
                 if (isSuccess == true)
                 {
-                    dgv_inventoryUC.DataSource = service.ViewInventoryItems();
-                    Helper.ClearAll(this);
+                    FillInventoryGrid();
+                    Clear();
                 }
             }
             else
             {
                 MessageBox.Show("Record is not saved", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Clear();
+                Clear();
             }
         }
 
@@ -91,6 +102,9 @@ namespace SBW.UI.InventoryUserControls
 
             else if (cmb_inventoryUC_type.Text == "")
                 MessageBox.Show("Please fill the Product Type");
+
+            else if (txt_inventoryUC_reorder.Text == "")
+                MessageBox.Show("Please fill the Reorder Level");
 
             else if (Convert.ToInt32(txt_inventoryUC_reorder.Text) <= 0 )
             {
@@ -132,12 +146,28 @@ namespace SBW.UI.InventoryUserControls
 
                 if (status)
                 {
-                    dgv_inventoryUC.DataSource = service.ViewInventoryItems();
+                    FillInventoryGrid();
+                    Clear();
                 }
             }
             else
+            {
                 MessageBox.Show("Record is not deleted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Clear();
+            }
 
+        }
+
+        //Filling Inventory Grid
+        public void FillInventoryGrid()
+        {
+            service = ServiceFactory.GetInventoryService();
+
+            DataTable dt = null;
+
+            dt = service.ViewInventoryItems();
+
+            dgv_inventoryUC.DataSource = dt;
 
         }
 
@@ -150,7 +180,89 @@ namespace SBW.UI.InventoryUserControls
             cmb_inventoryUC_type.Text = dgv_inventoryUC.Rows[e.RowIndex].Cells[3].Value.ToString();
             txt_inventoryUC_reorder.Text = dgv_inventoryUC.Rows[e.RowIndex].Cells[4].Value.ToString();
 
+            cmb_inventoryUC_make.Enabled = false;
+            cmb_inventoryUC_Name.Enabled = false;
+            cmb_inventoryUC_type.Enabled = false;
+
+            btn_inventoryUC_update.Enabled = true;
+            btn_inventoryUC_delete.Enabled = true;
+            btn_inventoryUC_add.Enabled = false;
+
         }
+
+        //Clear Inventory
+        public void Clear()
+        {
+            lbl_inventoryUC_pId.Text = "";
+
+            cmb_inventoryUC_make.Text = "";
+
+            cmb_inventoryUC_Name.Text = "";
+
+            cmb_inventoryUC_type.Text = "";
+
+            txt_inventoryUC_reorder.Text ="";
+
+            cmb_inventoryUC_make.Enabled = true;
+            cmb_inventoryUC_Name.Enabled = true;
+            cmb_inventoryUC_type.Enabled = true;
+
+            btn_inventoryUC_update.Enabled = false;
+            btn_inventoryUC_delete.Enabled = false;
+            btn_inventoryUC_add.Enabled = true;
+        }
+
+        private void btn_inventoryUC_clear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void btn_inventoryUC_update_Click(object sender, EventArgs e)
+        {
+            if (InventoryValidation())
+            {
+                updateInventory();
+            }
+        }
+
+        private void updateInventory()
+        {
+            bool isSuccess = true;
+
+            Inventory inventory = new Inventory()
+            {
+                ProductId = Convert.ToInt32(lbl_inventoryUC_pId.Text),
+                Make = cmb_inventoryUC_make.Text,
+                Name = cmb_inventoryUC_Name.Text,
+                Type = cmb_inventoryUC_type.Text,
+                ReorderLevel = Convert.ToInt32(txt_inventoryUC_reorder.Text)
+
+            };
+
+            DialogResult dr;
+            dr = MessageBox.Show("Do you want to update the record", "Confirm", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                IInventoryService service = ServiceFactory.GetInventoryService();
+
+                isSuccess = service.UpdateInventory(inventory);
+
+                if (isSuccess == true)
+                {
+                    FillInventoryGrid();
+                    Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Record is not updated", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Clear();
+            }
+        }
+
+
 
     }
 }
+

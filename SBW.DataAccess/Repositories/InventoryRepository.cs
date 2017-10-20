@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SBW.DataAccess.Repositories
 {
@@ -13,19 +14,31 @@ namespace SBW.DataAccess.Repositories
     {
         public bool addInventory(Inventory inventory)
         {
-            bool status = true;
-            string query = "INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],"
-                + "[Reorder_Level])"
-                + $"VALUES (@make,@name,@type,@reorderLevel)";
+            bool status = false;
+            try
+            {
+                string query = "INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],"
+                    + "[Reorder_Level])"
+                    + $"VALUES (@make,@name,@type,@reorderLevel)";
 
-            SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@make", inventory.Make);
-            cmd.Parameters.AddWithValue("@name", inventory.Name);
-            cmd.Parameters.AddWithValue("@type", inventory.Type);
-            cmd.Parameters.AddWithValue("@reorderLevel", inventory.ReorderLevel);
-
-            status = Repository.ExecuteQuery(cmd);
-
+                SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@make", inventory.Make);
+                cmd.Parameters.AddWithValue("@name", inventory.Name);
+                cmd.Parameters.AddWithValue("@type", inventory.Type);
+                cmd.Parameters.AddWithValue("@reorderLevel", inventory.ReorderLevel);
+                Console.WriteLine("inserting");
+                status = Repository.ExecuteQuery(cmd);
+                
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("exception1");
+                if (ex.Number == 2627)
+                {                  
+                    MessageBox.Show("Product Type already exists.");
+                }
+            }
+            Console.WriteLine("exception2");
             return status;
         }
 
@@ -47,6 +60,34 @@ namespace SBW.DataAccess.Repositories
             string query2 = $"DELETE FROM [Stock].[Product] WHERE Product_ID = {productId}";
 
             status = Repository.ExecuteQuery(query2);
+            return status;
+        }
+
+        public DataTable getDataForCombo(string schemaName,string tableName, string columnName)
+        {
+            DataTable result = null;
+
+            string query = "SELECT DISTINCT ["+columnName+ "] FROM "+
+                            "[" + schemaName + "].[" + tableName + "] ";
+
+            result = Repository.getDataTable(query);
+
+            return result;
+        }
+
+        public bool updateInventory(Inventory inventory)
+        {
+            bool status = true;
+
+            string query = "UPDATE [Stock].[Product] SET [Reorder_Level] = @reorderLevel WHERE Product_ID = @productId";
+
+            SqlCommand cmd = new SqlCommand(query);
+
+            cmd.Parameters.AddWithValue("@productId", inventory.ProductId);
+            cmd.Parameters.AddWithValue("@reorderLevel", inventory.ReorderLevel);
+
+            status = Repository.ExecuteQuery(cmd);
+
             return status;
         }
 

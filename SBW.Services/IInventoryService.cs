@@ -11,7 +11,13 @@ namespace SBW.Services
     public interface IInventoryService
     {
         DataTable ViewInventoryItems();
+
         bool AddInventory(Inventory inventory);
         bool DeleteInventory(int productId);
+
+        DataTable LoadComboBox(string schemaName,string tableName, string columnName);
+
+        bool UpdateInventory(Inventory inventory);
+
     }
 }

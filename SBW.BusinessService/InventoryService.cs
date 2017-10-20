@@ -64,5 +64,35 @@ namespace SBW.BusinessService
 
             return status;
         }
+
+        public DataTable LoadComboBox(string schemaName,string tableName, string columnName)
+        {
+            DataTable result = null;
+            repo = new InventoryRepository();
+
+            result = repo.getDataForCombo(schemaName,tableName, columnName);
+
+            return result;
+        }
+
+        public bool UpdateInventory(Inventory inventory)
+        {
+            bool status = true;
+
+            repo = new InventoryRepository();
+
+            status = repo.updateInventory(inventory);
+
+            if (status)
+            {
+                MessageBoxHelper.Show(CommonResource.DBUpdateSuccess);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBUpdateError);
+            }
+            return status;
+        }
+
     }
 }

@@ -164,7 +164,7 @@ CREATE TABLE [Stock].[Product]
 	Product_ID INT NOT NULL IDENTITY(1,1),
 	Product_Make VARCHAR(20),
 	Product_Name VARCHAR(20),
-	Product_Type VARCHAR(20),
+	Product_Type VARCHAR(20) UNIQUE,
 	Reorder_Level INT,
 	Quantity INT, 
 

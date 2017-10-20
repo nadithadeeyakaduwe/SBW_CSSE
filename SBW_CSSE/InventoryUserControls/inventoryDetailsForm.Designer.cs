@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox_Inventory = new System.Windows.Forms.GroupBox();
+            this.lbl_inventoryUC_pId = new System.Windows.Forms.Label();
             this.btn_inventoryUC_demo = new System.Windows.Forms.Button();
             this.btn_inventoryUC_clear = new System.Windows.Forms.Button();
             this.btn_inventoryUC_delete = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.lbl_inventoryUC_Name = new System.Windows.Forms.Label();
             this.cmb_inventoryUC_make = new System.Windows.Forms.ComboBox();
             this.lbl_inventoryUC_make = new System.Windows.Forms.Label();
-            this.lbl_inventoryUC_pId = new System.Windows.Forms.Label();
             this.groupBox_Inventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventoryUC)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,15 @@
             this.groupBox_Inventory.TabStop = false;
             this.groupBox_Inventory.Text = "Product";
             // 
+            // lbl_inventoryUC_pId
+            // 
+            this.lbl_inventoryUC_pId.AutoSize = true;
+            this.lbl_inventoryUC_pId.Location = new System.Drawing.Point(16, 170);
+            this.lbl_inventoryUC_pId.Name = "lbl_inventoryUC_pId";
+            this.lbl_inventoryUC_pId.Size = new System.Drawing.Size(82, 20);
+            this.lbl_inventoryUC_pId.TabIndex = 18;
+            this.lbl_inventoryUC_pId.Text = "Product Id";
+            // 
             // btn_inventoryUC_demo
             // 
             this.btn_inventoryUC_demo.Location = new System.Drawing.Point(661, 409);
@@ -96,6 +105,7 @@
             this.btn_inventoryUC_clear.TabIndex = 16;
             this.btn_inventoryUC_clear.Text = "CLEAR";
             this.btn_inventoryUC_clear.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_clear.Click += new System.EventHandler(this.btn_inventoryUC_clear_Click);
             // 
             // btn_inventoryUC_delete
             // 
@@ -115,6 +125,7 @@
             this.btn_inventoryUC_update.TabIndex = 14;
             this.btn_inventoryUC_update.Text = "UPDATE";
             this.btn_inventoryUC_update.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_update.Click += new System.EventHandler(this.btn_inventoryUC_update_Click);
             // 
             // btn_inventoryUC_add
             // 
@@ -225,15 +236,6 @@
             this.lbl_inventoryUC_make.Size = new System.Drawing.Size(48, 20);
             this.lbl_inventoryUC_make.TabIndex = 0;
             this.lbl_inventoryUC_make.Text = "Make";
-            // 
-            // lbl_inventoryUC_pId
-            // 
-            this.lbl_inventoryUC_pId.AutoSize = true;
-            this.lbl_inventoryUC_pId.Location = new System.Drawing.Point(16, 170);
-            this.lbl_inventoryUC_pId.Name = "lbl_inventoryUC_pId";
-            this.lbl_inventoryUC_pId.Size = new System.Drawing.Size(82, 20);
-            this.lbl_inventoryUC_pId.TabIndex = 18;
-            this.lbl_inventoryUC_pId.Text = "Product Id";
             // 
             // InventoryDetailsForm
             // 
