@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SBW.UI.InventoryUserControls;
+using SBW.BusinessService;
 
 namespace SBW.UI.Sales_n_Profit
 {
@@ -19,7 +21,8 @@ namespace SBW.UI.Sales_n_Profit
 
         private void Invoiceform_Load(object sender, EventArgs e)
         {
-
+            invoiceService Is = new invoiceService();
+            cmbx_invoice_ProductType.DataSource = Is.loadComboBoxProductType();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -47,5 +50,20 @@ namespace SBW.UI.Sales_n_Profit
         {
             e.Graphics.DrawImage(bmp, 0, 0);
         }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void btn_invoice_itemView_Click(object sender, EventArgs e)
+        {
+            var popup = new inviocAddItemPopup();
+            popup.Show();
+        }
+
+        
+
     }
 }
