@@ -27,17 +27,19 @@ namespace SBW.UI.CustomerUserControls
         private void customerDetailsForm_Load(object sender, EventArgs e)
         {
             CustomerFillGrid();
+
+            cmb_cus_type.Items.Add("Regular");
+            cmb_cus_type.Items.Add("Loyalty");
+            cmb_cus_type.SelectedIndex = 0;
+            cmb_cus_type.Enabled = true;
+
+            btn_cus_update.Enabled = false;
+            btn_cus_delete.Enabled = false;
         }
 
         //customer fillgrid
         public void CustomerFillGrid()
         {
-            //SqlConnection con = ConnectionManager.GetConnection();
-
-            //if (con.State.ToString() == "Closed")
-            //{
-            //    con.Open();
-            //}
             try
             {
                 service = ServiceFactory.GetCustomerSeriveice();
@@ -93,8 +95,6 @@ namespace SBW.UI.CustomerUserControls
 
                     if (result)
                     {
-                        //MessageBox.Show("Successfully Saved", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         //redirect to loyalty card tab
                         if (cmb_cus_type.Text == "Loyalty")
                         {
@@ -102,14 +102,14 @@ namespace SBW.UI.CustomerUserControls
                             clf.Show();
                         }                     
                     }
-                    //Clear();
+                    Clear();
 
 
                 }
                 catch (ApplicationException appEx)
                 {
                     MessageBox.Show(appEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Clear();
+                    Clear();
                 }
                 catch (SqlException ex)
                 {
@@ -117,14 +117,14 @@ namespace SBW.UI.CustomerUserControls
                     {
                         MessageBox.Show("This customer is alreay exist, please add new customer ");
                         //Violation of primary key. Handle Exception
-                        //Clear();
+                        Clear();
                     }
                 }
             }
             else
             {
                 MessageBox.Show("Record is not saved", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Clear();
+                Clear();
             }
         }
 
@@ -149,14 +149,14 @@ namespace SBW.UI.CustomerUserControls
                 else
                 {
                     MessageBox.Show("Record is not updated", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //Clear();
+                    Clear();
                 }
             }
             //else
             //    MessageBox.Show("Record updation request can not be completed", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             CustomerFillGrid();
-            //Clear();
+            Clear();
 
             btn_cus_add.Enabled = true;
             cmb_cus_type.SelectedIndex = -1;
@@ -183,7 +183,6 @@ namespace SBW.UI.CustomerUserControls
                
                 if (result)
                 {
-                    //MessageBox.Show("Successfully updated customer  details", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CustomerFillGrid();
                 }             
             }
@@ -210,7 +209,7 @@ namespace SBW.UI.CustomerUserControls
                 MessageBox.Show("Record is not deleted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            //Clear();
+            Clear();
             btn_cus_add.Enabled = true;
         }
 
@@ -343,6 +342,8 @@ namespace SBW.UI.CustomerUserControls
         private void dgv_cus_table_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             btn_cus_add.Enabled = false;
+            btn_cus_update.Enabled = true;
+            btn_cus_delete.Enabled = true;
 
             try
             {
@@ -387,28 +388,44 @@ namespace SBW.UI.CustomerUserControls
         }
 
         //Clear Customer feilds
-        //public void Clear()
-        //{
-        //    txtb_cus_nic.Clear();
-        //    txtb_cus_name.Clear();
-        //    rtb_cus_address.Clear();
-        //    txtb_cus_mobileno.Clear();
-        //    txtb_cus_email.Clear();
-        //    cmb_cus_type.SelectedIndex = -1;
-        //    // txtb_cus_rate.Clear();
-        //    txt_loy_nic.Clear();
-        //    cmb_loy_cardtype.SelectedIndex = -1;
-        //    lbl_loymem_cardno.Text = "Click";
-        //    cmb_email_nic.Text = "";
+        public void Clear()
+        {
+            txtb_cus_nic.Clear();
+            txtb_cus_name.Clear();
+            rtxtb_cus_address.Clear();
+            txtb_cus_mobile.Clear();
+            txtb_cus_email.Clear();
+            cmb_cus_type.SelectedIndex = -1;
+            //// txtb_cus_rate.Clear();
+            //txt_loy_nic.Clear();
+            //cmb_loy_cardtype.SelectedIndex = -1;
+            //lbl_loymem_cardno.Text = "Click";
+            //cmb_email_nic.Text = "";
 
-        //    txtb_cus_nic.Enabled = true;
-        //    txt_loy_nic.Enabled = true;
 
-        //    txt_email_address.Clear();
-        //    txt_email_subject.Clear();
-        //    rtb_cus_email_body.Clear();
 
-        //}
+            txtb_cus_nic.Enabled = true;
+            btn_cus_add.Enabled = true;
+            cmb_cus_type.Enabled = true;
+
+            btn_cus_update.Enabled = false;
+            btn_cus_delete.Enabled = false;
+
+            CustomerFillGrid();
+            
+            //txt_loy_nic.Enabled = true;
+
+            ////email feilds clear
+            //txt_email_address.Clear();
+            //txt_email_subject.Clear();
+            //rtb_cus_email_body.Clear();
+
+        }
+
+        private void btn_cus_clear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
 
     }
 }

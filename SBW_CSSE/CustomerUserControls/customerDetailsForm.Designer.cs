@@ -91,12 +91,13 @@
             // 
             // btn_cus_clear
             // 
-            this.btn_cus_clear.Location = new System.Drawing.Point(720, 172);
+            this.btn_cus_clear.Location = new System.Drawing.Point(713, 172);
             this.btn_cus_clear.Name = "btn_cus_clear";
             this.btn_cus_clear.Size = new System.Drawing.Size(82, 29);
             this.btn_cus_clear.TabIndex = 15;
             this.btn_cus_clear.Text = "CLEAR";
             this.btn_cus_clear.UseVisualStyleBackColor = true;
+            this.btn_cus_clear.Click += new System.EventHandler(this.btn_cus_clear_Click);
             // 
             // btn_cus_delete
             // 
@@ -232,21 +233,24 @@
             // 
             // gb_cus_mgt
             // 
+            this.gb_cus_mgt.Controls.Add(this.btn_cus_demo);
             this.gb_cus_mgt.Controls.Add(this.dgv_cus_table);
             this.gb_cus_mgt.Controls.Add(this.txt_cus_searchkey);
             this.gb_cus_mgt.Controls.Add(this.lbl_cus_searchkey);
             this.gb_cus_mgt.Location = new System.Drawing.Point(38, 256);
+            this.gb_cus_mgt.MaximumSize = new System.Drawing.Size(835, 400);
+            this.gb_cus_mgt.MinimumSize = new System.Drawing.Size(835, 400);
             this.gb_cus_mgt.Name = "gb_cus_mgt";
-            this.gb_cus_mgt.Size = new System.Drawing.Size(835, 337);
+            this.gb_cus_mgt.Size = new System.Drawing.Size(835, 400);
             this.gb_cus_mgt.TabIndex = 1;
             this.gb_cus_mgt.TabStop = false;
             // 
             // dgv_cus_table
             // 
             this.dgv_cus_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cus_table.Location = new System.Drawing.Point(32, 57);
+            this.dgv_cus_table.Location = new System.Drawing.Point(32, 66);
             this.dgv_cus_table.Name = "dgv_cus_table";
-            this.dgv_cus_table.Size = new System.Drawing.Size(763, 265);
+            this.dgv_cus_table.Size = new System.Drawing.Size(763, 195);
             this.dgv_cus_table.TabIndex = 2;
             this.dgv_cus_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cus_CellContentClick);
             this.dgv_cus_table.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_cus_table_RowHeaderMouseClick);
@@ -254,8 +258,11 @@
             // txt_cus_searchkey
             // 
             this.txt_cus_searchkey.Location = new System.Drawing.Point(260, 18);
+            this.txt_cus_searchkey.MaximumSize = new System.Drawing.Size(190, 26);
+            this.txt_cus_searchkey.MinimumSize = new System.Drawing.Size(190, 26);
+            this.txt_cus_searchkey.Multiline = true;
             this.txt_cus_searchkey.Name = "txt_cus_searchkey";
-            this.txt_cus_searchkey.Size = new System.Drawing.Size(190, 20);
+            this.txt_cus_searchkey.Size = new System.Drawing.Size(190, 26);
             this.txt_cus_searchkey.TabIndex = 1;
             this.txt_cus_searchkey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cus_searchkey_KeyPress);
             // 
@@ -263,7 +270,7 @@
             // 
             this.btn_cus_demo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cus_demo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_cus_demo.Location = new System.Drawing.Point(751, 625);
+            this.btn_cus_demo.Location = new System.Drawing.Point(713, 12);
             this.btn_cus_demo.Name = "btn_cus_demo";
             this.btn_cus_demo.Size = new System.Drawing.Size(82, 29);
             this.btn_cus_demo.TabIndex = 5;
@@ -275,13 +282,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_cus_demo);
             this.Controls.Add(this.gb_cus_mgt);
             this.Controls.Add(this.gb_cus_details);
-            this.MaximumSize = new System.Drawing.Size(1020, 700);
-            this.MinimumSize = new System.Drawing.Size(1020, 700);
+            this.MaximumSize = new System.Drawing.Size(1060, 700);
+            this.MinimumSize = new System.Drawing.Size(1060, 700);
             this.Name = "customerDetailsForm";
-            this.Size = new System.Drawing.Size(1020, 700);
+            this.Size = new System.Drawing.Size(1060, 700);
             this.Load += new System.EventHandler(this.customerDetailsForm_Load);
             this.gb_cus_details.ResumeLayout(false);
             this.gb_cus_details.PerformLayout();

@@ -86,18 +86,20 @@
             this.panel_customerform.Controls.Add(this.btn_reportUC);
             this.panel_customerform.Controls.Add(this.btn_loyaltycardUC);
             this.panel_customerform.Location = new System.Drawing.Point(12, 12);
+            this.panel_customerform.MaximumSize = new System.Drawing.Size(1020, 489);
+            this.panel_customerform.MinimumSize = new System.Drawing.Size(1020, 489);
             this.panel_customerform.Name = "panel_customerform";
-            this.panel_customerform.Size = new System.Drawing.Size(980, 427);
+            this.panel_customerform.Size = new System.Drawing.Size(1020, 489);
             this.panel_customerform.TabIndex = 4;
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 451);
+            this.ClientSize = new System.Drawing.Size(1044, 514);
             this.Controls.Add(this.panel_customerform);
-            this.MaximumSize = new System.Drawing.Size(1020, 489);
-            this.MinimumSize = new System.Drawing.Size(1020, 489);
+            this.MaximumSize = new System.Drawing.Size(1060, 552);
+            this.MinimumSize = new System.Drawing.Size(1060, 552);
             this.Name = "CustomerForm";
             this.Text = "Customer";
             this.panel_customerform.ResumeLayout(false);
