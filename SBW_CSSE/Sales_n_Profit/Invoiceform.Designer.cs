@@ -194,6 +194,7 @@
             // 
             // cmbx_invoice_ProductType
             // 
+            this.cmbx_invoice_ProductType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbx_invoice_ProductType.DisplayMember = "Product_Type";
             this.cmbx_invoice_ProductType.FormattingEnabled = true;
             this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(87, 169);

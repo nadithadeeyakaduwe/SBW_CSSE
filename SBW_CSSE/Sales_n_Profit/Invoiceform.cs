@@ -23,6 +23,10 @@ namespace SBW.UI.Sales_n_Profit
         {
             invoiceService Is = new invoiceService();
             cmbx_invoice_ProductType.DataSource = Is.loadComboBoxProductType();
+
+            cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

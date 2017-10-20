@@ -23,6 +23,12 @@ namespace SBW.BusinessService
             DataTable dt = InvoiceR.GetProdutTypes();
             return dt;
         }
+        public DataTable SearchProductByType(String type) {
+            InventoryRepository IR = inv = new InventoryRepository();
+            DataTable dt = IR.getDataForInvoiceAddItemPopup(type);
+            return dt;
+        }
+
 
     }
 }
