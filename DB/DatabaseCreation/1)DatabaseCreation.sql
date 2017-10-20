@@ -1,5 +1,4 @@
 -- =============================================
--- Author:		Eshan Dias
 -- Create date: 2017-09-24 23:27:24.600
 -- Description:	Database creation for Saranga's Battery Work
 -- =============================================
@@ -36,6 +35,8 @@ GO
 CREATE SCHEMA [Stock]
 GO
 
+CREATE SCHEMA [Consumer]
+GO
 
 CREATE TABLE [Admin].[User]
 (
@@ -127,10 +128,10 @@ CREATE TABLE [HRM].[EmployeePerformance] (
 	EmployeeID INT NOT NULL ,
 	EffectiveDate DATETIME NOT NULL,
 	Reason VARCHAR (200),
-	Old_Position VARCHAR(30),
-	New_Position VARCHAR (30),
-	Old_Salary DECIMAL,
-	New_Salary DECIMAL,
+	OldPosition VARCHAR(30),
+	NewPosition VARCHAR (30),
+	OldSalary DECIMAL,
+	NewSalary DECIMAL,
 	Status INT DEFAULT 1 NOT NULL, -- whether its a promotion or an increment
 	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
 	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
@@ -153,9 +154,8 @@ CREATE TABLE [HRM].[EmployeeAttendance](
 	ModifiedDate DATETIME NOT NULL DEFAULT GETDATE(),
 	DateCreated DATETIME NOT NULL DEFAULT GETDATE()
 
-	CONSTRAINT pk_Atendance PRIMARY KEY (ID),
+	CONSTRAINT pk_Atendance PRIMARY KEY (EmployeeID, InTime),
 	CONSTRAINT fk_Attendance FOREIGN KEY (EmployeeID) REFERENCES [HRM].[Employee](EmployeeID) ON DELETE CASCADE ON UPDATE CASCADE
-	
 )
 GO
 
@@ -164,7 +164,7 @@ CREATE TABLE [Stock].[Product]
 	Product_ID INT NOT NULL IDENTITY(1,1),
 	Product_Make VARCHAR(20),
 	Product_Name VARCHAR(20),
-	Product_Type VARCHAR(20),
+	Product_Type VARCHAR(20) UNIQUE,
 	Reorder_Level INT,
 	Quantity INT, 
 
@@ -268,3 +268,39 @@ CREATE TABLE [Accounts].[Installment]
 	)
 GO
 
+
+
+
+CREATE TABLE [Consumer].[Customer]
+(
+	NIC char(10) NOT NULL,
+	Name varchar (50),
+	Email varchar (30),
+	Address varchar (50),
+	Rate int,
+	CustomerType varchar (20),
+	
+	CONSTRAINT Customer_pk PRIMARY KEY(NIC)	
+	)
+GO
+
+CREATE TABLE [Consumer].[CustomerContact]
+(
+	NIC char (10)NOT NULL ,
+	ContactNo char (10)NOT NULL ,
+
+	CONSTRAINT CusCon_pk PRIMARY KEY(NIC,ContactNO),
+	CONSTRAINT CusCon_fk FOREIGN KEY(NIC) REFERENCES [Consumer].[Customer](NIC)ON DELETE CASCADE
+	)
+GO
+
+CREATE TABLE [Consumer].[CustomerLoyaltyCard]
+(
+	NIC char (10) ,
+	Card_No varchar(50) unique ,
+	Card_Points int default 0,
+	CardType  varchar (10)
+	CONSTRAINT CusLo_pk PRIMARY KEY(NIC),
+	CONSTRAINT CusLo_fk FOREIGN KEY(NIC) REFERENCES  [Consumer].[Customer](NIC)ON DELETE CASCADE
+	)
+GO

@@ -113,6 +113,12 @@
     <Compile Include="EmployeeForms\ViewEmployeeDetailForm.Designer.cs">
       <DependentUpon>ViewEmployeeDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeForms\ViewEmployeePerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForms\ViewEmployeePerformance.Designer.cs">
+      <DependentUpon>ViewEmployeePerformance.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeForms\ViewEmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,18 @@
     </Compile>
     <Compile Include="InventoryUserControls\InventoryDetailsForm.Designer.cs">
       <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryUserControls\StockDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryUserControls\StockDetailsForm.Designer.cs">
+      <DependentUpon>StockDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryUserControls\SupplierDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryUserControls\SupplierDetailsForm.Designer.cs">
+      <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -197,6 +215,9 @@
     <EmbeddedResource Include="EmployeeForms\ViewEmployeeDetailForm.resx">
       <DependentUpon>ViewEmployeeDetailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForms\ViewEmployeePerformance.resx">
+      <DependentUpon>ViewEmployeePerformance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeForms\ViewEmployeesForm.resx">
       <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +232,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryUserControls\InventoryDetailsForm.resx">
       <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryUserControls\StockDetailsForm.resx">
+      <DependentUpon>StockDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryUserControls\SupplierDetailsForm.resx">
+      <DependentUpon>SupplierDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

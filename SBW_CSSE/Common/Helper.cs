@@ -58,5 +58,12 @@ namespace SBW.UI.Common
             form.StartPosition = FormStartPosition.Manual;
             form.ShowDialog();
         }
+
+        public static void ShowForm(Form form, FormStartPosition formStartPosition)
+        {
+            form.BringToFront();
+            form.StartPosition = formStartPosition;
+            form.ShowDialog();
+        }
     }
 }

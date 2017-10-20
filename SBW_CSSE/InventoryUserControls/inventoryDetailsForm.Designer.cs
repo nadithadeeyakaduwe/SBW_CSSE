@@ -29,23 +29,40 @@
         private void InitializeComponent()
         {
             this.groupBox_Inventory = new System.Windows.Forms.GroupBox();
-            this.lbl_inventoryUC_make = new System.Windows.Forms.Label();
-            this.cmb_inventoryUC_make = new System.Windows.Forms.ComboBox();
-            this.lbl_inventoryUC_Name = new System.Windows.Forms.Label();
-            this.cmb_inventoryUC_Name = new System.Windows.Forms.ComboBox();
-            this.lbl_inventoryUC_type = new System.Windows.Forms.Label();
-            this.cmb_inventoryUC_type = new System.Windows.Forms.ComboBox();
-            this.lbl_inventoryUC_reorderLevel = new System.Windows.Forms.Label();
-            this.txt_inventoryUC_reorder = new System.Windows.Forms.TextBox();
-            this.lbl_inventoryUC_quantity = new System.Windows.Forms.Label();
+            this.lbl_inventoryUC_pId = new System.Windows.Forms.Label();
+            this.btn_inventoryUC_demo = new System.Windows.Forms.Button();
+            this.btn_inventoryUC_clear = new System.Windows.Forms.Button();
+            this.btn_inventoryUC_delete = new System.Windows.Forms.Button();
+            this.btn_inventoryUC_update = new System.Windows.Forms.Button();
+            this.btn_inventoryUC_add = new System.Windows.Forms.Button();
+            this.txt_inventoryUC_search = new System.Windows.Forms.TextBox();
+            this.lbl_inventoryUC_search = new System.Windows.Forms.Label();
+            this.dgv_inventoryUC = new System.Windows.Forms.DataGridView();
             this.txt_inventoryUC_quantity = new System.Windows.Forms.TextBox();
+            this.txt_inventoryUC_reorder = new System.Windows.Forms.TextBox();
+            this.lbl_inventoryUC_reorderLevel = new System.Windows.Forms.Label();
+            this.cmb_inventoryUC_type = new System.Windows.Forms.ComboBox();
+            this.lbl_inventoryUC_type = new System.Windows.Forms.Label();
+            this.cmb_inventoryUC_Name = new System.Windows.Forms.ComboBox();
+            this.lbl_inventoryUC_Name = new System.Windows.Forms.Label();
+            this.cmb_inventoryUC_make = new System.Windows.Forms.ComboBox();
+            this.lbl_inventoryUC_make = new System.Windows.Forms.Label();
             this.groupBox_Inventory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_inventoryUC)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_Inventory
             // 
+            this.groupBox_Inventory.Controls.Add(this.lbl_inventoryUC_pId);
+            this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_demo);
+            this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_clear);
+            this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_delete);
+            this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_update);
+            this.groupBox_Inventory.Controls.Add(this.btn_inventoryUC_add);
+            this.groupBox_Inventory.Controls.Add(this.txt_inventoryUC_search);
+            this.groupBox_Inventory.Controls.Add(this.lbl_inventoryUC_search);
+            this.groupBox_Inventory.Controls.Add(this.dgv_inventoryUC);
             this.groupBox_Inventory.Controls.Add(this.txt_inventoryUC_quantity);
-            this.groupBox_Inventory.Controls.Add(this.lbl_inventoryUC_quantity);
             this.groupBox_Inventory.Controls.Add(this.txt_inventoryUC_reorder);
             this.groupBox_Inventory.Controls.Add(this.lbl_inventoryUC_reorderLevel);
             this.groupBox_Inventory.Controls.Add(this.cmb_inventoryUC_type);
@@ -54,105 +71,191 @@
             this.groupBox_Inventory.Controls.Add(this.lbl_inventoryUC_Name);
             this.groupBox_Inventory.Controls.Add(this.cmb_inventoryUC_make);
             this.groupBox_Inventory.Controls.Add(this.lbl_inventoryUC_make);
+            this.groupBox_Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_Inventory.Location = new System.Drawing.Point(11, 12);
             this.groupBox_Inventory.Name = "groupBox_Inventory";
-            this.groupBox_Inventory.Size = new System.Drawing.Size(792, 420);
+            this.groupBox_Inventory.Size = new System.Drawing.Size(933, 474);
             this.groupBox_Inventory.TabIndex = 0;
             this.groupBox_Inventory.TabStop = false;
             this.groupBox_Inventory.Text = "Product";
             // 
-            // lbl_inventoryUC_make
+            // lbl_inventoryUC_pId
             // 
-            this.lbl_inventoryUC_make.AutoSize = true;
-            this.lbl_inventoryUC_make.Location = new System.Drawing.Point(16, 39);
-            this.lbl_inventoryUC_make.Name = "lbl_inventoryUC_make";
-            this.lbl_inventoryUC_make.Size = new System.Drawing.Size(34, 13);
-            this.lbl_inventoryUC_make.TabIndex = 0;
-            this.lbl_inventoryUC_make.Text = "Make";
+            this.lbl_inventoryUC_pId.AutoSize = true;
+            this.lbl_inventoryUC_pId.Location = new System.Drawing.Point(16, 170);
+            this.lbl_inventoryUC_pId.Name = "lbl_inventoryUC_pId";
+            this.lbl_inventoryUC_pId.Size = new System.Drawing.Size(82, 20);
+            this.lbl_inventoryUC_pId.TabIndex = 18;
+            this.lbl_inventoryUC_pId.Text = "Product Id";
             // 
-            // cmb_inventoryUC_make
+            // btn_inventoryUC_demo
             // 
-            this.cmb_inventoryUC_make.FormattingEnabled = true;
-            this.cmb_inventoryUC_make.Location = new System.Drawing.Point(81, 36);
-            this.cmb_inventoryUC_make.Name = "cmb_inventoryUC_make";
-            this.cmb_inventoryUC_make.Size = new System.Drawing.Size(121, 21);
-            this.cmb_inventoryUC_make.TabIndex = 1;
+            this.btn_inventoryUC_demo.Location = new System.Drawing.Point(661, 409);
+            this.btn_inventoryUC_demo.Name = "btn_inventoryUC_demo";
+            this.btn_inventoryUC_demo.Size = new System.Drawing.Size(82, 29);
+            this.btn_inventoryUC_demo.TabIndex = 17;
+            this.btn_inventoryUC_demo.Text = "DEMO";
+            this.btn_inventoryUC_demo.UseVisualStyleBackColor = true;
             // 
-            // lbl_inventoryUC_Name
+            // btn_inventoryUC_clear
             // 
-            this.lbl_inventoryUC_Name.AutoSize = true;
-            this.lbl_inventoryUC_Name.Location = new System.Drawing.Point(287, 39);
-            this.lbl_inventoryUC_Name.Name = "lbl_inventoryUC_Name";
-            this.lbl_inventoryUC_Name.Size = new System.Drawing.Size(35, 13);
-            this.lbl_inventoryUC_Name.TabIndex = 2;
-            this.lbl_inventoryUC_Name.Text = "Name";
+            this.btn_inventoryUC_clear.Location = new System.Drawing.Point(538, 409);
+            this.btn_inventoryUC_clear.Name = "btn_inventoryUC_clear";
+            this.btn_inventoryUC_clear.Size = new System.Drawing.Size(82, 29);
+            this.btn_inventoryUC_clear.TabIndex = 16;
+            this.btn_inventoryUC_clear.Text = "CLEAR";
+            this.btn_inventoryUC_clear.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_clear.Click += new System.EventHandler(this.btn_inventoryUC_clear_Click);
             // 
-            // cmb_inventoryUC_Name
+            // btn_inventoryUC_delete
             // 
-            this.cmb_inventoryUC_Name.FormattingEnabled = true;
-            this.cmb_inventoryUC_Name.Location = new System.Drawing.Point(356, 36);
-            this.cmb_inventoryUC_Name.Name = "cmb_inventoryUC_Name";
-            this.cmb_inventoryUC_Name.Size = new System.Drawing.Size(121, 21);
-            this.cmb_inventoryUC_Name.TabIndex = 3;
+            this.btn_inventoryUC_delete.Location = new System.Drawing.Point(409, 409);
+            this.btn_inventoryUC_delete.Name = "btn_inventoryUC_delete";
+            this.btn_inventoryUC_delete.Size = new System.Drawing.Size(82, 29);
+            this.btn_inventoryUC_delete.TabIndex = 15;
+            this.btn_inventoryUC_delete.Text = "DELETE";
+            this.btn_inventoryUC_delete.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_delete.Click += new System.EventHandler(this.btn_inventoryUC_delete_Click);
             // 
-            // lbl_inventoryUC_type
+            // btn_inventoryUC_update
             // 
-            this.lbl_inventoryUC_type.AutoSize = true;
-            this.lbl_inventoryUC_type.Location = new System.Drawing.Point(557, 39);
-            this.lbl_inventoryUC_type.Name = "lbl_inventoryUC_type";
-            this.lbl_inventoryUC_type.Size = new System.Drawing.Size(31, 13);
-            this.lbl_inventoryUC_type.TabIndex = 4;
-            this.lbl_inventoryUC_type.Text = "Type";
+            this.btn_inventoryUC_update.Location = new System.Drawing.Point(277, 409);
+            this.btn_inventoryUC_update.Name = "btn_inventoryUC_update";
+            this.btn_inventoryUC_update.Size = new System.Drawing.Size(82, 29);
+            this.btn_inventoryUC_update.TabIndex = 14;
+            this.btn_inventoryUC_update.Text = "UPDATE";
+            this.btn_inventoryUC_update.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_update.Click += new System.EventHandler(this.btn_inventoryUC_update_Click);
             // 
-            // cmb_inventoryUC_type
+            // btn_inventoryUC_add
             // 
-            this.cmb_inventoryUC_type.FormattingEnabled = true;
-            this.cmb_inventoryUC_type.Location = new System.Drawing.Point(634, 36);
-            this.cmb_inventoryUC_type.Name = "cmb_inventoryUC_type";
-            this.cmb_inventoryUC_type.Size = new System.Drawing.Size(121, 21);
-            this.cmb_inventoryUC_type.TabIndex = 5;
+            this.btn_inventoryUC_add.Location = new System.Drawing.Point(152, 409);
+            this.btn_inventoryUC_add.Name = "btn_inventoryUC_add";
+            this.btn_inventoryUC_add.Size = new System.Drawing.Size(82, 29);
+            this.btn_inventoryUC_add.TabIndex = 13;
+            this.btn_inventoryUC_add.Text = "ADD";
+            this.btn_inventoryUC_add.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_add.Click += new System.EventHandler(this.btn_inventoryUC_add_Click);
+            // 
+            // txt_inventoryUC_search
+            // 
+            this.txt_inventoryUC_search.Location = new System.Drawing.Point(561, 164);
+            this.txt_inventoryUC_search.Name = "txt_inventoryUC_search";
+            this.txt_inventoryUC_search.Size = new System.Drawing.Size(182, 26);
+            this.txt_inventoryUC_search.TabIndex = 12;
+            // 
+            // lbl_inventoryUC_search
+            // 
+            this.lbl_inventoryUC_search.AutoSize = true;
+            this.lbl_inventoryUC_search.Location = new System.Drawing.Point(328, 167);
+            this.lbl_inventoryUC_search.Name = "lbl_inventoryUC_search";
+            this.lbl_inventoryUC_search.Size = new System.Drawing.Size(227, 20);
+            this.lbl_inventoryUC_search.TabIndex = 11;
+            this.lbl_inventoryUC_search.Text = "Search Key (Make/Name/Type)";
+            // 
+            // dgv_inventoryUC
+            // 
+            this.dgv_inventoryUC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_inventoryUC.Location = new System.Drawing.Point(19, 203);
+            this.dgv_inventoryUC.Name = "dgv_inventoryUC";
+            this.dgv_inventoryUC.Size = new System.Drawing.Size(736, 171);
+            this.dgv_inventoryUC.TabIndex = 10;
+            this.dgv_inventoryUC.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_inventoryUC_RowHeaderMouseClick);
+            // 
+            // txt_inventoryUC_quantity
+            // 
+            this.txt_inventoryUC_quantity.Location = new System.Drawing.Point(152, 147);
+            this.txt_inventoryUC_quantity.Name = "txt_inventoryUC_quantity";
+            this.txt_inventoryUC_quantity.Size = new System.Drawing.Size(0, 26);
+            this.txt_inventoryUC_quantity.TabIndex = 9;
+            // 
+            // txt_inventoryUC_reorder
+            // 
+            this.txt_inventoryUC_reorder.Location = new System.Drawing.Point(152, 97);
+            this.txt_inventoryUC_reorder.Name = "txt_inventoryUC_reorder";
+            this.txt_inventoryUC_reorder.Size = new System.Drawing.Size(100, 26);
+            this.txt_inventoryUC_reorder.TabIndex = 7;
+            this.txt_inventoryUC_reorder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inventoryUC_reorder_KeyPress);
             // 
             // lbl_inventoryUC_reorderLevel
             // 
             this.lbl_inventoryUC_reorderLevel.AutoSize = true;
             this.lbl_inventoryUC_reorderLevel.Location = new System.Drawing.Point(16, 100);
             this.lbl_inventoryUC_reorderLevel.Name = "lbl_inventoryUC_reorderLevel";
-            this.lbl_inventoryUC_reorderLevel.Size = new System.Drawing.Size(77, 13);
+            this.lbl_inventoryUC_reorderLevel.Size = new System.Drawing.Size(113, 20);
             this.lbl_inventoryUC_reorderLevel.TabIndex = 6;
             this.lbl_inventoryUC_reorderLevel.Text = "Re-order Level";
             // 
-            // txt_inventoryUC_reorder
+            // cmb_inventoryUC_type
             // 
-            this.txt_inventoryUC_reorder.Location = new System.Drawing.Point(102, 97);
-            this.txt_inventoryUC_reorder.Name = "txt_inventoryUC_reorder";
-            this.txt_inventoryUC_reorder.Size = new System.Drawing.Size(100, 20);
-            this.txt_inventoryUC_reorder.TabIndex = 7;
+            this.cmb_inventoryUC_type.FormattingEnabled = true;
+            this.cmb_inventoryUC_type.Location = new System.Drawing.Point(634, 36);
+            this.cmb_inventoryUC_type.Name = "cmb_inventoryUC_type";
+            this.cmb_inventoryUC_type.Size = new System.Drawing.Size(121, 28);
+            this.cmb_inventoryUC_type.TabIndex = 5;
             // 
-            // lbl_inventoryUC_quantity
+            // lbl_inventoryUC_type
             // 
-            this.lbl_inventoryUC_quantity.AutoSize = true;
-            this.lbl_inventoryUC_quantity.Location = new System.Drawing.Point(16, 153);
-            this.lbl_inventoryUC_quantity.Name = "lbl_inventoryUC_quantity";
-            this.lbl_inventoryUC_quantity.Size = new System.Drawing.Size(46, 13);
-            this.lbl_inventoryUC_quantity.TabIndex = 8;
-            this.lbl_inventoryUC_quantity.Text = "Quantity";
+            this.lbl_inventoryUC_type.AutoSize = true;
+            this.lbl_inventoryUC_type.Location = new System.Drawing.Point(557, 39);
+            this.lbl_inventoryUC_type.Name = "lbl_inventoryUC_type";
+            this.lbl_inventoryUC_type.Size = new System.Drawing.Size(43, 20);
+            this.lbl_inventoryUC_type.TabIndex = 4;
+            this.lbl_inventoryUC_type.Text = "Type";
             // 
-            // txt_inventoryUC_quantity
+            // cmb_inventoryUC_Name
             // 
-            this.txt_inventoryUC_quantity.Location = new System.Drawing.Point(102, 150);
-            this.txt_inventoryUC_quantity.Name = "txt_inventoryUC_quantity";
-            this.txt_inventoryUC_quantity.Size = new System.Drawing.Size(100, 20);
-            this.txt_inventoryUC_quantity.TabIndex = 9;
+            this.cmb_inventoryUC_Name.FormattingEnabled = true;
+            this.cmb_inventoryUC_Name.Location = new System.Drawing.Point(356, 36);
+            this.cmb_inventoryUC_Name.Name = "cmb_inventoryUC_Name";
+            this.cmb_inventoryUC_Name.Size = new System.Drawing.Size(121, 28);
+            this.cmb_inventoryUC_Name.TabIndex = 3;
+            // 
+            // lbl_inventoryUC_Name
+            // 
+            this.lbl_inventoryUC_Name.AutoSize = true;
+            this.lbl_inventoryUC_Name.Location = new System.Drawing.Point(287, 39);
+            this.lbl_inventoryUC_Name.Name = "lbl_inventoryUC_Name";
+            this.lbl_inventoryUC_Name.Size = new System.Drawing.Size(51, 20);
+            this.lbl_inventoryUC_Name.TabIndex = 2;
+            this.lbl_inventoryUC_Name.Text = "Name";
+            // 
+            // cmb_inventoryUC_make
+            // 
+            this.cmb_inventoryUC_make.FormattingEnabled = true;
+            this.cmb_inventoryUC_make.Location = new System.Drawing.Point(81, 36);
+            this.cmb_inventoryUC_make.Name = "cmb_inventoryUC_make";
+            this.cmb_inventoryUC_make.Size = new System.Drawing.Size(121, 28);
+            this.cmb_inventoryUC_make.TabIndex = 1;
+            // 
+            // lbl_inventoryUC_make
+            // 
+            this.lbl_inventoryUC_make.AutoSize = true;
+            this.lbl_inventoryUC_make.Location = new System.Drawing.Point(16, 39);
+            this.lbl_inventoryUC_make.Name = "lbl_inventoryUC_make";
+            this.lbl_inventoryUC_make.Size = new System.Drawing.Size(48, 20);
+            this.lbl_inventoryUC_make.TabIndex = 0;
+            this.lbl_inventoryUC_make.Text = "Make";
             // 
             // InventoryDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1060, 552);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox_Inventory);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1060, 552);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1060, 552);
             this.Name = "InventoryDetailsForm";
-            this.Size = new System.Drawing.Size(806, 443);
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Load += new System.EventHandler(this.InventoryDetailsForm_Load);
             this.groupBox_Inventory.ResumeLayout(false);
             this.groupBox_Inventory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_inventoryUC)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,7 +265,6 @@
         private System.Windows.Forms.GroupBox groupBox_Inventory;
         private System.Windows.Forms.Label lbl_inventoryUC_make;
         private System.Windows.Forms.TextBox txt_inventoryUC_quantity;
-        private System.Windows.Forms.Label lbl_inventoryUC_quantity;
         private System.Windows.Forms.TextBox txt_inventoryUC_reorder;
         private System.Windows.Forms.Label lbl_inventoryUC_reorderLevel;
         private System.Windows.Forms.ComboBox cmb_inventoryUC_type;
@@ -170,5 +272,14 @@
         private System.Windows.Forms.ComboBox cmb_inventoryUC_Name;
         private System.Windows.Forms.Label lbl_inventoryUC_Name;
         private System.Windows.Forms.ComboBox cmb_inventoryUC_make;
+        private System.Windows.Forms.DataGridView dgv_inventoryUC;
+        private System.Windows.Forms.Label lbl_inventoryUC_search;
+        private System.Windows.Forms.Button btn_inventoryUC_demo;
+        private System.Windows.Forms.Button btn_inventoryUC_clear;
+        private System.Windows.Forms.Button btn_inventoryUC_delete;
+        private System.Windows.Forms.Button btn_inventoryUC_update;
+        private System.Windows.Forms.Button btn_inventoryUC_add;
+        private System.Windows.Forms.TextBox txt_inventoryUC_search;
+        private System.Windows.Forms.Label lbl_inventoryUC_pId;
     }
 }

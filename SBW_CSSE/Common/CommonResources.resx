@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddEmployeeConfirmation" xml:space="preserve">
+    <value>Are you sure you need to add this new employee?</value>
+  </data>
+  <data name="AgeError" xml:space="preserve">
+    <value>New recruits should be intthe age of between 18 to 55 to be recuited !</value>
+  </data>
+  <data name="EmailError" xml:space="preserve">
+    <value>The E-mail entered is incorrect. Please correct it and try again...!</value>
+  </data>
   <data name="EmptyFieldsError" xml:space="preserve">
     <value>Please fill all required the fields...</value>
   </data>
   <data name="EmptySalaryError" xml:space="preserve">
     <value>Please enter the basic salary of the employee !</value>
   </data>
+  <data name="NicEmailError" xml:space="preserve">
+    <value>The NIC or E-mail entered is incorrect. Please check and try again...!</value>
+  </data>
   <data name="PromotionPositionSameError" xml:space="preserve">
     <value>Current position and the new position cannot be the same in a promotion !</value>
+  </data>
+  <data name="UpdateEmployeeeConfirmation" xml:space="preserve">
+    <value>Are you sure you need to update this employee details?</value>
   </data>
 </root>

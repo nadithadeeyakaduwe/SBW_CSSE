@@ -69,6 +69,7 @@
             this.gpb_cuc_loyalty.TabIndex = 23;
             this.gpb_cuc_loyalty.TabStop = false;
             this.gpb_cuc_loyalty.Text = "Loyalty Details";
+            //this.gpb_cuc_loyalty.Enter += new System.EventHandler(this.gpb_cuc_loyalty_Enter);
             // 
             // btn_cusLoy_clear
             // 
@@ -219,6 +220,7 @@
             this.Controls.Add(this.gpb_cuc_loyalty);
             this.Name = "customerLoyaltyCardForm";
             this.Size = new System.Drawing.Size(931, 708);
+            this.Load += new System.EventHandler(this.customerLoyaltyCardForm_Load);
             this.gpb_cuc_loyalty.ResumeLayout(false);
             this.gpb_cuc_loyalty.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -246,6 +248,6 @@
         private System.Windows.Forms.GroupBox gp_loyaltycard;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmb_loy_selectCardType;
-        private System.Windows.Forms.DataGridView dgv_loyalty_table;
+        public System.Windows.Forms.DataGridView dgv_loyalty_table;
     }
 }

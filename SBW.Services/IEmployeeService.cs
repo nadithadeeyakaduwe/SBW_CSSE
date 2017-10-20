@@ -1,18 +1,18 @@
 ﻿using SBW.Entities.HRMModule;
 using System.Data;
+using System.Threading.Tasks;
+using System;
 
 namespace SBW.Services
 {
     public interface IEmployeeService
     {
-        //string getEmployeeName(int id);
-
         /// <summary>
         /// Adds the or update employee.
         /// </summary>
         /// <param name="employee">The employee.</param>
         /// <returns></returns>
-        bool AddOrUpdateEmployee(Employee employee);
+        bool AddEmployee(Employee employee);
 
         /// <summary>
         /// Views the employees with titles and the respective department.
@@ -63,6 +63,29 @@ namespace SBW.Services
         /// </summary>
         /// <param name="employeeId">The employee identifier.</param>
         /// <returns></returns>
-        bool PromoteEmployee(EmployeePromotion promotionDto);
+        bool PromoteEmployee(EmployeePromotionDto promotionDto);
+
+        /// <summary>
+        /// Gets the employee performance history asynchronous.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <returns></returns>
+        EmployeePerformanceDto GetEmployeePerformanceHistory(int employeeID);
+
+        /// <summary>
+        /// Gets the employee attendance details.
+        /// </summary>
+        /// <param name="employeeID">The employee identifier.</param>
+        /// <param name="today">The today.</param>
+        /// <returns></returns>
+        EmployeeAttendanceDto GetEmployeeAttendanceData(int employeeID, DateTime date);
+
+        /// <summary>
+        /// Employees the punch in out.
+        /// </summary>
+        /// <param name="employeeAttendanceDto">The employee attendance dto.</param>
+        /// <param name="activity">The activity.</param>
+        /// <returns></returns>
+        bool EmployeePunchInOut(EmployeeAttendanceDto employeeAttendanceDto, string activity);
     }
 }

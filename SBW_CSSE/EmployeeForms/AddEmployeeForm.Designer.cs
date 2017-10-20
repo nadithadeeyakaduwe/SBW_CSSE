@@ -190,6 +190,7 @@
             this.tb_mobile.Name = "tb_mobile";
             this.tb_mobile.Size = new System.Drawing.Size(268, 23);
             this.tb_mobile.TabIndex = 4;
+            this.tb_mobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_mobile_KeyPress);
             // 
             // tb_homeTel
             // 
@@ -197,6 +198,7 @@
             this.tb_homeTel.Name = "tb_homeTel";
             this.tb_homeTel.Size = new System.Drawing.Size(268, 23);
             this.tb_homeTel.TabIndex = 5;
+            this.tb_homeTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_homeTel_KeyPress);
             // 
             // tb_email
             // 
@@ -211,6 +213,7 @@
             this.tb_epfNo.Name = "tb_epfNo";
             this.tb_epfNo.Size = new System.Drawing.Size(277, 23);
             this.tb_epfNo.TabIndex = 14;
+            this.tb_epfNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_epfNo_KeyPress);
             // 
             // btn_save
             // 
@@ -384,6 +387,7 @@
             this.tb_basicSalary.Name = "tb_basicSalary";
             this.tb_basicSalary.Size = new System.Drawing.Size(277, 23);
             this.tb_basicSalary.TabIndex = 37;
+            this.tb_basicSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_basicSalary_KeyPress);
             // 
             // lbl_backSalary
             // 
@@ -461,6 +465,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Load += new System.EventHandler(this.AddEmployeeForm_Load);
             this.panel_gender.ResumeLayout(false);
             this.panel_gender.PerformLayout();
             this.panel_civilStatus.ResumeLayout(false);

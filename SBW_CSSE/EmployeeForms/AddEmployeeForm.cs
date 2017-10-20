@@ -6,6 +6,7 @@ using SBW.BusinessService;
 using System.Collections.Generic;
 using System.Linq;
 using SBW.UI.Common;
+using SBW.Core;
 
 namespace SBW.UI.EmployeeForms
 {
@@ -17,7 +18,6 @@ namespace SBW.UI.EmployeeForms
         public AddEmployeeForm()
         {
             InitializeComponent();
-            loadComponents();
         }
 
         /// <summary>
@@ -66,13 +66,27 @@ namespace SBW.UI.EmployeeForms
         private void btn_save_Click(object sender, EventArgs e)
         {
             bool isEmpty = this.checkIsEmpty();
-            if (!isEmpty)
+            bool isDataValid = ValidationHelper.IsValidNIC(tb_nic.Text) && ValidationHelper.IsValidEmail(tb_email.Text);
+            DialogResult dialogResult = MessageBoxHelper.GetConfirmation(CommonResources.AddEmployeeConfirmation);
+
+            if(dialogResult == DialogResult.OK)
             {
-                saveEmployee();
-            }
-            else
-            {
-                MessageBox.Show(CommonResources.EmptyFieldsError);
+                if (isEmpty)
+                {
+                    MessageBox.Show(CommonResources.EmptyFieldsError);
+                }
+                else if (!isDataValid)
+                {
+                    MessageBoxHelper.ShowError(CommonResources.NicEmailError);
+                }
+                else if (!ValidationHelper.IsOkToRecruite(dtp_dob.Value))
+                {
+                    MessageBoxHelper.ShowError(CommonResources.AgeError);
+                }
+                else
+                {
+                    this.saveEmployee();
+                }
             }
         }
 
@@ -105,7 +119,7 @@ namespace SBW.UI.EmployeeForms
 
             IEmployeeService service = ServiceFactory.GetEmployeeSeriveice();
 
-            isSuccess = service.AddOrUpdateEmployee(employee);
+            isSuccess = service.AddEmployee(employee);
 
             if (isSuccess == true)
             {
@@ -121,7 +135,7 @@ namespace SBW.UI.EmployeeForms
         {
             bool isEmpty = false;
 
-            foreach(TextBox tb in Controls.OfType<TextBox>())
+            foreach (TextBox tb in Controls.OfType<TextBox>())
             {
                 if (string.IsNullOrEmpty(tb.Text.Trim()))
                 {
@@ -137,7 +151,7 @@ namespace SBW.UI.EmployeeForms
                     isEmpty = true;
                 }
             }
-            
+
             return isEmpty;
         }
 
@@ -183,31 +197,70 @@ namespace SBW.UI.EmployeeForms
             cb_department.DataSource = service.LoadComboBox("Department");
             cb_department.ValueMember = "DepartmentID";
             cb_department.DisplayMember = "Name";
+
+            //dtp_joinDate.MinDate = DateTime.Today;
         }
 
         /// <summary>
-        /// Clears this instance.
+        /// Handles the KeyPress event of the tb_basicSalary control.
         /// </summary>
-        //private void clear()
-        //{
-        //    tb_firstName.Text = "";
-        //    tb_lastName.Text = "";
-        //    rtb_address.Text = "";
-        //    tb_basicSalary.Text = "";
-        //    tb_email.Text = "";
-        //    tb_homeTel.Text = "";
-        //    tb_mobile.Text = "";
-        //    tb_position.Text = "";
-        //    rtb_pastExperience.Text = "";
-        //    rtb_qualification.Text = "";
-        //    tb_nic.Clear();
-        //    rbtn_male.Checked = false;
-        //    rbtn_female.Checked = false;
-        //    rbtn_married.Checked = false;
-        //    rbtn_single.Checked = false;
-        //    dtp_dob.Value = DateTime.Today;
-        //    dtp_joinDate.Value = DateTime.Today;
-        //}
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyPressEventArgs"/> instance containing the event data.</param>
+        private void tb_basicSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsMoneyTextBox(e.KeyChar, tb_basicSalary.Text))
+            {
+                e.Handled = true;
+            }
+        }
 
+        /// <summary>
+        /// Handles the KeyPress event of the tb_mobile control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyPressEventArgs"/> instance containing the event data.</param>
+        private void tb_mobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Handles the KeyPress event of the tb_homeTel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyPressEventArgs"/> instance containing the event data.</param>
+        private void tb_homeTel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Handles the KeyPress event of the tb_epfNo control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyPressEventArgs"/> instance containing the event data.</param>
+        private void tb_epfNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!ValidationHelper.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Handles the Load event of the AddEmployeeForm control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void AddEmployeeForm_Load(object sender, EventArgs e)
+        {
+            this.loadComponents();
+        }
     }
 }

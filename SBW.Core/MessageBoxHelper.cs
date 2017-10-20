@@ -41,6 +41,17 @@ namespace SBW.Core
         }
 
         /// <summary>
+        /// Gets the confirmation.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <returns></returns>
+        public static DialogResult GetConfirmation(string message)
+        {
+            return MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
+
+
+        /// <summary>
         /// Shows the advance message.
         /// </summary>
         /// <param name="message">The message.</param>

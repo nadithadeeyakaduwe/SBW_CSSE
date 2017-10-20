@@ -34,17 +34,17 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.lbl_nameNic = new System.Windows.Forms.Label();
             this.dgv_employeeWithTitles = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btn_promote = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgvCol_employeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCol_epfNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCol_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCol_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCol_department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_performanceHistory = new System.Windows.Forms.Button();
+            this.btn_attendance = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btn_promote = new System.Windows.Forms.Button();
+            this.btn_giveIncrement = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeWithTitles)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -122,78 +122,6 @@
             this.dgv_employeeWithTitles.TabIndex = 3;
             this.dgv_employeeWithTitles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeWithTitles_CellDoubleClick);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.btn_promote);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btn_search);
-            this.panel1.Controls.Add(this.dgv_employeeWithTitles);
-            this.panel1.Controls.Add(this.tb_search);
-            this.panel1.Controls.Add(this.lbl_nameNic);
-            this.panel1.Location = new System.Drawing.Point(-2, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1062, 553);
-            this.panel1.TabIndex = 4;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(926, 474);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(124, 46);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Perfomance History";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(927, 398);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 46);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Attendance";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(927, 322);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 46);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Leave";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btn_promote
-            // 
-            this.btn_promote.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_promote.Location = new System.Drawing.Point(927, 246);
-            this.btn_promote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_promote.Name = "btn_promote";
-            this.btn_promote.Size = new System.Drawing.Size(124, 46);
-            this.btn_promote.TabIndex = 5;
-            this.btn_promote.Text = "Promote";
-            this.btn_promote.UseVisualStyleBackColor = true;
-            this.btn_promote.Click += new System.EventHandler(this.btn_promote_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(927, 170);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 46);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Give Increment";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // dgvCol_employeeID
             // 
             this.dgvCol_employeeID.DataPropertyName = "EmployeeID";
@@ -232,6 +160,81 @@
             this.dgvCol_department.Name = "dgvCol_department";
             this.dgvCol_department.ReadOnly = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_performanceHistory);
+            this.panel1.Controls.Add(this.btn_attendance);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btn_promote);
+            this.panel1.Controls.Add(this.btn_giveIncrement);
+            this.panel1.Controls.Add(this.btn_search);
+            this.panel1.Controls.Add(this.dgv_employeeWithTitles);
+            this.panel1.Controls.Add(this.tb_search);
+            this.panel1.Controls.Add(this.lbl_nameNic);
+            this.panel1.Location = new System.Drawing.Point(-2, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1062, 553);
+            this.panel1.TabIndex = 4;
+            // 
+            // btn_performanceHistory
+            // 
+            this.btn_performanceHistory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_performanceHistory.Location = new System.Drawing.Point(926, 473);
+            this.btn_performanceHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_performanceHistory.Name = "btn_performanceHistory";
+            this.btn_performanceHistory.Size = new System.Drawing.Size(124, 46);
+            this.btn_performanceHistory.TabIndex = 8;
+            this.btn_performanceHistory.Text = "Perfomance History";
+            this.btn_performanceHistory.UseVisualStyleBackColor = true;
+            this.btn_performanceHistory.Click += new System.EventHandler(this.btn_performanceHistory_Click);
+            // 
+            // btn_attendance
+            // 
+            this.btn_attendance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_attendance.Location = new System.Drawing.Point(927, 173);
+            this.btn_attendance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_attendance.Name = "btn_attendance";
+            this.btn_attendance.Size = new System.Drawing.Size(124, 46);
+            this.btn_attendance.TabIndex = 7;
+            this.btn_attendance.Text = "Attendance";
+            this.btn_attendance.UseVisualStyleBackColor = true;
+            this.btn_attendance.Click += new System.EventHandler(this.btn_attendance_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(927, 248);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(124, 46);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Leave";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btn_promote
+            // 
+            this.btn_promote.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_promote.Location = new System.Drawing.Point(927, 398);
+            this.btn_promote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_promote.Name = "btn_promote";
+            this.btn_promote.Size = new System.Drawing.Size(124, 46);
+            this.btn_promote.TabIndex = 5;
+            this.btn_promote.Text = "Promote";
+            this.btn_promote.UseVisualStyleBackColor = true;
+            this.btn_promote.Click += new System.EventHandler(this.btn_promote_Click);
+            // 
+            // btn_giveIncrement
+            // 
+            this.btn_giveIncrement.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_giveIncrement.Location = new System.Drawing.Point(927, 323);
+            this.btn_giveIncrement.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_giveIncrement.Name = "btn_giveIncrement";
+            this.btn_giveIncrement.Size = new System.Drawing.Size(124, 46);
+            this.btn_giveIncrement.TabIndex = 4;
+            this.btn_giveIncrement.Text = "Give Increment";
+            this.btn_giveIncrement.UseVisualStyleBackColor = true;
+            this.btn_giveIncrement.Click += new System.EventHandler(this.btn_giveIncrement_Click);
+            // 
             // ViewEmployeesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -267,11 +270,11 @@
         private System.Windows.Forms.Label lbl_nameNic;
         private System.Windows.Forms.DataGridView dgv_employeeWithTitles;
         public System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_performanceHistory;
+        private System.Windows.Forms.Button btn_attendance;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_promote;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_giveIncrement;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_employeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_epfNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_Name;

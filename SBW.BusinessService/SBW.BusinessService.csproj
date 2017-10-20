@@ -46,7 +46,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CommonResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerService.cs" />
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="InventoryService.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
