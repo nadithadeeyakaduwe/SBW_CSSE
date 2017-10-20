@@ -1,6 +1,6 @@
 ﻿namespace SBW.UI.InventoryUserControls
 {
-    partial class inventryAddItemPopup
+    partial class inviocAddItemPopup
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_invoiceAddItemPopup = new System.Windows.Forms.DataGridView();
             this.txtbx_invenrtyAddItemPopup_ItemType = new System.Windows.Forms.TextBox();
             this.lbl_inventry_AddIPopup_ItemType = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_invoiceAddItemPopup)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_invoiceAddItemPopup
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 59);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(766, 381);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_invoiceAddItemPopup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_invoiceAddItemPopup.Location = new System.Drawing.Point(5, 59);
+            this.dgv_invoiceAddItemPopup.Name = "dgv_invoiceAddItemPopup";
+            this.dgv_invoiceAddItemPopup.Size = new System.Drawing.Size(766, 381);
+            this.dgv_invoiceAddItemPopup.TabIndex = 0;
             // 
             // txtbx_invenrtyAddItemPopup_ItemType
             // 
@@ -58,18 +58,18 @@
             this.lbl_inventry_AddIPopup_ItemType.TabIndex = 2;
             this.lbl_inventry_AddIPopup_ItemType.Text = "Item Type";
             // 
-            // inventryAddItemPopup
+            // inviocAddItemPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 444);
             this.Controls.Add(this.lbl_inventry_AddIPopup_ItemType);
             this.Controls.Add(this.txtbx_invenrtyAddItemPopup_ItemType);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "inventryAddItemPopup";
+            this.Controls.Add(this.dgv_invoiceAddItemPopup);
+            this.Name = "inviocAddItemPopup";
             this.Text = "inventryAddItemPopup";
             this.Load += new System.EventHandler(this.inventryAddItemPopup_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_invoiceAddItemPopup)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,7 +77,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_invoiceAddItemPopup;
         private System.Windows.Forms.TextBox txtbx_invenrtyAddItemPopup_ItemType;
         private System.Windows.Forms.Label lbl_inventry_AddIPopup_ItemType;
     }

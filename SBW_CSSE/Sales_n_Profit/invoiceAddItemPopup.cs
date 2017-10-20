@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SBW.BusinessService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,17 @@ using System.Windows.Forms;
 
 namespace SBW.UI.InventoryUserControls
 {
-    public partial class inventryAddItemPopup : Form
+    public partial class inviocAddItemPopup : Form
     {
-        public inventryAddItemPopup()
+        public inviocAddItemPopup()
         {
             InitializeComponent();
         }
 
         private void inventryAddItemPopup_Load(object sender, EventArgs e)
         {
-            
+            invoiceService ins = new invoiceService();
+            dgv_invoiceAddItemPopup.DataSource = ins.loadAddItemPopup();
         }
     }
 }

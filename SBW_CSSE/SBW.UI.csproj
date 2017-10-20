@@ -125,11 +125,11 @@
     <Compile Include="EmployeeForms\ViewEmployeesForm.Designer.cs">
       <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InventoryUserControls\inventryAddItemPopup.cs">
+    <Compile Include="Sales_n_Profit\invoiceAddItemPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InventoryUserControls\inventryAddItemPopup.Designer.cs">
-      <DependentUpon>inventryAddItemPopup.cs</DependentUpon>
+    <Compile Include="Sales_n_Profit\invoiceAddItemPopup.Designer.cs">
+      <DependentUpon>invoiceAddItemPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashForm.cs">
       <SubType>Form</SubType>
@@ -144,7 +144,7 @@
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryUserControls\InventoryDetailsForm.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="InventoryUserControls\InventoryDetailsForm.Designer.cs">
       <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
@@ -221,8 +221,8 @@
     <EmbeddedResource Include="EmployeeForms\ViewEmployeesForm.resx">
       <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InventoryUserControls\inventryAddItemPopup.resx">
-      <DependentUpon>inventryAddItemPopup.cs</DependentUpon>
+    <EmbeddedResource Include="Sales_n_Profit\invoiceAddItemPopup.resx">
+      <DependentUpon>invoiceAddItemPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
@@ -260,7 +260,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SBW.BusinessService\SBW.BusinessService.csproj">
