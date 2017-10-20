@@ -44,12 +44,8 @@
             this.txtbx_invoice_subtotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_product_type = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbx_invoice_ProductBrand = new System.Windows.Forms.ComboBox();
-            this.cmbx_invoice_ProductName = new System.Windows.Forms.ComboBox();
             this.cmbx_invoice_ProductType = new System.Windows.Forms.ComboBox();
-            this.btn_invoice_itemAdd = new System.Windows.Forms.Button();
+            this.btn_invoice_itemView = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtbx_invoice_advance = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -190,70 +186,34 @@
             // 
             this.lbl_product_type.AutoSize = true;
             this.lbl_product_type.ForeColor = System.Drawing.Color.Black;
-            this.lbl_product_type.Location = new System.Drawing.Point(578, 171);
+            this.lbl_product_type.Location = new System.Drawing.Point(10, 172);
             this.lbl_product_type.Name = "lbl_product_type";
             this.lbl_product_type.Size = new System.Drawing.Size(71, 13);
             this.lbl_product_type.TabIndex = 14;
             this.lbl_product_type.Text = "Product Type";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(248, 171);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Product Name";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(37, 171);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Product Brand";
-            // 
-            // cmbx_invoice_ProductBrand
-            // 
-            this.cmbx_invoice_ProductBrand.FormattingEnabled = true;
-            this.cmbx_invoice_ProductBrand.Location = new System.Drawing.Point(118, 167);
-            this.cmbx_invoice_ProductBrand.Name = "cmbx_invoice_ProductBrand";
-            this.cmbx_invoice_ProductBrand.Size = new System.Drawing.Size(121, 21);
-            this.cmbx_invoice_ProductBrand.TabIndex = 20;
-            this.cmbx_invoice_ProductBrand.ValueMember = "Product_Brand";
-            // 
-            // cmbx_invoice_ProductName
-            // 
-            this.cmbx_invoice_ProductName.FormattingEnabled = true;
-            this.cmbx_invoice_ProductName.Location = new System.Drawing.Point(329, 167);
-            this.cmbx_invoice_ProductName.Name = "cmbx_invoice_ProductName";
-            this.cmbx_invoice_ProductName.Size = new System.Drawing.Size(233, 21);
-            this.cmbx_invoice_ProductName.TabIndex = 21;
-            this.cmbx_invoice_ProductName.ValueMember = "Product_Name";
-            // 
             // cmbx_invoice_ProductType
             // 
+            this.cmbx_invoice_ProductType.DisplayMember = "Product_Type";
             this.cmbx_invoice_ProductType.FormattingEnabled = true;
-            this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(655, 168);
+            this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(87, 169);
             this.cmbx_invoice_ProductType.Name = "cmbx_invoice_ProductType";
-            this.cmbx_invoice_ProductType.Size = new System.Drawing.Size(233, 21);
+            this.cmbx_invoice_ProductType.Size = new System.Drawing.Size(623, 21);
             this.cmbx_invoice_ProductType.TabIndex = 22;
             this.cmbx_invoice_ProductType.ValueMember = "Product_Type";
             // 
-            // btn_invoice_itemAdd
+            // btn_invoice_itemView
             // 
-            this.btn_invoice_itemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_invoice_itemAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_invoice_itemAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_invoice_itemAdd.Location = new System.Drawing.Point(895, 167);
-            this.btn_invoice_itemAdd.Name = "btn_invoice_itemAdd";
-            this.btn_invoice_itemAdd.Size = new System.Drawing.Size(75, 23);
-            this.btn_invoice_itemAdd.TabIndex = 23;
-            this.btn_invoice_itemAdd.Text = "ADD";
-            this.btn_invoice_itemAdd.UseVisualStyleBackColor = true;
+            this.btn_invoice_itemView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_invoice_itemView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_invoice_itemView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_invoice_itemView.Location = new System.Drawing.Point(716, 167);
+            this.btn_invoice_itemView.Name = "btn_invoice_itemView";
+            this.btn_invoice_itemView.Size = new System.Drawing.Size(116, 23);
+            this.btn_invoice_itemView.TabIndex = 23;
+            this.btn_invoice_itemView.Text = "VIEW";
+            this.btn_invoice_itemView.UseVisualStyleBackColor = true;
+            this.btn_invoice_itemView.Click += new System.EventHandler(this.btn_invoice_itemView_Click);
             // 
             // label8
             // 
@@ -330,12 +290,8 @@
             this.Controls.Add(this.txtbx_invoice_totalInvoice);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtbx_invoice_advance);
-            this.Controls.Add(this.btn_invoice_itemAdd);
+            this.Controls.Add(this.btn_invoice_itemView);
             this.Controls.Add(this.cmbx_invoice_ProductType);
-            this.Controls.Add(this.cmbx_invoice_ProductName);
-            this.Controls.Add(this.cmbx_invoice_ProductBrand);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.lbl_product_type);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtbx_invoice_subtotal);
@@ -379,21 +335,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbx_invoice_subtotal;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qTYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn warrentyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lbl_product_type;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbx_invoice_ProductBrand;
-        private System.Windows.Forms.ComboBox cmbx_invoice_ProductName;
         private System.Windows.Forms.ComboBox cmbx_invoice_ProductType;
-        private System.Windows.Forms.Button btn_invoice_itemAdd;
+        private System.Windows.Forms.Button btn_invoice_itemView;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtbx_invoice_advance;
         private System.Windows.Forms.Label label9;
