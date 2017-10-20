@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gb_cus_details = new System.Windows.Forms.GroupBox();
+            this.rtxtb_cus_address = new System.Windows.Forms.RichTextBox();
             this.btn_cus_clear = new System.Windows.Forms.Button();
             this.btn_cus_delete = new System.Windows.Forms.Button();
             this.btn_cus_update = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.dgv_cus_table = new System.Windows.Forms.DataGridView();
             this.txt_cus_searchkey = new System.Windows.Forms.TextBox();
             this.btn_cus_demo = new System.Windows.Forms.Button();
-            this.rtxtb_cus_address = new System.Windows.Forms.RichTextBox();
             this.gb_cus_details.SuspendLayout();
             this.gb_cus_mgt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cus_table)).BeginInit();
@@ -81,6 +81,14 @@
             this.gb_cus_details.TabStop = false;
             this.gb_cus_details.Text = "Customer Details";
             // 
+            // rtxtb_cus_address
+            // 
+            this.rtxtb_cus_address.Location = new System.Drawing.Point(149, 126);
+            this.rtxtb_cus_address.Name = "rtxtb_cus_address";
+            this.rtxtb_cus_address.Size = new System.Drawing.Size(190, 30);
+            this.rtxtb_cus_address.TabIndex = 16;
+            this.rtxtb_cus_address.Text = "";
+            // 
             // btn_cus_clear
             // 
             this.btn_cus_clear.Location = new System.Drawing.Point(720, 172);
@@ -98,6 +106,7 @@
             this.btn_cus_delete.TabIndex = 14;
             this.btn_cus_delete.Text = "DELETE";
             this.btn_cus_delete.UseVisualStyleBackColor = true;
+            this.btn_cus_delete.Click += new System.EventHandler(this.btn_cus_delete_Click);
             // 
             // btn_cus_update
             // 
@@ -107,6 +116,7 @@
             this.btn_cus_update.TabIndex = 13;
             this.btn_cus_update.Text = "UPDATE";
             this.btn_cus_update.UseVisualStyleBackColor = true;
+            this.btn_cus_update.Click += new System.EventHandler(this.btn_cus_update_Click);
             // 
             // btn_cus_add
             // 
@@ -139,6 +149,7 @@
             this.txtb_cus_mobile.Name = "txtb_cus_mobile";
             this.txtb_cus_mobile.Size = new System.Drawing.Size(190, 26);
             this.txtb_cus_mobile.TabIndex = 9;
+            this.txtb_cus_mobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtb_cus_mobileno_KeyPress);
             // 
             // txtb_cus_name
             // 
@@ -198,6 +209,7 @@
             this.txtb_cus_nic.Name = "txtb_cus_nic";
             this.txtb_cus_nic.Size = new System.Drawing.Size(190, 26);
             this.txtb_cus_nic.TabIndex = 1;
+            this.txtb_cus_nic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtb_cus_nic_KeyPress);
             // 
             // lbl_cus_nic
             // 
@@ -236,6 +248,8 @@
             this.dgv_cus_table.Name = "dgv_cus_table";
             this.dgv_cus_table.Size = new System.Drawing.Size(763, 265);
             this.dgv_cus_table.TabIndex = 2;
+            this.dgv_cus_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cus_CellContentClick);
+            this.dgv_cus_table.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_cus_table_RowHeaderMouseClick);
             // 
             // txt_cus_searchkey
             // 
@@ -243,6 +257,7 @@
             this.txt_cus_searchkey.Name = "txt_cus_searchkey";
             this.txt_cus_searchkey.Size = new System.Drawing.Size(190, 20);
             this.txt_cus_searchkey.TabIndex = 1;
+            this.txt_cus_searchkey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cus_searchkey_KeyPress);
             // 
             // btn_cus_demo
             // 
@@ -255,14 +270,6 @@
             this.btn_cus_demo.Text = "DEMO";
             this.btn_cus_demo.UseVisualStyleBackColor = true;
             this.btn_cus_demo.Click += new System.EventHandler(this.btn_cus_demo_Click);
-            // 
-            // rtxtb_cus_address
-            // 
-            this.rtxtb_cus_address.Location = new System.Drawing.Point(149, 126);
-            this.rtxtb_cus_address.Name = "rtxtb_cus_address";
-            this.rtxtb_cus_address.Size = new System.Drawing.Size(190, 30);
-            this.rtxtb_cus_address.TabIndex = 16;
-            this.rtxtb_cus_address.Text = "";
             // 
             // customerDetailsForm
             // 
