@@ -94,5 +94,20 @@ namespace SBW.BusinessService
             return status;
         }
 
+        public DataTable SearchInventory(string searchString)
+        {
+            DataTable dt = new DataTable();
+            repo = new InventoryRepository();
+
+            dt = repo.searchInventory(searchString);
+
+            if (dt == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+
+            return dt;
+        }
+
     }
 }

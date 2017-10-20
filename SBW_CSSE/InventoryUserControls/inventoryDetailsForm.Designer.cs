@@ -143,6 +143,7 @@
             this.txt_inventoryUC_search.Name = "txt_inventoryUC_search";
             this.txt_inventoryUC_search.Size = new System.Drawing.Size(182, 26);
             this.txt_inventoryUC_search.TabIndex = 12;
+            this.txt_inventoryUC_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_inventoryUC_search_KeyPress);
             // 
             // lbl_inventoryUC_search
             // 
@@ -155,10 +156,11 @@
             // 
             // dgv_inventoryUC
             // 
+            this.dgv_inventoryUC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_inventoryUC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_inventoryUC.Location = new System.Drawing.Point(19, 203);
             this.dgv_inventoryUC.Name = "dgv_inventoryUC";
-            this.dgv_inventoryUC.Size = new System.Drawing.Size(736, 171);
+            this.dgv_inventoryUC.Size = new System.Drawing.Size(819, 171);
             this.dgv_inventoryUC.TabIndex = 10;
             this.dgv_inventoryUC.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_inventoryUC_RowHeaderMouseClick);
             // 

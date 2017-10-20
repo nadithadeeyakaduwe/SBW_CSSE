@@ -166,7 +166,7 @@ CREATE TABLE [Stock].[Product]
 	Product_Name VARCHAR(20),
 	Product_Type VARCHAR(20) UNIQUE,
 	Reorder_Level INT,
-	Quantity INT, 
+	Quantity INT DEFAULT 0, 
 
 	CONSTRAINT pk_Product PRIMARY KEY(Product_ID)
 )

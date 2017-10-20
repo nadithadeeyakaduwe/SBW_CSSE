@@ -91,5 +91,17 @@ namespace SBW.DataAccess.Repositories
             return status;
         }
 
+        public DataTable searchInventory(string searchString)
+        {
+            DataTable response;
+
+            string query = "SELECT p.Product_ID ,p.Product_Make ,p.Product_Name , p.Product_Type , p.Reorder_Level , p.Quantity FROM [Stock].[Product] p "
+                            +"where (p.Product_Make LIKE  '%" + searchString + "%') or(p.Product_Name LIKE  '%" + searchString + "%') "
+                            + "or(p.Product_Type LIKE  '%" + searchString + "%')";
+
+            response = Repository.getDataTable(query);
+            return response;
+        }
+
     }
 }

@@ -261,8 +261,15 @@ namespace SBW.UI.InventoryUserControls
             }
         }
 
+        //search key press event 
+        private void txt_inventoryUC_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string searchString = txt_inventoryUC_search.Text;
 
+            service = ServiceFactory.GetInventoryService();
 
+            dgv_inventoryUC.DataSource = service.SearchInventory(searchString);
+        }
     }
 }
 

@@ -18,6 +18,7 @@ namespace SBW.Services
         DataTable LoadComboBox(string schemaName,string tableName, string columnName);
 
         bool UpdateInventory(Inventory inventory);
+        DataTable SearchInventory(string searchString);
 
     }
 }
