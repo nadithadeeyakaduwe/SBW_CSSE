@@ -23,6 +23,7 @@ namespace SBW.UI.InventoryUserControls
             InitializeComponent();
         }
 
+        //Inventory Details Form Load
         private void InventoryDetailsForm_Load(object sender, EventArgs e)
         {
             service = ServiceFactory.GetInventoryService();
@@ -54,6 +55,7 @@ namespace SBW.UI.InventoryUserControls
             }
         }
 
+        //Add Inventory 
         private void addInventory()
         {
             bool isSuccess = true;
@@ -171,7 +173,7 @@ namespace SBW.UI.InventoryUserControls
 
         }
 
-        //grid row click event
+        //Inventory grid row click event
         private void dgv_inventoryUC_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             lbl_inventoryUC_pId.Text = dgv_inventoryUC.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -212,11 +214,13 @@ namespace SBW.UI.InventoryUserControls
             btn_inventoryUC_add.Enabled = true;
         }
 
+        //CLEAR button click event
         private void btn_inventoryUC_clear_Click(object sender, EventArgs e)
         {
             Clear();
         }
 
+        //UPDATE button click event
         private void btn_inventoryUC_update_Click(object sender, EventArgs e)
         {
             if (InventoryValidation())
@@ -225,6 +229,7 @@ namespace SBW.UI.InventoryUserControls
             }
         }
 
+        //Update Inventory
         private void updateInventory()
         {
             bool isSuccess = true;

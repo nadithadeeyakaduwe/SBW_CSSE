@@ -32,7 +32,7 @@ namespace SBW.UI
 
         private void btn_supplierUC_Click(object sender, EventArgs e)
         {
-            //loadUserControl(new SupplierDetailsForm());
+            loadForm(new SupplierDetailsForm());
         }
 
         private void btn_stockUC_Click(object sender, EventArgs e)
