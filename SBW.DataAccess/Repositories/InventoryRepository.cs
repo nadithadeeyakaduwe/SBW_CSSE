@@ -86,6 +86,18 @@ namespace SBW.DataAccess.Repositories
             return result;
         }
 
+        public DataTable getDataForInvoiceAddItemPopup(String type)
+        {
+            DataTable result = null;
+
+            string query = "SELECT p.Product_Make, p.Product_Name, p.Product_Type, s.Unit_Price, s.Quantity FROM [Stock].[Product] p ,[Stock].[Stock_Details] s WHERE p.Product_ID=s.Product_Id AND p.Product_Type LIKE '%"+type+"%'";
+
+            result = Repository.getDataTable(query);
+
+            return result;
+        }
+
+
 
         public bool updateInventory(Inventory inventory)
         {

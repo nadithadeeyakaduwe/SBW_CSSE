@@ -50,6 +50,8 @@
     <Compile Include="InventoryModule\Inventory.cs" />
     <Compile Include="InventoryModule\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SnPModule\InvoiceDetails.cs" />
+    <Compile Include="SnPModule\InvoiceHeader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AccountsModule\" />

@@ -11,6 +11,7 @@ namespace SBW.Services
     {
         DataTable loadAddItemPopup();
         DataTable loadComboBoxProductType();
+        DataTable SearchProductByType(String type);
         
     }
 }

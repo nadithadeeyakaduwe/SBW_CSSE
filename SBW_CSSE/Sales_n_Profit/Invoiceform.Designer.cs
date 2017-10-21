@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoiceform));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker_invoice_date = new System.Windows.Forms.DateTimePicker();
             this.lbl_invoice_date = new System.Windows.Forms.Label();
             this.lbl_invoice_customername = new System.Windows.Forms.Label();
@@ -45,7 +44,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_product_type = new System.Windows.Forms.Label();
             this.cmbx_invoice_ProductType = new System.Windows.Forms.ComboBox();
-            this.btn_invoice_itemView = new System.Windows.Forms.Button();
+            this.btn_invoice_Viewitem = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtbx_invoice_advance = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,6 +52,10 @@
             this.btn_invoice_print = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.lbl_Invoice = new System.Windows.Forms.Label();
+            this.lbl_invoicenum = new System.Windows.Forms.Label();
+            this.txtbx_invoice_invoiceNumber = new System.Windows.Forms.TextBox();
+            this.btn_invoice_addItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,17 +66,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(957, 151);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(501, 57);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SARANGA BATTERY WORKS";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dateTimePicker_invoice_date
             // 
@@ -194,6 +186,7 @@
             // 
             // cmbx_invoice_ProductType
             // 
+            this.cmbx_invoice_ProductType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbx_invoice_ProductType.DisplayMember = "Product_Type";
             this.cmbx_invoice_ProductType.FormattingEnabled = true;
             this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(87, 169);
@@ -202,18 +195,18 @@
             this.cmbx_invoice_ProductType.TabIndex = 22;
             this.cmbx_invoice_ProductType.ValueMember = "Product_Type";
             // 
-            // btn_invoice_itemView
+            // btn_invoice_Viewitem
             // 
-            this.btn_invoice_itemView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_invoice_itemView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_invoice_itemView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_invoice_itemView.Location = new System.Drawing.Point(716, 167);
-            this.btn_invoice_itemView.Name = "btn_invoice_itemView";
-            this.btn_invoice_itemView.Size = new System.Drawing.Size(116, 23);
-            this.btn_invoice_itemView.TabIndex = 23;
-            this.btn_invoice_itemView.Text = "VIEW";
-            this.btn_invoice_itemView.UseVisualStyleBackColor = true;
-            this.btn_invoice_itemView.Click += new System.EventHandler(this.btn_invoice_itemView_Click);
+            this.btn_invoice_Viewitem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_invoice_Viewitem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_invoice_Viewitem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_invoice_Viewitem.Location = new System.Drawing.Point(854, 167);
+            this.btn_invoice_Viewitem.Name = "btn_invoice_Viewitem";
+            this.btn_invoice_Viewitem.Size = new System.Drawing.Size(116, 23);
+            this.btn_invoice_Viewitem.TabIndex = 23;
+            this.btn_invoice_Viewitem.Text = "VIEW";
+            this.btn_invoice_Viewitem.UseVisualStyleBackColor = true;
+            this.btn_invoice_Viewitem.Click += new System.EventHandler(this.btn_invoice_itemView_Click);
             // 
             // label8
             // 
@@ -281,16 +274,61 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // lbl_Invoice
+            // 
+            this.lbl_Invoice.AutoSize = true;
+            this.lbl_Invoice.Font = new System.Drawing.Font("Lucida Fax", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Invoice.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Invoice.Location = new System.Drawing.Point(10, 13);
+            this.lbl_Invoice.Name = "lbl_Invoice";
+            this.lbl_Invoice.Size = new System.Drawing.Size(159, 38);
+            this.lbl_Invoice.TabIndex = 29;
+            this.lbl_Invoice.Text = "INVOICE";
+            // 
+            // lbl_invoicenum
+            // 
+            this.lbl_invoicenum.AutoSize = true;
+            this.lbl_invoicenum.ForeColor = System.Drawing.Color.Black;
+            this.lbl_invoicenum.Location = new System.Drawing.Point(14, 51);
+            this.lbl_invoicenum.Name = "lbl_invoicenum";
+            this.lbl_invoicenum.Size = new System.Drawing.Size(52, 13);
+            this.lbl_invoicenum.TabIndex = 30;
+            this.lbl_invoicenum.Text = "Invoice #";
+            // 
+            // txtbx_invoice_invoiceNumber
+            // 
+            this.txtbx_invoice_invoiceNumber.Enabled = false;
+            this.txtbx_invoice_invoiceNumber.Location = new System.Drawing.Point(69, 48);
+            this.txtbx_invoice_invoiceNumber.Name = "txtbx_invoice_invoiceNumber";
+            this.txtbx_invoice_invoiceNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtbx_invoice_invoiceNumber.TabIndex = 31;
+            // 
+            // btn_invoice_addItem
+            // 
+            this.btn_invoice_addItem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_invoice_addItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_invoice_addItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_invoice_addItem.Location = new System.Drawing.Point(729, 167);
+            this.btn_invoice_addItem.Name = "btn_invoice_addItem";
+            this.btn_invoice_addItem.Size = new System.Drawing.Size(116, 23);
+            this.btn_invoice_addItem.TabIndex = 32;
+            this.btn_invoice_addItem.Text = "ADD";
+            this.btn_invoice_addItem.UseVisualStyleBackColor = true;
+            // 
             // Invoiceform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_invoice_addItem);
+            this.Controls.Add(this.txtbx_invoice_invoiceNumber);
+            this.Controls.Add(this.lbl_invoicenum);
+            this.Controls.Add(this.lbl_Invoice);
             this.Controls.Add(this.btn_invoice_print);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtbx_invoice_totalInvoice);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtbx_invoice_advance);
-            this.Controls.Add(this.btn_invoice_itemView);
+            this.Controls.Add(this.btn_invoice_Viewitem);
             this.Controls.Add(this.cmbx_invoice_ProductType);
             this.Controls.Add(this.lbl_product_type);
             this.Controls.Add(this.label5);
@@ -305,7 +343,6 @@
             this.Controls.Add(this.lbl_invoice_customername);
             this.Controls.Add(this.lbl_invoice_date);
             this.Controls.Add(this.dateTimePicker_invoice_date);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.MaximumSize = new System.Drawing.Size(1020, 489);
@@ -322,7 +359,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker_invoice_date;
         private System.Windows.Forms.Label lbl_invoice_date;
         private System.Windows.Forms.Label lbl_invoice_customername;
@@ -337,7 +373,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_product_type;
         private System.Windows.Forms.ComboBox cmbx_invoice_ProductType;
-        private System.Windows.Forms.Button btn_invoice_itemView;
+        private System.Windows.Forms.Button btn_invoice_Viewitem;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtbx_invoice_advance;
         private System.Windows.Forms.Label label9;
@@ -345,5 +381,9 @@
         private System.Windows.Forms.Button btn_invoice_print;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label lbl_Invoice;
+        private System.Windows.Forms.Label lbl_invoicenum;
+        private System.Windows.Forms.TextBox txtbx_invoice_invoiceNumber;
+        private System.Windows.Forms.Button btn_invoice_addItem;
     }
 }

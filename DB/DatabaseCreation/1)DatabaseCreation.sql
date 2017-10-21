@@ -166,7 +166,7 @@ CREATE TABLE [Stock].[Product]
 	Product_Name VARCHAR(20),
 	Product_Type VARCHAR(20) UNIQUE,
 	Reorder_Level INT,
-	Quantity INT DEFAULT 0, 
+	Quantity INT, 
 
 	CONSTRAINT pk_Product PRIMARY KEY(Product_ID)
 )
@@ -199,7 +199,7 @@ GO
 CREATE TABLE [Stock].[Stock_Details]
 (
 	Stock_Id INT NOT NULL,
-	Product_Id INT NOT NULL,
+	Product_ID INT NOT NULL,
 	Supplier_ID INT NOT NULL,
 	Quantity INT,
 	Unit_Price DECIMAL,
@@ -235,8 +235,7 @@ CREATE TABLE [Accounts].[Invoice_Details]
 (
 	Item_No INT NOT NULL IDENTITY(1,1),
 	Invoice_No INT,
-	Product_Name VARCHAR(50),
-	Product_Type VARCHAR(50),
+	Product_Description VARCHAR(100),
 	QTY INT,
 	Unit_Price DECIMAL(6,2),
 	Discount DECIMAL(3,2),

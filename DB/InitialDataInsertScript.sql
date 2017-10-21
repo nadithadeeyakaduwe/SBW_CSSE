@@ -84,3 +84,41 @@ insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[Car
 insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('936591478v','SI936591478',0,'BRONZE')
 insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('985645451v','BR985645451',0,'BRONZE')
 --insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('934552621v','BR934552621',0,'Bronze') duplication of ID
+
+
+--[Stock].[Product]
+
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level],[Quantity]) VALUES ('Amaron', 'Car Battery', 'NS40ZR/L', 6,10)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level],[Quantity]) VALUES ('Globat', 'Car Battery', 'DIN55', 7,7)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level],[Quantity]) VALUES ('Exide', 'Car Battery', '55D23R/L', 8,6)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level],[Quantity]) VALUES ('Amaron', 'Lorry Battery', 'NS70R/L', 6,5)
+INSERT INTO [Stock].[Product] ([Product_Make],[Product_Name],[Product_Type],[Reorder_Level],[Quantity]) VALUES ('Globat', 'Lorry Battery', 'DIN88', 7,5)
+GO
+
+--[Stock].[Supplier_Details]
+
+INSERT INTO [Stock].[Supplier_Details] ([Name],[Address],[email]) VALUES ('US Motor Spare Parts','223,Main Road,Gampaha','us_motor@gmail.com')
+INSERT INTO [Stock].[Supplier_Details] ([Name],[Address],[email]) VALUES ('B&P Distributors','271,Main Road,Colombo2','bpd@gmail.com')
+INSERT INTO [Stock].[Supplier_Details] ([Name],[Address],[email]) VALUES ('Lanka Auto Parts(Pvt)Ltd','23/1,Old Road,Kaluthara','lankapp@gmail.com')
+INSERT INTO [Stock].[Supplier_Details] ([Name],[Address],[email]) VALUES ('Motor Spare Parts','22/2,Main Road,Gampaha','motorss@gmail.com')
+INSERT INTO [Stock].[Supplier_Details] ([Name],[Address],[email]) VALUES ('Sagara Motors(Pvt)Ltd','11,Main Road,Galle','sagaramtr@gmail.com')
+GO
+
+--[Stock].[SupplierContact]
+
+insert into [Stock].[SupplierContact] values(1,'0712345678')
+insert into [Stock].[SupplierContact] values(2,'0112568903')
+insert into [Stock].[SupplierContact] values(3,'0347829479')
+insert into [Stock].[SupplierContact] values(4,'0778936423')
+insert into [Stock].[SupplierContact] values(5,'0913648378')
+GO
+
+--[Stock].[Stock_Details]
+
+INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 1, 2, 5,10990,5,'2017-08-01')
+INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 2, 1, 7,11790,6,'2017-08-15')
+INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (2, 1, 3, 5,13195,6,'2017-09-15')
+INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 3, 4, 6,13190,8,'2017-09-22')
+INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 4, 5, 5,21200,6,'2017-09-15')
+INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 5, 3, 5,20195,5,'2017-10-03')
+

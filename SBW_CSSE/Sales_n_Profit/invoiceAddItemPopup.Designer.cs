@@ -48,6 +48,7 @@
             this.txtbx_invenrtyAddItemPopup_ItemType.Name = "txtbx_invenrtyAddItemPopup_ItemType";
             this.txtbx_invenrtyAddItemPopup_ItemType.Size = new System.Drawing.Size(365, 20);
             this.txtbx_invenrtyAddItemPopup_ItemType.TabIndex = 1;
+            this.txtbx_invenrtyAddItemPopup_ItemType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_invenrtyAddItemPopup_ItemType_KeyPress);
             // 
             // lbl_inventry_AddIPopup_ItemType
             // 

@@ -13,6 +13,7 @@ namespace SBW.UI.InventoryUserControls
 {
     public partial class inviocAddItemPopup : Form
     {
+        invoiceService ins = new invoiceService();
         public inviocAddItemPopup()
         {
             InitializeComponent();
@@ -20,8 +21,13 @@ namespace SBW.UI.InventoryUserControls
 
         private void inventryAddItemPopup_Load(object sender, EventArgs e)
         {
-            invoiceService ins = new invoiceService();
             dgv_invoiceAddItemPopup.DataSource = ins.loadAddItemPopup();
+        }
+
+        private void txtbx_invenrtyAddItemPopup_ItemType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            dgv_invoiceAddItemPopup.DataSource = ins.SearchProductByType(txtbx_invenrtyAddItemPopup_ItemType.Text);
+
         }
     }
 }
