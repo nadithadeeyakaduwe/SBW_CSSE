@@ -120,6 +120,7 @@
             this.btn_supplierUC_delete.TabIndex = 30;
             this.btn_supplierUC_delete.Text = "DELETE";
             this.btn_supplierUC_delete.UseVisualStyleBackColor = true;
+            this.btn_supplierUC_delete.Click += new System.EventHandler(this.btn_supplierUC_delete_Click);
             // 
             // btn_supplierUC_update
             // 
@@ -181,6 +182,7 @@
             this.txt_supplierUC_search.Name = "txt_supplierUC_search";
             this.txt_supplierUC_search.Size = new System.Drawing.Size(182, 26);
             this.txt_supplierUC_search.TabIndex = 14;
+            this.txt_supplierUC_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_supplierUC_search_KeyPress);
             // 
             // lbl_supplierUC_search
             // 

@@ -233,5 +233,40 @@ namespace SBW.UI.InventoryUserControls
                 updateSupplier();
             }
         }
+
+        private void btn_supplierUC_delete_Click(object sender, EventArgs e)
+        {
+            bool status = true;
+
+            service = ServiceFactory.GetSupplierService();
+
+            DialogResult dr;
+            dr = MessageBox.Show("Do you want to delete the record", "Confirm", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                status = service.DeleteSupplier(Convert.ToInt32(lbl_SID.Text));
+
+                if (status)
+                {
+                    FillSupplierGrid();
+                    ClearSup();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Record is not deleted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearSup();
+            }
+        }
+
+        private void txt_supplierUC_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string searchString = txt_supplierUC_search.Text;
+
+            service = ServiceFactory.GetSupplierService();
+
+            dgv_supplierUC.DataSource = service.SearchSupplier(searchString);
+        }
     }
 }

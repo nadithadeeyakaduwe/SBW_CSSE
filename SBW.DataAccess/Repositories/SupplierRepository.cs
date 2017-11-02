@@ -110,5 +110,34 @@ namespace SBW.DataAccess.Repositories
             return Response;
         }
 
+        public bool deleteSupplier(int supplierId)
+        {
+            bool status = true;
+
+            string query1 = $"DELETE FROM [Stock].[SupplierContact] WHERE SupplierID = {supplierId}";
+            string query2 = $"DELETE FROM [Stock].[Supplier_Details] WHERE Supplier_ID = {supplierId}";       
+
+            bool status1 = Repository.ExecuteQuery(query1);
+            bool status2 = Repository.ExecuteQuery(query2);
+
+            if (status1 == true && status2 == true)
+            {
+                status = true;
+            }
+
+            return status;
+        }
+
+        public DataTable searchSupplier(string searchString)
+        {
+            DataTable response;
+
+            string query = "SELECT ss.Supplier_ID ,ss.Name ,ss.Address , ss.email , sc.ContactNo FROM [Stock].[Supplier_Details] ss, [Stock].[SupplierContact] sc "
+                            + "where (ss.Supplier_ID=sc.SupplierID and ss.Name LIKE '%" + searchString + "%') ";
+
+            response = Repository.getDataTable(query);
+            return response;
+        }
+
     }
 }

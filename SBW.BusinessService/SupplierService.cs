@@ -79,5 +79,36 @@ namespace SBW.BusinessService
             return Result;
         }
 
+        public bool DeleteSupplier(int supplierId)
+        {
+            bool status = true;
+
+            repo = new SupplierRepository();
+
+            status = repo.deleteSupplier(supplierId);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBDeleteError);
+            }
+
+            return status;
+        }
+
+        public DataTable SearchSupplier(string searchString)
+        {
+            DataTable dt = new DataTable();
+            repo = new SupplierRepository();
+
+            dt = repo.searchSupplier(searchString);
+
+            if (dt == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+
+            return dt;
+        }
+
     }
 }

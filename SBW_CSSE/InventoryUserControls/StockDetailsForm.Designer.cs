@@ -114,7 +114,7 @@
             this.ltb_stockUC.Location = new System.Drawing.Point(6, 23);
             this.ltb_stockUC.MultiColumn = true;
             this.ltb_stockUC.Name = "ltb_stockUC";
-            this.ltb_stockUC.Size = new System.Drawing.Size(274, 204);
+            this.ltb_stockUC.Size = new System.Drawing.Size(253, 204);
             this.ltb_stockUC.TabIndex = 0;
             // 
             // btn_stockUC_demo
@@ -327,9 +327,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1084, 451);
             this.Controls.Add(this.groupBox1);
             this.Name = "StockDetailsForm";
-            this.Size = new System.Drawing.Size(1100, 489);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox9.ResumeLayout(false);

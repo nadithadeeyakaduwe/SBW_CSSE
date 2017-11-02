@@ -18,5 +18,8 @@ namespace SBW.Services
 
         DataTable ViewSuppliedProducts(String supplierId);
 
+        bool DeleteSupplier(int supplierId);
+
+        DataTable SearchSupplier(string searchString);
     }
 }

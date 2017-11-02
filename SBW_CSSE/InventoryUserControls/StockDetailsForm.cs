@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SBW.UI.InventoryUserControls
 {
-    public partial class StockDetailsForm : UserControl
+    public partial class StockDetailsForm : Form
     {
         public StockDetailsForm()
         {
