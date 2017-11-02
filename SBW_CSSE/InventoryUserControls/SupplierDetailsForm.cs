@@ -138,7 +138,7 @@ namespace SBW.UI.InventoryUserControls
         {
 
             txt_supplierUC_name.Clear();
-            
+            lbl_SID.Text = "";
             rtxt_supplierUC_address.Clear();
             txt_supplierUC_contact.Clear();
             txt_supplierUC_email.Clear();
@@ -152,11 +152,15 @@ namespace SBW.UI.InventoryUserControls
         //Supplier row click event
         private void dgv_supplierUC_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            lbl_SID.Text = dgv_supplierUC.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_supplierUC_name.Text = dgv_supplierUC.Rows[e.RowIndex].Cells[1].Value.ToString();
             rtxt_supplierUC_address.Text = dgv_supplierUC.Rows[e.RowIndex].Cells[2].Value.ToString();
             txt_supplierUC_email.Text = dgv_supplierUC.Rows[e.RowIndex].Cells[3].Value.ToString();
             txt_supplierUC_contact.Text = dgv_supplierUC.Rows[e.RowIndex].Cells[4].Value.ToString();
 
+            listBox1.Items.Clear();
+            viewSuppliedProducts(lbl_SID.Text.ToString());
+            
             btn_supplierUC_update.Enabled = true;
             btn_supplierUC_delete.Enabled = true;
             btn_supplierUC_add.Enabled = false;
@@ -166,6 +170,68 @@ namespace SBW.UI.InventoryUserControls
         private void btn_supplierUC_clear_Click(object sender, EventArgs e)
         {
             ClearSup();
+        }
+
+        //Update Supplier
+        private void updateSupplier()
+        {
+            bool isSuccess = true;
+
+            Supplier supplier = new Supplier()
+            {
+                SupplierId = Convert.ToInt32(lbl_SID.Text),
+                Name = txt_supplierUC_name.Text,
+                Address = rtxt_supplierUC_address.Text,
+                email = txt_supplierUC_email.Text,
+                ContactNo = txt_supplierUC_contact.Text
+
+            };
+
+            DialogResult dr;
+            dr = MessageBox.Show("Do you want to update the record", "Confirm", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                ISupplierService service = ServiceFactory.GetSupplierService();
+
+                isSuccess = service.UpdateSupplier(supplier);
+
+                if (isSuccess == true)
+                {
+                    FillSupplierGrid();
+                    ClearSup();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Record is not updated", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearSup();
+            }
+        }
+
+        private void viewSuppliedProducts(String supplierId)
+        {
+            service = ServiceFactory.GetSupplierService();
+
+            
+            DataTable dt = null;
+            //supplierId = lbl_SID.Text.ToString();
+            dt = service.ViewSuppliedProducts(supplierId);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                //TextBox1.Text = row["ImagePath"].ToString();
+                listBox1.Items.Add(row[2].ToString() + " - " + row[3].ToString());
+            }
+
+        }
+
+        private void btn_supplierUC_update_Click(object sender, EventArgs e)
+        {
+            if (SupplierValidation())
+            {
+                updateSupplier();
+            }
         }
     }
 }

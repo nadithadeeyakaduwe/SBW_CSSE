@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_SID = new System.Windows.Forms.Label();
             this.btn_supplierUC_demo = new System.Windows.Forms.Button();
             this.btn_supplierUC_clear = new System.Windows.Forms.Button();
             this.btn_supplierUC_delete = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_SID);
             this.groupBox1.Controls.Add(this.btn_supplierUC_demo);
             this.groupBox1.Controls.Add(this.btn_supplierUC_clear);
             this.groupBox1.Controls.Add(this.btn_supplierUC_delete);
@@ -78,6 +80,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier";
+            // 
+            // lbl_SID
+            // 
+            this.lbl_SID.AutoSize = true;
+            this.lbl_SID.Location = new System.Drawing.Point(625, 81);
+            this.lbl_SID.Name = "lbl_SID";
+            this.lbl_SID.Size = new System.Drawing.Size(37, 20);
+            this.lbl_SID.TabIndex = 33;
+            this.lbl_SID.Text = "SID";
             // 
             // btn_supplierUC_demo
             // 
@@ -119,6 +130,7 @@
             this.btn_supplierUC_update.TabIndex = 29;
             this.btn_supplierUC_update.Text = "UPDATE";
             this.btn_supplierUC_update.UseVisualStyleBackColor = true;
+            this.btn_supplierUC_update.Click += new System.EventHandler(this.btn_supplierUC_update_Click);
             // 
             // btn_supplierUC_add
             // 
@@ -157,7 +169,7 @@
             // 
             this.lbl_supplierUC_products.AutoSize = true;
             this.lbl_supplierUC_products.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_supplierUC_products.Location = new System.Drawing.Point(664, 53);
+            this.lbl_supplierUC_products.Location = new System.Drawing.Point(697, 53);
             this.lbl_supplierUC_products.Name = "lbl_supplierUC_products";
             this.lbl_supplierUC_products.Size = new System.Drawing.Size(138, 20);
             this.lbl_supplierUC_products.TabIndex = 16;
@@ -291,5 +303,6 @@
         private System.Windows.Forms.Button btn_supplierUC_update;
         private System.Windows.Forms.Button btn_supplierUC_add;
         private System.Windows.Forms.DataGridView dgv_supplierUC;
+        private System.Windows.Forms.Label lbl_SID;
     }
 }

@@ -97,8 +97,6 @@ namespace SBW.DataAccess.Repositories
             return result;
         }
 
-
-
         public bool updateInventory(Inventory inventory)
         {
             bool status = true;
