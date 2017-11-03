@@ -95,7 +95,7 @@ namespace SBW.DataAccess.Repositories
             if (cusType == "Loyalty") {
                 bool s3 = Repository.ExecuteQuery(customerLoyaltyQuery);
             }
-          
+
             bool s2 = Repository.ExecuteQuery(customerContactQuery);
             bool s1 = Repository.ExecuteQuery(customerQuery);
 
@@ -118,7 +118,7 @@ namespace SBW.DataAccess.Repositories
 
         public DataTable viewCustomerLoyaltyDetails(string cardType)
         {
-            DataTable Response;
+            DataTable Response = null;
 
             string str_all = "select cu.Name, cusl.NIC, cusl.Card_No, cusl.Card_Points, cusl.CardType  from [Consumer].[CustomerLoyaltyCard] cusl,[Consumer].[Customer] cu where cusl.NIC=cu.NIC and cu.CustomerType = 'Loyalty'";
             string str_Gold = "select cu.Name, cusl.NIC, cusl.Card_No, cusl.Card_Points, cusl.CardType  from [Consumer].[CustomerLoyaltyCard] cusl,[Consumer].[Customer] cu where cusl.NIC=cu.NIC AND cusl.CardType = 'Gold'";
@@ -137,8 +137,9 @@ namespace SBW.DataAccess.Repositories
             {
                 Response = Repository.getDataTable(str_Silver);
             }
-            else
+            else if (cardType == "Bronze Customers") {
                 Response = Repository.getDataTable(str_Bronze);
+            }
 
             return Response;
         }
@@ -151,7 +152,7 @@ namespace SBW.DataAccess.Repositories
             {
                 string customerQuery = "select NIC from [Consumer].[Customer] where NIC = '" + customerNIC + "'";
 
-                SqlCommand cmd = new SqlCommand(customerQuery);               
+                SqlCommand cmd = new SqlCommand(customerQuery);
                 var nicObj = Repository.ExecuteScalar(cmd);
 
                 if (nicObj != null)
@@ -185,7 +186,7 @@ namespace SBW.DataAccess.Repositories
                 cmd1.Parameters.AddWithValue("@cardType", customer.CardType);
 
                 SqlCommand cmd2 = new SqlCommand(updateCardTypeQqery);
-             
+
                 bool s1 = Repository.ExecuteQuery(cmd1);
                 bool s2 = Repository.ExecuteQuery(cmd2);
 
@@ -205,9 +206,9 @@ namespace SBW.DataAccess.Repositories
         {
             bool status = false;
             try
-            {              
+            {
                 string customerLoyaltyQuery = "UPDATE [Consumer].[CustomerLoyaltyCard] SET Card_No = '" + customer.CardNo + "',NIC ='" + customer.NIC + "',Card_Points ='" + customer.CardPoints + "',CardType ='" + customer.CardType + "' where NIC = '" + customer.NIC + "'";
-   
+
                 bool s1 = Repository.ExecuteQuery(customerLoyaltyQuery);
                 if (s1)
                 {
@@ -230,12 +231,12 @@ namespace SBW.DataAccess.Repositories
                                     + " where NIC = '" + nic + "'";
 
             bool s1 = Repository.ExecuteQuery(customerLoyaltyQuery);
-           
+
             if (s1)
             {
                 status = true;
             }
-            return status;           
+            return status;
         }
 
         public string getCustomerEmail(string nic)
@@ -247,11 +248,11 @@ namespace SBW.DataAccess.Repositories
 
                 SqlCommand cmd = new SqlCommand(emailQuery);
                 var emailObj = Repository.ExecuteScalar(cmd);
-              
+
                 if (emailObj != null)
                 {
                     email = emailObj.ToString();
-                }                
+                }
             }
             catch (SqlException ex)
             {
@@ -271,7 +272,5 @@ namespace SBW.DataAccess.Repositories
 
             return result;
         }
-
-
     }    
 }

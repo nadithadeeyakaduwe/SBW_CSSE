@@ -142,7 +142,6 @@ namespace SBW.BusinessService
             return status;
         }
 
-
         public bool UpdateLoyaltyCardDetails(Customer customer)
         {
             bool status = false;

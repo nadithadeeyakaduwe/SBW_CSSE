@@ -36,10 +36,10 @@
             this.lbl_cus_email_address = new System.Windows.Forms.Label();
             this.lbl_cus_email_subject = new System.Windows.Forms.Label();
             this.gp_cus_email2 = new System.Windows.Forms.GroupBox();
-            this.rtb_cus_email_body = new System.Windows.Forms.RichTextBox();
-            this.btn_cus_email_send = new System.Windows.Forms.Button();
-            this.btn_cusEmail_clear = new System.Windows.Forms.Button();
             this.btn_email_demo = new System.Windows.Forms.Button();
+            this.rtb_cus_email_body = new System.Windows.Forms.RichTextBox();
+            this.btn_cusEmail_clear = new System.Windows.Forms.Button();
+            this.btn_cus_email_send = new System.Windows.Forms.Button();
             this.gp_cus_email1.SuspendLayout();
             this.gp_cus_email2.SuspendLayout();
             this.SuspendLayout();
@@ -116,27 +116,53 @@
             // 
             // gp_cus_email2
             // 
+            this.gp_cus_email2.Controls.Add(this.btn_email_demo);
             this.gp_cus_email2.Controls.Add(this.rtb_cus_email_body);
+            this.gp_cus_email2.Controls.Add(this.btn_cusEmail_clear);
+            this.gp_cus_email2.Controls.Add(this.btn_cus_email_send);
             this.gp_cus_email2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gp_cus_email2.Location = new System.Drawing.Point(28, 259);
             this.gp_cus_email2.Name = "gp_cus_email2";
-            this.gp_cus_email2.Size = new System.Drawing.Size(872, 350);
+            this.gp_cus_email2.Size = new System.Drawing.Size(872, 275);
             this.gp_cus_email2.TabIndex = 15;
             this.gp_cus_email2.TabStop = false;
             this.gp_cus_email2.Text = "Message Content";
+            // 
+            // btn_email_demo
+            // 
+            this.btn_email_demo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_email_demo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_email_demo.Location = new System.Drawing.Point(780, 166);
+            this.btn_email_demo.Name = "btn_email_demo";
+            this.btn_email_demo.Size = new System.Drawing.Size(86, 30);
+            this.btn_email_demo.TabIndex = 18;
+            this.btn_email_demo.Text = "DEMO";
+            this.btn_email_demo.UseVisualStyleBackColor = true;
+            this.btn_email_demo.Click += new System.EventHandler(this.btn_email_demo_Click);
             // 
             // rtb_cus_email_body
             // 
             this.rtb_cus_email_body.Location = new System.Drawing.Point(14, 46);
             this.rtb_cus_email_body.Name = "rtb_cus_email_body";
-            this.rtb_cus_email_body.Size = new System.Drawing.Size(836, 284);
+            this.rtb_cus_email_body.Size = new System.Drawing.Size(746, 206);
             this.rtb_cus_email_body.TabIndex = 0;
             this.rtb_cus_email_body.Text = " ";
+            // 
+            // btn_cusEmail_clear
+            // 
+            this.btn_cusEmail_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cusEmail_clear.Location = new System.Drawing.Point(780, 130);
+            this.btn_cusEmail_clear.Name = "btn_cusEmail_clear";
+            this.btn_cusEmail_clear.Size = new System.Drawing.Size(86, 30);
+            this.btn_cusEmail_clear.TabIndex = 17;
+            this.btn_cusEmail_clear.Text = "CLEAR";
+            this.btn_cusEmail_clear.UseVisualStyleBackColor = true;
+            this.btn_cusEmail_clear.Click += new System.EventHandler(this.btn_cusEmail_clear_Click);
             // 
             // btn_cus_email_send
             // 
             this.btn_cus_email_send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cus_email_send.Location = new System.Drawing.Point(33, 634);
+            this.btn_cus_email_send.Location = new System.Drawing.Point(780, 46);
             this.btn_cus_email_send.Name = "btn_cus_email_send";
             this.btn_cus_email_send.Size = new System.Drawing.Size(86, 30);
             this.btn_cus_email_send.TabIndex = 16;
@@ -144,36 +170,10 @@
             this.btn_cus_email_send.UseVisualStyleBackColor = true;
             this.btn_cus_email_send.Click += new System.EventHandler(this.btn_cus_email_send_Click);
             // 
-            // btn_cusEmail_clear
-            // 
-            this.btn_cusEmail_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cusEmail_clear.Location = new System.Drawing.Point(700, 634);
-            this.btn_cusEmail_clear.Name = "btn_cusEmail_clear";
-            this.btn_cusEmail_clear.Size = new System.Drawing.Size(75, 30);
-            this.btn_cusEmail_clear.TabIndex = 17;
-            this.btn_cusEmail_clear.Text = "CLEAR";
-            this.btn_cusEmail_clear.UseVisualStyleBackColor = true;
-            this.btn_cusEmail_clear.Click += new System.EventHandler(this.btn_cusEmail_clear_Click);
-            // 
-            // btn_email_demo
-            // 
-            this.btn_email_demo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_email_demo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_email_demo.Location = new System.Drawing.Point(822, 634);
-            this.btn_email_demo.Name = "btn_email_demo";
-            this.btn_email_demo.Size = new System.Drawing.Size(78, 30);
-            this.btn_email_demo.TabIndex = 18;
-            this.btn_email_demo.Text = "DEMO";
-            this.btn_email_demo.UseVisualStyleBackColor = true;
-            this.btn_email_demo.Click += new System.EventHandler(this.btn_email_demo_Click);
-            // 
             // customerEmailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_email_demo);
-            this.Controls.Add(this.btn_cusEmail_clear);
-            this.Controls.Add(this.btn_cus_email_send);
             this.Controls.Add(this.gp_cus_email2);
             this.Controls.Add(this.gp_cus_email1);
             this.Controls.Add(this.cmb_email_nic);

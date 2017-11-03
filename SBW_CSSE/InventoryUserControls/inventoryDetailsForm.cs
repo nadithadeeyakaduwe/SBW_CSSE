@@ -277,6 +277,15 @@ namespace SBW.UI.InventoryUserControls
 
             dgv_inventoryUC.DataSource = service.SearchInventory(searchString);
         }
+
+        private void btn_inventoryUC_demo_Click(object sender, EventArgs e)
+        {
+            cmb_inventoryUC_make.Text = "Exide";
+            cmb_inventoryUC_Name.Text = "MotorBike Battery";
+            cmb_inventoryUC_type.Text = "22LSD";
+            txt_inventoryUC_reorder.Text = "8";
+
+        }
     }
 }
 
