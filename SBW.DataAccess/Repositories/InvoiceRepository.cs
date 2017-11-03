@@ -132,5 +132,47 @@ namespace SBW.DataAccess.Repositories
 
         }
 
+        public decimal GetUnitpriceforProduct(string type)
+        {
+
+            decimal unitPrice = 0;
+            string query = "SELECT TOP 1 s.Unit_Price FROM [Stock].[Stock_Details] s, [Stock].[Product] p WHERE s.[Product_ID]=p.[Product_ID] AND p.[Product_Type] = '"+type+ "' ORDER BY s.Unit_Price DESC";
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader;
+            cmd.Connection = con;
+
+            try
+            {
+                Repository.openConnection();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read(); // read first row
+                    unitPrice = reader.GetDecimal(0);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+                unitPrice = 0;
+            }
+            finally
+            {
+                Repository.closeConnection();
+            }
+
+
+            return unitPrice;
+
+        }
+
+
+
+
+
+
     }
 }

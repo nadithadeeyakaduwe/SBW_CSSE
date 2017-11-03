@@ -30,12 +30,6 @@ namespace SBW.UI.Sales_n_Profit
 
             txtbx_invoice_invoiceNumber.Text = Is.fillInvoiceNumber().ToString();
 
-
-
-
-            //cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            //cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -117,6 +111,17 @@ namespace SBW.UI.Sales_n_Profit
             cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
 
+
+        }
+
+        private void btn_invoice_addItem_Click(object sender, EventArgs e)
+        {
+            invoiceService Is = new invoiceService();
+            dvg_invoice = Is.fillInvoiceTable(cmbx_invoice_ProductMake.Text,cmbx_invoice_ProductName.Text,cmbx_invoice_ProductType.Text, dvg_invoice);
+        }
+
+        private void dvg_invoice_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
