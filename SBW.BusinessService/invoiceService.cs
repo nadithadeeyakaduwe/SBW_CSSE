@@ -69,9 +69,23 @@ namespace SBW.BusinessService
 
         }
 
-        //public DataTable fillInvoiceTable() {
+        public DataGridView fillInvoiceTable(string make, string name, string type, DataGridView dgv) {
+            int itemNo = dgv.RowCount;
+            //dgv.ColumnCount = 8;
+            dgv.Rows[itemNo-1].Cells[0].Value =  (itemNo + 1).ToString();
+            dgv.Rows[itemNo-1].Cells[1].Value = $"{make} {name} {type}";
 
-        //}
+            invoice = new InvoiceRepository();
+
+            dgv.Rows[itemNo-1].Cells[5].Value = invoice.GetUnitpriceforProduct(type).ToString();
+
+            //dgv[itemNo, 0].Value = (itemNo + 1).ToString();
+            //dgv[itemNo, 1].Value = $"{make} {name} {type}";
+            //dgv[itemNo, 5].Value = invoice.GetUnitpriceforProduct(type);
+
+
+            return dgv;
+        }
 
         public int fillInvoiceNumber() {
             int invoiceNum = invoice.GetNextInvoiceNumber();
