@@ -41,6 +41,7 @@
             this.dgv_invoiceAddItemPopup.Name = "dgv_invoiceAddItemPopup";
             this.dgv_invoiceAddItemPopup.Size = new System.Drawing.Size(766, 381);
             this.dgv_invoiceAddItemPopup.TabIndex = 0;
+            this.dgv_invoiceAddItemPopup.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_invoiceAddItemPopup_RowHeaderMouseClick);
             // 
             // txtbx_invenrtyAddItemPopup_ItemType
             // 

@@ -22,7 +22,12 @@ namespace SBW.UI.Sales_n_Profit
         private void Invoiceform_Load(object sender, EventArgs e)
         {
             invoiceService Is = new invoiceService();
-            cmbx_invoice_ProductType.DataSource = Is.loadComboBoxProductType();
+            cmbx_invoice_ProductMake.DataSource = Is.loadComboBoxProductMake();
+            cmbx_invoice_ProductMake.ValueMember = "Product_Make";
+            cmbx_invoice_ProductMake.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cmbx_invoice_ProductMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbx_invoice_ProductMake.AutoCompleteSource = AutoCompleteSource.ListItems;
+
 
             cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -63,11 +68,23 @@ namespace SBW.UI.Sales_n_Profit
 
         private void btn_invoice_itemView_Click(object sender, EventArgs e)
         {
-            var popup = new inviocAddItemPopup();
+            var popup = new inviocAddItemPopup(this);
             popup.Show();
         }
 
-        
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbx_invoice_ProductType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

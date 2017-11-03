@@ -60,10 +60,30 @@ namespace SBW.DataAccess.Repositories
 
 
 
-        public DataTable GetProdutTypes()
+        public DataTable getProdutMake()
         {
             DataTable Response;
-            string query = "SELECT p.Product_Type FROM [Stock].[Product] p";
+            string query = "SELECT DISTINCT p.Product_Make FROM [Stock].[Product] p";
+
+            Response = Repository.getDataTable(query);
+
+            return Response;
+        }
+
+        public DataTable GetProdutTypesForinvoice(string make, string name)
+        {
+            DataTable Response;
+            string query = "SELECT p.Product_Type FROM [Stock].[Product] p where p.Product_Make = '"+make+"' AND p.Product_Name = '"+name+"'";
+
+            Response = Repository.getDataTable(query);
+
+            return Response;
+        }
+
+        public DataTable GetProdutNameForinvoice(string make)
+        {
+            DataTable Response;
+            string query = "SELECT DISTINCT p.Product_Name FROM [Stock].[Product] p where p.Product_Make = '" + make + "'" ;
 
             Response = Repository.getDataTable(query);
 

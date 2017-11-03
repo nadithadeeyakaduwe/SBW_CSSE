@@ -29,7 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Invoiceform));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dvg_invoice = new System.Windows.Forms.DataGridView();
+            this.ItemNo_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Warrenty_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove_col = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dateTimePicker_invoice_date = new System.Windows.Forms.DateTimePicker();
             this.lbl_invoice_date = new System.Windows.Forms.Label();
             this.lbl_invoice_customername = new System.Windows.Forms.Label();
@@ -56,16 +64,71 @@
             this.lbl_invoicenum = new System.Windows.Forms.Label();
             this.txtbx_invoice_invoiceNumber = new System.Windows.Forms.TextBox();
             this.btn_invoice_addItem = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cmbx_invoice_ProductName = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbx_invoice_ProductMake = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dvg_invoice)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dvg_invoice
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 198);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(957, 151);
-            this.dataGridView1.TabIndex = 0;
+            this.dvg_invoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvg_invoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemNo_col,
+            this.Description_col,
+            this.Qty_col,
+            this.Warrenty_col,
+            this.Discount_col,
+            this.UnitPrice_col,
+            this.Amount_col,
+            this.Remove_col});
+            this.dvg_invoice.Location = new System.Drawing.Point(13, 198);
+            this.dvg_invoice.Name = "dvg_invoice";
+            this.dvg_invoice.Size = new System.Drawing.Size(994, 151);
+            this.dvg_invoice.TabIndex = 0;
+            this.dvg_invoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ItemNo_col
+            // 
+            this.ItemNo_col.HeaderText = "Item No";
+            this.ItemNo_col.Name = "ItemNo_col";
+            // 
+            // Description_col
+            // 
+            this.Description_col.HeaderText = "Description";
+            this.Description_col.Name = "Description_col";
+            // 
+            // Qty_col
+            // 
+            this.Qty_col.HeaderText = "QTY";
+            this.Qty_col.Name = "Qty_col";
+            // 
+            // Warrenty_col
+            // 
+            this.Warrenty_col.HeaderText = "Warrenty";
+            this.Warrenty_col.Name = "Warrenty_col";
+            // 
+            // Discount_col
+            // 
+            this.Discount_col.HeaderText = "Discount";
+            this.Discount_col.Name = "Discount_col";
+            // 
+            // UnitPrice_col
+            // 
+            this.UnitPrice_col.HeaderText = "Unit Price";
+            this.UnitPrice_col.Name = "UnitPrice_col";
+            // 
+            // Amount_col
+            // 
+            this.Amount_col.HeaderText = "Amount";
+            this.Amount_col.Name = "Amount_col";
+            // 
+            // Remove_col
+            // 
+            this.Remove_col.HeaderText = "REMOVE";
+            this.Remove_col.Name = "Remove_col";
+            this.Remove_col.Text = "REMOVE";
             // 
             // dateTimePicker_invoice_date
             // 
@@ -99,7 +162,7 @@
             // 
             this.txtbx_cusName.Location = new System.Drawing.Point(716, 39);
             this.txtbx_cusName.Name = "txtbx_cusName";
-            this.txtbx_cusName.Size = new System.Drawing.Size(254, 20);
+            this.txtbx_cusName.Size = new System.Drawing.Size(291, 20);
             this.txtbx_cusName.TabIndex = 5;
             // 
             // txtbx_cusAdd
@@ -107,7 +170,7 @@
             this.txtbx_cusAdd.Location = new System.Drawing.Point(716, 65);
             this.txtbx_cusAdd.Multiline = true;
             this.txtbx_cusAdd.Name = "txtbx_cusAdd";
-            this.txtbx_cusAdd.Size = new System.Drawing.Size(254, 61);
+            this.txtbx_cusAdd.Size = new System.Drawing.Size(291, 61);
             this.txtbx_cusAdd.TabIndex = 7;
             // 
             // lbl_invoice_CustomerAdd
@@ -124,7 +187,7 @@
             // 
             this.txtbx_cusTelephone.Location = new System.Drawing.Point(716, 132);
             this.txtbx_cusTelephone.Name = "txtbx_cusTelephone";
-            this.txtbx_cusTelephone.Size = new System.Drawing.Size(129, 20);
+            this.txtbx_cusTelephone.Size = new System.Drawing.Size(150, 20);
             this.txtbx_cusTelephone.TabIndex = 9;
             // 
             // label3
@@ -161,7 +224,7 @@
             // 
             this.txtbx_invoice_subtotal.Location = new System.Drawing.Point(772, 355);
             this.txtbx_invoice_subtotal.Name = "txtbx_invoice_subtotal";
-            this.txtbx_invoice_subtotal.Size = new System.Drawing.Size(198, 20);
+            this.txtbx_invoice_subtotal.Size = new System.Drawing.Size(235, 20);
             this.txtbx_invoice_subtotal.TabIndex = 12;
             // 
             // label5
@@ -178,7 +241,7 @@
             // 
             this.lbl_product_type.AutoSize = true;
             this.lbl_product_type.ForeColor = System.Drawing.Color.Black;
-            this.lbl_product_type.Location = new System.Drawing.Point(10, 172);
+            this.lbl_product_type.Location = new System.Drawing.Point(470, 172);
             this.lbl_product_type.Name = "lbl_product_type";
             this.lbl_product_type.Size = new System.Drawing.Size(71, 13);
             this.lbl_product_type.TabIndex = 14;
@@ -189,18 +252,19 @@
             this.cmbx_invoice_ProductType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbx_invoice_ProductType.DisplayMember = "Product_Type";
             this.cmbx_invoice_ProductType.FormattingEnabled = true;
-            this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(87, 169);
+            this.cmbx_invoice_ProductType.Location = new System.Drawing.Point(558, 169);
             this.cmbx_invoice_ProductType.Name = "cmbx_invoice_ProductType";
-            this.cmbx_invoice_ProductType.Size = new System.Drawing.Size(623, 21);
+            this.cmbx_invoice_ProductType.Size = new System.Drawing.Size(205, 21);
             this.cmbx_invoice_ProductType.TabIndex = 22;
             this.cmbx_invoice_ProductType.ValueMember = "Product_Type";
+            this.cmbx_invoice_ProductType.SelectedIndexChanged += new System.EventHandler(this.cmbx_invoice_ProductType_SelectedIndexChanged);
             // 
             // btn_invoice_Viewitem
             // 
             this.btn_invoice_Viewitem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_invoice_Viewitem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_invoice_Viewitem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_invoice_Viewitem.Location = new System.Drawing.Point(854, 167);
+            this.btn_invoice_Viewitem.Location = new System.Drawing.Point(891, 167);
             this.btn_invoice_Viewitem.Name = "btn_invoice_Viewitem";
             this.btn_invoice_Viewitem.Size = new System.Drawing.Size(116, 23);
             this.btn_invoice_Viewitem.TabIndex = 23;
@@ -225,7 +289,7 @@
             // 
             this.txtbx_invoice_advance.Location = new System.Drawing.Point(772, 381);
             this.txtbx_invoice_advance.Name = "txtbx_invoice_advance";
-            this.txtbx_invoice_advance.Size = new System.Drawing.Size(198, 20);
+            this.txtbx_invoice_advance.Size = new System.Drawing.Size(235, 20);
             this.txtbx_invoice_advance.TabIndex = 24;
             // 
             // label9
@@ -245,7 +309,7 @@
             // 
             this.txtbx_invoice_totalInvoice.Location = new System.Drawing.Point(772, 407);
             this.txtbx_invoice_totalInvoice.Name = "txtbx_invoice_totalInvoice";
-            this.txtbx_invoice_totalInvoice.Size = new System.Drawing.Size(198, 20);
+            this.txtbx_invoice_totalInvoice.Size = new System.Drawing.Size(235, 20);
             this.txtbx_invoice_totalInvoice.TabIndex = 26;
             // 
             // btn_invoice_print
@@ -308,17 +372,64 @@
             this.btn_invoice_addItem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_invoice_addItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_invoice_addItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_invoice_addItem.Location = new System.Drawing.Point(729, 167);
+            this.btn_invoice_addItem.Location = new System.Drawing.Point(769, 167);
             this.btn_invoice_addItem.Name = "btn_invoice_addItem";
             this.btn_invoice_addItem.Size = new System.Drawing.Size(116, 23);
             this.btn_invoice_addItem.TabIndex = 32;
             this.btn_invoice_addItem.Text = "ADD";
             this.btn_invoice_addItem.UseVisualStyleBackColor = true;
             // 
+            // cmbx_invoice_ProductName
+            // 
+            this.cmbx_invoice_ProductName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbx_invoice_ProductName.DisplayMember = "Product_Type";
+            this.cmbx_invoice_ProductName.FormattingEnabled = true;
+            this.cmbx_invoice_ProductName.Location = new System.Drawing.Point(338, 169);
+            this.cmbx_invoice_ProductName.Name = "cmbx_invoice_ProductName";
+            this.cmbx_invoice_ProductName.Size = new System.Drawing.Size(126, 21);
+            this.cmbx_invoice_ProductName.TabIndex = 34;
+            this.cmbx_invoice_ProductName.ValueMember = "Product_Type";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(261, 172);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Product Name";
+            // 
+            // cmbx_invoice_ProductMake
+            // 
+            this.cmbx_invoice_ProductMake.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbx_invoice_ProductMake.DisplayMember = "Product_Type";
+            this.cmbx_invoice_ProductMake.FormattingEnabled = true;
+            this.cmbx_invoice_ProductMake.Location = new System.Drawing.Point(91, 169);
+            this.cmbx_invoice_ProductMake.Name = "cmbx_invoice_ProductMake";
+            this.cmbx_invoice_ProductMake.Size = new System.Drawing.Size(164, 21);
+            this.cmbx_invoice_ProductMake.TabIndex = 36;
+            this.cmbx_invoice_ProductMake.ValueMember = "Product_Type";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(14, 172);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "Product Make";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // Invoiceform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cmbx_invoice_ProductMake);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cmbx_invoice_ProductName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_invoice_addItem);
             this.Controls.Add(this.txtbx_invoice_invoiceNumber);
             this.Controls.Add(this.lbl_invoicenum);
@@ -343,14 +454,14 @@
             this.Controls.Add(this.lbl_invoice_customername);
             this.Controls.Add(this.lbl_invoice_date);
             this.Controls.Add(this.dateTimePicker_invoice_date);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dvg_invoice);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.MaximumSize = new System.Drawing.Size(1020, 489);
             this.MinimumSize = new System.Drawing.Size(1020, 489);
             this.Name = "Invoiceform";
             this.Size = new System.Drawing.Size(1020, 489);
             this.Load += new System.EventHandler(this.Invoiceform_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvg_invoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,7 +469,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dvg_invoice;
         private System.Windows.Forms.DateTimePicker dateTimePicker_invoice_date;
         private System.Windows.Forms.Label lbl_invoice_date;
         private System.Windows.Forms.Label lbl_invoice_customername;
@@ -385,5 +496,17 @@
         private System.Windows.Forms.Label lbl_invoicenum;
         private System.Windows.Forms.TextBox txtbx_invoice_invoiceNumber;
         private System.Windows.Forms.Button btn_invoice_addItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNo_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Warrenty_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount_col;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove_col;
+        private System.Windows.Forms.ComboBox cmbx_invoice_ProductName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbx_invoice_ProductMake;
+        private System.Windows.Forms.Label label6;
     }
 }
