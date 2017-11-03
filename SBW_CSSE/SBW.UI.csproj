@@ -150,13 +150,13 @@
       <DependentUpon>InventoryDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryUserControls\StockDetailsForm.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="InventoryUserControls\StockDetailsForm.Designer.cs">
       <DependentUpon>StockDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryUserControls\SupplierDetailsForm.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="InventoryUserControls\SupplierDetailsForm.Designer.cs">
       <DependentUpon>SupplierDetailsForm.cs</DependentUpon>

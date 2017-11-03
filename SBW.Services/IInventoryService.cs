@@ -20,5 +20,13 @@ namespace SBW.Services
         bool UpdateInventory(Inventory inventory);
         DataTable SearchInventory(string searchString);
 
+        DataTable ViewStockDetails();
+        DataTable SearchStock(string make, string name, string type);
+
+        DataTable getNamesForCombo(string make);
+        DataTable getTypesForCombo(string make, string name);
+
+        bool AddStock(Inventory inventory, Stock stock, Supplier supplier);
+
     }
 }
