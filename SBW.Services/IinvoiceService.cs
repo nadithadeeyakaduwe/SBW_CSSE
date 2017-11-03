@@ -13,6 +13,8 @@ namespace SBW.Services
     {
         DataTable loadAddItemPopup();
         DataTable loadComboBoxProductMake();
+        DataTable loadComboBoxProductName(string name);
+        DataTable loadComboBoxProductName(string make, string name);
         DataTable SearchProductByType(String type);
         void addToInvoiceTable(DataGridViewRow ID, DataGridView dgv);
         

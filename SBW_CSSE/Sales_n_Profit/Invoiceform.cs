@@ -29,9 +29,9 @@ namespace SBW.UI.Sales_n_Profit
             cmbx_invoice_ProductMake.AutoCompleteSource = AutoCompleteSource.ListItems;
 
 
-            cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            //cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -84,6 +84,35 @@ namespace SBW.UI.Sales_n_Profit
 
         private void cmbx_invoice_ProductType_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void cmbx_invoice_ProductName_DropDown(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void cmbx_invoice_ProductMake_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            invoiceService Is = new invoiceService();
+            cmbx_invoice_ProductName.DataSource = Is.loadComboBoxProductName(cmbx_invoice_ProductMake.Text);
+            cmbx_invoice_ProductName.ValueMember = "Product_Name";
+            cmbx_invoice_ProductName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cmbx_invoice_ProductName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbx_invoice_ProductName.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+
+        private void cmbx_invoice_ProductName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+            invoiceService Is = new invoiceService();
+            cmbx_invoice_ProductType.DataSource = Is.loadComboBoxProductName(cmbx_invoice_ProductMake.Text,cmbx_invoice_ProductName.Text);
+            cmbx_invoice_ProductType.ValueMember = "Product_Type";
+            cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
+
 
         }
     }

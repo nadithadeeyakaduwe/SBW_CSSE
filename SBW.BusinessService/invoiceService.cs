@@ -13,21 +13,38 @@ namespace SBW.BusinessService
 {
     public class invoiceService : IinvoiceService
     {
-        private InventoryRepository inv;
+        private InventoryRepository inventory;
+        private InvoiceRepository invoice;
         public DataTable loadAddItemPopup()
         {
-            inv = new InventoryRepository();
-            DataTable dt = inv.getDataForInvoiceAddItemPopup();
+            inventory = new InventoryRepository();
+            DataTable dt = inventory.getDataForInvoiceAddItemPopup();
             return dt;
         }
         public DataTable loadComboBoxProductMake() {
-            InvoiceRepository InvoiceR = new InvoiceRepository();
-            DataTable dt = InvoiceR.getProdutMake();
+            invoice = new InvoiceRepository();
+            DataTable dt = invoice.getProdutMake();
             return dt;
         }
+
+        public DataTable loadComboBoxProductName(string name) {
+            invoice = new InvoiceRepository();
+            DataTable dt = invoice.GetProdutNameForinvoice(name);
+            return dt;
+
+        }
+
+        public DataTable loadComboBoxProductName(string make, string name) {
+            invoice = new InvoiceRepository();
+            DataTable dt = invoice.GetProdutTypesForinvoice(make,name);
+            return dt;
+        }
+
+
+
         public DataTable SearchProductByType(String type) {
-            InventoryRepository IR = inv = new InventoryRepository();
-            DataTable dt = IR.getDataForInvoiceAddItemPopup(type);
+            inventory = new InventoryRepository();
+            DataTable dt = inventory.getDataForInvoiceAddItemPopup(type);
             return dt;
         }
 

@@ -389,6 +389,8 @@
             this.cmbx_invoice_ProductName.Size = new System.Drawing.Size(126, 21);
             this.cmbx_invoice_ProductName.TabIndex = 34;
             this.cmbx_invoice_ProductName.ValueMember = "Product_Type";
+            this.cmbx_invoice_ProductName.DropDown += new System.EventHandler(this.cmbx_invoice_ProductName_DropDown);
+            this.cmbx_invoice_ProductName.SelectedIndexChanged += new System.EventHandler(this.cmbx_invoice_ProductName_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -410,6 +412,7 @@
             this.cmbx_invoice_ProductMake.Size = new System.Drawing.Size(164, 21);
             this.cmbx_invoice_ProductMake.TabIndex = 36;
             this.cmbx_invoice_ProductMake.ValueMember = "Product_Type";
+            this.cmbx_invoice_ProductMake.SelectedIndexChanged += new System.EventHandler(this.cmbx_invoice_ProductMake_SelectedIndexChanged);
             // 
             // label6
             // 
