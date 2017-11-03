@@ -263,5 +263,16 @@ namespace SBW.UI.InventoryUserControls
                 addStock();
             }
         }
+
+        private void btn_stockUC_demo_Click(object sender, EventArgs e)
+        {
+            cmb_stockUC_make.Text = "Exide";
+            cmb_stockUC_name.Text = "Car Battery";
+            cmb_stockUC_type.Text = "55D23R/L";
+            txt_stockUC_unitPrice.Text = "9000";
+            txt_stockUC_discount.Text = "5";
+            txt_stockUC_qty.Text = "7";
+            txtINsupplier.Text = "2";
+        }
     }
 }

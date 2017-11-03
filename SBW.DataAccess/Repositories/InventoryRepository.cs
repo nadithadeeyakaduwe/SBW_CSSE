@@ -59,7 +59,13 @@ namespace SBW.DataAccess.Repositories
             string query1 = $"DELETE FROM [Stock].[Stock_Details] WHERE Product_ID = {productId}";
             string query2 = $"DELETE FROM [Stock].[Product] WHERE Product_ID = {productId}";
 
-            status = Repository.ExecuteQuery(query2);
+            bool s1 = Repository.ExecuteQuery(query1);
+            bool s2 = Repository.ExecuteQuery(query2);
+
+            if (s1 == true && s2 == true)
+            {
+                status = true;
+            }
             return status;
         }
 

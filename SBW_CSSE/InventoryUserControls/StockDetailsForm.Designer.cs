@@ -125,6 +125,7 @@
             this.btn_stockUC_demo.TabIndex = 31;
             this.btn_stockUC_demo.Text = "DEMO";
             this.btn_stockUC_demo.UseVisualStyleBackColor = true;
+            this.btn_stockUC_demo.Click += new System.EventHandler(this.btn_stockUC_demo_Click);
             // 
             // btn_stockUC_clear
             // 
