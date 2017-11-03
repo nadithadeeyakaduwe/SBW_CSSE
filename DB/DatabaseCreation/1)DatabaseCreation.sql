@@ -172,7 +172,6 @@ CREATE TABLE [Stock].[Product]
 )
 GO
 
-
 CREATE TABLE [Stock].[Supplier_Details]( 
 
 	Supplier_ID INT NOT NULL IDENTITY(1,1),
@@ -198,7 +197,7 @@ GO
 
 CREATE TABLE [Stock].[Stock_Details]
 (
-	Stock_Id INT NOT NULL,
+	Stock_Id INT NOT NULL IDENTITY(1,1),
 	Product_ID INT NOT NULL,
 	Supplier_ID INT NOT NULL,
 	Quantity INT,

@@ -109,5 +109,74 @@ namespace SBW.BusinessService
             return dt;
         }
 
+        public DataTable ViewStockDetails()
+        {
+            DataTable Result = null;
+
+            repo = new InventoryRepository();
+
+            Result = repo.viewStockDetails();
+
+            if (Result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+            return Result;
+        }
+
+        public DataTable SearchStock(string make, string name, string type)
+        {
+            DataTable dt = new DataTable();
+            repo = new InventoryRepository();
+
+            dt = repo.searchStock(make, name, type);
+
+            if (dt == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+
+            return dt;
+        }
+
+        public DataTable getNamesForCombo(string make)
+        {
+            DataTable result = null;
+            repo = new InventoryRepository();
+
+            result = repo.getNamesForCombo(make);
+
+            return result;
+        }
+
+        public DataTable getTypesForCombo(string make, string name)
+        {
+            DataTable result = null;
+            repo = new InventoryRepository();
+
+            result = repo.getTypesForCombo(make,name);
+
+            return result;
+        }
+
+        public bool AddStock(Inventory inventory, Stock stock, Supplier supplier)
+        {
+            bool status = true;
+            repo = new InventoryRepository();
+
+            status = repo.addStock(inventory, stock, supplier);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
+            }
+
+            return status;
+        }
+
     }
 }

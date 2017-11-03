@@ -205,6 +205,8 @@ namespace SBW.UI.InventoryUserControls
 
             txt_inventoryUC_reorder.Text ="";
 
+            txt_inventoryUC_search.Text = "";
+            FillInventoryGrid();
             cmb_inventoryUC_make.Enabled = true;
             cmb_inventoryUC_Name.Enabled = true;
             cmb_inventoryUC_type.Enabled = true;

@@ -134,6 +134,7 @@
             this.btn_stockUC_clear.TabIndex = 30;
             this.btn_stockUC_clear.Text = "CLEAR";
             this.btn_stockUC_clear.UseVisualStyleBackColor = true;
+            this.btn_stockUC_clear.Click += new System.EventHandler(this.btn_stockUC_clear_Click);
             // 
             // btn_stockUC_delete
             // 
@@ -161,6 +162,7 @@
             this.btn_stockUC_add.TabIndex = 27;
             this.btn_stockUC_add.Text = "ADD";
             this.btn_stockUC_add.UseVisualStyleBackColor = true;
+            this.btn_stockUC_add.Click += new System.EventHandler(this.btn_stockUC_add_Click);
             // 
             // dgv_stockUC_stock
             // 
@@ -177,7 +179,7 @@
             this.txtINsupplier.FormattingEnabled = true;
             this.txtINsupplier.Location = new System.Drawing.Point(723, 140);
             this.txtINsupplier.Name = "txtINsupplier";
-            this.txtINsupplier.Size = new System.Drawing.Size(121, 28);
+            this.txtINsupplier.Size = new System.Drawing.Size(66, 28);
             this.txtINsupplier.TabIndex = 25;
             // 
             // lblINsupplier
@@ -199,6 +201,7 @@
             this.btn_stockUC_search.TabIndex = 23;
             this.btn_stockUC_search.Text = "SEARCH";
             this.btn_stockUC_search.UseVisualStyleBackColor = true;
+            this.btn_stockUC_search.Click += new System.EventHandler(this.btn_stockUC_search_Click);
             // 
             // cmb_stockUC_type
             // 
@@ -219,6 +222,7 @@
             this.cmb_stockUC_name.Name = "cmb_stockUC_name";
             this.cmb_stockUC_name.Size = new System.Drawing.Size(130, 28);
             this.cmb_stockUC_name.TabIndex = 21;
+            this.cmb_stockUC_name.SelectedIndexChanged += new System.EventHandler(this.cmb_stockUC_name_SelectedIndexChanged);
             // 
             // cmb_stockUC_make
             // 
@@ -229,6 +233,7 @@
             this.cmb_stockUC_make.Name = "cmb_stockUC_make";
             this.cmb_stockUC_make.Size = new System.Drawing.Size(130, 28);
             this.cmb_stockUC_make.TabIndex = 20;
+            this.cmb_stockUC_make.SelectedIndexChanged += new System.EventHandler(this.cmb_stockUC_make_SelectedIndexChanged);
             // 
             // lbl_stockUC_date
             // 
@@ -252,6 +257,7 @@
             this.txt_stockUC_qty.Name = "txt_stockUC_qty";
             this.txt_stockUC_qty.Size = new System.Drawing.Size(100, 26);
             this.txt_stockUC_qty.TabIndex = 17;
+            this.txt_stockUC_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stockUC_qty_KeyPress);
             // 
             // lbl_stockUC_qty
             // 
@@ -268,6 +274,7 @@
             this.txt_stockUC_discount.Name = "txt_stockUC_discount";
             this.txt_stockUC_discount.Size = new System.Drawing.Size(100, 26);
             this.txt_stockUC_discount.TabIndex = 15;
+            this.txt_stockUC_discount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stockUC_discount_KeyPress);
             // 
             // lbl_stockUC_discount
             // 
@@ -285,6 +292,7 @@
             this.txt_stockUC_unitPrice.Size = new System.Drawing.Size(100, 26);
             this.txt_stockUC_unitPrice.TabIndex = 13;
             this.txt_stockUC_unitPrice.TextChanged += new System.EventHandler(this.txt_inventoryUC_reorder_TextChanged);
+            this.txt_stockUC_unitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stockUC_unitPrice_KeyPress);
             // 
             // lbl_stockUC_unitPrice
             // 
@@ -330,6 +338,7 @@
             this.ClientSize = new System.Drawing.Size(1084, 451);
             this.Controls.Add(this.groupBox1);
             this.Name = "StockDetailsForm";
+            this.Load += new System.EventHandler(this.StockDetailsForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox9.ResumeLayout(false);

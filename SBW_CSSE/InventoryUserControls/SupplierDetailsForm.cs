@@ -142,7 +142,9 @@ namespace SBW.UI.InventoryUserControls
             rtxt_supplierUC_address.Clear();
             txt_supplierUC_contact.Clear();
             txt_supplierUC_email.Clear();
-
+            txt_supplierUC_search.Clear();
+            listBox1.Items.Clear();
+            FillSupplierGrid();
             btn_supplierUC_update.Enabled = false;
             btn_supplierUC_delete.Enabled = false;
             btn_supplierUC_add.Enabled = true;
@@ -215,12 +217,11 @@ namespace SBW.UI.InventoryUserControls
 
             
             DataTable dt = null;
-            //supplierId = lbl_SID.Text.ToString();
+            
             dt = service.ViewSuppliedProducts(supplierId);
 
             foreach (DataRow row in dt.Rows)
             {
-                //TextBox1.Text = row["ImagePath"].ToString();
                 listBox1.Items.Add(row[2].ToString() + " - " + row[3].ToString());
             }
 
