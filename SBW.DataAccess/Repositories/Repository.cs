@@ -178,6 +178,32 @@ namespace SBW.DataAccess.Repositories
                 }
             }
         }
+
+        public static object ExecuteScalar(SqlCommand cmd)
+        {
+            object obj = new object();
+            //SqlDataReader reader;
+            cmd.Connection = con;
+
+            try
+            {
+                openConnection();
+
+                cmd.CommandType = CommandType.Text;
+                obj = cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+                obj = null;
+            }
+            finally
+            {
+                closeConnection();
+            }
+
+            return obj;
+        }
     }
 }
         

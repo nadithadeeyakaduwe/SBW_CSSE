@@ -180,7 +180,8 @@ CREATE TABLE [Stock].[Supplier_Details](
 	Address varchar(50),
 	email varchar(50),
 
-	CONSTRAINT pk_SupplierDetails PRIMARY KEY(Supplier_ID)
+	CONSTRAINT pk_SupplierDetails PRIMARY KEY(Supplier_ID),
+	CONSTRAINT uc_SuppierDetails UNIQUE (Name, Address)
 
 )
 GO

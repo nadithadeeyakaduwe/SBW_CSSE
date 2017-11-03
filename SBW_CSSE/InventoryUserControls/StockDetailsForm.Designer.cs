@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.ltb_stockUC = new System.Windows.Forms.ListBox();
+            this.btn_stockUC_demo = new System.Windows.Forms.Button();
+            this.btn_stockUC_clear = new System.Windows.Forms.Button();
+            this.btn_stockUC_delete = new System.Windows.Forms.Button();
+            this.btn_stockUC_update = new System.Windows.Forms.Button();
+            this.btn_stockUC_add = new System.Windows.Forms.Button();
+            this.dgv_stockUC_stock = new System.Windows.Forms.DataGridView();
+            this.txtINsupplier = new System.Windows.Forms.ComboBox();
+            this.lblINsupplier = new System.Windows.Forms.Label();
+            this.btn_stockUC_search = new System.Windows.Forms.Button();
             this.cmb_stockUC_type = new System.Windows.Forms.ComboBox();
             this.cmb_stockUC_name = new System.Windows.Forms.ComboBox();
             this.cmb_stockUC_make = new System.Windows.Forms.ComboBox();
@@ -43,20 +54,9 @@
             this.lbl_stockUC_type = new System.Windows.Forms.Label();
             this.lbl_stockUC_Name = new System.Windows.Forms.Label();
             this.lbl_stockUC_make = new System.Windows.Forms.Label();
-            this.btn_stockUC_search = new System.Windows.Forms.Button();
-            this.txtINsupplier = new System.Windows.Forms.ComboBox();
-            this.lblINsupplier = new System.Windows.Forms.Label();
-            this.dgv_stockUC_stock = new System.Windows.Forms.DataGridView();
-            this.btn_stockUC_demo = new System.Windows.Forms.Button();
-            this.btn_stockUC_clear = new System.Windows.Forms.Button();
-            this.btn_stockUC_delete = new System.Windows.Forms.Button();
-            this.btn_stockUC_update = new System.Windows.Forms.Button();
-            this.btn_stockUC_add = new System.Windows.Forms.Button();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.ltb_stockUC = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_stockUC_stock)).BeginInit();
             this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_stockUC_stock)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -95,6 +95,110 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Details";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.ltb_stockUC);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(768, 191);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(285, 233);
+            this.groupBox9.TabIndex = 32;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Re-order Inventory List";
+            // 
+            // ltb_stockUC
+            // 
+            this.ltb_stockUC.FormattingEnabled = true;
+            this.ltb_stockUC.ItemHeight = 20;
+            this.ltb_stockUC.Location = new System.Drawing.Point(6, 23);
+            this.ltb_stockUC.MultiColumn = true;
+            this.ltb_stockUC.Name = "ltb_stockUC";
+            this.ltb_stockUC.Size = new System.Drawing.Size(253, 204);
+            this.ltb_stockUC.TabIndex = 0;
+            // 
+            // btn_stockUC_demo
+            // 
+            this.btn_stockUC_demo.Location = new System.Drawing.Point(644, 416);
+            this.btn_stockUC_demo.Name = "btn_stockUC_demo";
+            this.btn_stockUC_demo.Size = new System.Drawing.Size(82, 29);
+            this.btn_stockUC_demo.TabIndex = 31;
+            this.btn_stockUC_demo.Text = "DEMO";
+            this.btn_stockUC_demo.UseVisualStyleBackColor = true;
+            // 
+            // btn_stockUC_clear
+            // 
+            this.btn_stockUC_clear.Location = new System.Drawing.Point(521, 416);
+            this.btn_stockUC_clear.Name = "btn_stockUC_clear";
+            this.btn_stockUC_clear.Size = new System.Drawing.Size(82, 29);
+            this.btn_stockUC_clear.TabIndex = 30;
+            this.btn_stockUC_clear.Text = "CLEAR";
+            this.btn_stockUC_clear.UseVisualStyleBackColor = true;
+            // 
+            // btn_stockUC_delete
+            // 
+            this.btn_stockUC_delete.Location = new System.Drawing.Point(392, 416);
+            this.btn_stockUC_delete.Name = "btn_stockUC_delete";
+            this.btn_stockUC_delete.Size = new System.Drawing.Size(82, 29);
+            this.btn_stockUC_delete.TabIndex = 29;
+            this.btn_stockUC_delete.Text = "DELETE";
+            this.btn_stockUC_delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_stockUC_update
+            // 
+            this.btn_stockUC_update.Location = new System.Drawing.Point(260, 416);
+            this.btn_stockUC_update.Name = "btn_stockUC_update";
+            this.btn_stockUC_update.Size = new System.Drawing.Size(82, 29);
+            this.btn_stockUC_update.TabIndex = 28;
+            this.btn_stockUC_update.Text = "UPDATE";
+            this.btn_stockUC_update.UseVisualStyleBackColor = true;
+            // 
+            // btn_stockUC_add
+            // 
+            this.btn_stockUC_add.Location = new System.Drawing.Point(135, 416);
+            this.btn_stockUC_add.Name = "btn_stockUC_add";
+            this.btn_stockUC_add.Size = new System.Drawing.Size(82, 29);
+            this.btn_stockUC_add.TabIndex = 27;
+            this.btn_stockUC_add.Text = "ADD";
+            this.btn_stockUC_add.UseVisualStyleBackColor = true;
+            // 
+            // dgv_stockUC_stock
+            // 
+            this.dgv_stockUC_stock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_stockUC_stock.Location = new System.Drawing.Point(15, 191);
+            this.dgv_stockUC_stock.Name = "dgv_stockUC_stock";
+            this.dgv_stockUC_stock.Size = new System.Drawing.Size(736, 219);
+            this.dgv_stockUC_stock.TabIndex = 26;
+            // 
+            // txtINsupplier
+            // 
+            this.txtINsupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtINsupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtINsupplier.FormattingEnabled = true;
+            this.txtINsupplier.Location = new System.Drawing.Point(723, 140);
+            this.txtINsupplier.Name = "txtINsupplier";
+            this.txtINsupplier.Size = new System.Drawing.Size(121, 28);
+            this.txtINsupplier.TabIndex = 25;
+            // 
+            // lblINsupplier
+            // 
+            this.lblINsupplier.AutoSize = true;
+            this.lblINsupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblINsupplier.Location = new System.Drawing.Point(610, 145);
+            this.lblINsupplier.Name = "lblINsupplier";
+            this.lblINsupplier.Size = new System.Drawing.Size(88, 20);
+            this.lblINsupplier.TabIndex = 24;
+            this.lblINsupplier.Text = "Supplier ID";
+            // 
+            // btn_stockUC_search
+            // 
+            this.btn_stockUC_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_stockUC_search.Location = new System.Drawing.Point(789, 37);
+            this.btn_stockUC_search.Name = "btn_stockUC_search";
+            this.btn_stockUC_search.Size = new System.Drawing.Size(88, 29);
+            this.btn_stockUC_search.TabIndex = 23;
+            this.btn_stockUC_search.Text = "SEARCH";
+            this.btn_stockUC_search.UseVisualStyleBackColor = true;
             // 
             // cmb_stockUC_type
             // 
@@ -219,120 +323,17 @@
             this.lbl_stockUC_make.TabIndex = 6;
             this.lbl_stockUC_make.Text = "Make";
             // 
-            // btn_stockUC_search
-            // 
-            this.btn_stockUC_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_stockUC_search.Location = new System.Drawing.Point(789, 37);
-            this.btn_stockUC_search.Name = "btn_stockUC_search";
-            this.btn_stockUC_search.Size = new System.Drawing.Size(88, 29);
-            this.btn_stockUC_search.TabIndex = 23;
-            this.btn_stockUC_search.Text = "SEARCH";
-            this.btn_stockUC_search.UseVisualStyleBackColor = true;
-            // 
-            // txtINsupplier
-            // 
-            this.txtINsupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtINsupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtINsupplier.FormattingEnabled = true;
-            this.txtINsupplier.Location = new System.Drawing.Point(723, 140);
-            this.txtINsupplier.Name = "txtINsupplier";
-            this.txtINsupplier.Size = new System.Drawing.Size(121, 28);
-            this.txtINsupplier.TabIndex = 25;
-            // 
-            // lblINsupplier
-            // 
-            this.lblINsupplier.AutoSize = true;
-            this.lblINsupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblINsupplier.Location = new System.Drawing.Point(610, 145);
-            this.lblINsupplier.Name = "lblINsupplier";
-            this.lblINsupplier.Size = new System.Drawing.Size(88, 20);
-            this.lblINsupplier.TabIndex = 24;
-            this.lblINsupplier.Text = "Supplier ID";
-            // 
-            // dgv_stockUC_stock
-            // 
-            this.dgv_stockUC_stock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_stockUC_stock.Location = new System.Drawing.Point(15, 191);
-            this.dgv_stockUC_stock.Name = "dgv_stockUC_stock";
-            this.dgv_stockUC_stock.Size = new System.Drawing.Size(736, 219);
-            this.dgv_stockUC_stock.TabIndex = 26;
-            // 
-            // btn_stockUC_demo
-            // 
-            this.btn_stockUC_demo.Location = new System.Drawing.Point(644, 416);
-            this.btn_stockUC_demo.Name = "btn_stockUC_demo";
-            this.btn_stockUC_demo.Size = new System.Drawing.Size(82, 29);
-            this.btn_stockUC_demo.TabIndex = 31;
-            this.btn_stockUC_demo.Text = "DEMO";
-            this.btn_stockUC_demo.UseVisualStyleBackColor = true;
-            // 
-            // btn_stockUC_clear
-            // 
-            this.btn_stockUC_clear.Location = new System.Drawing.Point(521, 416);
-            this.btn_stockUC_clear.Name = "btn_stockUC_clear";
-            this.btn_stockUC_clear.Size = new System.Drawing.Size(82, 29);
-            this.btn_stockUC_clear.TabIndex = 30;
-            this.btn_stockUC_clear.Text = "CLEAR";
-            this.btn_stockUC_clear.UseVisualStyleBackColor = true;
-            // 
-            // btn_stockUC_delete
-            // 
-            this.btn_stockUC_delete.Location = new System.Drawing.Point(392, 416);
-            this.btn_stockUC_delete.Name = "btn_stockUC_delete";
-            this.btn_stockUC_delete.Size = new System.Drawing.Size(82, 29);
-            this.btn_stockUC_delete.TabIndex = 29;
-            this.btn_stockUC_delete.Text = "DELETE";
-            this.btn_stockUC_delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_stockUC_update
-            // 
-            this.btn_stockUC_update.Location = new System.Drawing.Point(260, 416);
-            this.btn_stockUC_update.Name = "btn_stockUC_update";
-            this.btn_stockUC_update.Size = new System.Drawing.Size(82, 29);
-            this.btn_stockUC_update.TabIndex = 28;
-            this.btn_stockUC_update.Text = "UPDATE";
-            this.btn_stockUC_update.UseVisualStyleBackColor = true;
-            // 
-            // btn_stockUC_add
-            // 
-            this.btn_stockUC_add.Location = new System.Drawing.Point(135, 416);
-            this.btn_stockUC_add.Name = "btn_stockUC_add";
-            this.btn_stockUC_add.Size = new System.Drawing.Size(82, 29);
-            this.btn_stockUC_add.TabIndex = 27;
-            this.btn_stockUC_add.Text = "ADD";
-            this.btn_stockUC_add.UseVisualStyleBackColor = true;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.ltb_stockUC);
-            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(768, 191);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(285, 233);
-            this.groupBox9.TabIndex = 32;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Re-order Inventory List";
-            // 
-            // ltb_stockUC
-            // 
-            this.ltb_stockUC.FormattingEnabled = true;
-            this.ltb_stockUC.ItemHeight = 20;
-            this.ltb_stockUC.Location = new System.Drawing.Point(6, 23);
-            this.ltb_stockUC.Name = "ltb_stockUC";
-            this.ltb_stockUC.Size = new System.Drawing.Size(274, 204);
-            this.ltb_stockUC.TabIndex = 0;
-            // 
             // StockDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1084, 451);
             this.Controls.Add(this.groupBox1);
             this.Name = "StockDetailsForm";
-            this.Size = new System.Drawing.Size(1100, 489);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_stockUC_stock)).EndInit();
             this.groupBox9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_stockUC_stock)).EndInit();
             this.ResumeLayout(false);
 
         }

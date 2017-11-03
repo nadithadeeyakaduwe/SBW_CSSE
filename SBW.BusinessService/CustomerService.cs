@@ -50,21 +50,6 @@ namespace SBW.BusinessService
             return result;
         }
 
-        public DataTable ViewCustomerLoyaltyDetails()
-        {
-            DataTable result = null;
-
-            customerRepository = new CustomerRepository();
-
-            result = customerRepository.viewCustomerLoyaltyDetails();
-
-            if (result == null)
-            {
-                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
-            }
-            return result;
-        }
-
         //update Customer
         public bool UpdateCustomer(Customer customer)
         {
@@ -122,21 +107,76 @@ namespace SBW.BusinessService
             return dt;
         }
 
-        public bool AddLoyaltyCustomer(Customer custome)
+        ///Loyalty card
+        
+        public DataTable ViewCustomerLoyaltyDetails(string cardType)
         {
-            throw new NotImplementedException();
+            DataTable result = null;
+
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.viewCustomerLoyaltyDetails(cardType);
+
+            if (result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+            return result;
+        }
+
+        public bool AddLoyaltyCustomer(Customer customer)
+        {
+            bool status = false;
+            customerRepository = new CustomerRepository();
+           
+            status = customerRepository.AddLoyaltyCustomer(customer);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
+            }
+
+            return status;
         }
 
 
-        public bool UpdateLoyaltyCard(Customer customes)
+        public bool UpdateLoyaltyCardDetails(Customer customer)
         {
-            throw new NotImplementedException();
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.UpdateLoyaltyCard(customer);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBUpdateError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBUpdateSuccess);
+            }
+
+            return status;
         }
 
 
         public bool DeleteLoyaltyCard(string NIC)
         {
             throw new NotImplementedException();
+        }
+
+        public bool CheckForCustomerAvailability(string customerNIC)
+        {
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.checkForCustomerAvailability(customerNIC);
+           
+            return status;           
         }
 
         public void ChangeCardType(string nic)
@@ -158,7 +198,29 @@ namespace SBW.BusinessService
         public string SetCardType(string NIC)
         {
             throw new NotImplementedException();
-        }       
+        }
+
+        //retrieve customer email address for a nic
+        public string GetCustomerEmail(string nic)
+        {
+            string email;
+            customerRepository = new CustomerRepository();
+
+            email = customerRepository.getCustomerEmail(nic);
+
+            return email;
+        }
+
+        //load all existing nics for the combo box in email section
+        public DataTable LoadNicComboBox(string schemaName, string tableName, string columnName)
+        {
+            DataTable result = null;
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.getNICsForCombo(schemaName, tableName, columnName);
+
+            return result;
+        }
 
     }
 }

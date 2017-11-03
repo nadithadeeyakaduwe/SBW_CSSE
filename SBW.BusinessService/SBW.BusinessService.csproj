@@ -52,6 +52,7 @@
     <Compile Include="invoiceService.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupplierService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CommonResource.resx">

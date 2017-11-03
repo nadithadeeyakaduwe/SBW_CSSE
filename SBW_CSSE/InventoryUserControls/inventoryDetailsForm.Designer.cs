@@ -156,7 +156,7 @@
             // 
             // dgv_inventoryUC
             // 
-            this.dgv_inventoryUC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_inventoryUC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_inventoryUC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_inventoryUC.Location = new System.Drawing.Point(19, 203);
             this.dgv_inventoryUC.Name = "dgv_inventoryUC";

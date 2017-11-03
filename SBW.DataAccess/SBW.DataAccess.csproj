@@ -60,6 +60,7 @@
     <Compile Include="Repositories\InventoryRepository.cs" />
     <Compile Include="Repositories\InvoiceRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SqlMap.config" />

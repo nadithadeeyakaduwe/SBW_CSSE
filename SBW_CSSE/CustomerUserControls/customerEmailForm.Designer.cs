@@ -61,6 +61,11 @@
             this.cmb_email_nic.Name = "cmb_email_nic";
             this.cmb_email_nic.Size = new System.Drawing.Size(190, 21);
             this.cmb_email_nic.TabIndex = 13;
+            this.cmb_email_nic.DropDown += new System.EventHandler(this.cmb_email_nic_DropDown);
+            this.cmb_email_nic.SelectedIndexChanged += new System.EventHandler(this.cmb_email_nic_SelectedIndexChanged);
+            this.cmb_email_nic.ValueMemberChanged += new System.EventHandler(this.cmb_email_nic_ValueMemberChanged);
+            this.cmb_email_nic.DockChanged += new System.EventHandler(this.cmb_email_nic_DockChanged);
+            this.cmb_email_nic.TextChanged += new System.EventHandler(this.cmb_email_nic_TextChanged);
             // 
             // gp_cus_email1
             // 
@@ -89,6 +94,7 @@
             this.txt_email_address.Name = "txt_email_address";
             this.txt_email_address.Size = new System.Drawing.Size(722, 26);
             this.txt_email_address.TabIndex = 5;
+            this.txt_email_address.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_email_address_KeyPress);
             // 
             // lbl_cus_email_address
             // 
@@ -136,6 +142,7 @@
             this.btn_cus_email_send.TabIndex = 16;
             this.btn_cus_email_send.Text = "SEND";
             this.btn_cus_email_send.UseVisualStyleBackColor = true;
+            this.btn_cus_email_send.Click += new System.EventHandler(this.btn_cus_email_send_Click);
             // 
             // btn_cusEmail_clear
             // 
@@ -146,6 +153,7 @@
             this.btn_cusEmail_clear.TabIndex = 17;
             this.btn_cusEmail_clear.Text = "CLEAR";
             this.btn_cusEmail_clear.UseVisualStyleBackColor = true;
+            this.btn_cusEmail_clear.Click += new System.EventHandler(this.btn_cusEmail_clear_Click);
             // 
             // btn_email_demo
             // 
@@ -157,6 +165,7 @@
             this.btn_email_demo.TabIndex = 18;
             this.btn_email_demo.Text = "DEMO";
             this.btn_email_demo.UseVisualStyleBackColor = true;
+            this.btn_email_demo.Click += new System.EventHandler(this.btn_email_demo_Click);
             // 
             // customerEmailForm
             // 
@@ -171,6 +180,7 @@
             this.Controls.Add(this.lbl_email_nic);
             this.Name = "customerEmailForm";
             this.Size = new System.Drawing.Size(931, 708);
+            this.Load += new System.EventHandler(this.customerEmailForm_Load);
             this.gp_cus_email1.ResumeLayout(false);
             this.gp_cus_email1.PerformLayout();
             this.gp_cus_email2.ResumeLayout(false);
