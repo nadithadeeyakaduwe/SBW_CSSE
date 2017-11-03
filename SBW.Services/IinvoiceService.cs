@@ -17,7 +17,7 @@ namespace SBW.Services
         DataTable loadComboBoxProductName(string make, string name);
         DataTable SearchProductByType(String type);
         void addToInvoiceTable(DataGridViewRow ID, DataGridView dgv);
-        //DataTable fillInvoiceTable();
+        DataGridView fillInvoiceTable(string make, string name, string type, DataGridView dgv);
         int fillInvoiceNumber();
     } 
 }

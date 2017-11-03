@@ -16,7 +16,7 @@ namespace SBW.Services
         bool UpdateCustomer(Customer customer);
         bool DeleteCustomer(string NIC, string cusTye);
         DataTable SearchCustomer(string searchString);
-
+  
         //get customer details into grid view
         DataTable ViewCustomerDetails();
 

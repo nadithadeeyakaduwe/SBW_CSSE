@@ -30,12 +30,6 @@ namespace SBW.UI.Sales_n_Profit
 
             txtbx_invoice_invoiceNumber.Text = Is.fillInvoiceNumber().ToString();
 
-
-
-
-            //cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            //cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -116,6 +110,57 @@ namespace SBW.UI.Sales_n_Profit
             cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbx_invoice_ProductType.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+
+        }
+
+        private void btn_invoice_addItem_Click(object sender, EventArgs e)
+        {
+            invoiceService Is = new invoiceService();
+            dvg_invoice = Is.fillInvoiceTable(cmbx_invoice_ProductMake.Text,cmbx_invoice_ProductName.Text,cmbx_invoice_ProductType.Text, dvg_invoice);
+        }
+
+        private void dvg_invoice_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dvg_invoice_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dvg_invoice_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            decimal unitprice = 0, discount = 0, amount = 0;
+            int qty = 0;
+
+            if (dvg_invoice.Rows[e.RowIndex].Cells[5].Value == null || dvg_invoice.Rows[e.RowIndex].Cells[4].Value == null)
+            {
+                unitprice = 0;
+                discount = 0;
+            }
+            else
+            {
+                unitprice = decimal.Parse(dvg_invoice.Rows[e.RowIndex].Cells[5].Value.ToString());
+                discount = decimal.Parse(dvg_invoice.Rows[e.RowIndex].Cells[4].Value.ToString());
+                qty = Int32.Parse(dvg_invoice.Rows[e.RowIndex].Cells[2].Value.ToString());
+            }
+
+            amount = (unitprice - (unitprice*discount/100)) * qty;
+
+            dvg_invoice.Rows[e.RowIndex].Cells[6].Value = amount.ToString();
+
+
+            decimal sum = 0;
+            for (int i = 0; i < dvg_invoice.Rows.Count; ++i)
+            {
+                sum += Convert.ToDecimal(dvg_invoice.Rows[i].Cells[6].Value);
+            }
+            txtbx_invoice_subtotal.Text = sum.ToString();
+
+
+
 
 
         }

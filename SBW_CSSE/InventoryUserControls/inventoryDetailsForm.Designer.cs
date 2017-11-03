@@ -96,6 +96,7 @@
             this.btn_inventoryUC_demo.TabIndex = 17;
             this.btn_inventoryUC_demo.Text = "DEMO";
             this.btn_inventoryUC_demo.UseVisualStyleBackColor = true;
+            this.btn_inventoryUC_demo.Click += new System.EventHandler(this.btn_inventoryUC_demo_Click);
             // 
             // btn_inventoryUC_clear
             // 

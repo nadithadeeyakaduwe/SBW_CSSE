@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SBW.Services;
 using SBW.BusinessService;
 using SBW.Entities.InventoryModule;
+using SBW.UI.Common;
 
 namespace SBW.UI.InventoryUserControls
 {
@@ -62,6 +63,7 @@ namespace SBW.UI.InventoryUserControls
         public bool SupplierValidation()
         {
             bool status = false;
+            
 
             if (txt_supplierUC_name.Text == "")
                 MessageBox.Show("Please fill the Supplier Name");
@@ -71,7 +73,8 @@ namespace SBW.UI.InventoryUserControls
 
             else if (txt_supplierUC_email.Text == "")
                 MessageBox.Show("Please fill the email");
-
+            else if(ValidationHelper.IsValidEmail(txt_supplierUC_email.Text) == false)
+                MessageBox.Show("Please enter a valid email");
             else if (txt_supplierUC_contact.Text == "")
                 MessageBox.Show("Please fill the Contact No");
             else if (txt_supplierUC_contact.TextLength != 10)
@@ -142,7 +145,9 @@ namespace SBW.UI.InventoryUserControls
             rtxt_supplierUC_address.Clear();
             txt_supplierUC_contact.Clear();
             txt_supplierUC_email.Clear();
-
+            txt_supplierUC_search.Clear();
+            listBox1.Items.Clear();
+            FillSupplierGrid();
             btn_supplierUC_update.Enabled = false;
             btn_supplierUC_delete.Enabled = false;
             btn_supplierUC_add.Enabled = true;
@@ -215,12 +220,11 @@ namespace SBW.UI.InventoryUserControls
 
             
             DataTable dt = null;
-            //supplierId = lbl_SID.Text.ToString();
+            
             dt = service.ViewSuppliedProducts(supplierId);
 
             foreach (DataRow row in dt.Rows)
             {
-                //TextBox1.Text = row["ImagePath"].ToString();
                 listBox1.Items.Add(row[2].ToString() + " - " + row[3].ToString());
             }
 
@@ -267,6 +271,14 @@ namespace SBW.UI.InventoryUserControls
             service = ServiceFactory.GetSupplierService();
 
             dgv_supplierUC.DataSource = service.SearchSupplier(searchString);
+        }
+
+        private void btn_supplierUC_demo_Click(object sender, EventArgs e)
+        {
+            txt_supplierUC_name.Text = "SD Auto Parts";
+            rtxt_supplierUC_address.Text = "44, Main Road, Kaluthara";
+            txt_supplierUC_contact.Text = "0341122334";
+            txt_supplierUC_email.Text = "sdap@gmail.com";
         }
     }
 }

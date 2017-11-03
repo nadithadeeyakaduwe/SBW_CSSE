@@ -88,6 +88,9 @@
             this.dvg_invoice.Size = new System.Drawing.Size(994, 151);
             this.dvg_invoice.TabIndex = 0;
             this.dvg_invoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dvg_invoice.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_invoice_CellEndEdit);
+            this.dvg_invoice.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_invoice_CellEnter);
+            this.dvg_invoice.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_invoice_CellValueChanged);
             // 
             // ItemNo_col
             // 
@@ -378,6 +381,7 @@
             this.btn_invoice_addItem.TabIndex = 32;
             this.btn_invoice_addItem.Text = "ADD";
             this.btn_invoice_addItem.UseVisualStyleBackColor = true;
+            this.btn_invoice_addItem.Click += new System.EventHandler(this.btn_invoice_addItem_Click);
             // 
             // cmbx_invoice_ProductName
             // 
