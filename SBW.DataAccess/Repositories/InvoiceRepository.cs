@@ -1,4 +1,5 @@
-﻿using SBW.Entities.SnPModule;
+﻿using SBW.Core;
+using SBW.Entities.SnPModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,9 @@ namespace SBW.DataAccess.Repositories
 {
     public class InvoiceRepository
     {
+
+        static SqlConnection con = ConnectionManager.getConnection();
+        
 
         public bool addInvoice(InvoiceHeader IH, InvoiceDetails ID) {
             bool status = true;
@@ -60,14 +64,72 @@ namespace SBW.DataAccess.Repositories
 
 
 
-        public DataTable GetProdutTypes()
+
+
+        public DataTable getProdutMake()
         {
             DataTable Response;
-            string query = "SELECT p.Product_Type FROM [Stock].[Product] p";
+            string query = "SELECT DISTINCT p.Product_Make FROM [Stock].[Product] p";
 
             Response = Repository.getDataTable(query);
 
             return Response;
+        }
+
+        public DataTable GetProdutTypesForinvoice(string make, string name)
+        {
+            DataTable Response;
+            string query = "SELECT p.Product_Type FROM [Stock].[Product] p where p.Product_Make = '"+make+"' AND p.Product_Name = '"+name+"'";
+
+            Response = Repository.getDataTable(query);
+
+            return Response;
+        }
+
+        public DataTable GetProdutNameForinvoice(string make)
+        {
+            DataTable Response;
+            string query = "SELECT DISTINCT p.Product_Name FROM [Stock].[Product] p where p.Product_Make = '" + make + "'" ;
+
+            Response = Repository.getDataTable(query);
+
+            return Response;
+        }
+
+        public int GetNextInvoiceNumber() {
+
+            int invoiceNum = 0;
+            string query = "SELECT [Invoice_No] FROM [Accounts].[Invoice_Header] ORDER BY [Invoice_No] DESC LIMIT 1";
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader;
+            cmd.Connection = con;
+
+            try
+            {
+                Repository.openConnection();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read(); // read first row
+                    invoiceNum = reader.GetInt32(0);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+                invoiceNum = 0;
+            }
+            finally
+            {
+                Repository.closeConnection();
+            }
+
+           
+            return invoiceNum+1;
+
         }
 
     }

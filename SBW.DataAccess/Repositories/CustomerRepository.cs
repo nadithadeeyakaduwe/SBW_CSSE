@@ -38,30 +38,23 @@ namespace SBW.DataAccess.Repositories
                 bool s1 = Repository.ExecuteQuery(cmd1);
                 bool s2 = Repository.ExecuteQuery(cmd2);
 
-                if (s1 == true && s2 == true) {
+                if (s1 == true && s2 == true)
+                {
                     status = true;
-                } 
+                }
             }
-            catch(SqlException ex) {
+            catch (SqlException ex)
+            {
                 throw ex;
             }
-           
+
             return status;
         }
 
-        public DataTable viewCustomerDetails(){
-            DataTable Response;
-            string query = "select cu.NIC,cu.Name,cu.Email,cu.Address,cu.Rate,cu.CustomerType,cc.ContactNo from [Consumer].[Customer] cu,[Consumer].[CustomerContact] cc where cu.NIC=cc.NIC order by Rate";
-
-            Response = Repository.getDataTable(query);
-
-            return Response;
-        }
-
-        public DataTable viewCustomerLoyaltyDetails()
+        public DataTable viewCustomerDetails()
         {
             DataTable Response;
-            string query = "select cu.NIC,cu.Name,cu.Email,cu.Address,cu.Rate,cu.CustomerType,cc.ContactNo from[Consumer].[Customer] cu,[Consumer].[CustomerContact] cc where cu.NIC=cc.NIC order by Rate";
+            string query = "select cu.NIC,cu.Name,cu.Email,cu.Address,cu.Rate,cu.CustomerType,cc.ContactNo from [Consumer].[Customer] cu,[Consumer].[CustomerContact] cc where cu.NIC=cc.NIC order by Rate";
 
             Response = Repository.getDataTable(query);
 
@@ -85,7 +78,7 @@ namespace SBW.DataAccess.Repositories
             return status;
         }
 
-        public bool deleteCustomer(string NIC)
+        public bool deleteCustomer(string NIC, string cusType)
         {
 
             bool status = false;
@@ -96,8 +89,16 @@ namespace SBW.DataAccess.Repositories
             string customerContactQuery = "DELETE FROM [Consumer].[CustomerContact]"
                                            + "where NIC = '" + NIC + "'";
 
+            string customerLoyaltyQuery = "DELETE FROM [Consumer].[CustomerLoyaltyCard]"
+                                   + " where NIC = '" + NIC + "'";
+
+            if (cusType == "Loyalty") {
+                bool s3 = Repository.ExecuteQuery(customerLoyaltyQuery);
+            }
+          
             bool s2 = Repository.ExecuteQuery(customerContactQuery);
-            bool s1 = Repository.ExecuteQuery(customerQuery);       
+            bool s1 = Repository.ExecuteQuery(customerQuery);
+
             if (s1 == true && s2 == true)
             {
                 status = true;
@@ -114,5 +115,163 @@ namespace SBW.DataAccess.Repositories
             response = Repository.getDataTable(query);
             return response;
         }
-    }
+
+        public DataTable viewCustomerLoyaltyDetails(string cardType)
+        {
+            DataTable Response;
+
+            string str_all = "select cu.Name, cusl.NIC, cusl.Card_No, cusl.Card_Points, cusl.CardType  from [Consumer].[CustomerLoyaltyCard] cusl,[Consumer].[Customer] cu where cusl.NIC=cu.NIC and cu.CustomerType = 'Loyalty'";
+            string str_Gold = "select cu.Name, cusl.NIC, cusl.Card_No, cusl.Card_Points, cusl.CardType  from [Consumer].[CustomerLoyaltyCard] cusl,[Consumer].[Customer] cu where cusl.NIC=cu.NIC AND cusl.CardType = 'Gold'";
+            string str_Silver = "select cu.Name, cusl.NIC, cusl.Card_No, cusl.Card_Points, cusl.CardType  from [Consumer].[CustomerLoyaltyCard] cusl,[Consumer].[Customer] cu where cusl.NIC=cu.NIC AND cusl.CardType = 'Silver'";
+            string str_Bronze = "select cu.Name, cusl.NIC, cusl.Card_No, cusl.Card_Points, cusl.CardType  from [Consumer].[CustomerLoyaltyCard] cusl,[Consumer].[Customer] cu where cusl.NIC=cu.NIC AND cusl.CardType = 'Bronze'";
+
+            if (cardType == "All")
+            {
+                Response = Repository.getDataTable(str_all);
+            }
+            else if (cardType == "GOLD Customers")
+            {
+                Response = Repository.getDataTable(str_Gold);
+            }
+            else if (cardType == "Silver Customers")
+            {
+                Response = Repository.getDataTable(str_Silver);
+            }
+            else
+                Response = Repository.getDataTable(str_Bronze);
+
+            return Response;
+        }
+
+        public bool checkForCustomerAvailability(string customerNIC)
+        {
+            bool status = false;
+
+            try
+            {
+                string customerQuery = "select NIC from [Consumer].[Customer] where NIC = '" + customerNIC + "'";
+
+                SqlCommand cmd = new SqlCommand(customerQuery);               
+                var nicObj = Repository.ExecuteScalar(cmd);
+
+                if (nicObj != null)
+                {
+                    status = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return status;
+        }
+
+        public bool AddLoyaltyCustomer(Customer customer)
+        {
+            bool status = false;
+
+            try
+            {
+                string loyaltyCustomerQuery = "INSERT INTO [Consumer].[CustomerLoyaltyCard]([NIC],[Card_No],[Card_Points] ,[CardType])"
+                    + $"VALUES (@nic,@cardNo,@cardPoints,@cardType)";
+
+                string updateCardTypeQqery = "UPDATE [Consumer].[Customer] SET CustomerType = 'Loyalty' where NIC = '" + customer.NIC + "'";
+
+
+                SqlCommand cmd1 = new SqlCommand(loyaltyCustomerQuery);
+                cmd1.Parameters.AddWithValue("@nic", customer.NIC);
+                cmd1.Parameters.AddWithValue("@cardNo", customer.CardNo);
+                cmd1.Parameters.AddWithValue("@cardPoints", customer.CardPoints);
+                cmd1.Parameters.AddWithValue("@cardType", customer.CardType);
+
+                SqlCommand cmd2 = new SqlCommand(updateCardTypeQqery);
+             
+                bool s1 = Repository.ExecuteQuery(cmd1);
+                bool s2 = Repository.ExecuteQuery(cmd2);
+
+                if (s1 == true && s2 == true)
+                {
+                    status = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return status;
+        }
+
+        public bool UpdateLoyaltyCard(Customer customer)
+        {
+            bool status = false;
+            try
+            {              
+                string customerLoyaltyQuery = "UPDATE [Consumer].[CustomerLoyaltyCard] SET Card_No = '" + customer.CardNo + "',NIC ='" + customer.NIC + "',Card_Points ='" + customer.CardPoints + "',CardType ='" + customer.CardType + "' where NIC = '" + customer.NIC + "'";
+   
+                bool s1 = Repository.ExecuteQuery(customerLoyaltyQuery);
+                if (s1)
+                {
+                    status = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return status;
+        }
+
+
+        public bool deleteLoyaltyCardDetails(string nic)
+        {
+            bool status = false;
+
+            string customerLoyaltyQuery = "DELETE FROM [Consumer].[CustomerLoyaltyCard]"
+                                    + " where NIC = '" + nic + "'";
+
+            bool s1 = Repository.ExecuteQuery(customerLoyaltyQuery);
+           
+            if (s1)
+            {
+                status = true;
+            }
+            return status;           
+        }
+
+        public string getCustomerEmail(string nic)
+        {
+            string email = null;
+            try
+            {
+                string emailQuery = "select Email from Consumer.Customer where NIC = '" + nic + "'";
+
+                SqlCommand cmd = new SqlCommand(emailQuery);
+                var emailObj = Repository.ExecuteScalar(cmd);
+              
+                if (emailObj != null)
+                {
+                    email = emailObj.ToString();
+                }                
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return email;
+        }
+
+        public DataTable getNICsForCombo(string schemaName, string tableName, string columnName)
+        {
+            DataTable result = null;
+
+            string query = "SELECT DISTINCT [" + columnName + "] FROM " +
+                            "[" + schemaName + "].[" + tableName + "] ";
+
+            result = Repository.getDataTable(query);
+
+            return result;
+        }
+
+
+    }    
 }

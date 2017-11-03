@@ -14,20 +14,21 @@ namespace SBW.Services
         //CRUD operations for the customer
         bool AddNewCustomer(Customer customer);
         bool UpdateCustomer(Customer customer);
-        bool DeleteCustomer(string NIC);
+        bool DeleteCustomer(string NIC, string cusTye);
         DataTable SearchCustomer(string searchString);
 
         //get customer details into grid view
         DataTable ViewCustomerDetails();
 
         //get customer loyalty card details into grid view
-        DataTable ViewCustomerLoyaltyDetails();
+        DataTable ViewCustomerLoyaltyDetails(string cardType);
 
 
         //CRUD operations for the customer Loyalty card
         bool AddLoyaltyCustomer(Customer custome);
-        bool UpdateLoyaltyCard(Customer customes);
-        bool DeleteLoyaltyCard(string NIC);
+        bool UpdateLoyaltyCardDetails(Customer customer);
+        bool DeleteLoyaltyCardDetails(string NIC);
+        bool CheckForCustomerAvailability(string customerNIC);
 
         //rating customer
         void Rating();
@@ -40,5 +41,10 @@ namespace SBW.Services
 
         //add points to loyalty card when invoice generate
         void LoyaltyCardAddPoints(double Invoice_Amount, string NIC);
+
+        //get customer email for a given nic
+        string GetCustomerEmail(string nic);
+
+        DataTable LoadNicComboBox(string schemaName, string tableName, string columnName);       
     }
 }

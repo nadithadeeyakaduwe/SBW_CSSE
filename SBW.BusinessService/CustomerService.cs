@@ -24,10 +24,9 @@ namespace SBW.BusinessService
             customerRepository = new CustomerRepository();
 
             status = customerRepository.addCustomer(customer);
-
-            Console.WriteLine("ffffffffffffffffffffffffffffffffff " + status);
+           
             if (!status){
-                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+                MessageBoxHelper.ShowError(CommonResource.PrimaryKeyViolationError1);
             }
             else{
                 MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
@@ -42,21 +41,6 @@ namespace SBW.BusinessService
             customerRepository = new CustomerRepository();
 
             result = customerRepository.viewCustomerDetails();
-
-            if (result == null)
-            {
-                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
-            }
-            return result;
-        }
-
-        public DataTable ViewCustomerLoyaltyDetails()
-        {
-            DataTable result = null;
-
-            customerRepository = new CustomerRepository();
-
-            result = customerRepository.viewCustomerLoyaltyDetails();
 
             if (result == null)
             {
@@ -86,12 +70,12 @@ namespace SBW.BusinessService
         }
 
         //Delete customer
-        public bool DeleteCustomer(string NIC)
+        public bool DeleteCustomer(string NIC, string cusType)
         {
             bool status = false;
             customerRepository = new CustomerRepository();
 
-            status = customerRepository.deleteCustomer(NIC);
+            status = customerRepository.deleteCustomer(NIC, cusType);
 
             if (!status)
             {
@@ -122,21 +106,90 @@ namespace SBW.BusinessService
             return dt;
         }
 
-        public bool AddLoyaltyCustomer(Customer custome)
+        ///Loyalty card
+        
+        public DataTable ViewCustomerLoyaltyDetails(string cardType)
         {
-            throw new NotImplementedException();
+            DataTable result = null;
+
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.viewCustomerLoyaltyDetails(cardType);
+
+            if (result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+            return result;
+        }
+
+        public bool AddLoyaltyCustomer(Customer customer)
+        {
+            bool status = false;
+            customerRepository = new CustomerRepository();
+           
+            status = customerRepository.AddLoyaltyCustomer(customer);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.PrimaryKeyViolationError2);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
+            }
+
+            return status;
         }
 
 
-        public bool UpdateLoyaltyCard(Customer customes)
+        public bool UpdateLoyaltyCardDetails(Customer customer)
         {
-            throw new NotImplementedException();
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.UpdateLoyaltyCard(customer);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBUpdateError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBUpdateSuccess);
+            }
+
+            return status;
         }
 
 
-        public bool DeleteLoyaltyCard(string NIC)
+        public bool DeleteLoyaltyCardDetails(string NIC)
         {
-            throw new NotImplementedException();
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.deleteLoyaltyCardDetails(NIC);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBDeleteError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBDeleteSuccess);
+            }
+
+            return status;         
+        }
+
+        public bool CheckForCustomerAvailability(string customerNIC)
+        {
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.checkForCustomerAvailability(customerNIC);
+           
+            return status;           
         }
 
         public void ChangeCardType(string nic)
@@ -158,7 +211,29 @@ namespace SBW.BusinessService
         public string SetCardType(string NIC)
         {
             throw new NotImplementedException();
-        }       
+        }
+
+        //retrieve customer email address for a nic
+        public string GetCustomerEmail(string nic)
+        {
+            string email;
+            customerRepository = new CustomerRepository();
+
+            email = customerRepository.getCustomerEmail(nic);
+
+            return email;
+        }
+
+        //load all existing nics for the combo box in email section
+        public DataTable LoadNicComboBox(string schemaName, string tableName, string columnName)
+        {
+            DataTable result = null;
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.getNICsForCombo(schemaName, tableName, columnName);
+
+            return result;
+        }
 
     }
 }
