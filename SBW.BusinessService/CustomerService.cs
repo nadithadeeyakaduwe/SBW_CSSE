@@ -24,10 +24,9 @@ namespace SBW.BusinessService
             customerRepository = new CustomerRepository();
 
             status = customerRepository.addCustomer(customer);
-
-            Console.WriteLine("ffffffffffffffffffffffffffffffffff " + status);
+           
             if (!status){
-                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+                MessageBoxHelper.ShowError(CommonResource.PrimaryKeyViolationError1);
             }
             else{
                 MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
@@ -71,12 +70,12 @@ namespace SBW.BusinessService
         }
 
         //Delete customer
-        public bool DeleteCustomer(string NIC)
+        public bool DeleteCustomer(string NIC, string cusType)
         {
             bool status = false;
             customerRepository = new CustomerRepository();
 
-            status = customerRepository.deleteCustomer(NIC);
+            status = customerRepository.deleteCustomer(NIC, cusType);
 
             if (!status)
             {
@@ -133,7 +132,7 @@ namespace SBW.BusinessService
 
             if (!status)
             {
-                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+                MessageBoxHelper.ShowError(CommonResource.PrimaryKeyViolationError2);
             }
             else
             {
@@ -164,9 +163,23 @@ namespace SBW.BusinessService
         }
 
 
-        public bool DeleteLoyaltyCard(string NIC)
+        public bool DeleteLoyaltyCardDetails(string NIC)
         {
-            throw new NotImplementedException();
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.deleteLoyaltyCardDetails(NIC);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBDeleteError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBDeleteSuccess);
+            }
+
+            return status;         
         }
 
         public bool CheckForCustomerAvailability(string customerNIC)
