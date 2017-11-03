@@ -28,6 +28,10 @@ namespace SBW.UI.Sales_n_Profit
             cmbx_invoice_ProductMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbx_invoice_ProductMake.AutoCompleteSource = AutoCompleteSource.ListItems;
 
+            txtbx_invoice_invoiceNumber.Text = Is.fillInvoiceNumber().ToString();
+
+
+
 
             //cmbx_invoice_ProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             //cmbx_invoice_ProductType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;

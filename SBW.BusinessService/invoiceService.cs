@@ -69,6 +69,16 @@ namespace SBW.BusinessService
 
         }
 
+        //public DataTable fillInvoiceTable() {
+
+        //}
+
+        public int fillInvoiceNumber() {
+            int invoiceNum = invoice.GetNextInvoiceNumber();
+            return invoiceNum;
+
+        }
+
 
     }
 }
