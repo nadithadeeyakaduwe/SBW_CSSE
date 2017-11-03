@@ -103,6 +103,9 @@ namespace SBW.UI.CustomerUserControls
                         {
                             customerLoyaltyCardForm clf = new customerLoyaltyCardForm();
                             clf.Show();
+                            customerDetailsForm cdf = new customerDetailsForm();
+                            cdf.Hide();
+
                         }                     
                     }
                     Clear();
@@ -243,70 +246,16 @@ namespace SBW.UI.CustomerUserControls
             }
         }
 
-        //customer feilds validation
-        public bool CustomerValidation()
+        //search customer by name or nic to key press event
+        private void txt_cus_searchkey_KeyPress(object sender, KeyPressEventArgs e)
         {
-            bool status = false;
+            string searchString = txt_cus_searchkey.Text;
 
-            if (txtb_cus_nic.Text == "")
-                MessageBox.Show("Please fill the Customer NIC field");
-            else if (txtb_cus_nic.TextLength != 10)
-                MessageBox.Show("Required Length of Customer NIC is wrong");
-            else if (!txtb_cus_nic.ToString().EndsWith("v") || txtb_cus_nic.ToString().EndsWith("V"))
-                MessageBox.Show("please end the Customer NIC with letter 'v' or 'V'");
-            else if (txtb_cus_name.Text == "")
-                MessageBox.Show("Please fill the Customer name field");
-            else if (rtxtb_cus_address.Text == "")
-                MessageBox.Show("Please fill the Customer Address field");
-            else if (txtb_cus_mobile.Text == "")
-                MessageBox.Show("Please fill the mobile No field");
-            else if (txtb_cus_mobile.TextLength != 10)
-                MessageBox.Show("Please enter valid mobile no");
-            else if (txtb_cus_email.Text == "")
-                MessageBox.Show("Please fill the email address field");
-            //else if (txtb_cus_rate.Text == "")
-            //  MessageBox.Show("Please fill the customer Rate field");
-            // else if (Convert.ToInt32(txtb_cus_rate.Text) < 0)
-            //   MessageBox.Show("Please enter only positive values for the Rate feild");
-            else if (cmb_cus_type.Text == "")
-                MessageBox.Show("Please select the Customer Type (Loyalty/Regular) ");
-            else
-            {
-                status = true;
-            }
-            return status;
+            service = ServiceFactory.GetCustomerSeriveice();
+            dgv_cus_table.DataSource = service.SearchCustomer(searchString);
         }
 
-        //email validation
-        public bool IsValidEmail(string email)
-        {
-            string Email = email;
-            string pattern = null;
-            pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-
-            if (Regex.IsMatch(Email, pattern))
-            {
-                //MessageBox.Show("Valid Email address ");
-                return true;
-            }
-            else
-            {
-                // MessageBox.Show("Not a valid Email address ");
-                return false;
-            }
-        }
-
-        private void btn_cus_demo_Click(object sender, EventArgs e)
-        {
-            txtb_cus_nic.Text = "955544433v";
-            txtb_cus_name.Text = "Perera K.M";
-            rtxtb_cus_address.Text = "12,Lellupitiya,Rathnapura";
-            txtb_cus_mobile.Text = "0778451258";
-            txtb_cus_email.Text = "perera@gmail.com";
-            cmb_cus_type.Text = "Regular";
-            //txtb_cus_rate.Text = "1";
-        }
-
+        //nic field validation
         private void txtb_cus_nic_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back || e.KeyChar == 'v' || e.KeyChar == 'V')
@@ -319,6 +268,7 @@ namespace SBW.UI.CustomerUserControls
             }
         }
 
+        //mobile field validation
         private void txtb_cus_mobileno_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -382,14 +332,6 @@ namespace SBW.UI.CustomerUserControls
             }
         }
 
-        private void txt_cus_searchkey_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            string searchString = txt_cus_searchkey.Text;
-
-            service = ServiceFactory.GetCustomerSeriveice();                    
-            dgv_cus_table.DataSource = service.SearchCustomer(searchString);
-        }
-
         //Clear Customer feilds
         public void Clear()
         {
@@ -430,5 +372,68 @@ namespace SBW.UI.CustomerUserControls
             Clear();
         }
 
+        private void btn_cus_demo_Click(object sender, EventArgs e)
+        {
+            txtb_cus_nic.Text = "955544433v";
+            txtb_cus_name.Text = "Perera K.M";
+            rtxtb_cus_address.Text = "12,Lellupitiya,Rathnapura";
+            txtb_cus_mobile.Text = "0778451258";
+            txtb_cus_email.Text = "perera@gmail.com";
+            cmb_cus_type.Text = "Regular";
+            //txtb_cus_rate.Text = "1";
+        }
+
+        //customer feilds validation
+        public bool CustomerValidation()
+        {
+            bool status = false;
+
+            if (txtb_cus_nic.Text == "")
+                MessageBox.Show("Please fill the Customer NIC field");
+            else if (txtb_cus_nic.TextLength != 10)
+                MessageBox.Show("Required Length of Customer NIC is wrong");
+            else if (!txtb_cus_nic.ToString().EndsWith("v") || txtb_cus_nic.ToString().EndsWith("V"))
+                MessageBox.Show("please end the Customer NIC with letter 'v' or 'V'");
+            else if (txtb_cus_name.Text == "")
+                MessageBox.Show("Please fill the Customer name field");
+            else if (rtxtb_cus_address.Text == "")
+                MessageBox.Show("Please fill the Customer Address field");
+            else if (txtb_cus_mobile.Text == "")
+                MessageBox.Show("Please fill the mobile No field");
+            else if (txtb_cus_mobile.TextLength != 10)
+                MessageBox.Show("Please enter valid mobile no");
+            else if (txtb_cus_email.Text == "")
+                MessageBox.Show("Please fill the email address field");
+            //else if (txtb_cus_rate.Text == "")
+            //  MessageBox.Show("Please fill the customer Rate field");
+            // else if (Convert.ToInt32(txtb_cus_rate.Text) < 0)
+            //   MessageBox.Show("Please enter only positive values for the Rate feild");
+            else if (cmb_cus_type.Text == "")
+                MessageBox.Show("Please select the Customer Type (Loyalty/Regular) ");
+            else
+            {
+                status = true;
+            }
+            return status;
+        }
+
+        //email validation
+        public bool IsValidEmail(string email)
+        {
+            string Email = email;
+            string pattern = null;
+            pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+            if (Regex.IsMatch(Email, pattern))
+            {
+                //MessageBox.Show("Valid Email address ");
+                return true;
+            }
+            else
+            {
+                // MessageBox.Show("Not a valid Email address ");
+                return false;
+            }
+        }
     }
 }

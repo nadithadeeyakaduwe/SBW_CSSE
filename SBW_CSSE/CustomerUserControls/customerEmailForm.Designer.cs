@@ -89,6 +89,7 @@
             this.txt_email_address.Name = "txt_email_address";
             this.txt_email_address.Size = new System.Drawing.Size(722, 26);
             this.txt_email_address.TabIndex = 5;
+            //this.txt_email_address.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_email_address_MouseClick);
             // 
             // lbl_cus_email_address
             // 
@@ -146,6 +147,7 @@
             this.btn_cusEmail_clear.TabIndex = 17;
             this.btn_cusEmail_clear.Text = "CLEAR";
             this.btn_cusEmail_clear.UseVisualStyleBackColor = true;
+            this.btn_cusEmail_clear.Click += new System.EventHandler(this.btn_cusEmail_clear_Click);
             // 
             // btn_email_demo
             // 
@@ -157,6 +159,7 @@
             this.btn_email_demo.TabIndex = 18;
             this.btn_email_demo.Text = "DEMO";
             this.btn_email_demo.UseVisualStyleBackColor = true;
+            this.btn_email_demo.Click += new System.EventHandler(this.btn_email_demo_Click);
             // 
             // customerEmailForm
             // 

@@ -50,13 +50,13 @@ namespace SBW.BusinessService
             return result;
         }
 
-        public DataTable ViewCustomerLoyaltyDetails()
+        public DataTable ViewCustomerLoyaltyDetails(string cardType)
         {
             DataTable result = null;
 
             customerRepository = new CustomerRepository();
 
-            result = customerRepository.viewCustomerLoyaltyDetails();
+            result = customerRepository.viewCustomerLoyaltyDetails(cardType);
 
             if (result == null)
             {
@@ -122,9 +122,23 @@ namespace SBW.BusinessService
             return dt;
         }
 
-        public bool AddLoyaltyCustomer(Customer custome)
+        public bool AddLoyaltyCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            bool status = false;
+            customerRepository = new CustomerRepository();
+            /////////////////////////////////////////////////
+           // status = customerRepository.addlllllllCustomer(customer);
+           
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBInsertError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBInsertSuccess);
+            }
+
+            return status;
         }
 
 
@@ -137,6 +151,16 @@ namespace SBW.BusinessService
         public bool DeleteLoyaltyCard(string NIC)
         {
             throw new NotImplementedException();
+        }
+
+        public bool CheckForCustomerAvailability(string customerNIC)
+        {
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.checkForCustomerAvailability(customerNIC);
+           
+            return status;           
         }
 
         public void ChangeCardType(string nic)
@@ -158,7 +182,19 @@ namespace SBW.BusinessService
         public string SetCardType(string NIC)
         {
             throw new NotImplementedException();
-        }       
+        }
+
+        //public string GetCustomerEmail(string nic)
+        //{
+        //    string email;
+        //    customerRepository = new CustomerRepository();
+
+        //    email = customerRepository.getCustomerEmail(nic);
+
+        //    return email;          
+        //}
+
+
 
     }
 }
