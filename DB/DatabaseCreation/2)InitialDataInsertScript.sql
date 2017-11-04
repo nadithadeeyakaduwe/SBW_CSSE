@@ -75,12 +75,12 @@ GO
 
 --[Stock].[Stock_Details]
 
-INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 1, 2, 5,10990,5,'2017-08-01')
-INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 2, 1, 7,11790,6,'2017-08-15')
-INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (2, 1, 3, 5,13195,6,'2017-09-15')
-INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 3, 4, 6,13190,8,'2017-09-22')
-INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 4, 5, 5,21200,6,'2017-09-15')
-INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 5, 3, 5,20195,5,'2017-10-03')
+INSERT INTO [Stock].[Stock_Details] ([Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 2, 5,10990,5,'2017-08-01')
+INSERT INTO [Stock].[Stock_Details] ([Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (2, 1, 7,11790,6,'2017-08-15')
+INSERT INTO [Stock].[Stock_Details] ([Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 3, 5,13195,6,'2017-09-15')
+INSERT INTO [Stock].[Stock_Details] ([Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (3, 4, 6,13190,8,'2017-09-22')
+INSERT INTO [Stock].[Stock_Details] ([Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (4, 5, 5,21200,6,'2017-09-15')
+INSERT INTO [Stock].[Stock_Details] ([Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (5, 3, 5,20195,5,'2017-10-03')
 
 
 
