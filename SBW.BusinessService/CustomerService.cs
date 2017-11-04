@@ -184,17 +184,26 @@ namespace SBW.BusinessService
             throw new NotImplementedException();
         }
 
-        //public string GetCustomerEmail(string nic)
-        //{
-        //    string email;
-        //    customerRepository = new CustomerRepository();
+        public string GetCustomerEmail(string nic)
+        {
+            string email;
+            customerRepository = new CustomerRepository();
 
-        //    email = customerRepository.getCustomerEmail(nic);
+            email = customerRepository.getCustomerEmail(nic);
 
-        //    return email;          
-        //}
+            return email;
+        }
 
 
+        public DataTable LoadNicComboBox(string schemaName, string tableName, string columnName)
+        {
+            DataTable result = null;
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.getNICsForCombo(schemaName, tableName, columnName);
+
+            return result;
+        }
 
     }
 }

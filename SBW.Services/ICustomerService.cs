@@ -42,7 +42,9 @@ namespace SBW.Services
         //add points to loyalty card when invoice generate
         void LoyaltyCardAddPoints(double Invoice_Amount, string NIC);
 
-        ////get customer email for a given nic
-        //string GetCustomerEmail(string nic);
+        //get customer email for a given nic
+        string GetCustomerEmail(string nic);
+
+        DataTable LoadNicComboBox(string schemaName, string tableName, string columnName);
     }
 }

@@ -157,29 +157,48 @@ namespace SBW.DataAccess.Repositories
             return true;
         }
 
-        //public string getCustomerEmail(string nic)
-        //{
-        //    try
-        //    {
-        //        string email = "select Email from Customer where NIC = '" + nic + "'";
-        //         = Repository.ExecuteQuery(email);
-        //        SqlDataReader dr;
+        public string getCustomerEmail(string nic)
+        {
+            string email = null;
+            try
+            {
+                string emailQuery = "select Email from Consumer.Customer where NIC = '" + nic + "'";
 
-        //        dr = cmd.ExecuteReader();
+                SqlCommand cmd = new SqlCommand(emailQuery);
+                var emailObj = Repository.ExecuteScalar(cmd);
 
-        //        if (dr.HasRows)
-        //        {
-        //            dr.Read();
-        //            txt_email_address.Text = dr.GetString(0);
-        //        }
-        //        else
-        //            MessageBox.Show("This customer is not a existing customer, please enter NIC of existing customer");
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return email;
-        //}
+                //SqlDataReader dr;
+
+                //dr = cmd.ExecuteReader();
+
+                if (emailObj != null)
+                {
+                    //dr.Read();
+                    //txt_email_address.Text = dr.GetString(0);
+                    email = emailObj.ToString();
+                }
+                //else
+                //    MessageBox.Show("This customer is not a existing customer, please enter NIC of existing customer");
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return email;
+        }
+
+        public DataTable getNICsForCombo(string schemaName, string tableName, string columnName)
+        {
+            DataTable result = null;
+
+            string query = "SELECT DISTINCT [" + columnName + "] FROM " +
+                            "[" + schemaName + "].[" + tableName + "] ";
+
+            result = Repository.getDataTable(query);
+
+            return result;
+        }
+
+
     }    
 }
