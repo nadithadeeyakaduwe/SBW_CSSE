@@ -50,21 +50,6 @@ namespace SBW.BusinessService
             return result;
         }
 
-        public DataTable ViewCustomerLoyaltyDetails(string cardType)
-        {
-            DataTable result = null;
-
-            customerRepository = new CustomerRepository();
-
-            result = customerRepository.viewCustomerLoyaltyDetails(cardType);
-
-            if (result == null)
-            {
-                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
-            }
-            return result;
-        }
-
         //update Customer
         public bool UpdateCustomer(Customer customer)
         {
@@ -122,13 +107,30 @@ namespace SBW.BusinessService
             return dt;
         }
 
+        ///Loyalty card
+        
+        public DataTable ViewCustomerLoyaltyDetails(string cardType)
+        {
+            DataTable result = null;
+
+            customerRepository = new CustomerRepository();
+
+            result = customerRepository.viewCustomerLoyaltyDetails(cardType);
+
+            if (result == null)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBRetrieveError);
+            }
+            return result;
+        }
+
         public bool AddLoyaltyCustomer(Customer customer)
         {
             bool status = false;
             customerRepository = new CustomerRepository();
-            /////////////////////////////////////////////////
-           // status = customerRepository.addlllllllCustomer(customer);
            
+            status = customerRepository.AddLoyaltyCustomer(customer);
+
             if (!status)
             {
                 MessageBoxHelper.ShowError(CommonResource.DBInsertError);
@@ -184,6 +186,7 @@ namespace SBW.BusinessService
             throw new NotImplementedException();
         }
 
+        //retrieve customer email address for a nic
         public string GetCustomerEmail(string nic)
         {
             string email;
@@ -194,7 +197,7 @@ namespace SBW.BusinessService
             return email;
         }
 
-
+        //load all existing nics for the combo box in email section
         public DataTable LoadNicComboBox(string schemaName, string tableName, string columnName)
         {
             DataTable result = null;

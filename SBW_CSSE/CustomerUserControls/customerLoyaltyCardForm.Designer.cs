@@ -69,6 +69,7 @@
             this.gpb_cuc_loyalty.TabIndex = 23;
             this.gpb_cuc_loyalty.TabStop = false;
             this.gpb_cuc_loyalty.Text = "Loyalty Details";
+            this.gpb_cuc_loyalty.Enter += new System.EventHandler(this.gpb_cuc_loyalty_Enter);
             // 
             // btn_cusLoy_clear
             // 
@@ -94,11 +95,11 @@
             // 
             this.lbl_loymem_cardno.AutoSize = true;
             this.lbl_loymem_cardno.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_loymem_cardno.Location = new System.Drawing.Point(61, 36);
+            this.lbl_loymem_cardno.Location = new System.Drawing.Point(107, 31);
             this.lbl_loymem_cardno.Name = "lbl_loymem_cardno";
-            this.lbl_loymem_cardno.Size = new System.Drawing.Size(207, 22);
+            this.lbl_loymem_cardno.Size = new System.Drawing.Size(51, 22);
             this.lbl_loymem_cardno.TabIndex = 0;
-            this.lbl_loymem_cardno.Text = "Click Here To Generate";
+            this.lbl_loymem_cardno.Text = "Click\r\n";
             this.lbl_loymem_cardno.Click += new System.EventHandler(this.lbl_loymem_cardno_Click);
             // 
             // btn_loy_update
@@ -109,6 +110,7 @@
             this.btn_loy_update.TabIndex = 31;
             this.btn_loy_update.Text = "UPDATE";
             this.btn_loy_update.UseVisualStyleBackColor = true;
+            //this.btn_loy_update.Click += new System.EventHandler(this.btn_loy_update_Click);
             // 
             // btn_loy_delete
             // 
@@ -143,6 +145,7 @@
             this.txt_loy_nic.Name = "txt_loy_nic";
             this.txt_loy_nic.Size = new System.Drawing.Size(190, 26);
             this.txt_loy_nic.TabIndex = 32;
+            this.txt_loy_nic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_loy_nic_KeyPress);
             // 
             // lbl_loy_cardtype
             // 

@@ -143,7 +143,14 @@ namespace SBW.DataAccess.Repositories
             try
             {
                 string customerQuery = "select NIC from [Consumer].[Customer] where NIC = '" + customerNIC + "'";
-                status = Repository.ExecuteQuery(customerQuery);
+
+                SqlCommand cmd = new SqlCommand(customerQuery);               
+                var nicObj = Repository.ExecuteScalar(cmd);
+
+                if (nicObj != null)
+                {
+                    status = true;
+                }
             }
             catch (SqlException ex)
             {
@@ -152,9 +159,39 @@ namespace SBW.DataAccess.Repositories
             return status;
         }
 
-        public bool AddLoyaltyCustomer(string customer)
+        public bool AddLoyaltyCustomer(Customer customer)
         {
-            return true;
+            bool status = false;
+
+            try
+            {
+                string loyaltyCustomerQuery = "INSERT INTO [Consumer].[CustomerLoyaltyCard]([NIC],[Card_No],[Card_Points] ,[CardType])"
+                    + $"VALUES (@nic,@cardNo,@cardPoints,@cardType)";
+
+                string updateCardTypeQqery = "UPDATE [Consumer].[Customer] SET CustomerType = 'Loyalty' where NIC = '" + customer.NIC + "'";
+
+
+                SqlCommand cmd1 = new SqlCommand(loyaltyCustomerQuery);
+                cmd1.Parameters.AddWithValue("@nic", customer.NIC);
+                cmd1.Parameters.AddWithValue("@cardNo", customer.CardNo);
+                cmd1.Parameters.AddWithValue("@cardPoints", customer.CardPoints);
+                cmd1.Parameters.AddWithValue("@cardType", customer.CardType);
+
+                SqlCommand cmd2 = new SqlCommand(updateCardTypeQqery);
+             
+                bool s1 = Repository.ExecuteQuery(cmd1);
+                bool s2 = Repository.ExecuteQuery(cmd2);
+
+                if (s1 == true && s2 == true)
+                {
+                    status = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return status;
         }
 
         public string getCustomerEmail(string nic)
@@ -166,19 +203,11 @@ namespace SBW.DataAccess.Repositories
 
                 SqlCommand cmd = new SqlCommand(emailQuery);
                 var emailObj = Repository.ExecuteScalar(cmd);
-
-                //SqlDataReader dr;
-
-                //dr = cmd.ExecuteReader();
-
+              
                 if (emailObj != null)
                 {
-                    //dr.Read();
-                    //txt_email_address.Text = dr.GetString(0);
                     email = emailObj.ToString();
-                }
-                //else
-                //    MessageBox.Show("This customer is not a existing customer, please enter NIC of existing customer");
+                }                
             }
             catch (SqlException ex)
             {

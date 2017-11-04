@@ -33,7 +33,7 @@ namespace SBW.UI.CustomerUserControls
             cmb_loy_cardtype.Items.Add("SILVER");
             cmb_loy_cardtype.Items.Add("BRONZE");
             cmb_loy_selectCardType.SelectedItem = 0;
-            lbl_loymem_cardno.Visible = false;
+            //lbl_loymem_cardno.Visible = false;
         }
 
         //customer loyalty fillgrid
@@ -63,7 +63,7 @@ namespace SBW.UI.CustomerUserControls
                 MessageBox.Show("Please fill the Customer NIC field");
             else if (txt_loy_nic.TextLength != 10)
                 MessageBox.Show("Required Length of Customer NIC is wrong");
-            else if (!txt_loy_nic.ToString().EndsWith("v") || !txt_loy_nic.ToString().EndsWith("V"))
+            else if (!txt_loy_nic.ToString().EndsWith("v") || txt_loy_nic.ToString().EndsWith("V"))
                 MessageBox.Show("please end the Customer NIC with letter 'v' or 'V'");
             else if (cmb_loy_cardtype.Text == "")
                 MessageBox.Show("Please click on the card type feild to generate card type (Gold / Silver / bronze)");
@@ -85,7 +85,7 @@ namespace SBW.UI.CustomerUserControls
         private void btn_loy_add_Click(object sender, EventArgs e)
         {
             if (CustomerLoyaltyCardValidation())
-            {
+            {             
                 addLoyaltyCardDetails();              
             }
             else
@@ -154,7 +154,8 @@ namespace SBW.UI.CustomerUserControls
                         MessageBox.Show("Record is not saved", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-                             
+            CustomerLotaltyCardFillGrid();
+            Clear();          
         }
 
         private void combo_grid_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,7 +213,7 @@ namespace SBW.UI.CustomerUserControls
         //card no generation
         private void lbl_loymem_cardno_Click(object sender, EventArgs e)
         {
-            if (txt_loy_nic.Text != "" && cmb_loy_cardtype.Text != "")
+            if (txt_loy_nic.Text != "" && txt_loy_nic.TextLength == 10 && cmb_loy_cardtype.Text != "")
             {
 
                 String card1 = cmb_loy_cardtype.Text.Substring(0, 2).ToUpper();
@@ -224,6 +225,26 @@ namespace SBW.UI.CustomerUserControls
             }
             else if (txt_loy_nic.Text == "")
                 MessageBox.Show("Please fill the NIC feild");
+            else if (txt_loy_nic.TextLength != 10)
+                MessageBox.Show("Required Length of Customer NIC is wrong");
+
         }
+
+        private void gpb_cuc_loyalty_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_loy_nic_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)Keys.Back || e.KeyChar == 'v' || e.KeyChar == 'V')
+            {
+                e.Handled = false; //Do not reject the input
+            }
+            else
+            {
+                e.Handled = true; //Reject the input
+            }
+        }       
     }
 }
