@@ -14,6 +14,7 @@ using SBW.UI;
 using SBW.Core;
 using SBW.DataAccess.Enum;
 using SBW.UI.Common;
+using System.Threading;
 
 namespace SBW.UI.EmployeeForms
 {
@@ -77,6 +78,7 @@ namespace SBW.UI.EmployeeForms
 
             backgroundWorker.DoWork += delegate
             {
+                Thread.Sleep(250);
                 backgroundWorker.ReportProgress(100);
                 positionTable = getPositionData();
 

@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using SBW.Services;
-using SBW.BusinessService;
+﻿using SBW.BusinessService;
 using SBW.Entities.HRMModule;
-using System.Threading;
+using SBW.Services;
 using SBW.UI.Common;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace SBW.UI.EmployeeForms
 {
@@ -66,7 +61,7 @@ namespace SBW.UI.EmployeeForms
                 WorkerReportsProgress = true,
                 WorkerSupportsCancellation = false
             };
-
+            
             ProgressChangedEventHandler progressChangedEventHandler = (bgSender, ev) =>
             {
                 if (this.SplashForm != null)
@@ -123,7 +118,6 @@ namespace SBW.UI.EmployeeForms
         private void dgv_employeeWithTitles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             service = ServiceFactory.GetEmployeeSeriveice();
-
             int EmployeeID = Convert.ToInt32(dgv_employeeWithTitles.Rows[e.RowIndex].Cells["dgvCol_EmployeeID"].Value.ToString());
 
             Employee employee = service.GetEmployee(EmployeeID);
