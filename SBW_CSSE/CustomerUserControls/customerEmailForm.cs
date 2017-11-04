@@ -35,7 +35,7 @@ namespace SBW.UI.CustomerUserControls
         private void btn_email_demo_Click(object sender, EventArgs e)
         {
             cmb_email_nic.Text = "985645451v";
-            txt_email_address.Text = "tharakamadushanki@gmail.com";
+            txt_email_address.Text = "sarangabatteryworks123@gmail.com";
             txt_email_subject.Text = "Test Mail";
             rtb_cus_email_body.Text = "Hello tharka, This is for testing SMTP mail from GMAIL";
         }
