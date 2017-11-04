@@ -1,4 +1,5 @@
-﻿using SBW.Entities.SnPModule;
+﻿using SBW.Core;
+using SBW.Entities.SnPModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,9 @@ namespace SBW.DataAccess.Repositories
 {
     public class InvoiceRepository
     {
+
+        static SqlConnection con = ConnectionManager.getConnection();
+        
 
         public bool addInvoice(InvoiceHeader IH, InvoiceDetails ID) {
             bool status = true;
@@ -60,6 +64,8 @@ namespace SBW.DataAccess.Repositories
 
 
 
+
+
         public DataTable getProdutMake()
         {
             DataTable Response;
@@ -89,6 +95,84 @@ namespace SBW.DataAccess.Repositories
 
             return Response;
         }
+
+        public int GetNextInvoiceNumber() {
+
+            int invoiceNum = 0;
+            string query = "SELECT [Invoice_No] FROM [Accounts].[Invoice_Header] ORDER BY [Invoice_No] DESC LIMIT 1";
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader;
+            cmd.Connection = con;
+
+            try
+            {
+                Repository.openConnection();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read(); // read first row
+                    invoiceNum = reader.GetInt32(0);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+                invoiceNum = 0;
+            }
+            finally
+            {
+                Repository.closeConnection();
+            }
+
+           
+            return invoiceNum+1;
+
+        }
+
+        public decimal GetUnitpriceforProduct(string type)
+        {
+
+            decimal unitPrice = 0;
+            string query = "SELECT TOP 1 s.Unit_Price FROM [Stock].[Stock_Details] s, [Stock].[Product] p WHERE s.[Product_ID]=p.[Product_ID] AND p.[Product_Type] = '"+type+ "' ORDER BY s.Unit_Price DESC";
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader reader;
+            cmd.Connection = con;
+
+            try
+            {
+                Repository.openConnection();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read(); // read first row
+                    unitPrice = reader.GetDecimal(0);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log(ex.ToString());
+                unitPrice = 0;
+            }
+            finally
+            {
+                Repository.closeConnection();
+            }
+
+
+            return unitPrice;
+
+        }
+
+
+
+
+
 
     }
 }

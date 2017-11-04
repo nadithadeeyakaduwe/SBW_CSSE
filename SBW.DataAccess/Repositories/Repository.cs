@@ -145,7 +145,7 @@ namespace SBW.DataAccess.Repositories
         /// <summary>
         /// Opens the connection.
         /// </summary>
-        private static void openConnection()
+        public static void openConnection()
         {
             if (con.State != ConnectionState.Open)
             {
@@ -164,7 +164,7 @@ namespace SBW.DataAccess.Repositories
         /// <summary>
         /// Closes the connection.
         /// </summary>
-        private static void closeConnection()
+        public static void closeConnection()
         {
             if (con.State != ConnectionState.Closed)
             {
