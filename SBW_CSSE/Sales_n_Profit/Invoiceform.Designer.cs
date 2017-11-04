@@ -88,7 +88,9 @@
             this.dvg_invoice.Size = new System.Drawing.Size(994, 151);
             this.dvg_invoice.TabIndex = 0;
             this.dvg_invoice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dvg_invoice.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_invoice_CellEndEdit);
             this.dvg_invoice.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_invoice_CellEnter);
+            this.dvg_invoice.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_invoice_CellValueChanged);
             // 
             // ItemNo_col
             // 

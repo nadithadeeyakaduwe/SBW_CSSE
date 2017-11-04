@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SBW.DataAccess
 {
-    class ConnectionManager
+    public class ConnectionManager
     {
         public static SqlConnection connection;
 

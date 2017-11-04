@@ -33,7 +33,7 @@ namespace SBW.UI.CustomerUserControls
 
             cmb_cus_type.Items.Add("Regular");
             cmb_cus_type.Items.Add("Loyalty");
-            cmb_cus_type.SelectedIndex = 0;
+            cmb_cus_type.SelectedIndex = -1;
             cmb_cus_type.Enabled = true;
 
             btn_cus_update.Enabled = false;

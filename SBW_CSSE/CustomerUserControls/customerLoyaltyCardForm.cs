@@ -66,9 +66,9 @@ namespace SBW.UI.CustomerUserControls
             else if (!txt_loy_nic.ToString().EndsWith("v") || txt_loy_nic.ToString().EndsWith("V"))
                 MessageBox.Show("please end the Customer NIC with letter 'v' or 'V'");
             else if (cmb_loy_cardtype.Text == "")
-                MessageBox.Show("Please click on the card type feild to generate card type (Gold / Silver / bronze)");
-            else if (lbl_loymem_cardno.Text == "")
-                MessageBox.Show("Please click on the card no feild");
+                MessageBox.Show("Please select the card type");
+            else if (lbl_loymem_cardno.Text == "Click")
+                MessageBox.Show("Please click on the card number feild to generate card type (Gold / Silver / bronze)");
             // else if (txtb_loy_cardpoints == null)
             // MessageBox.Show("Please add card points");
             // else if (Convert.ToInt32(txtb_loy_cardpoints) < 0)
@@ -309,21 +309,22 @@ namespace SBW.UI.CustomerUserControls
         //card no generation
         private void lbl_loymem_cardno_Click(object sender, EventArgs e)
         {
-            if (txt_loy_nic.Text != "" && txt_loy_nic.TextLength == 10 && cmb_loy_cardtype.Text != "")
-            {
+            if (txt_loy_nic.Text != "" || txt_loy_nic.TextLength == 10 || cmb_loy_cardtype.Text != "") {
 
                 String card1 = cmb_loy_cardtype.Text.Substring(0, 2).ToUpper();
                 String card2 = txt_loy_nic.Text.Substring(0, 9);
 
                 String cardNo = string.Concat(card1, card2);
                 lbl_loymem_cardno.Text = cardNo;
-
             }
-            else if (txt_loy_nic.Text == "")
-                MessageBox.Show("Please fill the NIC feild");
+            if (txt_loy_nic.Text == "")
+                MessageBox.Show("Please fill the Customer NIC field");
             else if (txt_loy_nic.TextLength != 10)
                 MessageBox.Show("Required Length of Customer NIC is wrong");
-
+            else if (!txt_loy_nic.ToString().EndsWith("v") || txt_loy_nic.ToString().EndsWith("V"))
+                MessageBox.Show("please end the Customer NIC with letter 'v' or 'V'");
+            else if (cmb_loy_cardtype.Text == "")
+                MessageBox.Show("Please select the card type");
         }
 
         private void gpb_cuc_loyalty_Enter(object sender, EventArgs e)
