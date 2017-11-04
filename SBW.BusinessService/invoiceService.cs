@@ -72,7 +72,7 @@ namespace SBW.BusinessService
         public DataGridView fillInvoiceTable(string make, string name, string type, DataGridView dgv) {
             int itemNo = dgv.RowCount;
             //dgv.ColumnCount = 8;
-            dgv.Rows[itemNo-1].Cells[0].Value =  (itemNo + 1).ToString();
+            dgv.Rows[itemNo-1].Cells[0].Value =  (itemNo).ToString();
             dgv.Rows[itemNo-1].Cells[1].Value = $"{make} {name} {type}";
 
             invoice = new InvoiceRepository();
