@@ -125,6 +125,12 @@
     <Compile Include="EmployeeForms\ViewEmployeesForm.Designer.cs">
       <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales_n_Profit\OldBattery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales_n_Profit\OldBattery.Designer.cs">
+      <DependentUpon>OldBattery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales_n_Profit\invoiceAddItemPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeForms\ViewEmployeesForm.resx">
       <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales_n_Profit\OldBattery.resx">
+      <DependentUpon>OldBattery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales_n_Profit\invoiceAddItemPopup.resx">
       <DependentUpon>invoiceAddItemPopup.cs</DependentUpon>

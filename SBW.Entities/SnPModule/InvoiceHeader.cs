@@ -13,7 +13,7 @@ namespace SBW.Entities.SnPModule
         public String customerName { set; get; }
         public String customerAddress { set; get; }
         public String customerTelephone { set; get; }
-        public float totalAmount { set; get; }
+        public decimal totalAmount { set; get; }
 
     }
 }

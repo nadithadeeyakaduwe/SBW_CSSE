@@ -16,17 +16,18 @@ namespace SBW.DataAccess.Repositories
         static SqlConnection con = ConnectionManager.getConnection();
         
 
-        public bool addInvoice(InvoiceHeader IH, InvoiceDetails ID) {
+        public bool addInvoiceheader(InvoiceHeader IH) {
             bool status = true;
 
 
             try
             {
-                string invoiceHeaderQuery = "INSERT INTO [Accounts].[Invoice_Header] ([SDate],[Customer_Name],[Customer_Address],[Customer_Telephone])"
-                                        + $"VALUES (@date,@cusname,@cusaddress,@telephone,@totamount)";
+                
+                string invoiceHeaderQuery = "INSERT INTO [Accounts].[Invoice_Header] ([SDate],[Customer_Name],[Customer_Address],[Customer_Telephone],[Total_Amount])"
+                                        + " VALUES (@date,@cusname,@cusaddress,@telephone,@totamount)";
 
-                string invoiceDetailQuery = "[Accounts].[Invoice_Details]([Invoice_No],[Product_Description],[QTY],[Unit_Price],[Discount],[Warrenty],[Amount])"
-                                        + $"VALUES (@invoicenumber,@productdescription,@qty,@unitprice,@discount,@warrenty,@amount)";
+                
+
 
                 SqlCommand cm1 = new SqlCommand(invoiceHeaderQuery);
                 cm1.Parameters.AddWithValue("@date", IH.sDate);
@@ -35,6 +36,32 @@ namespace SBW.DataAccess.Repositories
                 cm1.Parameters.AddWithValue("@telephone", IH.customerTelephone);
                 cm1.Parameters.AddWithValue("@totamount", IH.totalAmount);
 
+                //invoiceHeaderQuery = string.Empty;
+                status = Repository.ExecuteQuery(cm1);
+              
+               
+            }
+            catch(SqlException ex)
+            {
+                throw ex;
+            }
+
+            return status;
+        }
+
+
+
+        public bool addInvoicedetails(InvoiceDetails ID)
+        {
+            bool status = true;
+
+
+            try
+            {
+
+                string invoiceDetailQuery = "INSERT INTO [Accounts].[Invoice_Details]([Invoice_No],[Product_Description],[QTY],[Unit_Price],[Discount],[Warrenty],[Amount])"
+                                        + " VALUES (@invoicenumber,@productdescription,@qty,@unitprice,@discount,@warrenty,@amount)";
+                
 
                 SqlCommand cm2 = new SqlCommand(invoiceDetailQuery);
                 cm2.Parameters.AddWithValue("@invoicenumber", ID.invoiceNo);
@@ -45,22 +72,18 @@ namespace SBW.DataAccess.Repositories
                 cm2.Parameters.AddWithValue("@warrenty", ID.warrenty);
                 cm2.Parameters.AddWithValue("@amount", ID.amount);
 
-                bool s1 = Repository.ExecuteQuery(cm1);
-                bool s2 = Repository.ExecuteQuery(cm2);
 
-                if (s1 == true && s2 == true)
-                {
-                    status = true;
-                }
+                status = Repository.ExecuteQuery(cm2);
+
+               
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
 
             return status;
         }
-
 
 
 
@@ -99,7 +122,7 @@ namespace SBW.DataAccess.Repositories
         public int GetNextInvoiceNumber() {
 
             int invoiceNum = 0;
-            string query = "SELECT [Invoice_No] FROM [Accounts].[Invoice_Header] ORDER BY [Invoice_No] DESC LIMIT 1";
+            string query = "SELECT MAX([Invoice_No]) FROM [Accounts].[Invoice_Header]";//"SELECT [Invoice_No] FROM [Accounts].[Invoice_Header] ORDER BY [Invoice_No] DESC LIMIT 1";
             SqlCommand cmd = new SqlCommand(query, con);
 
             SqlDataReader reader;

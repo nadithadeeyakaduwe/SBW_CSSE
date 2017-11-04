@@ -294,6 +294,7 @@
             this.txtbx_invoice_advance.Name = "txtbx_invoice_advance";
             this.txtbx_invoice_advance.Size = new System.Drawing.Size(235, 20);
             this.txtbx_invoice_advance.TabIndex = 24;
+            this.txtbx_invoice_advance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_invoice_advance_KeyPress);
             // 
             // label9
             // 
@@ -314,6 +315,7 @@
             this.txtbx_invoice_totalInvoice.Name = "txtbx_invoice_totalInvoice";
             this.txtbx_invoice_totalInvoice.Size = new System.Drawing.Size(235, 20);
             this.txtbx_invoice_totalInvoice.TabIndex = 26;
+            this.txtbx_invoice_totalInvoice.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtbx_invoice_totalInvoice_MouseClick);
             // 
             // btn_invoice_print
             // 

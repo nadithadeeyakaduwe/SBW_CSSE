@@ -94,5 +94,22 @@ namespace SBW.BusinessService
         }
 
 
+        public bool addInvoiceHeader(InvoiceHeader inHeader) {
+            invoice = new InvoiceRepository();
+            bool status = invoice.addInvoiceheader(inHeader);
+            return status;
+
+        }
+        public bool addInvoicedetails(InvoiceDetails inDetails) {
+            invoice = new InvoiceRepository();
+            bool status = invoice.addInvoicedetails(inDetails);
+            return status;
+
+
+        }
+
+
+
+
     }
 }

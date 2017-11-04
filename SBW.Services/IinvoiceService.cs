@@ -19,5 +19,8 @@ namespace SBW.Services
         void addToInvoiceTable(DataGridViewRow ID, DataGridView dgv);
         DataGridView fillInvoiceTable(string make, string name, string type, DataGridView dgv);
         int fillInvoiceNumber();
-    } 
+        bool addInvoiceHeader(InvoiceHeader inHeader);
+        bool addInvoicedetails(InvoiceDetails inDetails);
+
+    }
 }
