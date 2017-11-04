@@ -26,7 +26,7 @@ namespace SBW.Services
 
         //CRUD operations for the customer Loyalty card
         bool AddLoyaltyCustomer(Customer custome);
-        bool UpdateLoyaltyCard(Customer customes);
+        bool UpdateLoyaltyCardDetails(Customer customer);
         bool DeleteLoyaltyCard(string NIC);
         bool CheckForCustomerAvailability(string customerNIC);
 
@@ -45,6 +45,6 @@ namespace SBW.Services
         //get customer email for a given nic
         string GetCustomerEmail(string nic);
 
-        DataTable LoadNicComboBox(string schemaName, string tableName, string columnName);
+        DataTable LoadNicComboBox(string schemaName, string tableName, string columnName);       
     }
 }

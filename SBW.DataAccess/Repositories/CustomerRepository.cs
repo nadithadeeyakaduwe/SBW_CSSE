@@ -194,6 +194,26 @@ namespace SBW.DataAccess.Repositories
             return status;
         }
 
+        public bool UpdateLoyaltyCard(Customer customer)
+        {
+            bool status = false;
+            try
+            {              
+                string customerLoyaltyQuery = "UPDATE [Consumer].[CustomerLoyaltyCard] SET Card_No = '" + customer.CardNo + "',NIC ='" + customer.NIC + "',Card_Points ='" + customer.CardPoints + "',CardType ='" + customer.CardType + "' where NIC = '" + customer.NIC + "'";
+   
+                bool s1 = Repository.ExecuteQuery(customerLoyaltyQuery);
+                if (s1)
+                {
+                    status = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return status;
+        }
+
         public string getCustomerEmail(string nic)
         {
             string email = null;

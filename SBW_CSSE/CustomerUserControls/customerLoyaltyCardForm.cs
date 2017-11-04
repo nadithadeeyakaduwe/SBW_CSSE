@@ -86,7 +86,7 @@ namespace SBW.UI.CustomerUserControls
         {
             if (CustomerLoyaltyCardValidation())
             {             
-                addLoyaltyCardDetails();              
+                AddLoyaltyCardDetails();              
             }
             else
                 MessageBox.Show("Add customer request cannot complete. Please fill valid data");
@@ -95,7 +95,7 @@ namespace SBW.UI.CustomerUserControls
             Clear();
         }
 
-        private void addLoyaltyCardDetails() {
+        private void AddLoyaltyCardDetails() {
          
             string customerNIC = txt_loy_nic.Text;
 
@@ -156,6 +156,70 @@ namespace SBW.UI.CustomerUserControls
             }
             CustomerLotaltyCardFillGrid();
             Clear();          
+        }
+
+        //update loyalty member
+        private void btn_loy_update_Click(object sender, EventArgs e)
+        {
+            if (CustomerLoyaltyCardValidation())
+            {
+                updateLoyaltyCardDetails();
+            }
+            else
+                MessageBox.Show("update loyalty details cannot complete. Please fill valid data");
+
+            CustomerLotaltyCardFillGrid();
+            Clear();
+        }
+
+        private void updateLoyaltyCardDetails() {
+
+            if (CustomerLoyaltyCardValidation())
+            {
+                service = ServiceFactory.GetCustomerSeriveice();
+                Customer customer = new Customer();
+
+                customer.NIC = txt_loy_nic.Text;
+                customer.CardType = cmb_loy_cardtype.SelectedItem.ToString();
+                customer.CardNo = lbl_loymem_cardno.Text;
+                //customer.CardPoints = Convert.ToInt32(txtb_loy_cardpoints.Text);
+                customer.CardPoints = 0;
+
+                DialogResult dr;
+                dr = MessageBox.Show("Do you want to update the record", "Confirm", MessageBoxButtons.YesNo);
+                if (dr.ToString() == "Yes")
+                {                  
+                    try
+                    {                       
+                        bool result = service.UpdateLoyaltyCardDetails(customer);
+
+                        if (result)
+                        {
+                            MessageBox.Show("Successfully Updated", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CustomerLotaltyCardFillGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Unable to Update", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (ApplicationException appEx)
+                    {
+                        MessageBox.Show(appEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
+                }
+                else
+                    MessageBox.Show("Record is not updated", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            CustomerLotaltyCardFillGrid();
+            Clear();
+            btn_loy_add.Enabled = true;
         }
 
         private void combo_grid_SelectedIndexChanged(object sender, EventArgs e)
@@ -245,6 +309,8 @@ namespace SBW.UI.CustomerUserControls
             {
                 e.Handled = true; //Reject the input
             }
-        }       
+        }
+
+      
     }
 }

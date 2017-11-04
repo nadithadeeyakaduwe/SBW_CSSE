@@ -110,7 +110,7 @@
             this.btn_loy_update.TabIndex = 31;
             this.btn_loy_update.Text = "UPDATE";
             this.btn_loy_update.UseVisualStyleBackColor = true;
-            //this.btn_loy_update.Click += new System.EventHandler(this.btn_loy_update_Click);
+            this.btn_loy_update.Click += new System.EventHandler(this.btn_loy_update_Click);
             // 
             // btn_loy_delete
             // 

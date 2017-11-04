@@ -144,9 +144,23 @@ namespace SBW.BusinessService
         }
 
 
-        public bool UpdateLoyaltyCard(Customer customes)
+        public bool UpdateLoyaltyCardDetails(Customer customer)
         {
-            throw new NotImplementedException();
+            bool status = false;
+            customerRepository = new CustomerRepository();
+
+            status = customerRepository.UpdateLoyaltyCard(customer);
+
+            if (!status)
+            {
+                MessageBoxHelper.ShowError(CommonResource.DBUpdateError);
+            }
+            else
+            {
+                MessageBoxHelper.Show(CommonResource.DBUpdateSuccess);
+            }
+
+            return status;
         }
 
 
