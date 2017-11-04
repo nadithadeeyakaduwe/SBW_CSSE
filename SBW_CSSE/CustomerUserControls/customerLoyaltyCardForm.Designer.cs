@@ -120,6 +120,7 @@
             this.btn_loy_delete.TabIndex = 30;
             this.btn_loy_delete.Text = "DELETE";
             this.btn_loy_delete.UseVisualStyleBackColor = true;
+            this.btn_loy_delete.Click += new System.EventHandler(this.btn_loy_delete_Click);
             // 
             // btn_loy_add
             // 

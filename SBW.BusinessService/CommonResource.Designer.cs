@@ -151,6 +151,24 @@ namespace SBW.BusinessService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This customer is alreay exist, please add new customer .
+        /// </summary>
+        internal static string PrimaryKeyViolationError1 {
+            get {
+                return ResourceManager.GetString("PrimaryKeyViolationError1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This customer has a loyalty card already.
+        /// </summary>
+        internal static string PrimaryKeyViolationError2 {
+            get {
+                return ResourceManager.GetString("PrimaryKeyViolationError2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while promoting the employee...!.
         /// </summary>
         internal static string PromotionError {

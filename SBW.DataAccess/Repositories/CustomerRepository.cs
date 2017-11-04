@@ -78,7 +78,7 @@ namespace SBW.DataAccess.Repositories
             return status;
         }
 
-        public bool deleteCustomer(string NIC)
+        public bool deleteCustomer(string NIC, string cusType)
         {
 
             bool status = false;
@@ -89,8 +89,16 @@ namespace SBW.DataAccess.Repositories
             string customerContactQuery = "DELETE FROM [Consumer].[CustomerContact]"
                                            + "where NIC = '" + NIC + "'";
 
+            string customerLoyaltyQuery = "DELETE FROM [Consumer].[CustomerLoyaltyCard]"
+                                   + " where NIC = '" + NIC + "'";
+
+            if (cusType == "Loyalty") {
+                bool s3 = Repository.ExecuteQuery(customerLoyaltyQuery);
+            }
+          
             bool s2 = Repository.ExecuteQuery(customerContactQuery);
             bool s1 = Repository.ExecuteQuery(customerQuery);
+
             if (s1 == true && s2 == true)
             {
                 status = true;
@@ -134,7 +142,6 @@ namespace SBW.DataAccess.Repositories
 
             return Response;
         }
-
 
         public bool checkForCustomerAvailability(string customerNIC)
         {
@@ -212,6 +219,23 @@ namespace SBW.DataAccess.Repositories
                 throw ex;
             }
             return status;
+        }
+
+
+        public bool deleteLoyaltyCardDetails(string nic)
+        {
+            bool status = false;
+
+            string customerLoyaltyQuery = "DELETE FROM [Consumer].[CustomerLoyaltyCard]"
+                                    + " where NIC = '" + nic + "'";
+
+            bool s1 = Repository.ExecuteQuery(customerLoyaltyQuery);
+           
+            if (s1)
+            {
+                status = true;
+            }
+            return status;           
         }
 
         public string getCustomerEmail(string nic)

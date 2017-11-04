@@ -223,21 +223,14 @@ namespace SBW.UI.CustomerUserControls
             try
             {
                 string nic = txtb_cus_nic.Text;
-                service = ServiceFactory.GetCustomerSeriveice();
-                bool result1 = service.DeleteCustomer(nic);
-                //bool result2 = service.DeleteLoyaltyCard(nic);
+                string cusType = cmb_cus_type.Text;
 
-                if (result1)
+                service = ServiceFactory.GetCustomerSeriveice();
+                bool result = service.DeleteCustomer(nic, cusType);
+               
+                if (result)
                 {
                    CustomerFillGrid();
-
-                    //delete loyalty card with customer
-                    //if (result2)
-                    //{
-                    //    // MessageBox.Show("Successfully Deleted Loyalty Card", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    CustomerLotaltyCardFillGrid();
-                    //}
-
                 }                   
             }
             catch (Exception ex)

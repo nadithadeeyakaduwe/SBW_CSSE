@@ -147,6 +147,12 @@
   <data name="IncrementSuccess" xml:space="preserve">
     <value>Employee has been given an increment.</value>
   </data>
+  <data name="PrimaryKeyViolationError1" xml:space="preserve">
+    <value>This customer is alreay exist, please add new customer </value>
+  </data>
+  <data name="PrimaryKeyViolationError2" xml:space="preserve">
+    <value>This customer has a loyalty card already</value>
+  </data>
   <data name="PromotionError" xml:space="preserve">
     <value>Error occured while promoting the employee...!</value>
   </data>

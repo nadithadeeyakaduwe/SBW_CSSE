@@ -81,7 +81,7 @@ namespace SBW.UI.CustomerUserControls
             return status;
         }
    
-        //add loyalty member
+        //add loyalty card details
         private void btn_loy_add_Click(object sender, EventArgs e)
         {
             if (CustomerLoyaltyCardValidation())
@@ -158,7 +158,7 @@ namespace SBW.UI.CustomerUserControls
             Clear();          
         }
 
-        //update loyalty member
+        //update loyalty card details
         private void btn_loy_update_Click(object sender, EventArgs e)
         {
             if (CustomerLoyaltyCardValidation())
@@ -217,6 +217,38 @@ namespace SBW.UI.CustomerUserControls
                     MessageBox.Show("Record is not updated", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+            CustomerLotaltyCardFillGrid();
+            Clear();
+            btn_loy_add.Enabled = true;
+        }
+
+        //delete loyalty card details
+        private void btn_loy_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult dr;
+            dr = MessageBox.Show("Do you want to delete the record", "Confirm", MessageBoxButtons.YesNo);
+            if (dr.ToString() == "Yes")
+            {
+                try
+                {
+                    string nic = txt_loy_nic.Text;
+                    service = ServiceFactory.GetCustomerSeriveice();
+
+                    bool result1 = service.DeleteLoyaltyCardDetails(nic);
+
+                    if (result1)
+                    {
+                        MessageBox.Show("Successfully Deleted Loyalty Card", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CustomerLotaltyCardFillGrid();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            } else
+                MessageBox.Show("Record is not deleted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             CustomerLotaltyCardFillGrid();
             Clear();
             btn_loy_add.Enabled = true;
@@ -310,7 +342,6 @@ namespace SBW.UI.CustomerUserControls
                 e.Handled = true; //Reject the input
             }
         }
-
-      
+       
     }
 }
