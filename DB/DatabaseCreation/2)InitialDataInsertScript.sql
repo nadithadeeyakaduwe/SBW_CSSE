@@ -82,6 +82,45 @@ INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quan
 INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 4, 5, 5,21200,6,'2017-09-15')
 INSERT INTO [Stock].[Stock_Details] ([Stock_Id],[Product_Id],[Supplier_ID],[Quantity],[Unit_Price],[Buying_Discount],[Date]) VALUES (1, 5, 3, 5,20195,5,'2017-10-03')
 
+--[Consumer].[Customer]
+
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('985645451v','Liyanage T.M.','tharakamadushanki@gmail.com','110,New Kandy Rd,Malabe',0,'Loyalty')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('788552411v','Shashi D.N.','shashydb@gmail.com','12,Delgoda Rd,Gampaha',0,'Regular')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('934141328v','Naditha D.D.N.','ddn.harshana@gmail.com','45,Yalagala rd,Horana',0,'Loyalty')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('923456789v','Pooja T.W','psathsaranee@gmail.com','56,Morakatiya,Pannipitiya',0,'Regular')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('523456789v','Nipun K.L.','nipun@gmail.com','110/1,wijaya Rd,Gampaha',0,'Loyalty')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('925679324v','Sahan L.P','sahan@gmail.com','45,dodangoda,Kaluthara',0,'Regular')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('936591478v','Bimal E.R','bimal@gmail.com','11, gamunu mawatha,Anuradhapura',0,'Loyalty')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('915482674v','Sajith S.L','sajitha@gmail.com','78,wijerama mawatha,Nugegoda',0,'Loyalty')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('957816458v','Thulakshi C.M','thulakshi@gmail.com','9,pitipana,pannipitiya',0,'Regular')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('945873157v','Kaweesha L.m','kaweesha@gmail.com','56,Galle Rd,Galle',0,'Regular')
+insert into [Consumer].[Customer] ([NIC],[Name],[Email],[Address],[Rate],[CustomerType]) values('934552621v','Gawesh T.J.','gawesh@gmail.com','NewKandy Rd,Kaduwela',0,'Loyalty')
+GO
+
+--[Consumer].[CustomerContact]
+
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('985645451v','0774787514')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('788552411v','0715456521')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('934141328v','0769868652')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('923456789v','0713224498')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('523456789v','0715828580')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('925679324v','0774490430')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('936591478v','0777546890')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('915482674v','0766124588')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('957816458v','0718355253')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('945873157v','0776464212')
+insert into  [Consumer].[CustomerContact] ([NIC],[ContactNo]) values('934552621v','0775454545')
+
+--[Consumer].[CustomerLoyaltyCard]
+
+insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('523456789v','GO523456789',0,'BRONZE')
+insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('915482674v','GO915482674',0,'SILVER')
+insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('934141328v','SI934141328',0,'BRONZE')
+insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('934552621v','SI934552621',0,'BRONZE')
+insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('936591478v','SI936591478',0,'BRONZE')
+insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('985645451v','BR985645451',0,'BRONZE')
+--insert into [Consumer].[CustomerLoyaltyCard] ([NIC],[Card_No],[Card_Points],[CardType]) values('934552621v','BR934552621',0,'Bronze') duplication of ID
+
 
 
 
